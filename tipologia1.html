@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tipolog&iacute;a 1: 第一课的语言类型学分析</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+html { scroll-padding-top: calc(var(--nav-h) + var(--section-nav-h) + 16px); }
+body { font-family: var(--font-body); background: var(--light-bg); font-size: 16px; }
+
+/* Typology-specific styles */
+.typo-section { margin-bottom: 48px; }
+.typo-section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--terracotta);
+  margin-bottom: 8px;
+  border-bottom: 2px solid var(--cream);
+  padding-bottom: 8px;
+}
+.typo-section h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--dark);
+  margin: 20px 0 10px;
+}
+.typo-section p, .typo-section li {
+  font-family: var(--font-cn);
+  line-height: 2;
+  margin-bottom: 12px;
+  color: #3a2e2e;
+}
+.typo-section ul, .typo-section ol {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+.typo-section li { margin-bottom: 6px; }
+
+.lang-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+}
+@media (max-width: 600px) {
+  .lang-grid { grid-template-columns: 1fr; }
+}
+.lang-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  border-left: 4px solid var(--terracotta);
+  box-shadow: 0 2px 8px rgba(45,36,36,0.06);
+}
+.lang-card.es { border-left-color: var(--terracotta); }
+.lang-card.zh { border-left-color: #E11D48; }
+.lang-card.en { border-left-color: #3B82F6; }
+.lang-card.ja { border-left-color: var(--gold); }
+.lang-card .lang-label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+.lang-card.es .lang-label { color: var(--terracotta); }
+.lang-card.zh .lang-label { color: #E11D48; }
+.lang-card.en .lang-label { color: #3B82F6; }
+.lang-card.ja .lang-label { color: var(--gold); }
+.lang-card p { font-size: 0.93rem; margin-bottom: 4px; }
+
+.gramm-path {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-family: var(--font-cn);
+  font-size: 0.95rem;
+  line-height: 2;
+  box-shadow: 0 2px 8px rgba(45,36,36,0.06);
+  border-left: 4px solid var(--gold);
+}
+.gramm-path .arrow { color: var(--terracotta); font-weight: 700; }
+
+blockquote {
+  border-left: 3px solid var(--gold);
+  padding: 12px 16px;
+  margin: 16px 0;
+  background: rgba(212,167,106,0.08);
+  border-radius: 0 8px 8px 0;
+  font-family: var(--font-cn);
+  font-size: 0.92rem;
+  color: #5a4a3a;
+  line-height: 1.9;
+}
+blockquote cite {
+  display: block;
+  margin-top: 8px;
+  font-style: normal;
+  font-size: 0.82rem;
+  color: #999;
+}
+
+.ref-section {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 32px;
+  box-shadow: 0 2px 8px rgba(45,36,36,0.06);
+}
+.ref-section h3 { margin-top: 0; }
+.ref-section p {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: #666;
+}
+
+.es-ex { font-style: italic; color: var(--terracotta); }
+.zh-ex { color: #E11D48; }
+.en-ex { color: #3B82F6; }
+.ja-ex { color: #b8860b; }
+.term { font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div id="progress-bar" role="progressbar" aria-label="页面阅读进度"></div>
+
+<nav class="main-nav" role="navigation" aria-label="课程导航">
+  <div class="nav-inner">
+    <a href="index.html">首页</a>
+    <a href="leccion1.html">第一课</a>
+    <a href="tipologia1.html" class="active">类型学 1</a>
+    <a href="leccion2.html">第二课</a>
+    <a href="leccion3.html">第三课</a>
+  </div>
+</nav>
+
+<nav class="section-nav" role="navigation" aria-label="章节导航">
+  <div class="nav-inner">
+    <a href="#intro">引言</a>
+    <a href="#prodrop">Pro-Drop</a>
+    <a href="#copula">系词</a>
+    <a href="#greeting">问候</a>
+    <a href="#naming">命名</a>
+    <a href="#tv">T-V</a>
+    <a href="#wordorder">语序</a>
+  </div>
+</nav>
+
+<main>
+
+<section id="intro">
+  <h1>Tipolog&iacute;a Ling&uuml;&iacute;stica
+    <span class="subtitle">第一课的跨语言结构比较</span>
+  </h1>
+
+  <div class="welcome-card" style="font-family:var(--font-cn);line-height:2;">
+    本文是第一课的类型学伴读。它不教你西班牙语&mdash;&mdash;它告诉你西班牙语<strong>是什么</strong>。<br><br>
+    你会说中文、英语、日语三种语言。加上正在学的西班牙语，你手中有四种语言，它们代表了人类语言在结构上的四种截然不同的解决方案。每一种语言面对的认知-交际问题是相同的：如何指称、如何断言、如何标记社会关系、如何管理信息流。但它们给出的答案，分别走向了完全不同的方向。<br><br>
+    这篇分析不是为了让你&ldquo;学得更快&rdquo;。它是为了让你以类型学家的眼睛重新审视第一课中遇到的每一个结构&mdash;&mdash;看清它不是孤立的语法点，而是人类语言类型学图谱上的一个坐标。
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- ANALYSIS 1: PRO-DROP -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<section id="prodrop" class="typo-section">
+  <h2>一、Pro-Drop 与西班牙语主语</h2>
+
+  <p>第一课中有一个不起眼但极为深刻的现象：<span class="es-ex">Soy de China</span> 而非 <span class="es-ex">*Yo soy de China</span>，<span class="es-ex">Me llamo Carlos</span> 而非 <span class="es-ex">*Yo me llamo Carlos</span>。主语代词被省略了。这就是类型学中所谓的 <span class="term">pro-drop</span>（空主语）参数&mdash;&mdash;Chomsky (1981) 在管约论框架中首先将其形式化，但它的跨语言分布远比生成语法预设的更为复杂。</p>
+
+  <p>先画一张你四种语言的类型学地图：</p>
+
+  <div class="lang-grid">
+    <div class="lang-card es">
+      <div class="lang-label">西班牙语 &mdash; Pro-Drop</div>
+      <p>丰富的动词屈折形态许可空主语。<span class="es-ex">Hablo</span> 本身已编码了 [1sg] 信息，主语代词是冗余的。Jaeggli &amp; Safir (1989) 称之为&ldquo;形态一致性许可&rdquo;(morphological uniformity licensing)。</p>
+    </div>
+    <div class="lang-card zh">
+      <div class="lang-label">中文 &mdash; Pro-Drop</div>
+      <p>动词完全无屈折形态，但仍然大量省略主语。许可机制不是形态一致，而是话题-述题结构 (topic-comment) 与语篇回指 (discourse anaphora)。Huang (1984) 经典论证：中文的空代词是话语层面的，不是句法层面的。</p>
+    </div>
+    <div class="lang-card ja">
+      <div class="lang-label">日语 &mdash; Pro-Drop</div>
+      <p>话题标记 <span class="ja-ex">は</span> 允许话题一旦确立即可省略。Kuroda (1965) 区分了&ldquo;有题句&rdquo;(thetic) 与&ldquo;定言句&rdquo;(categorical)，日语的 pro-drop 与 categorical judgment 紧密绑定。</p>
+    </div>
+    <div class="lang-card en">
+      <div class="lang-label">英语 &mdash; Non-Pro-Drop</div>
+      <p>强制要求显性主语。甚至发明了虚主语 (expletive)：<span class="en-ex">It rains</span>、<span class="en-ex">There is a problem</span>。没有所指的 <em>it</em> 和 <em>there</em> 纯粹是占位符。</p>
+    </div>
+  </div>
+
+  <h3>两种 Pro-Drop 并非同一种 Pro-Drop</h3>
+
+  <p>表面上，西班牙语和中文都&ldquo;可以省主语&rdquo;，但它们省略的机制和后果截然不同：</p>
+
+  <ol>
+    <li><strong>恢复策略不同。</strong>西班牙语的空主语可以通过动词形态唯一地恢复指称对象&mdash;&mdash;<span class="es-ex">hablo</span> = 我，<span class="es-ex">hablas</span> = 你，<span class="es-ex">habla</span> = 他/她/您，六种形式六种人称。中文的 <span class="zh-ex">说</span> 无论谁说，形态完全相同，必须依赖语境推断。</li>
+    <li><strong>省略的自由度不同。</strong>西班牙语可以在任何句法位置省略任何论元（主语），只要动词形态足以消歧。中文倾向于省略的是<em>话题</em> (topic)，这与主语 (subject) 并不总是同一个东西。Li &amp; Thompson (1976) 的经典分类将中文归为&ldquo;话题突出型&rdquo;(topic-prominent) 语言，而西班牙语是&ldquo;主语突出型&rdquo;(subject-prominent)。</li>
+    <li><strong>代词出现的语用含义不同。</strong>在西班牙语中，显性主语代词 <span class="es-ex">Yo</span> 出现时携带对比焦点或强调含义：<span class="es-ex">Yo soy de China</span> 暗示&ldquo;是<em>我</em>（不是别人）来自中国&rdquo;。在中文里，<span class="zh-ex">我</span> 的出现与否主要取决于话题链是否需要重新激活，对比焦点的标记另有其法（重音、语气词、<span class="zh-ex">是...的</span> 分裂句）。</li>
+  </ol>
+
+  <h3>英语为什么是异类？</h3>
+
+  <p>英语的非 pro-drop 特性并非&ldquo;天然&rdquo;如此。古英语 (Old English) 是一种屈折丰富的日耳曼语言，有充分的动词人称变化，也确实允许一定程度的主语省略。中古英语时期 (1100&ndash;1500)，由于语音弱化和类推简化，动词屈折系统大规模崩塌。Roberts (1993) 论证，一旦动词形态不再能可靠区分人称，语言就必须发展补偿策略&mdash;&mdash;于是强制性显性主语代词应运而生。</p>
+
+  <p>这是一种类型学上的<span class="term">补偿性变化</span> (compensatory change)：形态复杂性的丧失换来了句法刚性的增加。西班牙语走了完全相反的路径&mdash;&mdash;它保留了拉丁语动词屈折系统的大部分，因此主语代词始终是可选的。</p>
+
+  <blockquote>
+    从 WALS (Dryer &amp; Haspelmath 2013) Feature 101A 的全球分布来看，在约 700 种语言的样本中，允许某种形式的主语省略的语言占绝对多数。英语式的强制显性主语实际上是跨语言的少数派。学习者需要意识到：不是西班牙语&ldquo;省略&rdquo;了什么，而是英语&ldquo;多加&rdquo;了什么。
+  </blockquote>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- ANALYSIS 2: COPULA -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<section id="copula" class="typo-section">
+  <h2>二、系词问题 &mdash;&mdash; &ldquo;是&rdquo;意味着什么？</h2>
+
+  <p>第一课引入了 <span class="es-ex">soy</span>（我是），出现在 <span class="es-ex">Soy de China</span> 和 <span class="es-ex">Soy Carlos</span> 中。这个看似简单的动词涉及类型学最深层的断裂线之一：<span class="term">系词</span> (copula) 的跨语言变异。</p>
+
+  <div class="lang-grid">
+    <div class="lang-card es">
+      <div class="lang-label">西班牙语 &mdash; 双系词系统</div>
+      <p><span class="es-ex">ser</span>（本质/恒常属性）vs. <span class="es-ex">estar</span>（状态/临时属性）。这是一条语法化了的<strong>本质/偶性</strong> (essence/accident) 区分&mdash;&mdash;其哲学根源可追溯到亚里士多德的范畴论，但在罗曼语中被语法化 (grammaticalized) 为强制性选择。</p>
+      <p><span class="es-ex">Soy alto</span>（我是高的&mdash;&mdash;身高属性） vs. <span class="es-ex">Estoy cansado</span>（我是累的&mdash;&mdash;暂时状态）。一个形容词搭配不同系词，意义发生根本性改变：<span class="es-ex">Es aburrido</span>（他是个无聊的人） vs. <span class="es-ex">Est&aacute; aburrido</span>（他现在觉得无聊）。</p>
+    </div>
+    <div class="lang-card en">
+      <div class="lang-label">英语 &mdash; 单系词系统</div>
+      <p>一个 <span class="en-ex">be</span> 覆盖一切。<span class="en-ex">He is tall</span> 和 <span class="en-ex">He is tired</span> 使用同一个系词，本质与状态的区分没有语法化&mdash;&mdash;需要依赖词汇手段（<span class="en-ex">He seems tired</span>）或语境。</p>
+    </div>
+    <div class="lang-card zh">
+      <div class="lang-label">中文 &mdash; 零系词 / 条件系词</div>
+      <p><span class="zh-ex">我是中国人</span> 使用 <span class="zh-ex">是</span>，但 <span class="zh-ex">我很好</span> 没有系词。中文的形容词是<strong>状态动词</strong> (stative verbs)，它们本身具有谓语功能，不需要系词介入。<span class="zh-ex">是</span> 的核心功能是<strong>等同判断</strong> (equative identification)，而非属性归属 (property ascription)。Hengeveld (1992) 的系词类型学将中文归为&ldquo;非言语谓语不需要系词&rdquo;的类型。</p>
+    </div>
+    <div class="lang-card ja">
+      <div class="lang-label">日语 &mdash; 另一种双系词系统</div>
+      <p><span class="ja-ex">だ/です</span>（判断/等同）vs. <span class="ja-ex">いる/ある</span>（存在）。但日语的双系词切分轴线与西班牙语完全不同：不是本质/偶性，而是<strong>等同 vs. 存在</strong>。而 <span class="ja-ex">いる</span>（有生存在）vs. <span class="ja-ex">ある</span>（无生存在）又在存在系词内部做了一次<strong>有生性</strong> (animacy) 切分。</p>
+    </div>
+  </div>
+
+  <h3>三条不同的认知切分轴</h3>
+
+  <p>这里有一个深刻的类型学观察：四种语言在&ldquo;系词&rdquo;这个领域选择了三条完全不同的切分轴线：</p>
+
+  <ol>
+    <li><strong>西班牙语的轴线：本质 vs. 状态</strong> (essence vs. state)。这条轴线回答的问题是：这个属性是主体的固有本质，还是暂时所处的状态？ser 来自拉丁语 <em>esse</em>（存在本身），estar 来自拉丁语 <em>stare</em>（站立&mdash;&mdash;一个姿态，因而是暂时的）。从&ldquo;站立&rdquo;到&ldquo;处于状态&rdquo;，这是一条教科书式的语法化路径 (Lehmann 1985)。</li>
+    <li><strong>日语的轴线：等同 vs. 存在，有生 vs. 无生</strong>。日语关心的不是属性是否恒常，而是你在做什么类型的断言&mdash;&mdash;你是在说某物<em>是什么</em>，还是在说某物<em>在那里</em>？如果是后者，还要区分这个存在者是有生命的还是无生命的。</li>
+    <li><strong>中文的策略：拒绝强制系词</strong>。中文通过让形容词成为自足的谓词，从根本上消解了对属性归属型系词的需求。<span class="zh-ex">是</span> 只在等同判断中出现，而且即便在等同判断中，口语中的 <span class="zh-ex">是</span> 有时也可以省略。</li>
+  </ol>
+
+  <p>英语的策略则是<strong>不切分</strong>：一个 <em>be</em> 承担一切功能，区分工作下放到词汇层和语境层。</p>
+
+  <h3>系词的跨语言&ldquo;必要性&rdquo;</h3>
+
+  <p>中文的存在证明了一个重要的类型学事实：系词在跨语言视角下并非&ldquo;必要&rdquo;的。Stassen (1997) 在其 <em>Intransitive Predication</em> 巨著中调查了约 400 种语言，发现名词性谓语（<span class="zh-ex">他老师</span> = &ldquo;他是老师&rdquo;）在许多语言中不需要任何系词，形容词性谓语（<span class="zh-ex">天冷</span> = &ldquo;天气冷&rdquo;）就更是如此。系词的出现往往是语法化的产物&mdash;&mdash;一个本来有实义的动词（如&ldquo;存在&rdquo;&ldquo;站立&rdquo;&ldquo;停留&rdquo;）逐渐虚化为纯粹的句法连接成分。</p>
+
+  <blockquote>
+    第一课中的 <span class="es-ex">soy</span> 看似简单，但它是西班牙语对一个深层哲学-认知问题的特定回答：属性与主体之间是什么关系？是内在的还是外在的？你的三种已知语言分别代表了&ldquo;不区分&rdquo;（英语）、&ldquo;拒绝系词&rdquo;（中文）、&ldquo;不同方向的区分&rdquo;（日语）这三种替代方案。
+  </blockquote>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- ANALYSIS 3: GREETING -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<section id="greeting" class="typo-section">
+  <h2>三、问候作为言语行为 &mdash;&mdash; 类型学视角</h2>
+
+  <p>第一课的核心内容是问候和自我介绍。从言语行为理论 (speech act theory, Austin 1962; Searle 1969) 的角度来看，问候是一种<span class="term">寒暄性言语行为</span> (phatic communion, Malinowski 1923)&mdash;&mdash;其功能不在于传递信息，而在于建立和维护社会联结。但不同语言用来执行这一功能的<em>语言策略</em>，展现出惊人的类型学变异。</p>
+
+  <h3>策略一：空符号寒暄 (Phatic Empty Sign)</h3>
+  <p>西班牙语 <span class="es-ex">&iexcl;Hola!</span>、英语 <span class="en-ex">Hello!</span>&mdash;&mdash;语义上完全空洞，没有可分析的内部结构，不描述任何事态，不执行任何命题行为。它们是纯粹的社交信号，功能等同于动物的联络叫声 (contact call)。Jakobson (1960) 的寒暄功能 (phatic function) 在这里以最纯粹的形式出现。</p>
+  <p>值得注意的是，<span class="es-ex">Hola</span> 的词源不确定，可能来自阿拉伯语 <em>wa-llah</em>（凭真主），也有学者追溯到古法语的 <em>hol&agrave;</em>（停下！&mdash;&mdash;引起注意的呼叫语）。无论哪种来源，原始语义都已经完全漂白 (bleach)。</p>
+
+  <h3>策略二：状态询问 (State Inquiry)</h3>
+  <p>西班牙语 <span class="es-ex">&iquest;C&oacute;mo est&aacute;s?</span>、英语 <span class="en-ex">How are you?</span>、中文 <span class="zh-ex">你好吗？</span>&mdash;&mdash;形式上是疑问句，但不真正期待信息性回答。这种&ldquo;去命题化&rdquo;(depropositionalization) 是语法化的一种表现：一个原本有完整命题内容的疑问句，经过高频使用，逐渐丧失了疑问语力，变成了惯例化的问候公式。</p>
+  <p>有趣的是，西班牙语在这里使用的是 <span class="es-ex">estar</span>（状态系词）而非 <span class="es-ex">ser</span>（本质系词）&mdash;&mdash;问的是你现在的状态，不是你的本质。而回答 <span class="es-ex">Bien, gracias</span>（好的，谢谢）同样是一个缩略化的惯例公式，不是真正的健康报告。</p>
+
+  <h3>策略三：时间锚定 (Temporal Anchoring)</h3>
+  <p>西班牙语 <span class="es-ex">Buenos d&iacute;as / Buenas tardes / Buenas noches</span>、英语 <span class="en-ex">Good morning / Good afternoon / Good evening</span>、日语 <span class="ja-ex">おはようございます / こんにちは / こんばんは</span>&mdash;&mdash;这些问候语将社交互动锚定在时间周期中。</p>
+  <p>这个策略在 WALS 可调查的语言中接近<span class="term">语言共性</span> (linguistic universal)。Greenberg (1966) 未直接讨论问候，但按 Greenberg 式推理，&ldquo;如果一种语言有分时段的问候语，那么它有不分时段的通用问候语&rdquo;这样一条蕴含共性 (implicational universal) 似乎是成立的&mdash;&mdash;有 <span class="es-ex">Buenos d&iacute;as</span> 的语言都有 <span class="es-ex">&iexcl;Hola!</span>，但反过来不一定。</p>
+  <p>结构上值得注意的是，西班牙语的时间问候是<strong>复数形式</strong>：<span class="es-ex">buenos d&iacute;as</span>（好的 日子们），而非 <span class="es-ex">*buen d&iacute;a</span>。这个复数是&ldquo;惯例化残留&rdquo;(fossilized conventional form)，历时上可能来自&ldquo;愿上帝赐你好日子们&rdquo;这样的完整祝福句的截断 (truncation)。</p>
+
+  <h3>策略四：神圣告别 (Divine Invocation in Farewell)</h3>
+  <p>西班牙语 <span class="es-ex">Adi&oacute;s</span>（< <em>a Dios</em>，交托给上帝）、英语 <span class="en-ex">Goodbye</span>（< <em>God be with ye</em>）&mdash;&mdash;告别被编码为宗教性的祝福行为。这反映了一个文化类型学事实：在基督教文化圈的欧洲语言中，告别的语法化路径经常经过宗教表达。法语 <em>adieu</em>、葡萄牙语 <em>adeus</em>、意大利语 <em>addio</em> 都来自同一个拉丁语模板 <em>ad Deum</em>。</p>
+  <p>中文和日语的告别策略则完全不同：中文 <span class="zh-ex">再见</span>（再次-见面）是一种<strong>未来重逢的承诺</strong>，日语 <span class="ja-ex">さようなら</span>（既然如此...）是一种<strong>因果推理的截断</strong>&mdash;&mdash;原本是&ldquo;既然如此（那我就告辞了）&rdquo;的前半截。三种完全不同的概念来源，三种不同的语用隐喻。</p>
+
+  <blockquote>
+    问候和告别的类型学变异告诉我们：即使是最&ldquo;简单&rdquo;的社交公式，也内嵌着深层的文化认知模型。西班牙语的问候系统结合了空符号、时间锚定、状态询问和宗教告别四种策略&mdash;&mdash;它不是随意的，而是伊比利亚半岛文化历史的语法化沉积。
+  </blockquote>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- ANALYSIS 4: NAMING -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<section id="naming" class="typo-section">
+  <h2>四、命名构式 &mdash;&mdash; 语言如何框定身份</h2>
+
+  <p>第一课中最重要的句型之一是 <span class="es-ex">Me llamo [nombre]</span>。这个构式的类型学参数是：命名行为被框定 (frame) 为什么类型的事件？</p>
+
+  <div class="lang-grid">
+    <div class="lang-card es">
+      <div class="lang-label">西班牙语 &mdash; 反身行为</div>
+      <p><span class="es-ex">Me llamo X</span> = &ldquo;我<strong>自称</strong> X&rdquo;。<em>llamar</em>（叫、称呼）+ 反身代词 <em>me</em>（自己）。命名是一个<strong>反身动作</strong>：主体作用于自身。字面义：&ldquo;我把自己叫做 X。&rdquo;</p>
+    </div>
+    <div class="lang-card en">
+      <div class="lang-label">英语 &mdash; 存在状态</div>
+      <p><span class="en-ex">My name is X</span>。命名被框定为一个<strong>系词判断</strong>：名字是一个属性，通过 <em>be</em> 归属于所有者。主体不&ldquo;做&rdquo;任何事&mdash;&mdash;名字只是&ldquo;在那里&rdquo;。</p>
+    </div>
+    <div class="lang-card zh">
+      <div class="lang-label">中文 &mdash; 及物行为（简化）</div>
+      <p><span class="zh-ex">我叫 X</span>。<em>叫</em> = 叫/称呼，但没有反身标记。形式上是简单的 SVO 及物句，虽然语义上存在某种&ldquo;自称&rdquo;的含义，但语法上没有显性编码。中文缺乏形态化的反身标记系统&mdash;&mdash;<span class="zh-ex">自己</span> 是词汇手段，不是屈折形态。</p>
+    </div>
+    <div class="lang-card ja">
+      <div class="lang-label">日语 &mdash; 敬语言语行为</div>
+      <p><span class="ja-ex">[X] と申します</span>。<em>申す</em>（<em>言う</em> 的自谦语）+ 助词 <em>と</em>（引用标记）+ <em>ます</em>（丁宁语）。命名被框定为一个<strong>谦逊的言语行为</strong>：&ldquo;我谦卑地说（叫做）X。&rdquo;社会等级关系被直接编码进命名构式。</p>
+    </div>
+  </div>
+
+  <h3>反身构式的罗曼语类型学</h3>
+
+  <p>西班牙语的 <span class="es-ex">llamarse</span> 不是孤立现象，而是罗曼语族一个强大的构词策略的实例：<span class="term">反身动词</span> (verbos reflexivos / pronominaux)。法语 <em>s&rsquo;appeler</em>（自称）、意大利语 <em>chiamarsi</em>（自称）、法语 <em>se laver</em>（自洗）、西班牙语 <em>sentirse</em>（自感）&mdash;&mdash;所有这些都使用 se/me/te 等反身代词将一个及物动词的动作折返到主体自身。</p>
+
+  <p>这个系统在罗曼语中的<span class="term">能产性</span> (productivity) 极高。Kemmer (1993) 在其 <em>The Middle Voice</em> 中论证，罗曼语的反身构式实际上覆盖了一个从纯反身 (canonical reflexive: <span class="es-ex">me lavo</span> = 我洗自己) 到中动态 (middle voice: <span class="es-ex">me llamo</span> = 我叫做) 再到被动 (passive: <span class="es-ex">se habla espa&ntilde;ol</span> = 西班牙语被说 / 这里说西班牙语) 的连续统。</p>
+
+  <p>中文为什么没有发展出类似的系统？因为中文是一种<span class="term">孤立语</span> (isolating language)，缺乏屈折形态的&ldquo;位置&rdquo;来附着反身标记。中文用词汇手段（<span class="zh-ex">自己</span>）和零标记策略来完成罗曼语用形态手段完成的工作。这不是缺陷，而是类型学上不同的编码策略&mdash;&mdash;每种语言在有限的结构资源内做出不同的分配决策。</p>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- ANALYSIS 5: T-V DISTINCTION -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<section id="tv" class="typo-section">
+  <h2>五、T-V 区分 &mdash;&mdash; 礼貌作为语法</h2>
+
+  <p>第一课中的 <span class="es-ex">t&uacute;</span> vs. <span class="es-ex">usted</span> 区分是类型学中所谓的 <span class="term">T-V 区分</span> (Brown &amp; Gilman 1960)&mdash;&mdash;以法语 <em>tu</em>（T 式）和 <em>vous</em>（V 式）命名，但存在于大量欧洲及非欧洲语言中。核心问题是：语言是否将<strong>社会距离</strong> (social distance) 语法化到代词系统中？</p>
+
+  <div class="lang-grid">
+    <div class="lang-card es">
+      <div class="lang-label">西班牙语 &mdash; 代词型 T-V</div>
+      <p><span class="es-ex">t&uacute;</span>（亲近）vs. <span class="es-ex">usted</span>（尊敬/社会距离）。选择影响整个动词变位系统：<span class="es-ex">t&uacute; hablas</span> vs. <span class="es-ex">usted habla</span>。礼貌区分渗透到形态层。在拉美部分地区，还有第三个选项 <span class="es-ex">vos</span>（voseo 现象），形成三元系统。</p>
+    </div>
+    <div class="lang-card ja">
+      <div class="lang-label">日语 &mdash; 形态型多层敬语</div>
+      <p>礼貌不（主要）编码在代词上，而是编码在<strong>动词形态</strong>和<strong>词汇选择</strong>上：<span class="ja-ex">食べる</span>（常体）&rarr; <span class="ja-ex">食べます</span>（丁宁语）&rarr; <span class="ja-ex">召し上がる</span>（尊敬语）&rarr; <span class="ja-ex">いただく</span>（谦让语）。层级远多于二元。</p>
+    </div>
+    <div class="lang-card zh">
+      <div class="lang-label">中文 &mdash; 弱词汇型</div>
+      <p><span class="zh-ex">你</span> vs. <span class="zh-ex">您</span> 在代词层面存在区分，但语法后果极小&mdash;&mdash;动词不变形，其他结构不受影响。现代普通话中 <span class="zh-ex">您</span> 的使用频率和适用范围在缩减。礼貌更多通过语气词、间接言语行为和词汇选择来表达。</p>
+    </div>
+    <div class="lang-card en">
+      <div class="lang-label">英语 &mdash; 已坍缩</div>
+      <p>历史上有 <span class="en-ex">thou</span> (T) vs. <span class="en-ex">you</span> (V)。17 世纪后 <em>thou</em> 逐渐退出日常使用，<em>you</em> 通吃一切。T-V 区分在现代标准英语中已完全坍缩。</p>
+    </div>
+  </div>
+
+  <h3>Usted 的语法化路径</h3>
+
+  <p><span class="es-ex">Usted</span> 的语法化过程是教科书级别的案例 (Hopper &amp; Traugott 2003)：</p>
+
+  <div class="gramm-path">
+    <strong>vuestra merced</strong>（您的恩典）
+    <span class="arrow"> &rarr; </span> <strong>vuesarced</strong>
+    <span class="arrow"> &rarr; </span> <strong>vusted</strong>
+    <span class="arrow"> &rarr; </span> <strong>usted</strong>
+    <span class="arrow"> &rarr; </span> <strong>Ud.</strong>
+    <br><br>
+    一个完整的<strong>名词短语</strong>（限定词 + 名词）经过语音侵蚀 (phonological erosion) 和范畴降级 (category demotion)，最终变成了一个<strong>代词</strong>。Lehmann (1985) 定义的语法化参数在这里全部得到体现：音段物质减少 (attrition)、句法自由度降低 (condensation)、语义漂白 (bleaching)、范畴改变 (recategorization)。
+  </div>
+
+  <p>跨语言比较：</p>
+  <ul>
+    <li><strong>日语</strong> <span class="ja-ex">あなた</span>（你）的词源是 <em>彼方</em>（那个方向）&mdash;&mdash;空间隐喻语法化为人称指示。指称对话者时不直接指向其人，而是指向其所在的&ldquo;方向&rdquo;，这本身是一种回避策略 (avoidance strategy)，编码了社交距离。</li>
+    <li><strong>中文</strong> <span class="zh-ex">您</span> 的造字法是 <span class="zh-ex">你</span> + <span class="zh-ex">心</span>（心）&mdash;&mdash;一种图形层面的礼貌强化，但这是书写系统的策略，不是语法化。</li>
+  </ul>
+
+  <h3>什么决定了 T-V 系统的存废？</h3>
+
+  <p>Brown &amp; Gilman (1960) 的经典分析将 T-V 映射为两个语义轴：<strong>权力</strong> (power) 和<strong>团结</strong> (solidarity)。在等级社会中，T 向下用、V 向上用（权力轴）；在平等社会中，T 和 V 分别标记亲疏（团结轴）。</p>
+
+  <p>英语 T-V 系统的坍缩与 17 世纪英国社会的平等主义思潮（特别是 Quaker 运动）有关，但更深层的原因可能是形态的：当动词已经不再区分人称（英语动词除第三人称单数 -s 外无变化），代词的 T-V 区分失去了形态层面的支撑。这再次呼应了分析一的主题：英语形态系统的简化导致了句法和语用层面的连锁反应。</p>
+
+  <p>西班牙语之所以维持 T-V 区分，部分原因恰恰是因为它的动词变位系统仍然活跃&mdash;&mdash;<span class="es-ex">hablas</span> (t&uacute;) vs. <span class="es-ex">habla</span> (usted) 的形态区分渗透到每一个谓语，使得这个社会距离的编码获得了跨整个句法系统的结构支撑。礼貌不是一个词汇选择&mdash;&mdash;它是一个<strong>形态决策</strong>，一旦做出，贯穿整个话语。</p>
+
+  <blockquote>
+    日语学习者应该特别注意这个差异：日语的敬语系统虽然比西班牙语复杂得多（尊敬语、谦让语、丁宁语三层），但两者的类型学原理有共通之处&mdash;&mdash;社会关系被<strong>强制编码</strong>到语法形式中，说话者<em>无法</em>不做出选择。英语说话者可以用同一个 <em>you</em> 对所有人说话；西班牙语和日语说话者在开口的瞬间就必须决定自己与对话者的社会关系。
+  </blockquote>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- ANALYSIS 6: WORD ORDER -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<section id="wordorder" class="typo-section">
+  <h2>六、语序与信息结构</h2>
+
+  <p>从 Greenberg (1963) 的经典语序类型学来看，第一课涉及的四种语言分布在两大类型中：</p>
+
+  <div class="lang-grid">
+    <div class="lang-card es">
+      <div class="lang-label">西班牙语 &mdash; SVO（灵活）</div>
+      <p>基本语序 SVO：<span class="es-ex">Yo hablo espa&ntilde;ol</span> = I speak Spanish。但允许为语用目的偏离基本语序。</p>
+    </div>
+    <div class="lang-card en">
+      <div class="lang-label">英语 &mdash; SVO（刚性）</div>
+      <p>基本语序 SVO，且极少偏离。主语必须在动词前（倒装几乎仅限于疑问句和特定从句）。语序是英语仅存的最重要的句法手段。</p>
+    </div>
+    <div class="lang-card zh">
+      <div class="lang-label">中文 &mdash; SVO（话题灵活）</div>
+      <p>基本语序 SVO，但话题前置极为自由：<span class="zh-ex">这本书我看过了</span>（这本书-话题 我-主语 看过了-谓语）。Li &amp; Thompson (1976)：话题突出型语言。</p>
+    </div>
+    <div class="lang-card ja">
+      <div class="lang-label">日语 &mdash; SOV</div>
+      <p>基本语序 SOV：<span class="ja-ex">私はスペイン語を話す</span>。动词严格居末。助词标记语法关系，因此名词短语之间的顺序理论上自由，但 S-O-V 的基本序列高度稳定。</p>
+    </div>
+  </div>
+
+  <h3>表面语序之下：西班牙语的语用灵活性</h3>
+
+  <p>说西班牙语是 SVO 只是第一层近似。深入观察会发现，西班牙语的语序灵活性远超英语，并且这种灵活性服务于<span class="term">信息结构</span> (information structure) 的管理：</p>
+
+  <ol>
+    <li>
+      <strong>VS 倒装与焦点。</strong><span class="es-ex">Habla Mar&iacute;a</span>（说话的是 Mar&iacute;a）&mdash;&mdash;动词前置，主语后置，被后置的主语获得&ldquo;焦点&rdquo;(focus) 地位。这在存在性/呈现性语境 (presentational context) 中特别常见：<span class="es-ex">Lleg&oacute; el profesor</span>（教授到了）。中文有类似策略：<span class="zh-ex">来了一个人</span>（来-了 一个-人）。英语<strong>完全不允许</strong>这种倒装：<span class="en-ex">*Speaks Mar&iacute;a</span> 不合语法。英语对 SVO 语序的刚性依赖，使它丧失了这一信息结构工具。
+    </li>
+    <li>
+      <strong>附接语倍增 (Clitic Doubling) 与话题标记。</strong>西班牙语有一种强大的话题标记策略：<span class="es-ex">A Mar&iacute;a la vi ayer</span>（Mar&iacute;a，我昨天见到了她）。宾语 <em>Mar&iacute;a</em> 被左移到话题位置，但原位留下了一个附接代词 <em>la</em>（她）作为&ldquo;复本&rdquo;。这种&ldquo;倍增&rdquo;策略在功能上平行于：
+      <ul>
+        <li>中文的话题-评论结构：<span class="zh-ex">玛丽亚，我昨天看到了</span></li>
+        <li>日语的 <span class="ja-ex">は</span> 话题标记：<span class="ja-ex">マリアは昨日見た</span></li>
+      </ul>
+      但机制不同：西班牙语用附接代词倍增，中文用零标记（纯语序），日语用助词标记。三种语言用三种手段解决同一个信息结构问题：如何将已知信息 (given) 从新信息 (new) 中分离出来并安放到句子的合适位置。
+    </li>
+    <li>
+      <strong>语序的刚性程度与形态丰富度成反比。</strong>这是一条重要的类型学相关性 (Sapir 1921, Greenberg 1963)：形态越丰富，语法关系就越可以通过形态标记来识别，语序就越自由。西班牙语有丰富的动词变位和格标记（介词 <em>a</em> 标记有生宾语），因此语序可以灵活调整。英语形态贫乏，语序就成了区分主语和宾语的唯一手段&mdash;&mdash;<span class="en-ex">Dog bites man</span> 和 <span class="en-ex">Man bites dog</span> 的意义差异完全取决于语序。日语有丰富的助词系统（<span class="ja-ex">が、を、に、は</span>），因此名词短语之间的顺序可以调整而不影响语义。中文的策略居中&mdash;&mdash;形态贫乏但话题结构灵活。
+    </li>
+  </ol>
+
+  <blockquote>
+    Dryer (1992) 在其 WALS 的语序相关性研究中指出，SVO 和 SOV 各自覆盖了世界语言的约 40% 以上。你的四种语言中三种是 SVO、一种是 SOV，这个比例大致反映了全球分布。但真正的类型学洞察不在于基本语序标签，而在于每种语言在基本语序的<em>约束内</em>如何利用语序变化来管理信息流&mdash;&mdash;西班牙语通过 VS 倒装和附接语倍增，日语通过 <span class="ja-ex">は</span> 与 <span class="ja-ex">が</span> 的交替，中文通过话题前置，英语通过分裂句 (cleft) 和被动化。工具不同，目的相同。
+  </blockquote>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- REFERENCES -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<section id="refs" class="typo-section">
+  <div class="ref-section">
+    <h3>参考文献</h3>
+    <p>Austin, J.L. (1962). <em>How to Do Things with Words</em>. Oxford University Press.</p>
+    <p>Brown, R. &amp; Gilman, A. (1960). The pronouns of power and solidarity. In T.A. Sebeok (Ed.), <em>Style in Language</em>, 253&ndash;276.</p>
+    <p>Chomsky, N. (1981). <em>Lectures on Government and Binding</em>. Foris.</p>
+    <p>Dryer, M.S. (1992). The Greenbergian word order correlations. <em>Language</em> 68(1), 81&ndash;138.</p>
+    <p>Dryer, M.S. &amp; Haspelmath, M. (Eds.) (2013). <em>The World Atlas of Language Structures Online</em>. Leipzig: Max Planck Institute for Evolutionary Anthropology.</p>
+    <p>Greenberg, J.H. (1963). Some universals of grammar with particular reference to the order of meaningful elements. In J.H. Greenberg (Ed.), <em>Universals of Language</em>, 73&ndash;113.</p>
+    <p>Hengeveld, K. (1992). <em>Non-verbal Predication: Theory, Typology, Diachrony</em>. Mouton de Gruyter.</p>
+    <p>Hopper, P.J. &amp; Traugott, E.C. (2003). <em>Grammaticalization</em>. 2nd ed. Cambridge University Press.</p>
+    <p>Huang, C.-T.J. (1984). On the distribution and reference of empty pronouns. <em>Linguistic Inquiry</em> 15(4), 531&ndash;574.</p>
+    <p>Jaeggli, O. &amp; Safir, K. (1989). The null subject parameter and parametric theory. In O. Jaeggli &amp; K. Safir (Eds.), <em>The Null Subject Parameter</em>, 1&ndash;44. Kluwer.</p>
+    <p>Jakobson, R. (1960). Closing statement: Linguistics and poetics. In T.A. Sebeok (Ed.), <em>Style in Language</em>, 350&ndash;377.</p>
+    <p>Kemmer, S. (1993). <em>The Middle Voice</em>. John Benjamins.</p>
+    <p>Kuroda, S.-Y. (1965). <em>Generative Grammatical Studies in the Japanese Language</em>. PhD dissertation, MIT.</p>
+    <p>Lehmann, C. (1985). Grammaticalization: Synchronic variation and diachronic change. <em>Lingua e Stile</em> 20, 303&ndash;318.</p>
+    <p>Li, C.N. &amp; Thompson, S.A. (1976). Subject and topic: A new typology of language. In C.N. Li (Ed.), <em>Subject and Topic</em>, 457&ndash;489. Academic Press.</p>
+    <p>Malinowski, B. (1923). The problem of meaning in primitive languages. In C.K. Ogden &amp; I.A. Richards, <em>The Meaning of Meaning</em>, 296&ndash;336.</p>
+    <p>Roberts, I. (1993). <em>Verbs and Diachronic Syntax</em>. Kluwer.</p>
+    <p>Sapir, E. (1921). <em>Language: An Introduction to the Study of Speech</em>. Harcourt, Brace.</p>
+    <p>Searle, J.R. (1969). <em>Speech Acts</em>. Cambridge University Press.</p>
+    <p>Stassen, L. (1997). <em>Intransitive Predication</em>. Oxford University Press.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Tipolog&iacute;a 1 &middot; 第一课跨语言结构比较 &middot; 为中英日三语使用者设计的西班牙语教材
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
