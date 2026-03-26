@@ -27,7 +27,7 @@ function speak(text, rate) {
   if (typeof speechSynthesis === 'undefined') return;
   speechSynthesis.cancel();
   var utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = 'es-ES';
+  utterance.lang = 'es-MX';
   utterance.rate = rate || speechRate;
   if (spanishVoice) utterance.voice = spanishVoice;
   speechSynthesis.speak(utterance);
@@ -99,7 +99,7 @@ function playDialogue(dialogueIdOrArray) {
   function playNext() {
     if (i >= texts.length) return;
     var utterance = new SpeechSynthesisUtterance(texts[i]);
-    utterance.lang = 'es-ES';
+    utterance.lang = 'es-MX';
     utterance.rate = speechRate;
     if (spanishVoice) utterance.voice = spanishVoice;
     utterance.onend = function() {

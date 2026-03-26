@@ -535,7 +535,7 @@ slider.addEventListener('input', function() {
 function speak(text, rate) {
   speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'es-ES';
+  u.lang = 'es-MX';
   u.rate = rate || speechRate;
   const voices = speechSynthesis.getVoices();
   const v = voices.find(v => v.lang.startsWith('es'));

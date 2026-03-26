@@ -277,7 +277,7 @@ footer{text-align:center;padding:40px 0 32px;color:var(--dim);font-size:12px;fon
 
 <div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">(to himself) 这个老太太比 Carlos 教得好。她不着急，不笑话我，而且她夸我帅。</span></div>
 
-<div class="insight">💡 <span class="es">guapo/guapa</span> <button class="speak-btn" onclick="speak('guapo, guapa')">🔊</button> = 帅/漂亮。西班牙人很随意地用这个词——陌生人也会叫你 guapo，别太激动。<span class="es">lejos</span> <button class="speak-btn" onclick="speak('lejos')">🔊</button> = 远。</div>
+<div class="insight">💡 <span class="es">guapo/guapa</span> <button class="speak-btn" onclick="speak('guapo, guapa')">🔊</button> = 帅/漂亮。墨西哥人也挺随意地用这个词——陌生人也会叫你 guapo，别太激动。<span class="es">lejos</span> <button class="speak-btn" onclick="speak('lejos')">🔊</button> = 远。</div>
 </section>
 
 <!-- 006 -->
@@ -614,7 +614,7 @@ slider.addEventListener('input', function() {
 function speak(text, rate) {
   speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'es-ES';
+  u.lang = 'es-MX';
   u.rate = rate || speechRate;
   const voices = speechSynthesis.getVoices();
   const v = voices.find(v => v.lang.startsWith('es'));
