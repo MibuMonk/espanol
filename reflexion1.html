@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>语言哲思：第一课 — 名与实、空与礼</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+html { scroll-padding-top: calc(var(--nav-h) + 16px); }
+body { font-family: var(--font-body); background: var(--light-bg); font-size: 16px; }
+
+.reflexion-header {
+  max-width: var(--max-w);
+  margin: calc(var(--nav-h) + 32px) auto 0;
+  padding: 0 20px;
+}
+.reflexion-header h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+.reflexion-header .subtitle {
+  display: block;
+  font-family: var(--font-cn);
+  font-size: 1rem;
+  color: #888;
+  font-weight: normal;
+  margin-top: 4px;
+}
+.reflexion-header .epigraph {
+  font-family: var(--font-cn);
+  font-style: italic;
+  color: var(--terracotta);
+  font-size: 0.95rem;
+  margin-top: 16px;
+  padding-left: 16px;
+  border-left: 3px solid var(--gold);
+}
+
+.reflexion-body {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+.reflexion-section {
+  margin-top: 48px;
+}
+.reflexion-section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--terracotta);
+  margin-bottom: 8px;
+}
+.reflexion-section h2 .section-num {
+  display: inline-block;
+  background: var(--terracotta);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  font-size: 0.85rem;
+  margin-right: 8px;
+  vertical-align: middle;
+  font-family: var(--font-body);
+}
+.reflexion-section h3 {
+  font-family: var(--font-cn);
+  font-size: 1.05rem;
+  color: var(--dark);
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+
+.reflexion-section p,
+.reflexion-section li {
+  font-family: var(--font-cn);
+  line-height: 1.85;
+  color: #333;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.reflexion-section ul {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.quote-block {
+  background: rgba(212,167,106,0.1);
+  border-left: 4px solid var(--gold);
+  padding: 16px 20px;
+  margin: 16px 0;
+  border-radius: 0 8px 8px 0;
+}
+.quote-block .classical {
+  font-size: 1.05rem;
+  color: var(--dark);
+  font-weight: 600;
+  font-family: var(--font-cn);
+}
+.quote-block .translation {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 4px;
+  font-family: var(--font-cn);
+}
+.quote-block .source {
+  font-size: 0.8rem;
+  color: var(--terracotta);
+  margin-top: 6px;
+  font-family: var(--font-cn);
+}
+
+.es-highlight {
+  font-style: italic;
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+.term {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.closing-question {
+  background: rgba(200,75,49,0.06);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-top: 16px;
+  font-family: var(--font-cn);
+  color: var(--terracotta);
+  font-size: 0.93rem;
+  line-height: 1.7;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--cream);
+  margin: 40px 0;
+}
+</style>
+</head>
+<body>
+
+<nav class="main-nav" role="navigation" aria-label="课程导航">
+  <div class="nav-inner">
+    <a href="index.html">首页</a>
+    <a href="leccion1.html">第一课</a>
+    <a href="leccion2.html">第二课</a>
+    <a href="leccion3.html">第三课</a>
+  </div>
+</nav>
+
+<div class="reflexion-header">
+  <h1>语言哲思
+    <span class="subtitle">第一课附录 &mdash; 问候、命名与存在</span>
+  </h1>
+  <div class="epigraph">
+    学一门语言，不是给旧世界贴新标签，而是走进一个用不同方式切割现实的宇宙。
+  </div>
+</div>
+
+<div class="reflexion-body">
+
+<!-- ═══════════ 反思一 ═══════════ -->
+<section class="reflexion-section" id="r1">
+  <h2><span class="section-num">一</span>名与实 &mdash; &ldquo;Me llamo&rdquo; 中的命名之辩</h2>
+
+  <p>西班牙语初学者学到的第一个自我介绍句式是 <span class="es-highlight">Me llamo...</span> &mdash; 字面意思是「我叫自己......」。这三个字里藏着一个两千多年来东亚思想反复追问的问题：<span class="term">名</span>与<span class="term">实</span>之间，究竟是什么关系？</p>
+
+  <div class="quote-block">
+    <div class="classical">名不正，则言不顺；言不顺，则事不成。</div>
+    <div class="translation">If names are not correct, language will not be in accord with truth; if language is not in accord with truth, affairs cannot be carried out.</div>
+    <div class="source">&mdash;&mdash; 《论语 &middot; 子路》</div>
+  </div>
+
+  <p>孔子把「正名」视为政治与伦理的根基。在他看来，<span class="term">名</span>不是随意贴上去的标签，而应当与<span class="term">实</span>（事物的本质、应然的状态）严格对应。父不行父道，则不配称「父」；君不行君道，则「君」之名已空。名实相副，天下才有秩序可言。这是一种极其严肃的语言观：词语不仅描述世界，词语<em>参与构成</em>世界的秩序。</p>
+
+  <p>日本的<span class="term">言灵</span>（ことだま）传统走得更远。在古代日本的信仰中，名字不是关于人的符号，名字在某种形而上的意义上<em>就是</em>那个人。知道一个人的真名，就获得了对他的力量。《古事记》和《万叶集》中反复出现这个母题：言语一旦发出，就成为现实的一部分，不可收回。所以「名前」（なまえ）这个词本身就意味深长 &mdash;&mdash;「名」在「前」，名字走在你前面，替你先行到达。</p>
+
+  <p>现在回来看西班牙语。<span class="es-highlight">Me llamo</span> 的结构是反身动词 <span class="es-highlight">llamarse</span>（叫自己）。请注意这个语法做了什么：它把命名变成了一个<em>主动的、自我施加的</em>行为。不是「我的名字是 X」（仿佛名字是被赋予的客观事实），而是「我叫自己 X」&mdash;&mdash; 我选择了这个标签，我把它贴在了自己身上。</p>
+
+  <p>这三种命名哲学形成一个光谱：</p>
+  <ul>
+    <li><strong>儒家正名论</strong>：名应当反映实，名实错位是伦理失序的征兆。名字是沉重的 &mdash;&mdash; 它承载义务。</li>
+    <li><strong>言灵传统</strong>：名就是实，或者说，名字<em>创造</em>它所指的实在。名字是神圣的 &mdash;&mdash; 它拥有力量。</li>
+    <li><strong>西班牙语的 <span class="es-highlight">Me llamo</span></strong>：名是一个社会性的自我标记行为。名字是轻的 &mdash;&mdash; 它服务于交流的便利。</li>
+  </ul>
+
+  <p>但荀子早就洞察到了另一种可能：</p>
+
+  <div class="quote-block">
+    <div class="classical">名无固宜，约之以命，约定俗成谓之宜，异于约则谓之不宜。</div>
+    <div class="translation">Names have no inherent appropriateness. We assign them by convention; once convention is established, that is what counts as appropriate.</div>
+    <div class="source">&mdash;&mdash; 《荀子 &middot; 正名》</div>
+  </div>
+
+  <p>荀子在两千三百年前就看到了 <span class="es-highlight">Me llamo</span> 的逻辑：名字是约定，不是天命。但他同时坚持，约定一旦成立，就不能随意更改 &mdash;&mdash; 因为名的稳定性是社会交流的前提。这恰好解释了为什么 <span class="es-highlight">Me llamo</span> 虽然在语法上是「我叫自己」，却没有人真的每天给自己改名。约定俗成的力量，比语法暗示的自由更强大。</p>
+
+  <div class="closing-question">
+    思考：当你对 Carlos 说 <span class="es-highlight">Me llamo...</span> 的时候，你是在告诉他一个关于你的事实，还是在与他缔结一个关于如何称呼你的契约？
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════ 反思二 ═══════════ -->
+<section class="reflexion-section" id="r2">
+  <h2><span class="section-num">二</span>言意之辩 &mdash; 问候能承载意义吗？</h2>
+
+  <div class="quote-block">
+    <div class="classical">言者所以在意，得意而忘言。</div>
+    <div class="translation">Words exist for the sake of meaning; once you grasp the meaning, forget the words.</div>
+    <div class="source">&mdash;&mdash; 《庄子 &middot; 外物》</div>
+  </div>
+
+  <p>庄子的这句话预设了一个前提：语言是抵达意义的工具，是渡河之筏，到岸即弃。但如果有一种语言行为从一开始就不承载命题性的意义呢？</p>
+
+  <p><span class="es-highlight">&iexcl;Hola!</span> 就是这样的存在。</p>
+
+  <p>你无法追问「Hola 是什么意思」&mdash;&mdash; 或者说，你可以回答「你好」，但「你好」同样不传达任何关于世界的信息。没有人在说 Hola 的时候是在断言「你是好的」。这不是一个可以为真或为假的命题。人类学家马林诺夫斯基把这类语言行为称为「交感语言」（phatic communion）&mdash;&mdash; 它的功能不是传递信息，而是建立和维持社会联结。</p>
+
+  <p>道家思想对此有一个出人意料的洞见。庄子反复论证<span class="term">无用之用</span>：</p>
+
+  <div class="quote-block">
+    <div class="classical">人皆知有用之用，而莫知无用之用也。</div>
+    <div class="translation">Everyone knows the usefulness of what is useful, but no one knows the usefulness of what is useless.</div>
+    <div class="source">&mdash;&mdash; 《庄子 &middot; 人间世》</div>
+  </div>
+
+  <p>庄子讲过一棵巨大的栎树，木匠嫌它没用，不去砍它，于是它活到了数百岁。<span class="es-highlight">Hola</span> 就是语言世界里的那棵栎树：正因为它不承载具体的信息，它才成了最通用、最安全、最不可能引起误解的社交工具。它的空，就是它的力量。</p>
+
+  <p>佛教哲学提供了另一层理解。<span class="es-highlight">Hola</span> 是<span class="term">空</span>（sunyata）的语言学实例 &mdash;&mdash; 一个没有固有自性（svabhava）的符号。它没有本质性的意义，它的全部「意义」来自<span class="term">缘起</span>（pratityasamutpada）：语境、关系、社会规约的交织。在清晨的咖啡馆，朋友之间的 Hola 是温暖；在深夜的小巷，陌生人的 Hola 可能是威胁。同一个音节，意义完全由因缘际会决定。</p>
+
+  <p>这让人想到禅宗的公案传统。公案（「狗子有佛性否？」「万法归一，一归何处？」）从相反的方向做了同一件事：它用看似有意义的句子打破意义的运作机制，迫使你超越语言去领悟。而问候语则是：用看似无意义的声音，完成语言最本质的使命 &mdash;&mdash; 让两个孤立的意识确认彼此的存在。</p>
+
+  <div class="closing-question">
+    公案掏空意义以指向超越；问候掏空意义以建立连接。两者都证明了：语言最深的力量，未必在它说了什么，而在它做了什么。
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════ 反思三 ═══════════ -->
+<section class="reflexion-section" id="r3">
+  <h2><span class="section-num">三</span>言灵与 &ldquo;Buenos D&iacute;as&rdquo; &mdash;&mdash; 祝颂还是咒语？</h2>
+
+  <p><span class="es-highlight">Buenos d&iacute;as</span> &mdash;&mdash; 好的日子们。</p>
+
+  <p>但这句话到底在做什么？它是一个<strong>描述</strong>（这一天是好的），一个<strong>祝愿</strong>（愿这一天是好的），还是一个<strong>施行</strong>（因为我说了这句话，这一天就变好了）？</p>
+
+  <p>在日本古代的<span class="term">言灵</span>信仰中，答案是第三种。言灵的核心命题是：言语具有内在的灵力，说出的话会作用于现实。这不是比喻，而是严肃的形而上学主张。《万叶集》里柿本人麻吕写道：</p>
+
+  <div class="quote-block">
+    <div class="classical">しきしまの やまとの国は 言霊の 幸はふ国ぞ</div>
+    <div class="translation">日本是言灵守护的幸福之国。</div>
+    <div class="source">&mdash;&mdash; 柿本人麻吕《万叶集》卷十三</div>
+  </div>
+
+  <p>在言灵的框架下，当你对 Carlos 说 <span class="es-highlight">Buenos d&iacute;as</span>，你不是在描述早晨的天气，也不仅仅是在表达一个愿望 &mdash;&mdash; 你是在用语言的力量对这一天施加善意。你在行一个微小的祝福仪式。</p>
+
+  <p>这种直觉跨越文化。英语 "Good morning" 也不是对早晨质量的客观评估。希伯来语的 Shalom、阿拉伯语的 Salam 都是在说「平安」&mdash;&mdash; 但说「平安」这个行为本身，在信仰传统中，就是在降下平安。奥斯汀（J.L. Austin）的言语行为理论把这类话语称为「施行语」（performative）&mdash;&mdash; 它们不描述世界，它们<em>改变</em>世界。</p>
+
+  <p>有趣的是，各语言的问候选择了不同的策略来处理这个问题：</p>
+  <ul>
+    <li><strong>西班牙语</strong> <span class="es-highlight">Buenos d&iacute;as</span>：直接宣告「好日子」，祝颂色彩最浓。</li>
+    <li><strong>中文</strong>「早上好」：可以读作描述（早上是好的），也可以读作祝愿，语义上刻意模糊。</li>
+    <li><strong>日语</strong>「おはようございます」：只是说「早啊」（お早う），标记时间，不做价值判断。学者因此认为日语问候更「中性」&mdash;&mdash; 它观察，而非祝福。</li>
+  </ul>
+
+  <p>但这恰恰暴露了一个更深的问题。如果日语问候刻意回避了祝颂，它是否因此更「诚实」？还是说，它只是把言灵的力量转移到了别处 &mdash;&mdash; 比如转移到了敬语的层级系统中？「おはようございます」和「おはよう」之间的差距，不正是一种通过语言形式来施加社会秩序的行为吗？言灵也许从来不只是关于语义内容的，而是关于<em>说这句话</em>这个行为本身所携带的力量。</p>
+
+  <div class="closing-question">
+    明天早上，当你练习对 Carlos 说 <span class="es-highlight">Buenos d&iacute;as</span> 的时候，试着感受一下：你是在做一个语言练习，还是在对世界施一个微小的善咒？
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════ 反思四 ═══════════ -->
+<section class="reflexion-section" id="r4">
+  <h2><span class="section-num">四</span>礼 &mdash;&mdash; 问候序列作为仪式</h2>
+
+  <p>第一课教了一个完整的问候序列：</p>
+  <p style="text-align:center; color:var(--terracotta); font-size:1.05rem; margin:16px 0;">
+    <span class="es-highlight">Hola</span> &rarr;
+    <span class="es-highlight">&iquest;C&oacute;mo est&aacute;s?</span> &rarr;
+    <span class="es-highlight">Bien, gracias</span> &rarr;
+    <span class="es-highlight">&iquest;Y t&uacute;?</span>
+  </p>
+
+  <p>这个序列必须按顺序完成。你不能跳过 gracias，不能不回问 &iquest;Y t&uacute;?，不能用沉默回应 &iquest;C&oacute;mo est&aacute;s? 这些规则没有人明确教过，但每个母语者都知道 &mdash;&mdash; 因为它们是<span class="term">礼</span>。</p>
+
+  <div class="quote-block">
+    <div class="classical">不学礼，无以立。</div>
+    <div class="translation">Without learning ritual propriety, one cannot take one's stand in society.</div>
+    <div class="source">&mdash;&mdash; 《论语 &middot; 季氏》</div>
+  </div>
+
+  <p>孔子把<span class="term">礼</span>置于社会和谐的核心。礼不是虚文 &mdash;&mdash; 它是人与人之间达成默契、维持秩序的操作系统。你不需要真的感到「bien」，你只需要在被问到的时候说「bien」。这看起来像是虚伪，但在儒家看来，这恰恰是礼的力量所在：形式先于真情，形式<em>培养</em>真情。长期践行礼的人，最终会内化礼的精神。</p>
+
+  <p>荀子说得更直接：</p>
+
+  <div class="quote-block">
+    <div class="classical">礼者，人道之极也。</div>
+    <div class="translation">Ritual propriety is the highest expression of the human way.</div>
+    <div class="source">&mdash;&mdash; 《荀子 &middot; 礼论》</div>
+  </div>
+
+  <p>西班牙语的问候序列完美地印证了这一点。它是一种编排精确的社交舞蹈（coreograf&iacute;a），双方各有角色、各有台词、各有时机。不按剧本来 &mdash;&mdash; 比如对 &iquest;C&oacute;mo est&aacute;s? 回答「其实我今天过得很糟糕，让我详细跟你说说」&mdash;&mdash; 不是诚实，而是对礼的冒犯，会让对方不知所措。</p>
+
+  <p>但老子提出了一个尖锐的反驳：</p>
+
+  <div class="quote-block">
+    <div class="classical">大道废，有仁义；智慧出，有大伪。</div>
+    <div class="translation">When the great Dao is abandoned, benevolence and righteousness appear; when cleverness emerges, there is great artifice.</div>
+    <div class="source">&mdash;&mdash; 《道德经》第十八章</div>
+  </div>
+
+  <p>老子会问：如果人与人之间存在真正的关怀，何须设计这些固定的套话？问候序列的存在，是不是恰恰证明了真诚的社交已经崩溃，只剩下形式在苦苦支撑？</p>
+
+  <p>这是一个两千五百年来没有定论的辩论。但禅宗或许提供了一条穿越它的路径：</p>
+
+  <p>僧问赵州：「如何是道？」赵州曰：「墙外底。」僧曰：「不问这个道。」赵州曰：「你问哪个道？」</p>
+
+  <p>礼既是空的（没有信息在交换），又是满的（真实的人际联结通过对空的共同表演而发生）。执着于它的「空」（老子的批评）和执着于它的「实」（教条的儒家），都各偏一端。问候序列的真相也许是：<em>诚意不在内容里，诚意在你愿意走完全部步骤这件事里。</em></p>
+
+  <div class="closing-question">
+    你回问 <span class="es-highlight">&iquest;Y t&uacute;?</span> 的那一刻，不是因为你真的好奇对方怎么样，而是因为你尊重这支舞蹈。这本身，就是一种诚意。
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════ 反思五 ═══════════ -->
+<section class="reflexion-section" id="r5">
+  <h2><span class="section-num">五</span>无我与 &ldquo;Soy&rdquo; &mdash;&mdash; &ldquo;我是&rdquo;的存在论重量</h2>
+
+  <p><span class="es-highlight">Soy de China.</span> &mdash;&mdash; 我是中国人。</p>
+
+  <p>西班牙语动词 <span class="es-highlight">ser</span>（是，本质性的存在）是整个语言中最重的词之一。它表达的不是暂时的状态，而是持久的、本质性的属性。<span class="es-highlight">Soy de China</span> 在语法上宣称：「来自中国」是「我」的本质属性之一，如同「我是人类」一般不可更改。</p>
+
+  <p>佛教哲学对此提出了根本性的异议。</p>
+
+  <div class="quote-block">
+    <div class="classical">色不异空，空不异色；色即是空，空即是色。</div>
+    <div class="translation">Form is not different from emptiness; emptiness is not different from form. Form is emptiness; emptiness is form.</div>
+    <div class="source">&mdash;&mdash; 《般若波罗蜜多心经》</div>
+  </div>
+
+  <p><span class="term">无我</span>（anatman）的教义认为：不存在一个固定的、持久的「我」能够「是」任何东西。我们称为「我」的，只是<span class="term">五蕴</span>（色、受、想、行、识）的暂时聚合，刹那生灭，从无一刻相同。<span class="es-highlight">Soy</span> 预设了一个稳定的主语和一个本质性的谓语 &mdash;&mdash; 在龙树（Nagarjuna）看来，这是一个双重的<span class="term">执</span>（upadana）：既执着于「我」的实在性，又执着于属性的固定性。</p>
+
+  <p>有意思的是，不同语言对「是」的处理方式暗示了不同的存在论承诺：</p>
+  <ul>
+    <li><strong>西班牙语</strong>区分 <span class="es-highlight">ser</span>（本质之是）和 <span class="es-highlight">estar</span>（状态之是）&mdash;&mdash; 这是一种精密的存在论切割，英语和中文都没有。<span class="es-highlight">Soy feliz</span>（我本质上是快乐的人）与 <span class="es-highlight">Estoy feliz</span>（我此刻处于快乐状态）是不同的存在论主张。</li>
+    <li><strong>中文</strong>「是」原义为「此」或「正确」&mdash;&mdash; 是一个指示词，不是存在论动词。「我是中国人」的底层逻辑更接近「我 &mdash; 这个 &mdash; 中国人」，比 <span class="es-highlight">Soy</span> 的存在论负荷轻得多。</li>
+    <li><strong>日语</strong>「です」是一个礼貌标记，几乎没有存在论含量。「私は中国人です」与其说是「I am Chinese」，不如说是「关于我这件事，中国人（是这样的情况，恭敬地说）」。</li>
+    <li><strong>古典藏语</strong>作为佛教哲学的载体语言，甚至没有一个统一的系动词 &mdash;&mdash; 它用不同的词来表达「存在」「位于」「等同于」，仿佛在语法层面就拒绝将这些概念混为一谈。</li>
+  </ul>
+
+  <p>西班牙语的 <span class="es-highlight">ser/estar</span> 之分，从佛教的角度看，反而是一个有趣的中间立场。它至少承认了「本质之是」和「状态之是」的区别 &mdash;&mdash; 这比英语的单一 "to be" 更加精细。但它仍然保留了「本质之是」这个范畴，仿佛一个人可以在流变中拥有不变的核心。</p>
+
+  <div class="closing-question">
+    当你学会说 <span class="es-highlight">Soy de China</span> 的时候，你是在学一个语法结构，还是在接受一种关于自我的哲学？而当你同时还会说「我是中国人」和「私は中国人です」的时候 &mdash;&mdash; 这三个句子是同一个意思吗？还是三种不同的存在方式？
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ═══════════ 反思六 ═══════════ -->
+<section class="reflexion-section" id="r6">
+  <h2><span class="section-num">六</span>道可道 &mdash;&mdash; 多语者的悖论与礼物</h2>
+
+  <div class="quote-block">
+    <div class="classical">道可道，非常道。名可名，非常名。</div>
+    <div class="translation">The Dao that can be spoken is not the eternal Dao. The name that can be named is not the eternal name.</div>
+    <div class="source">&mdash;&mdash; 《道德经》第一章</div>
+  </div>
+
+  <p>老子在《道德经》的开篇就宣告了语言的根本困境：凡是可以用言语捕捉的，都不是终极的真实。每一个名字都是一次切割 &mdash;&mdash; 它照亮了被命名的部分，同时把其余一切投入阴影。</p>
+
+  <p>语言学习把这个抽象的哲学命题变成了切身的体验。</p>
+
+  <p>当你学会西班牙语的 <span class="es-highlight">Buenos d&iacute;as</span>，你并没有获得「早上好」的另一种说法。你获得的是另一种<em>切割早晨</em>的方式 &mdash;&mdash; buenos 暗含「好」是复数的、弥漫性的（好的日子们，不是好的一天），d&iacute;as 把「天」变成复数（仿佛这个问候不只是关于今天，而是关于所有的日子）。中文的「早上好」把时间切成了「早上」这一段；日语的「おはようございます」只标记「早」（はやい）这个性质，不评价好坏。</p>
+
+  <p>同一个经验 &mdash;&mdash; 清晨遇到朋友 &mdash;&mdash; 三种语言切出了三个不同的切面。没有哪一个切面是「正确」的；它们各自照亮了经验的不同侧面，也各自遮蔽了其他侧面。</p>
+
+  <p>僧肇在《不真空论》中说：</p>
+
+  <div class="quote-block">
+    <div class="classical">夫以名求物，物无当名之实。以物求名，名无得物之功。</div>
+    <div class="translation">If you seek things through names, things have no reality that corresponds to names. If you seek names through things, names have no power to capture things.</div>
+    <div class="source">&mdash;&mdash; 僧肇《不真空论》</div>
+  </div>
+
+  <p>名与物之间永远有一道裂缝。但单语者往往看不见这道裂缝 &mdash;&mdash; 因为从小到大只用一套名来面对世界，名与物仿佛天然地焊在一起。是第二语言、第三语言、第四语言一层一层地撕开了这层焊接，让你看到：名是名，物是物，它们之间的对应关系是人为的、偶然的、可替换的。</p>
+
+  <p>这就是多语者的悖论：你学的语言越多，你就越清楚地知道没有任何一种语言能够说出全部的真实。但这也是多语者的礼物：你拥有多个窗口，每一个都有自己独特的景深和色温。你不会天真地以为自己透过某一扇窗看到的就是世界的全貌 &mdash;&mdash; 因为你知道，换一扇窗，山河都不一样。</p>
+
+  <div class="quote-block">
+    <div class="classical">吾生也有涯，而知也无涯。</div>
+    <div class="translation">My life has a limit, but knowledge has no limit.</div>
+    <div class="source">&mdash;&mdash; 《庄子 &middot; 养生主》</div>
+  </div>
+
+  <p>语言也是如此。你永远学不完所有的语言，也就永远无法穷尽所有切割现实的方式。但这不是令人沮丧的结论 &mdash;&mdash; 这恰恰是令人自由的认识。当你知道每一种语言都只是一张网，你就不再被任何一张网困住。</p>
+
+  <div class="closing-question">
+    你现在正在学习的，不只是如何用西班牙语说「你好」和「我叫......」。你正在获得第四个窗口，透过它，你将看到一个既熟悉又陌生的世界 &mdash;&mdash; 同一座山，不同的光。而在所有的窗口之间，在所有的名字与所有的实在之间，那道不可言说的裂缝，也许正是老子所指的道。
+  </div>
+</section>
+
+</div>
+
+</body>
+</html>
