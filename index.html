@@ -7,7 +7,305 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      --font-cn: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+    }
+
+    body {
+      font-family: var(--font-cn);
+      background-color: #FDF6EC;
+      color: #2D2424;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 0 60px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: #C84B31;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: #D4A76A;
+      margin-bottom: 32px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-welcome {
+      font-size: 1rem;
+      color: #4a3a3a;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.9;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #2D2424;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 3px;
+      background: #D4A76A;
+      border-radius: 2px;
+      margin: 12px auto 0;
+    }
+
+    .advantages {
+      padding: 60px 0;
+    }
+
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .advantage-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 28px 22px;
+      text-align: center;
+      border: 1px solid #f0e4d0;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .advantage-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(45, 36, 36, 0.08);
+    }
+
+    .advantage-flag {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .advantage-lang {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      color: #C84B31;
+    }
+
+    .advantage-desc {
+      font-size: 0.9rem;
+      color: #5a4a4a;
+      line-height: 1.75;
+    }
+
+    .course-map {
+      padding: 60px 0;
+    }
+
+    .lesson-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 20px;
+      border: 1px solid #f0e4d0;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .lesson-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(200, 75, 49, 0.1);
+      border-color: #D4A76A;
+    }
+
+    .lesson-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .lesson-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #C84B31;
+    }
+
+    .lesson-zh-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #D4A76A;
+    }
+
+    .lesson-topics {
+      list-style: none;
+      margin: 14px 0 18px;
+      padding: 0;
+    }
+
+    .lesson-topics li {
+      font-size: 0.92rem;
+      color: #5a4a4a;
+      padding: 3px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .lesson-topics li::before {
+      content: '·';
+      position: absolute;
+      left: 4px;
+      color: #D4A76A;
+      font-weight: 700;
+    }
+
+    .lesson-cta {
+      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #C84B31;
+      transition: color 0.2s ease;
+    }
+
+    .lesson-card:hover .lesson-cta {
+      color: #a33d26;
+    }
+
+    .lesson-cta::after {
+      content: ' →';
+    }
+
+    .tips {
+      padding: 60px 0;
+    }
+
+    .tips-list {
+      background: #fff;
+      border-radius: 14px;
+      padding: 32px 36px;
+      border: 1px solid #f0e4d0;
+      list-style: none;
+    }
+
+    .tips-list li {
+      font-size: 0.95rem;
+      color: #4a3a3a;
+      padding: 10px 0;
+      padding-left: 28px;
+      position: relative;
+      line-height: 1.75;
+    }
+
+    .tips-list li::before {
+      content: '💡';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      font-size: 0.85rem;
+    }
+
+    .tips-list li + li {
+      border-top: 1px solid #f5ece0;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 48px 0 56px;
+      border-top: 1px solid #ede3d3;
+      margin-top: 20px;
+    }
+
+    .footer-main {
+      font-size: 0.92rem;
+      color: #8a7a6a;
+      margin-bottom: 6px;
+    }
+
+    .footer-sub {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: #b0a090;
+      font-style: italic;
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 56px 0 44px;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .advantages-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .advantage-card {
+        padding: 22px 20px;
+      }
+
+      .section-title {
+        font-size: 1.45rem;
+      }
+
+      .lesson-card {
+        padding: 24px;
+      }
+
+      .lesson-title {
+        font-size: 1.15rem;
+      }
+
+      .tips-list {
+        padding: 24px 20px;
+      }
+
+      .tips-list li {
+        padding-left: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
 
