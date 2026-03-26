@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第一课语音学深度分析：西班牙语的声音肌理</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+html { scroll-padding-top: calc(var(--nav-h) + var(--section-nav-h) + 16px); }
+body { font-family: var(--font-body); background: var(--light-bg); font-size: 16px; line-height: 1.9; }
+
+.phonetics-article { max-width: 820px; margin: 0 auto; padding: 40px 24px 80px; }
+.phonetics-article h1 { font-family: var(--font-display), serif; font-size: 2rem; margin-bottom: 8px; color: var(--dark); }
+.phonetics-article h2 { font-family: var(--font-display), serif; font-size: 1.5rem; margin-top: 48px; margin-bottom: 16px; color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 8px; }
+.phonetics-article h3 { font-family: var(--font-display), serif; font-size: 1.2rem; margin-top: 32px; margin-bottom: 12px; color: var(--dark); }
+
+.phoneme-card {
+  background: #fff; border-radius: 12px; padding: 24px 28px; margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 4px solid var(--primary);
+}
+.phoneme-card h4 {
+  font-size: 1.15rem; margin: 0 0 12px 0; color: var(--primary);
+  font-family: var(--font-display), serif;
+}
+.phoneme-card .ipa-big { font-size: 1.6rem; font-weight: 700; color: var(--dark); margin-right: 12px; }
+.phoneme-card .label { font-size: 0.8rem; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+
+.comparison-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 12px 0;
+}
+.comparison-grid .lang-box {
+  background: var(--light-bg); border-radius: 8px; padding: 10px 14px; font-size: 0.9rem;
+}
+.comparison-grid .lang-box .lang-label {
+  font-size: 0.75rem; color: #888; font-weight: 600; margin-bottom: 4px;
+}
+
+.aesthetics-box {
+  background: linear-gradient(135deg, #fdf6ec 0%, #fef9f2 100%);
+  border-radius: 8px; padding: 14px 18px; margin: 12px 0;
+  border: 1px solid #f0e0c0; font-size: 0.93rem;
+}
+.aesthetics-box::before { content: "音感 "; font-weight: 700; color: var(--gold); }
+
+.word-analysis {
+  background: #fff; border-radius: 12px; padding: 24px 28px; margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 4px solid var(--gold);
+}
+.word-analysis h4 { font-size: 1.15rem; margin: 0 0 12px 0; color: var(--gold); }
+.word-analysis .ipa-trans { font-size: 1.1rem; color: #555; margin-bottom: 8px; }
+
+.prosody-box {
+  background: #f0f4ff; border-radius: 8px; padding: 14px 18px; margin: 12px 0;
+  border: 1px solid #d0d8f0; font-size: 0.93rem;
+}
+
+.subtitle { display: block; font-size: 0.9rem; color: #888; font-weight: 400; margin-top: 4px; }
+
+p, li { font-family: var(--font-cn), var(--font-body), sans-serif; }
+
+.section-intro { font-size: 1.02rem; color: #555; margin-bottom: 24px; font-style: italic; }
+
+@media (max-width: 600px) {
+  .comparison-grid { grid-template-columns: 1fr; }
+  .phonetics-article { padding: 24px 16px 60px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="main-nav" role="navigation" aria-label="课程导航">
+  <div class="nav-inner">
+    <a href="index.html">首页</a>
+    <a href="leccion1.html">第一课</a>
+    <a href="leccion2.html">第二课</a>
+    <a href="leccion3.html">第三课</a>
+  </div>
+</nav>
+
+<div class="phonetics-article">
+
+<h1>西班牙语的声音肌理
+  <span class="subtitle">第一课语音的调音机制与音感分析</span>
+</h1>
+
+<p class="section-intro">本文为中/英/日三语使用者而写。我们不做简化的"近似音"对照，而是从调音器官的物理运动出发，精确描述每一个西班牙语音素的生成机制，并借助声音象征学(sound symbolism)的研究成果，探索这些声音的美学质地。</p>
+
+<!-- ============================================================ -->
+<h2 id="part1">第一部 西班牙语声音图谱 &mdash; 调音地图</h2>
+<!-- ============================================================ -->
+
+<h3>I. 元音系统：五角星的简洁</h3>
+
+<p>西班牙语元音系统堪称人类语言中最精简的设计之一：只有 /a e i o u/ 五个音位，均为纯元音(monophthong)，没有长短之分，没有鼻化对立，没有紧松对立。这个系统的美学特质在于<strong>均匀</strong>与<strong>清晰</strong> &mdash; 五个点均匀分布在元音空间中，如同一颗正五角星。</p>
+
+<!-- /a/ -->
+<div class="phoneme-card">
+  <h4><span class="ipa-big">/a/</span> 开央元音 &mdash; 声音的原点</h4>
+
+  <p><strong>调音描述：</strong>下颌大幅下降，舌体平置于口腔底部，舌位既不前也不后(央元音)，唇形自然展开不圆。声带振动。这是人类发声器官处于最大开放状态时产生的声音 &mdash; 口腔共鸣腔体积最大，声学上第一共振峰(F1)最高。</p>
+
+  <div class="comparison-grid">
+    <div class="lang-box">
+      <div class="lang-label">中文</div>
+      「啊」/a/ &mdash; 几乎完全相同。普通话的 a 在不同韵母环境中会略有变体(如 an 中偏前，ang 中偏后)，但单独发音时与西语 /a/ 高度吻合。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">日语</div>
+      あ [a] &mdash; 极为接近。日语的 /a/ 可能略微偏后，但差异在音位层面可以忽略。<strong>直接迁移即可。</strong>
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">英语</div>
+      英语没有与之完全对应的音。TRAP /&aelig;/ 偏前偏高，PALM /ɑː/ 偏后。最接近的是感叹词 "ah" [ɑː]，但英语母语者在非重读位置会习惯性弱化为 [ə]，这在西语中绝对不允许。
+    </div>
+  </div>
+
+  <div class="aesthetics-box">
+    /a/ 是声音象征学中研究最充分的元音。Sapir (1929) 的经典实验表明 /a/ 与"大"(largeness)相关联 &mdash; 被试普遍认为 <em>mal</em> 指代大物体而 <em>mil</em> 指代小物体。Ohala (1994) 从生物学角度解释：/a/ 要求最大口腔开度，与动物界张大嘴巴表示体型(或威胁)的信号同源。跨语言地，/a/ 承载着<strong>开放、明亮、温暖、坦诚</strong>的质感。它是婴儿最早发出的元音，是呼唤时的本能选择，是"妈妈/mama/まま"这个几乎全人类共通的词中的核心音。<em>Hola</em> 以 /a/ 收尾，<em>gracias</em> 以 /a/ 为重读核心 &mdash; 西班牙语最基本的善意表达，都建立在这个最原始、最敞开的声音之上。
+  </div>
+</div>
+
+<!-- /o/ -->
+<div class="phoneme-card">
+  <h4><span class="ipa-big">/o/</span> 半闭后圆唇元音 &mdash; 圆润的共鸣室</h4>
+
+  <p><strong>调音描述：</strong>舌体后缩并中等抬升(半闭位置)，双唇收圆成 O 形。关键特征：这是一个<strong>纯元音</strong>(monophthong)，从起始到结束，舌位和唇形保持不变。声带振动。</p>
+
+  <div class="comparison-grid">
+    <div class="lang-box">
+      <div class="lang-label">中文</div>
+      普通话「哦」/o/ &mdash; 很接近，但要注意：普通话单韵母 o 在实际发音中常带有轻微的起始滑动 [uo]，尤其在 bo, po, mo, fo 中。西语的 /o/ 更纯净、更稳定。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">日语</div>
+      お [o] &mdash; <strong>几乎完美的对应。</strong>日语的 /o/ 同为纯半闭后圆唇元音，不带任何滑动。这是日语学习者的天然优势。直接用日语的「お」即可。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">英语</div>
+      这里藏着一个重大陷阱。英语的所谓 "o"(如 <em>go, no, so</em>)实际上是双元音 [oʊ]：起始于 [o] 但随后舌体上升、双唇进一步收圆，滑向 [ʊ]。英语母语者几乎不自觉地会在 /o/ 后面添加这个滑音尾巴。在西语中，<em>hola</em> 的 o 必须是纯净的 [o]，如果发成 [hoʊla] 会立刻暴露外国口音。<br><br>
+      <strong>为什么英语会双元音化？</strong>这是大元音推移(Great Vowel Shift, 15-18世纪)的遗产。中古英语的纯 /oː/ 在这场系统性的连锁音变中被推高并裂化为 [oʊ]。西班牙语和日语都没有经历类似的系统性裂化，因此保留了纯元音。
+    </div>
+  </div>
+
+  <div class="aesthetics-box">
+    /o/ 在声音象征学中与<strong>圆润、饱满、完整</strong>相关联(Hinton et al. 1994)。唇形本身就是圆的，这种调音姿态与其象征意义之间存在着跨模态的映射(cross-modal mapping)。在多种语言中，表示"圆"的词往往含有 /o/：日语 まる(maru)、英语 round 中的 /aʊ/（含后圆唇成分）、西语 redondo。<em>Hola</em> 以 /o/ 开头，嘴唇先收圆再展开到 /a/ &mdash; 如同一扇圆形的门缓缓打开。
+  </div>
+</div>
+
+<!-- /u/ -->
+<div class="phoneme-card">
+  <h4><span class="ipa-big">/u/</span> 闭后圆唇元音 &mdash; 暗色的深井</h4>
+
+  <p><strong>调音描述：</strong>舌体后缩至最后位并大幅抬升(闭位置)，与软腭接近但不接触。双唇强力收圆并前突(protrusion)。口腔共鸣腔被拉长为一个窄长的管道，F2(第二共振峰)降至最低。声带振动。</p>
+
+  <div class="comparison-grid">
+    <div class="lang-box">
+      <div class="lang-label">中文</div>
+      「乌」/u/ &mdash; <strong>非常好的对应。</strong>普通话的 /u/ 同样是闭后圆唇元音，唇形突出明显。可以直接迁移。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">日语</div>
+      う [ɯ] &mdash; <strong>这是一个陷阱。</strong>日语的「う」在语音学上是<strong>非圆唇</strong>的 [ɯ] 或至多是弱圆唇的 [ɯᵝ]。发日语「う」时，双唇几乎不收圆，呈自然放松或略微压缩的状态。而西语 /u/ 要求双唇明确收圆并前突，形成一个清晰的圆形开口。<br><br>
+      <strong>练习要点：</strong>对着镜子发音。如果嘴唇看起来没有形成明显的 O 形，就说明你在用日语的 [ɯ]。想象你在吹蜡烛 &mdash; 那个唇形就是西语 /u/ 需要的。用中文的「乌」来校准。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">英语</div>
+      GOOSE /uː/ &mdash; 现代英语（尤其美式）的 /uː/ 已经前化(fronting)为 [ʉː] 甚至 [ʏː]，不再是真正的后元音。西语 /u/ 的舌位比多数英语方言的 "oo" 更靠后、唇形更圆。
+    </div>
+  </div>
+
+  <div class="aesthetics-box">
+    /u/ 是元音家族中最"暗"的成员。声学上，它的 F2 最低，人耳将其感知为低频、沉闷、封闭。Sapir (1929) 的实验中，含 /u/ 的无意义词被判断为指代更大、更重、更暗的物体。跨语言地，/u/ 出现在表示<strong>黑暗、深邃、沉重、神秘</strong>的词中：日语 暗い(kur<strong>u</strong>i → k<strong>u</strong>rai)、英语 gloom, doom, tomb、中文 "幽"(y<strong>ō</strong>u, 含后圆唇成分)。在 <em>mucho gusto</em> 中，/u/ 为词语注入了一种厚重的充实感 &mdash; 不是轻飘飘的客套，而是真切的分量。
+  </div>
+</div>
+
+<!-- /e/ -->
+<div class="phoneme-card">
+  <h4><span class="ipa-big">/e/</span> 半闭前非圆唇元音 &mdash; 中庸的平衡点</h4>
+
+  <p><strong>调音描述：</strong>舌体前伸并中等抬升(半闭位置)，唇形自然展开。既不像 /i/ 那样紧张高耸，也不像 /a/ 那样完全敞开。声带振动。</p>
+
+  <div class="comparison-grid">
+    <div class="lang-box">
+      <div class="lang-label">中文</div>
+      普通话的「诶」(作为感叹词时)比较接近，但普通话中 /e/ 的音值在不同韵母中变化极大(ei 中的 [e]、en 中的 [ə]、ie 中的 [ɛ])。最接近西语 /e/ 的是 ei 韵母中的起始部分。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">日语</div>
+      え [e] &mdash; <strong>优秀的对应。</strong>日语 /e/ 与西语 /e/ 在舌位和唇形上高度一致。直接迁移。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">英语</div>
+      DRESS /e/ (如 <em>bed, red</em>) 在多数方言中略偏低为 [ɛ]，即半开位置。西语 /e/ 比英语的 "e" 高一点、紧一点。另外，英语的 FACE /eɪ/ 是双元音，不可用来对应。
+    </div>
+  </div>
+
+  <div class="aesthetics-box">
+    /e/ 在声音象征学中的特征是<strong>中性、平稳、可控</strong>。它既不像 /a/ 那样张扬，也不像 /i/ 那样尖锐。Jakobson 和 Waugh (1979) 将其描述为元音系统中的"默认值" &mdash; 不标记任何极端维度。这种中庸性使它成为语法标记的理想载体：在西语中，/e/ 大量出现在动词变位词尾和功能词中（如 <em>me, te, de, que</em>），充当语言机器的润滑剂而非语义重载的核心。
+  </div>
+</div>
+
+<!-- /i/ -->
+<div class="phoneme-card">
+  <h4><span class="ipa-big">/i/</span> 闭前非圆唇元音 &mdash; 锐利的光点</h4>
+
+  <p><strong>调音描述：</strong>舌体前伸至最前位并大幅抬升(闭位置)，与硬腭接近。唇形展开(spread)，口腔通道被压缩为一条扁平的窄缝。F2(第二共振峰)达到最高值。声带振动。</p>
+
+  <div class="comparison-grid">
+    <div class="lang-box">
+      <div class="lang-label">中文</div>
+      「衣」/i/ &mdash; 完全对应。普通话的 /i/ 是标准的闭前非圆唇元音(不考虑 zhi, chi, shi, zi, ci, si 后的舌尖元音变体)。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">日语</div>
+      い [i] &mdash; 完全对应。三语共通，无需任何调整。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">英语</div>
+      FLEECE /iː/ &mdash; 非常接近，但英语的长 /iː/ 在某些方言中会双元音化为 [ɪi]。西语的 /i/ 始终保持纯元音。
+    </div>
+  </div>
+
+  <div class="aesthetics-box">
+    /i/ 是 Sapir (1929) 最著名发现的主角：在 <em>mal</em> vs <em>mil</em> 的实验中，被试跨语言地将含 /i/ 的词与<strong>小、细、轻、亮、快、锐</strong>相关联。这不是任意的 &mdash; 声学上，/i/ 的 F2 最高（约 2300 Hz），人耳将其感知为高频、明亮的声音。Ohala (1994) 的"频率代码"(frequency code)理论指出：高频声音跨物种地与小体型、无威胁、友善相关联（想想小鸟的鸣叫 vs 狮子的吼叫）。<em>Días</em> 中的重读 /i/ 给这个词注入了一种明亮感 &mdash; 白天(día)在声音层面就是明亮的。
+  </div>
+</div>
+
+<!-- ===================== 辅音 ===================== -->
+
+<h3>II. 辅音系统：独特的调音景观</h3>
+
+<!-- /b/ [β] -->
+<div class="phoneme-card">
+  <h4><span class="ipa-big">/b/ ~ [β]</span> 双唇音的二重人格 &mdash; 三语中均不存在的音位变体</h4>
+
+  <p><strong>调音描述：</strong>这是西语辅音系统中最重要的概念之一 &mdash; <strong>浊塞音的螺旋化</strong>(spirantization / lenition)。</p>
+
+  <p><strong>[b] 浊双唇塞音：</strong>双唇完全闭合，形成气流的完全阻断；软腭上升封闭鼻腔通道；声带振动；然后双唇突然打开释放气流。出现环境：绝对词首(句首或停顿后)、鼻音 /m, n/ 之后。如：<strong>¡Bueno!</strong> [ˈbweno]（句首）。</p>
+
+  <p><strong>[β] 浊双唇擦音/近音：</strong>双唇<em>接近但不完全闭合</em>，留出一条极窄的缝隙，气流从中持续通过而非被阻断再释放。声带振动。这不是英语的 /v/（唇齿擦音，下唇接触上齿），而是双唇之间的擦音 &mdash; 两片嘴唇彼此靠近，像是要闭合但最终忍住了。出现环境：元音之间及其他浊音之后。如：<strong>muy bueno</strong> [mui ˈβweno]（前面是元音 /i/）。</p>
+
+  <div class="comparison-grid">
+    <div class="lang-box">
+      <div class="lang-label">中文</div>
+      普通话的 b /p/ 实际上是清不送气塞音，与西语的浊 [b] 不同(西语 [b] 有声带振动)。中文中不存在 [β]。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">日语</div>
+      日语的 ば行 /b/ 是标准的浊双唇塞音 [b]，可以迁移到西语的塞音变体。但日语同样不存在 [β] 这个擦音变体。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">英语</div>
+      英语的 /b/ 是浊双唇塞音，可以迁移。英语同样不存在 [β]。英语有唇齿擦音 /v/，但 [β] 不是 /v/ &mdash; [β] 是双唇间的擦音，而 /v/ 是下唇接触上齿。
+    </div>
+  </div>
+
+  <div class="aesthetics-box">
+    这种塞音/擦音的交替是西语语流的核心特征之一，赋予了西班牙语一种独特的<strong>柔韧感</strong>。如果每个 /b/ 都发成完整的塞音 [b]，西语听起来会生硬、断裂；正是元音间的 [β] 让音节之间像丝绸一样滑动连接。这是一种"最小阻力"的美学 &mdash; 语流像水一样寻找最轻松的路径，在不影响辨义的前提下，让调音器官做最少的功。学习这个变体不仅是技术要求，更是进入西语语流节奏感的入口。
+  </div>
+</div>
+
+<!-- /d/ [ð] -->
+<div class="phoneme-card">
+  <h4><span class="ipa-big">/d/ ~ [ð]</span> 齿龈音的同一规律 &mdash; 英语使用者的意外优势</h4>
+
+  <p><strong>调音描述：</strong>与 /b/~[β] 完全平行的交替模式。</p>
+
+  <p><strong>[d] 浊齿塞音：</strong>舌尖/舌叶接触上齿背面(西语的 /d/ 是齿音，比英语的齿龈 /d/ 更靠前)，完全阻断气流，声带振动，然后释放。出现环境：绝对词首、/n, l/ 之后。</p>
+
+  <p><strong>[ð] 浊齿擦音：</strong>舌尖接近上齿但不完全接触，气流从缝隙中持续通过。声带振动。出现环境：元音之间及其他位置。如：<strong>Buenos días</strong> &mdash; <em>días</em> 的 d 在连读中跟在 /s/ 和元音环境后，实际发音为 [ˈði.as]。<strong>Adiós</strong> [a.ˈðjos] &mdash; d 在元音 /a/ 之后，自动弱化为 [ð]。<strong>De nada</strong> [de ˈna.ða] &mdash; 第二个 d(nada 的 d)在元音 /a/ 之后弱化。</p>
+
+  <div class="comparison-grid">
+    <div class="lang-box">
+      <div class="lang-label">中文</div>
+      普通话 d /t/ 是清不送气塞音，与西语浊 [d] 不同。中文无 [ð]。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">日语</div>
+      日语 だ行 /d/ 是浊齿龈塞音，可部分迁移。日语无 [ð]。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">英语</div>
+      <strong>好消息：英语有 [ð]！</strong>这就是 <em>the, this, that, there, then</em> 中的 th 音。英语母语者已经拥有这个调音模式。唯一的区别是：在英语中 /ð/ 是独立音位（与 /d/ 对立），而在西语中 [ð] 只是 /d/ 的位置变体。你不需要"决定"何时用 [d] 何时用 [ð] &mdash; 只需遵循规则：词首/鼻音后用 [d]，其他地方自然会弱化为 [ð]。
+    </div>
+  </div>
+
+  <div class="aesthetics-box">
+    [ð] 的听觉质感是<strong>温柔的、持续的、如微风一般的</strong>。与爆发性的 [d] 相比，[ð] 像是一个被柔化的辅音，声音不再"撞击"而是"抚过"。<em>Adiós</em> 中的 [ð] 让这个告别词听起来不是硬生生的断裂，而是一种渐行渐远的轻触 &mdash; 声音层面的温柔告别。
+  </div>
+</div>
+
+<!-- /ɾ/ /r/ -->
+<div class="phoneme-card">
+  <h4><span class="ipa-big">/ɾ/ &amp; /r/</span> 闪音与颤音 &mdash; 西语声音身份的标志</h4>
+
+  <p><strong>闪音 [ɾ] 的调音描述：</strong>舌尖快速上弹，轻触齿龈嵴(alveolar ridge)一次后立即弹回。整个接触过程极短（约 20-30 毫秒）。不是持续的摩擦，不是完全的阻塞，而是一次弹性的"轻拍"(tap/flap)。如：<em>gracias</em> [ˈɡɾa.sjas] 中的 r，<em>por favor</em> [poɾ fa.ˈβoɾ] 中的两个 r。</p>
+
+  <p><strong>颤音 [r] 的调音描述：</strong>舌尖轻柔地抵住齿龈嵴，保持适度的肌肉张力（关键：不能太紧也不能太松）；然后让强气流通过舌尖与齿龈之间的狭窄通道。此时伯努利效应(Bernoulli effect)发生作用：快速气流在舌尖上方产生低压区，将舌尖吸起（闭合）；闭合后气压在舌后方积聚，又将舌尖推开（打开）&mdash; 如此循环往复，产生 2-5 次快速振动。<strong>这不是靠肌肉主动弹动舌尖，而是利用空气动力学让舌尖被动振动。</strong>如：词首的 r（如 rojo）、双写 rr（如 perro）。</p>
+
+  <div class="comparison-grid">
+    <div class="lang-box">
+      <div class="lang-label">中文</div>
+      普通话的 r /ɻ/ 是卷舌近音(retroflex approximant)，调音方式完全不同 &mdash; 舌尖卷起接近硬腭前部但不接触，气流持续通过。既不是闪音也不是颤音。无法迁移。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">日语</div>
+      ら行 [ɾ] &mdash; <strong>极佳的迁移来源！</strong>日语的ら行辅音本质上就是齿龈闪音 [ɾ]，与西语的单 r 几乎完全相同。会说「さくら」(sakura)就会发西语的 <em>gracias</em> 中的 r。但日语中不存在多次振动的颤音 [r]。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">英语</div>
+      英语（多数方言）的 /ɹ/ 是齿龈/后齿龈近音(approximant) &mdash; 舌尖抬起但不接触任何部位，与西语的 r 完全不同。美式英语在 <em>butter, better</em> 中有闪音 [ɾ]（作为 /t/ 的变体），但说话者通常意识不到自己在产生这个音。
+    </div>
+  </div>
+
+  <div class="aesthetics-box">
+    颤音 [r] 在声音象征学中有强烈的<strong>力量感和活力感</strong>。Roper (2014) 的研究表明，含颤音的假词被评判为更"有力"、"更粗糙"、"更具动态性"。这与其声学特征一致：颤音的振幅快速波动产生一种"震动"的听觉印象。这也是为什么 /r/ 常出现在拟声词和力量相关的词中。西班牙语的颤音是其语音身份中最标志性的特征之一 &mdash; 掌握它不仅是语音技能的达成，更是一种声音人格的获得。<br><br>
+    <strong>习得建议（语音学家视角）：</strong>初学者最常见的错误是过度用力。颤音的秘诀恰恰在于<strong>放松</strong>。舌尖需要足够松弛才能被气流驱动振荡。练习步骤：(1) 先能稳定发出 [ɾ]（利用日语迁移）；(2) 在 [ɾ] 的基础上加强气流、降低舌尖张力，让它自然延长为多次振动；(3) 用 [dɾ] 组合练习（如重复 <em>dra-dra-dra</em>），因为 [d] 的舌位天然接近颤音起始位置。
+  </div>
+</div>
+
+<!-- /x/ -->
+<div class="phoneme-card">
+  <h4><span class="ipa-big">/x/</span> 清软腭擦音 &mdash; 中文使用者的隐藏优势</h4>
+
+  <p><strong>调音描述：</strong>舌体后部(舌根/舌面后部)抬升接近软腭(velum)，形成窄缝，清气流从中挤过产生摩擦噪音。声带不振动。在西语正字法中写作 j（如 <em>mujer</em>）或 g 在 e/i 前（如 <em>gente</em>）。</p>
+
+  <div class="comparison-grid">
+    <div class="lang-box">
+      <div class="lang-label">中文</div>
+      普通话 h /x/ &mdash; <strong>近乎完美的对应！</strong>「喝」「和」「好」中的声母 h 就是清软腭擦音 [x]（或略偏后的 [χ]）。这是中文使用者面对西语 /x/ 时的巨大优势。直接用中文的 h 即可。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">日语</div>
+      日语 は行的 h 在 /a, e, o/ 前为声门擦音 [h]（调音位置在声门而非软腭），在 /i/ 前为硬腭擦音 [ç]（如 ひ [çi]），在 /ɯ/ 前为双唇擦音 [ɸ]（如 ふ [ɸɯ]）。这些都不是西语的 /x/。日语使用者需要将摩擦位置从声门(喉咙最深处)前移到软腭(口腔后部上方)。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">英语</div>
+      英语中没有 /x/。最接近的是词首的 /h/（声门擦音），但摩擦位置完全不同。英语母语者常将西语 /x/ 发成过弱的 [h]，失去了该音应有的"摩擦质感"。苏格兰英语的 <em>loch</em> [lɒx] 是唯一的例外。
+    </div>
+  </div>
+
+  <div class="aesthetics-box">
+    /x/ 的听觉质感是<strong>粗粝的、干燥的、带有风沙感的</strong>。作为一个在口腔后部产生强烈湍流的擦音，它携带着一种"喉间的低语"或"干燥空气掠过岩石"的意象。在阿拉伯语和西班牙语的历史接触中（711-1492年摩尔人统治伊比利亚半岛），大量含 /x/ 的阿拉伯语借词进入西班牙语，这个音因此也隐约携带着一种北非沙漠与安达卢西亚交汇的历史气息。
+  </div>
+</div>
+
+<!-- /ɲ/ -->
+<div class="phoneme-card">
+  <h4><span class="ipa-big">/ɲ/</span> 硬腭鼻音 (ñ) &mdash; 西班牙语的字母图腾</h4>
+
+  <p><strong>调音描述：</strong>舌面(tongue body/blade)的宽阔区域上抬，紧密贴合硬腭(hard palate)，形成口腔通道的完全阻塞。同时软腭下降，开放鼻腔通道，气流从鼻腔排出。声带振动。关键要点：这不是 /n/ + /j/ 的快速序列，而是一个<strong>单独的辅音</strong> &mdash; 舌面从一开始就贴合硬腭，而非先做齿龈接触再滑动到硬腭。</p>
+
+  <div class="comparison-grid">
+    <div class="lang-box">
+      <div class="lang-label">中文</div>
+      普通话 ni + 介音 [nj]（如「娘」niáng 的声母）接近但不完全等同。更准确地说，普通话中确实存在腭化的 n [nʲ]，但它更多是 /n/ 在高元音前的协同发音(coarticulation)结果，而非独立音位。西语 /ɲ/ 的舌面接触硬腭的面积更大、更充分。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">日语</div>
+      にゃ [ɲa] &mdash; <strong>很好的迁移来源。</strong>日语拗音にゃ/にゅ/にょ中的辅音本质上就是硬腭鼻音 [ɲ]。如果你能发「にゃんこ」(nyanko, 小猫)，就能发 <em>mañana</em> 中的 ñ。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">英语</div>
+      英语中没有 /ɲ/ 音位。<em>onion</em> 中的 "ni" [nj] 是 /n/ + /j/ 的序列，调音姿态不同：舌尖先做齿龈接触（/n/），然后舌面上抬做硬腭近音（/j/）。西语 /ɲ/ 要求舌面从一开始就占领硬腭 &mdash; 不经过齿龈阶段。
+    </div>
+  </div>
+
+  <div class="aesthetics-box">
+    ñ 是西班牙语的视觉和听觉身份标志 &mdash; 西班牙皇家语言学院(RAE)的标志中就包含这个字母。/ɲ/ 的声音质感是<strong>温润的、亲昵的、带有触感的</strong>。硬腭鼻音在多种语言中出现在表示亲密、幼小、柔软的词中：意大利语 <em>bambino</em> 的 gn [ɲ]、法语 <em>mignon</em> [miɲɔ̃]、日语的にゃんにゃん(猫叫声)。<em>Mañana</em>（明天/早晨）中 ñ 的出现赋予这个词一种柔软的延展感 &mdash; 明天不是硬邦邦的截止日期，而是在晨光中缓缓展开的可能性。
+  </div>
+</div>
+
+<!-- /ʝ/ (ll) -->
+<div class="phoneme-card">
+  <h4><span class="ipa-big">/ʝ/</span> 浊硬腭擦音 (ll, y) &mdash; 正在变化中的音</h4>
+
+  <p><strong>调音描述：</strong>舌面抬升接近硬腭（但不完全接触），气流从窄缝中通过产生摩擦。声带振动。在正字法中写作 ll 或 y。历史上 ll 是硬腭边近音 [ʎ]（如意大利语 <em>famiglia</em>），但在绝大多数现代西语方言中，ll 和 y 已经合并(yeísmo)，都发为 [ʝ] 或更弱的 [j]。如：<em>me llamo</em> [me ˈʝa.mo] / [me ˈja.mo]。</p>
+
+  <div class="comparison-grid">
+    <div class="lang-box">
+      <div class="lang-label">中文</div>
+      无直接对应。最接近的是「也」「牙」中的 y [j]（硬腭近音），但中文的 [j] 摩擦弱于西语 /ʝ/。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">日语</div>
+      や行 [j] &mdash; 非常接近。日语的 /j/ 是硬腭近音，西语的实现在近音 [j] 和擦音 [ʝ] 之间浮动，实际差异不大。可以直接迁移。
+    </div>
+    <div class="lang-box">
+      <div class="lang-label">英语</div>
+      英语 <em>yes, you, yet</em> 中的 y [j] &mdash; 高度对应。英语的 /j/ 可以直接使用。
+    </div>
+  </div>
+</div>
+
+<!-- silent h -->
+<div class="phoneme-card">
+  <h4><span class="ipa-big">h = ∅</span> 无声的 h &mdash; 拉丁语 /f/ 的幽灵</h4>
+
+  <p><strong>调音描述：</strong>没有调音动作。西班牙语的 h 是一个<strong>纯正字法符号</strong>，不对应任何声音。<em>Hola</em> 的实际发音是 [ˈo.la]，如同 h 不存在。</p>
+
+  <p><strong>历史解释：</strong>这个沉默的 h 是音变化石(phonological fossil)。在从拉丁语到西班牙语的演变中，词首的 /f/ 经历了一次戏剧性的变化：</p>
+  <ul style="margin: 8px 0 8px 20px;">
+    <li>拉丁语 <em>filius</em> [ˈfi.li.us]（儿子）→ 古西语 <em>hijo</em>（先变为 [h]，后 h 也消失）</li>
+    <li>拉丁语 <em>facere</em> [ˈfa.ke.re]（做）→ 西语 <em>hacer</em></li>
+    <li>拉丁语 <em>fabulare</em>（说）→ 西语 <em>hablar</em></li>
+  </ul>
+  <p>这个 f → h → ∅ 的变化被认为是巴斯克语(euskera)底层(substratum)的影响 &mdash; 巴斯克语没有词首 /f/，说巴斯克语的人在学拉丁语时将 /f/ 替换为 /h/，最终 /h/ 也消失了，但字母 h 作为历史记忆被保留在拼写中。</p>
+
+  <div class="aesthetics-box">
+    沉默的字母是语言中最诗意的存在之一。它们是<strong>声音的墓碑</strong> &mdash; 标记着一个曾经响亮的音素如今安息之处。英语中的 <em>knight</em>（曾读 [knɪçt]，k 和 gh 都发音）、<em>know</em>（曾读 [knoː]）也是同样的幽灵。日语中，假名「は」作为助词读 [wa] 而非 [ha]，同样是历史语音变化在正字法中留下的痕迹（奈良时代的 /pa/ → 平安时代的 /ɸa/ → 后来的 /wa/，但假名拼写被冻结）。每一个沉默的字母都在低声诉说一段语言的历史。
+  </div>
+</div>
+
+<!-- 其他辅音简述 -->
+<div class="phoneme-card">
+  <h4>其他出现在第一课词汇中的辅音</h4>
+
+  <p><strong>/ɡ/ ~ [ɣ] 软腭塞音/擦音交替：</strong>与 /b/~[β]、/d/~[ð] 完全平行的第三组。词首和鼻音后为塞音 [ɡ]（如 <em>gracias</em> [ˈɡɾa.sjas]、<em>gusto</em> [ˈɡus.to]），元音间为擦音 [ɣ]（如 <em>hasta luego</em> [as.ta ˈlwe.ɣo]）。中文的 g /k/ 是清不送气音，日语が行有浊 [ɡ]（可迁移塞音变体）。</p>
+
+  <p><strong>/s/ 清齿龈擦音：</strong>三语共有，无迁移障碍。<em>Gracias, adiós, buenos, estás</em> 中大量出现。注意：在半岛西语(castellano)中，c 在 e/i 前为 [θ]（清齿擦音，如英语 <em>think</em>），即 <em>gracias</em> = [ˈɡɾa.θjas]。但在拉美西语中统一为 [s]（seseo）。</p>
+
+  <p><strong>/tʃ/ 清后齿龈塞擦音 (ch)：</strong>如 <em>mucho</em> [ˈmu.tʃo]。与中文的 ch /tʂʰ/ 不同（中文的是卷舌送气音），但与日语的 ち [tɕi] 系统和英语的 <em>church</em> [tʃ] 接近。</p>
+
+  <p><strong>/m/ 双唇鼻音、/n/ 齿龈鼻音、/l/ 齿龈边近音：</strong>三语高度共通的音素，迁移顺畅。</p>
+
+  <p><strong>/p, t, k/ 清塞音：</strong>西语的清塞音是<strong>不送气的</strong>(unaspirated)，这一点与中文的 b/d/g [p t k]（清不送气）完全一致，而与英语的 p/t/k [pʰ tʰ kʰ]（送气）不同。如 <em>por</em> 的 p 不带气流喷出，中文使用者可以直接迁移中文的 b/d/g 的起始方式（但需注意西语 p/t/k 是清音）。</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="part2">第二部 韵律的性格 &mdash; 节奏、重音与语调</h2>
+<!-- ============================================================ -->
+
+<h3>I. 节奏类型：音节等时 (syllable-timed)</h3>
+
+<div class="prosody-box">
+<p>语言的节奏类型是其"声音人格"中最深层的特征。Pike (1945) 和 Abercrombie (1967) 提出的经典分类将世界语言分为两大阵营：</p>
+
+<p><strong>音节等时语言(syllable-timed)：</strong>每个音节获得大致相等的时长。西班牙语、法语、意大利语、普通话属此类。</p>
+
+<p><strong>重音等时语言(stress-timed)：</strong>重读音节之间的时间间隔大致相等，非重读音节被压缩。英语、德语、俄语属此类。</p>
+
+<p><strong>莫拉等时语言(mora-timed)：</strong>每个莫拉(mora)获得大致相等的时长。日语属此类。</p>
+</div>
+
+<p>对于三语使用者来说，这意味着：</p>
+
+<p><strong>中文的节奏感最接近西语。</strong>普通话也是音节等时的 &mdash; 每个音节（每个汉字）获得大致相等的发音时长。说中文时你不会把某些字压缩得特别短而把另一些拉特别长。这种"匀速节拍"的感觉可以直接迁移到西语。</p>
+
+<p><strong>日语的莫拉等时略有不同，但比英语更接近。</strong>日语中「きって」(kitte) 是 4 莫拉（ki-t-te + 隐含的终莫拉），每个莫拉等长。这种对均匀节拍的敏感度有助于西语学习，但要注意：西语的基本单位是音节而非莫拉，一个含有复杂辅音丛的音节仍算一个节拍单位。</p>
+
+<p><strong>英语是最需要"卸载"的源语言。</strong>英语的重音等时节奏会导致说话者本能地压缩非重读音节：<em>banana</em> 不是 ba-na-na 三个均等的音节，而是 bə-<strong>NA</strong>-nə，重读音节膨胀，非重读音节萎缩为央元音 [ə]。在西语中，<em>banana</em> 的三个元音都是完整的 [a]，没有任何一个可以弱化。</p>
+
+<p>以第一课词汇为例：</p>
+<p style="font-size:1.05rem; letter-spacing: 1px; margin: 12px 0;">
+<strong>Bue - nos - dí - as</strong> &mdash; 四个音节，每个获得近乎相等的时长。重读在 <em>dí</em> 上，但重读的实现方式主要是音高升高和略微加强，<strong>而非大幅延长</strong>。非重读音节不会被压缩或弱化。
+</p>
+
+<h3>II. 重音作为意义区分手段</h3>
+
+<p>西语的词重音(word stress)具有<strong>音位学地位</strong>(phonemic status) &mdash; 它能区分不同的词或不同的语法形式：</p>
+
+<ul style="margin: 8px 0 16px 20px;">
+  <li><em>hablo</em> [ˈa.βlo]（我说）vs <em>habló</em> [a.ˈβlo]（他/她说了）</li>
+  <li><em>papa</em> [ˈpa.pa]（土豆）vs <em>papá</em> [pa.ˈpa]（爸爸）</li>
+  <li><em>esta</em> [ˈes.ta]（这个，阴性）vs <em>está</em> [es.ˈta]（在/是，动词）</li>
+</ul>
+
+<div class="prosody-box">
+<p><strong>类型学比较 &mdash; 四种语言的"超音段对立"策略：</strong></p>
+
+<p><strong>中文：</strong>使用<strong>声调</strong>(tone)区分意义。mā/má/mǎ/mà 是四个完全不同的词。声调附着在每个音节上，是音节的固有属性。</p>
+
+<p><strong>日语：</strong>使用<strong>高低重音</strong>(pitch accent)区分意义。箸 /haꜜshi/（筷子，头高型）vs 橋 /hashiꜜ/（桥，尾高型）vs 端 /hashi/（边缘，平板型）。但高低重音的功能负担(functional load)远低于中文声调 &mdash; 大量词汇靠语境而非重音区分。</p>
+
+<p><strong>英语：</strong>使用<strong>重音</strong>(stress)区分词性：<em>record</em>（名词，重音前）vs <em>record</em>（动词，重音后）。但这种对立的词汇范围有限。</p>
+
+<p><strong>西班牙语：</strong>使用<strong>重音</strong>(stress)区分语法意义（尤其是动词变位时态和人称），功能负担相当高。好处是：西语有明确的重音标注规则 &mdash; 当重音落在"意外"位置时，拼写中会用重音符号(tilde)标出（如 <em>adiós, está, habló</em>）。</p>
+
+<p>对于中文使用者来说，"超音段特征能区分意义"这个概念本身毫不陌生 &mdash; 只不过中文用的是音高轮廓(pitch contour)，而西语用的是响度/时长/音高的综合强化。将注意力从"每个音节的调值"转移到"哪个音节被强调"，是中文使用者需要做的认知转换。</p>
+</div>
+
+<h3>III. 语调轮廓 (Intonation Contours)</h3>
+
+<p><strong>陈述句：</strong>西语陈述句的语调通常在重读音节处上升，然后在末尾下降(rise-fall)。如 <em>Me llamo Carlos</em>：整体语调在 <em>lla</em> 处达到峰值，随后 <em>Carlos</em> 的 <em>los</em> 下降至低音。这与英语陈述句的模式基本一致，也与中文陈述句的末尾下降趋势相似。</p>
+
+<p><strong>一般疑问句(是非问句)：</strong>末尾上升。<em>¿Cómo estás?</em> 虽然形式上是特殊疑问句，但在日常口语中常带有关切的升调。标准的一般疑问句如 <em>¿Eres Carlos?</em> 在 <em>Car</em> 处升调达峰。这一模式在英语和中文的是非问句中同样存在（英语：<em>Are you Carlos?</em> 末尾升调；中文虽然有「吗」标记，但也常伴随升调）。</p>
+
+<p><strong>特殊疑问句(wh-问句)：</strong>疑问词处音高升高，句末下降。<em>¿Cómo te llamas?</em> &mdash; <em>Có</em> 处高，<em>llamas</em> 末尾降。这与英语的 wh-问句模式（<em>What's your name?</em> 末尾降）相同。日语的疑问句通常末尾升调（无论是否含有疑问词），因此日语使用者需要注意：西语的 wh-问句末尾是<strong>降</strong>的。</p>
+
+<p><strong>感叹句：</strong>起始音高极高，随后下降。<em>¡Mucho gusto!</em> &mdash; <em>Mu</em> 处高起，整体大幅下降。西语用倒置的标点符号 ¡...! / ¿...? 在句首标注，这在世界文字系统中独一无二，让读者在还没看到句末就知道这是感叹/疑问 &mdash; 对阅读时的语调预备(prosodic priming)有实际作用。</p>
+
+<!-- ============================================================ -->
+<h2 id="part3">第三部 第一课词汇的音感风景</h2>
+<!-- ============================================================ -->
+
+<p class="section-intro">以下我们取第一课五个核心词汇，从声音象征学(sound symbolism)和语音美学(phonaesthetics)的视角，分析每个词的"声音人格" &mdash; 它的声音如何与它的意义交织、共鸣、或产生张力。</p>
+
+<!-- Hola -->
+<div class="word-analysis">
+  <h4>1. Hola [ˈo.la] &mdash; 打开的声音之门</h4>
+  <div class="ipa-trans">/∅ - o - l - a/ &mdash; 两个开音节，两个开元音</div>
+
+  <p>从调音运动学(articulatory kinematics)来看，<em>hola</em> 是一次"渐进式开放"的旅程。起始的 h 是沉默的 &mdash; 一个不存在的辅音，意味着这个词以纯元音 /o/ 直接打开，口腔从零阻碍开始。/o/ 要求嘴唇收圆，口腔形成一个温暖的共鸣室。然后 /l/ 登场 &mdash; 舌尖轻触齿龈嵴，但气流从舌头两侧畅通无阻地流过（这就是"边音"的含义），所以 /l/ 虽然有舌的接触，却几乎不构成任何阻碍感。最后 /a/ 将口腔开到最大。</p>
+
+  <p>整个词的运动轨迹是：<strong>圆(o) → 流(l) → 敞(a)</strong>。没有任何塞音的爆发，没有任何擦音的摩擦，没有任何鼻音的封闭。这是一个在声学上和调音动力学上都<strong>完全无阻碍的词</strong>。</p>
+
+  <p>这种音感与词义之间的和谐不是巧合，但也不完全是必然 &mdash; 它是语用选择(pragmatic selection)的结果。在语言演变中，承载高频社交功能的词（问候、感叹、呼唤）往往倾向于选择调音简单、音感开放的形式。日语的招呼词「おはよう」(ohayō) 同样以 /o/ 开头，以开音节为主。英语的 <em>hello</em> 虽然起始有 /h/（声门擦音），但紧跟的也是 /ɛ/ + /l/ + /oʊ/ 的开放序列。问候的声音往往是"门"的形状 &mdash; 敞开的。</p>
+</div>
+
+<!-- Adiós -->
+<div class="word-analysis">
+  <h4>2. Adiós [a.ˈðjos] &mdash; 消散的声音轨迹</h4>
+  <div class="ipa-trans">/a - ð - j - o - s/ &mdash; 从最大开度到气流消散</div>
+
+  <p>这个词的声音叙事令人惊叹。它以 /a/ 开始 &mdash; 最开放、最明亮的元音，如同告别时的面对面正视。然后进入 [ð] &mdash; 浊齿擦音，舌尖轻轻接近上齿但不关闭，气流持续通过，像一只手缓缓松开另一只手的握持。紧跟的 /j/ 是滑音，舌体快速滑过硬腭区域，带来一瞬间的上升感。/o/ 将嘴唇再次收圆 &mdash; 这是一个停顿，一个回望的瞬间。最后 /s/ &mdash; 清齿龈擦音 &mdash; 将词语终结在一个无声的气流释放中，如同叹息，如同风在远去的身影背后消散。</p>
+
+  <p>整个运动轨迹：<strong>敞开(a) → 柔化(ð) → 上滑(j) → 回圆(o) → 消散(s)</strong>。</p>
+
+  <p>词源本身也是一个告别的仪式：<em>a Dios</em>（致上帝），将离别者交托给更高的守护。与法语 <em>adieu</em>、英语古式的 <em>adieu</em> 同源。在所有这些语言中，告别词都选择了以开元音开始、以擦音或半元音结束的形式 &mdash; 声音从实体走向虚无，从在场走向缺席。</p>
+</div>
+
+<!-- Gracias -->
+<div class="word-analysis">
+  <h4>3. Gracias [ˈɡɾa.sjas] / [ˈɡɾa.θjas] &mdash; 先抓取，再释放</h4>
+  <div class="ipa-trans">/ɡ - ɾ - a - s/θ - j - a - s/ &mdash; 从硬到软的声音弧线</div>
+
+  <p>这个词以辅音丛 /ɡɾ/ 开始，这是西语中最具力量感的起始之一。/ɡ/ 是浊软腭塞音 &mdash; 舌根猛然撞击软腭后释放，充满爆发力。紧跟的 /ɾ/ 是齿龈闪音 &mdash; 舌尖快速弹击一次。/ɡɾ/ 组合产生的声学效果是一种<strong>"抓取"(grasping)的质感</strong>。</p>
+
+  <p>这里有一个引人注目的跨语言音感现象(phonaestheme)：英语中 /ɡɹ/ 起始的词大量与"抓取、摩擦、粗糙"相关 &mdash; <em>grab, grip, grasp, grind, grit, grate, gravel, grope</em>。Bloomfield (1933) 和 Firth (1930) 早就注意到这个辅音丛的语义聚集倾向。虽然 <em>gracias</em> 的 /ɡɾ/ 来自拉丁语 <em>gratia</em>（恩惠），与英语的 /ɡɹ/ 音感集群是独立的历史线索，但在听感上，/ɡɾ/ 的力量感赋予 <em>gracias</em> 一种"郑重"的开头 &mdash; 感谢不是轻飘飘的，它以一种有分量的方式起始。</p>
+
+  <p>然后 /a/ 将一切打开 &mdash; 嘴巴张到最大，感谢之心如同摊开的手掌。后半部分 /sjas/ 或 /θjas/ 以擦音和滑音交织收束，声音从高能量的开头逐渐柔化、消散。整个词的动态轮廓是：<strong>爆发 → 敞开 → 柔化 → 消散</strong>。这恰如感谢行为本身的动力学：先被某种善意"击中"(impact)，然后内心打开(opening)，最后以温和的方式将感激释放出去。</p>
+</div>
+
+<!-- Buenos -->
+<div class="word-analysis">
+  <h4>4. Buenos [ˈbwe.nos] &mdash; 唇间绽放的善意</h4>
+  <div class="ipa-trans">/b - w - e - n - o - s/ &mdash; 双唇启动，鼻音温润，圆唇收束</div>
+
+  <p>/b/ 从双唇闭合开始 &mdash; 这是人类发声器官能做的最简单的阻塞：两片嘴唇贴合。然后唇形不是打开为 /a/ 的大口，而是收圆滑入 /w/ &mdash; 一个圆唇滑音，嘴唇保持着接近 /u/ 的圆形但快速过渡。紧接 /e/ 让口腔略微打开到舒适的中间位置。整个 /bwe/ 的调音运动是一次<strong>从闭合到圆润到微开的温和绽放</strong>，像是一个微笑正在形成。</p>
+
+  <p>后半部分 /nos/ 以鼻音 /n/ 开头 &mdash; 鼻音在声音象征学中与<strong>温暖、亲近、母性</strong>相关联(Jakobson & Waugh 1979)。这种关联可能源于鼻音与最早习得的词（mama, nana, 妈妈, なな）的共现关系。/o/ 再次收圆，/s/ 轻轻收束。整个词的音感是<strong>柔软的、圆润的、完整的</strong> &mdash; 它听起来确实"好"(bueno)，声音的触感印证了语义。</p>
+
+  <p>词源上，<em>bueno</em> 来自拉丁语 <em>bonus</em>（好的），英语 <em>bonus, bounty, bona fide</em> 同源。有趣的是，跨语言中表示"好"的词常含有双唇音和鼻音：英语 <em>bene-fit, bene-volent</em>（拉丁语 <em>bene</em> = 好）、日语 いい [iː]（虽然不含唇音，但其极简的结构本身传达了一种"无阻碍"的善意感）。</p>
+</div>
+
+<!-- Mucho gusto -->
+<div class="word-analysis">
+  <h4>5. Mucho gusto [ˈmu.tʃo ˈɡus.to] &mdash; 丰盈与力度的碰撞</h4>
+  <div class="ipa-trans">/m - u - tʃ - o/ + /ɡ - u - s - t - o/ &mdash; 暗元音包裹着硬辅音</div>
+
+  <p><em>Mucho</em> 以 /m/ 开始 &mdash; 鼻音，嘴唇闭合，声音从鼻腔流出，带有一种包裹性的温暖。紧跟 /u/ &mdash; 最暗、最深、最圆的元音。/m/ + /u/ 的组合是人类语言中最"内在化"(internalized)的声音序列之一：它让声音留在身体内部（鼻腔 + 口腔后部），而非向外投射。这给词语注入了一种<strong>深沉的充实感</strong>。</p>
+
+  <p>然后 /tʃ/ 突然切入 &mdash; 清后齿龈塞擦音，舌叶先完全贴合后齿龈区域（塞音阶段），再爆发性释放气流通过窄缝（擦音阶段）。这是一个<strong>尖锐的、有力的、带有切割感的辅音</strong>。从 /mu/ 的深沉宁静到 /tʃ/ 的骤然爆发，形成了强烈的声音对比 &mdash; 如同黑暗中的闪电。最后 /o/ 将声音再次拉回圆润。</p>
+
+  <p><em>Gusto</em> 延续了这种"暗元音 + 硬辅音"的模式：/ɡ/ 是浊软腭塞音（有力），/u/ 是暗元音（深沉），/s/ 是擦音（持续），/t/ 是清塞音（干脆），/o/ 是圆唇元音（完整）。整个 <em>mucho gusto</em> 的音感是<strong>丰沛而有力的</strong> &mdash; 这不是蜻蜓点水式的"幸会"，而是一种带有身体感的、真挚的、有分量的愉悦。</p>
+
+  <p>声音象征学的角度：/u/ 的"大/重/暗"联想与 <em>mucho</em>（很多/非常）的语义完美契合。Sapir 如果听到这个词，一定会微笑 &mdash; 因为它恰好验证了他的理论：表示"多/大"的词倾向于使用低元音或后元音。英语的 <em>much</em>（含 /ʌ/，低央元音）也遵循这一倾向。</p>
+</div>
+
+<!-- 结语 -->
+<div style="margin-top: 48px; padding: 24px; background: linear-gradient(135deg, #f8f4ff 0%, #f0f4ff 100%); border-radius: 12px; border: 1px solid #d8d0f0;">
+  <h3 style="margin-top: 0; color: var(--primary);">结语：声音作为入口</h3>
+
+  <p>学习一门语言的声音系统，不仅仅是学习如何摆放舌头和嘴唇 &mdash; 它是进入一种新的感知模式。西班牙语的五元音系统清澈简洁如晴空；它的浊塞音螺旋化让语流如同水面的涟漪般柔韧；它的音节等时节奏赋予每个音节平等的尊严；它的颤音如同生命力的物理震颤。</p>
+
+  <p>作为中/英/日三语使用者，你已经在体内储备了丰富的调音程序库(articulatory repertoire)。日语给了你纯元音和闪音 [ɾ]；中文给了你清软腭擦音 /x/ 和不送气清塞音；英语给了你齿擦音 [ð] 和丰富的辅音丛处理能力。你需要新建的调音程序(genuinely new motor patterns)其实只有两个：浊塞音的螺旋化变体 [β ð ɣ]，以及齿龈颤音 [r]。</p>
+
+  <p>一个语音学家的最后建议：<strong>不要只用耳朵学发音，要用整个口腔的触觉。</strong>感受舌尖在发 [ɾ] 时弹击齿龈的那一瞬间的触感；感受双唇在发 [β] 时几乎闭合又没有闭合的那种微妙的气流；感受发 /a/ 时下颌完全打开的那种自由。声音不是抽象的符号 &mdash; 它是身体的雕塑、气流的建筑、肌肉的舞蹈。</p>
+
+  <p style="text-align: right; color: #999; font-size: 0.85rem; margin-top: 16px;">参考文献：Sapir (1929), Ohala (1994), Jakobson & Waugh (1979), Bloomfield (1933), Firth (1930), Pike (1945), Abercrombie (1967), Hinton et al. (1994)</p>
+</div>
+
+</div><!-- .phonetics-article -->
+
+</body>
+</html>
