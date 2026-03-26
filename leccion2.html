@@ -6,11 +6,11 @@
 <title>Lección 2: ¿Qué es esto? 命名这个世界</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
 /* === Page-specific overrides for Leccion 2 === */
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + var(--section-nav-h) + 16px); }
+html { scroll-padding-top: calc(var(--nav-h) + var(--section-nav-h) + 16px); }
 body { font-family: var(--font-body); background: var(--light-bg); font-size: 16px; }
 
 /* Gender sort exercise */
@@ -63,10 +63,8 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
 </head>
 <body>
 
-<!-- Scroll Progress Bar -->
 <div id="progress-bar" role="progressbar" aria-label="页面阅读进度"></div>
 
-<!-- Main Navigation -->
 <nav class="main-nav" role="navigation" aria-label="课程导航">
   <div class="nav-inner">
     <a href="index.html">首页</a>
@@ -76,7 +74,6 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
   </div>
 </nav>
 
-<!-- Section Navigation -->
 <nav class="section-nav" role="navigation" aria-label="章节导航">
   <div class="nav-inner">
     <a href="#opening">开始</a>
@@ -87,7 +84,6 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
   </div>
 </nav>
 
-<!-- Speed Control -->
 <div class="speed-control" role="region" aria-label="语速控制">
   <span>语速：</span>
   <input type="range" id="speed-slider" min="0.5" max="1.0" step="0.05" value="0.7" aria-label="语速调节滑块">
@@ -96,7 +92,6 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
 
 <main>
 
-<!-- ================= OPENING ================= -->
 <section id="opening">
   <h1>Lecci&oacute;n 2: &iquest;Qu&eacute; es esto?
     <span class="subtitle">命名这个世界</span>
@@ -122,7 +117,6 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
   </div>
 </section>
 
-<!-- ================= BLOCK 1 ================= -->
 <section id="block1">
   <h2><span class="block-num">1</span>冠词：西语名词的&ldquo;身份证&rdquo;</h2>
   <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约12分钟</p>
@@ -187,8 +181,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     </table>
   </div>
 
-  <!-- EXERCISE: Gender Sort -->
-  <div class="exercise-section" id="ex1" data-exercise="ex1">
+    <div class="exercise-section" id="ex1" data-exercise="ex1">
     <div class="exercise-title">练习：把名词分到 el 或 la 列</div>
 
     <div class="word-bank" id="word-bank-ex1">
@@ -219,7 +212,6 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
   </div>
 </section>
 
-<!-- ================= BLOCK 2 ================= -->
 <section id="block2">
   <h2><span class="block-num">2</span>Carlos 的公寓</h2>
   <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约15分钟</p>
@@ -228,8 +220,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
 
   <h3>词汇</h3>
 
-  <!-- 客厅 -->
-  <div class="room-group">
+    <div class="room-group">
     <span class="room-label sala">&#x1F6CB;&#xFE0F; 客厅</span>
     <div class="table-wrap">
       <table aria-label="客厅词汇">
@@ -255,8 +246,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     </div>
   </div>
 
-  <!-- 厨房 -->
-  <div class="room-group">
+    <div class="room-group">
     <span class="room-label cocina">&#x1F373; 厨房</span>
     <div class="table-wrap">
       <table aria-label="厨房词汇">
@@ -278,8 +268,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     </div>
   </div>
 
-  <!-- 卧室 -->
-  <div class="room-group">
+    <div class="room-group">
     <span class="room-label dormitorio">&#x1F6CF;&#xFE0F; 卧室</span>
     <div class="table-wrap">
       <table aria-label="卧室词汇">
@@ -293,8 +282,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     </div>
   </div>
 
-  <!-- 窗外 -->
-  <div class="room-group">
+    <div class="room-group">
     <span class="room-label ventana">&#x1F33F; 窗外</span>
     <div class="table-wrap">
       <table aria-label="窗外词汇">
@@ -320,8 +308,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     </div>
   </div>
 
-  <!-- 颜色 -->
-  <div class="room-group">
+    <div class="room-group">
     <span class="room-label colores">&#x1F3A8; 颜色与形容词</span>
     <div class="table-wrap">
       <table aria-label="颜色词汇">
@@ -359,8 +346,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     &#x1F4A1; telephone, computer, caf&eacute; &mdash; 你的英语在帮你！
   </div>
 
-  <!-- EXERCISE: Article quiz -->
-  <div class="exercise-section" id="ex2" data-exercise="ex2">
+    <div class="exercise-section" id="ex2" data-exercise="ex2">
     <div class="exercise-title">练习：Carlos 指着物品，填写 el/la + 名词</div>
 
     <div class="question-block" data-q="ex2-1">
@@ -400,7 +386,6 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
   </div>
 </section>
 
-<!-- ================= BLOCK 3 ================= -->
 <section id="block3">
   <h2><span class="block-num">3</span>这是什么？</h2>
   <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约15分钟</p>
@@ -482,8 +467,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     而且形容词放在名词<strong>后面</strong>！和中英日都相反。
   </div>
 
-  <!-- EXERCISE: Adjective agreement -->
-  <div class="exercise-section" id="ex3" data-exercise="ex3">
+    <div class="exercise-section" id="ex3" data-exercise="ex3">
     <div class="exercise-title">练习：构造 &ldquo;El/La [nombre] es [adjetivo]&rdquo;</div>
 
     <div class="question-block" data-q="ex3-1">
@@ -523,13 +507,11 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
   </div>
 </section>
 
-<!-- ================= BLOCK 4 ================= -->
 <section id="block4">
   <h2><span class="block-num">4</span>对话与复习</h2>
   <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约15分钟</p>
 
-  <!-- Dialogue 1 — Carlos's apartment -->
-  <h3>对话一：Carlos 的公寓</h3>
+    <h3>对话一：Carlos 的公寓</h3>
   <div class="dialogue-box">
     <div class="dialogue-title">
       <span>&#x1F3E0; 公寓对话</span>
@@ -586,8 +568,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     </div>
   </div>
 
-  <!-- Dialogue 2 — At a shop -->
-  <h3>对话二：在商店</h3>
+    <h3>对话二：在商店</h3>
   <div class="dialogue-box">
     <div class="dialogue-title">
       <span>&#x1F6D2; 商店对话</span>
@@ -644,12 +625,10 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     </div>
   </div>
 
-  <!-- Cumulative Quiz -->
-  <div class="exercise-section" id="ex4" data-exercise="ex4">
+    <div class="exercise-section" id="ex4" data-exercise="ex4">
     <div class="exercise-title">综合测验（12题）</div>
 
-    <!-- Article questions (4) -->
-    <div class="question-block" data-q="ex4-1">
+        <div class="question-block" data-q="ex4-1">
       <div class="q-label"><span class="q-num">1</span>&ldquo;mesa&rdquo;（桌子）用哪个冠词？</div>
       <div class="mc-options">
         <button class="mc-btn" data-val="el" onclick="selectMC(this)">el</button>
@@ -689,8 +668,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       <div class="feedback" id="fb-ex4-4"></div>
     </div>
 
-    <!-- Sentence building (4) -->
-    <div class="question-block" data-q="ex4-5">
+        <div class="question-block" data-q="ex4-5">
       <div class="q-label"><span class="q-num">5</span>&ldquo;这是什么？&rdquo; 用西班牙语怎么说？</div>
       <input type="text" class="answer-input" id="input-ex4-5" placeholder="输入答案..." aria-label="填写答案">
       <br>
@@ -726,8 +704,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       <div class="feedback" id="fb-ex4-8"></div>
     </div>
 
-    <!-- Adjective agreement (4) -->
-    <div class="question-block" data-q="ex4-9">
+        <div class="question-block" data-q="ex4-9">
       <div class="q-label"><span class="q-num">9</span>&ldquo;La casa es ____&rdquo;（白色）。填什么？</div>
       <div class="mc-options">
         <button class="mc-btn" data-val="blanco" onclick="selectMC(this)">blanco</button>
@@ -772,8 +749,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     <button class="retry-btn" id="retry-ex4" onclick="resetExercise('ex4')">重新测试</button>
   </div>
 
-  <!-- Unlock Card -->
-  <div class="unlock-card">
+    <div class="unlock-card">
     <h3>&#x1F389; 恭喜！你解锁了新技能</h3>
     <p style="font-family:var(--font-cn);margin-bottom:16px;">你现在可以：</p>
     <ul>
@@ -784,8 +760,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     </ul>
   </div>
 
-  <!-- Cultural note -->
-  <div class="collapsible cultural-note">
+    <div class="collapsible cultural-note">
     <button class="collapsible-toggle" onclick="toggleCollapse(this)" aria-expanded="false">
       文化小知识：西班牙人的用餐时间
       <span class="arrow">&#x25BC;</span>
@@ -807,146 +782,35 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
 
 <script src="js/main.js"></script>
 <script>
-// ============================
-// Leccion 2: Page-specific JS
-// ============================
-
-// Play entire dialogue with pauses between lines
-function playDialogue(dialogueId) {
-  if (typeof speechSynthesis === 'undefined') return;
-  speechSynthesis.cancel();
-  var lines = document.querySelectorAll('[data-dialogue="' + dialogueId + '"]');
-  var texts = [];
-  lines.forEach(function(line) {
-    var es = line.getAttribute('data-es');
-    if (es) texts.push(es);
-  });
-
-  var i = 0;
-  function playNext() {
-    if (i >= texts.length) return;
-    var utterance = new SpeechSynthesisUtterance(texts[i]);
-    utterance.lang = 'es-ES';
-    utterance.rate = speechRate;
-    if (spanishVoice) utterance.voice = spanishVoice;
-    utterance.onend = function() {
-      i++;
-      setTimeout(playNext, 800);
-    };
-    speechSynthesis.speak(utterance);
-  }
-  playNext();
-}
-
-// Section Nav highlight on scroll
-function updateSectionNav() {
-  var sections = ['opening', 'block1', 'block2', 'block3', 'block4'];
-  var navLinks = document.querySelectorAll('.section-nav a');
-  var current = '';
-  var offset = 160;
-
-  sections.forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el && el.getBoundingClientRect().top <= offset) {
-      current = id;
-    }
-  });
-
-  navLinks.forEach(function(link) {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
-  });
-}
-
-// ============================
-// Gender Sort Exercise
-// ============================
-var currentSortTarget = null;
-
+// L2 page-specific: Gender Sort Exercise
 function sortWord(wordEl, exId) {
   if (wordEl.classList.contains('placed')) return;
-  // Toggle target column: first click = el, second click = la, third = back to bank
-  if (!currentSortTarget || currentSortTarget === 'la') {
-    currentSortTarget = 'el';
-  } else {
-    currentSortTarget = 'la';
-  }
-
-  // Simply let user click the column after selecting a word
-  // Actually, simpler approach: click word to cycle between el/la zones
-  var gender = wordEl.getAttribute('data-target');
-  if (!gender) {
-    wordEl.setAttribute('data-target', 'el');
-    document.getElementById('el-zone-' + exId).appendChild(wordEl.cloneNode(true));
-    wordEl.classList.add('placed');
-  }
-}
-
-// Simpler approach: click a word, it goes to el; click again, it goes to la
-// Let's use a two-step: click word in bank to select, then click a column
-var selectedWord = null;
-
-// Override sortWord with a simpler click-to-toggle approach
-sortWord = function(wordEl, exId) {
-  if (wordEl.classList.contains('placed')) return;
-
-  // Move to el column first, if clicked again move to la
   var elZone = document.getElementById('el-zone-' + exId);
   var laZone = document.getElementById('la-zone-' + exId);
-
-  // Check if already in a zone
-  if (wordEl.parentNode === elZone) {
-    laZone.appendChild(wordEl);
-    return;
-  }
-  if (wordEl.parentNode === laZone) {
-    document.getElementById('word-bank-' + exId).appendChild(wordEl);
-    return;
-  }
-
-  // From bank, go to el
+  if (wordEl.parentNode === elZone) { laZone.appendChild(wordEl); return; }
+  if (wordEl.parentNode === laZone) { document.getElementById('word-bank-' + exId).appendChild(wordEl); return; }
   elZone.appendChild(wordEl);
-};
+}
 
 function checkSort(exId) {
   var elZone = document.getElementById('el-zone-' + exId);
   var laZone = document.getElementById('la-zone-' + exId);
-  var correct = 0;
-  var total = 0;
-
+  var correct = 0, total = 0;
   elZone.querySelectorAll('.gender-word').forEach(function(w) {
     total++;
-    if (w.getAttribute('data-gender') === 'el') {
-      w.classList.add('correct-place');
-      correct++;
-    } else {
-      w.classList.add('wrong-place');
-    }
+    if (w.getAttribute('data-gender') === 'el') { w.classList.add('correct-place'); correct++; }
+    else { w.classList.add('wrong-place'); }
   });
-
   laZone.querySelectorAll('.gender-word').forEach(function(w) {
     total++;
-    if (w.getAttribute('data-gender') === 'la') {
-      w.classList.add('correct-place');
-      correct++;
-    } else {
-      w.classList.add('wrong-place');
-    }
+    if (w.getAttribute('data-gender') === 'la') { w.classList.add('correct-place'); correct++; }
+    else { w.classList.add('wrong-place'); }
   });
-
-  // Words still in bank count as wrong
   var bank = document.getElementById('word-bank-' + exId);
-  bank.querySelectorAll('.gender-word').forEach(function(w) {
-    total++;
-    w.classList.add('wrong-place');
-  });
-
+  bank.querySelectorAll('.gender-word').forEach(function(w) { total++; w.classList.add('wrong-place'); });
   var scoreEl = document.getElementById('score-' + exId);
-  scoreEl.textContent = '你答对了 ' + correct + '/' + total + ' 题';
+  scoreEl.textContent = '\u4f60\u7b54\u5bf9\u4e86 ' + correct + '/' + total + ' \u9898';
   scoreEl.classList.add('show');
-
   document.getElementById('check-sort-' + exId).disabled = true;
   document.getElementById('retry-' + exId).classList.add('show');
 }
@@ -955,181 +819,18 @@ function resetSort(exId) {
   var bank = document.getElementById('word-bank-' + exId);
   var elZone = document.getElementById('el-zone-' + exId);
   var laZone = document.getElementById('la-zone-' + exId);
-
-  // Move all words back to bank
-  elZone.querySelectorAll('.gender-word').forEach(function(w) {
-    w.classList.remove('correct-place', 'wrong-place', 'placed');
-    bank.appendChild(w);
+  [elZone, laZone].forEach(function(zone) {
+    zone.querySelectorAll('.gender-word').forEach(function(w) {
+      w.classList.remove('correct-place', 'wrong-place', 'placed');
+      bank.appendChild(w);
+    });
   });
-  laZone.querySelectorAll('.gender-word').forEach(function(w) {
-    w.classList.remove('correct-place', 'wrong-place', 'placed');
-    bank.appendChild(w);
-  });
-  bank.querySelectorAll('.gender-word').forEach(function(w) {
-    w.classList.remove('correct-place', 'wrong-place', 'placed');
-  });
-
+  bank.querySelectorAll('.gender-word').forEach(function(w) { w.classList.remove('correct-place', 'wrong-place', 'placed'); });
   document.getElementById('check-sort-' + exId).disabled = false;
   document.getElementById('score-' + exId).classList.remove('show');
   document.getElementById('score-' + exId).textContent = '';
   document.getElementById('retry-' + exId).classList.remove('show');
 }
-
-// ============================
-// Exercise System
-// ============================
-var exerciseState = {};
-
-function getExState(exId) {
-  if (!exerciseState[exId]) {
-    var section = document.getElementById(exId);
-    var qBlocks = section.querySelectorAll('.question-block');
-    var total = qBlocks.length;
-    exerciseState[exId] = { answered: 0, correct: 0, total: total, done: {} };
-  }
-  return exerciseState[exId];
-}
-
-function selectMC(btn) {
-  var block = btn.closest('.question-block');
-  var qId = block.getAttribute('data-q');
-  var exId = block.closest('[data-exercise]').getAttribute('data-exercise');
-  var state = getExState(exId);
-  if (state.done[qId]) return;
-
-  block.querySelectorAll('.mc-btn').forEach(function(b) { b.classList.remove('selected'); });
-  btn.classList.add('selected');
-}
-
-function checkMC(qId, correctVal) {
-  var block = document.querySelector('[data-q="' + qId + '"]');
-  var exId = block.closest('[data-exercise]').getAttribute('data-exercise');
-  var state = getExState(exId);
-  if (state.done[qId]) return;
-
-  var selected = block.querySelector('.mc-btn.selected');
-  if (!selected) return;
-
-  var fb = document.getElementById('fb-' + qId);
-  var isCorrect = selected.getAttribute('data-val') === correctVal;
-
-  block.querySelectorAll('.mc-btn').forEach(function(b) { b.disabled = true; });
-  block.querySelector('.check-btn').disabled = true;
-
-  if (isCorrect) {
-    selected.classList.add('correct');
-    fb.textContent = '\u2713 正确！';
-    fb.className = 'feedback correct';
-    state.correct++;
-  } else {
-    selected.classList.add('wrong');
-    block.querySelectorAll('.mc-btn').forEach(function(b) {
-      if (b.getAttribute('data-val') === correctVal) b.classList.add('correct');
-    });
-    fb.textContent = '\u2717 正确答案是：' + correctVal;
-    fb.className = 'feedback wrong';
-  }
-
-  state.answered++;
-  state.done[qId] = true;
-  checkExerciseComplete(exId);
-}
-
-function checkText(qId, acceptableAnswers) {
-  var block = document.querySelector('[data-q="' + qId + '"]');
-  var exId = block.closest('[data-exercise]').getAttribute('data-exercise');
-  var state = getExState(exId);
-  if (state.done[qId]) return;
-
-  var input = document.getElementById('input-' + qId);
-  var userAnswer = input.value.trim();
-  if (!userAnswer) return;
-
-  var fb = document.getElementById('fb-' + qId);
-  var isCorrect = acceptableAnswers.some(function(a) {
-    return userAnswer.toLowerCase() === a.toLowerCase();
-  });
-
-  input.disabled = true;
-  block.querySelector('.check-btn').disabled = true;
-
-  if (isCorrect) {
-    input.classList.add('correct');
-    fb.textContent = '\u2713 正确！';
-    fb.className = 'feedback correct';
-    state.correct++;
-  } else {
-    input.classList.add('wrong');
-    fb.textContent = '\u2717 正确答案是：' + acceptableAnswers[0];
-    fb.className = 'feedback wrong';
-  }
-
-  state.answered++;
-  state.done[qId] = true;
-  checkExerciseComplete(exId);
-}
-
-function checkExerciseComplete(exId) {
-  var state = getExState(exId);
-  if (state.answered >= state.total) {
-    var scoreEl = document.getElementById('score-' + exId);
-    scoreEl.textContent = '你答对了 ' + state.correct + '/' + state.total + ' 题';
-    scoreEl.classList.add('show');
-    var retryEl = document.getElementById('retry-' + exId);
-    retryEl.classList.add('show');
-  }
-}
-
-function resetExercise(exId) {
-  var section = document.getElementById(exId);
-  exerciseState[exId] = null;
-
-  section.querySelectorAll('.mc-btn').forEach(function(b) {
-    b.disabled = false;
-    b.classList.remove('selected', 'correct', 'wrong');
-  });
-
-  section.querySelectorAll('.answer-input').forEach(function(inp) {
-    inp.disabled = false;
-    inp.value = '';
-    inp.classList.remove('correct', 'wrong');
-  });
-
-  section.querySelectorAll('.check-btn').forEach(function(b) { b.disabled = false; });
-
-  section.querySelectorAll('.feedback').forEach(function(f) {
-    f.className = 'feedback';
-    f.textContent = '';
-  });
-
-  document.getElementById('score-' + exId).classList.remove('show');
-  document.getElementById('retry-' + exId).classList.remove('show');
-}
-
-// ============================
-// Collapsible Sections
-// ============================
-function toggleCollapse(btn) {
-  var content = btn.nextElementSibling;
-  var isOpen = btn.classList.contains('open');
-
-  if (isOpen) {
-    content.style.maxHeight = null;
-    btn.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-  } else {
-    content.style.maxHeight = content.scrollHeight + 'px';
-    btn.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
-  }
-}
-
-// ============================
-// Init
-// ============================
-window.addEventListener('DOMContentLoaded', function() {
-  updateSectionNav();
-});
 </script>
 </body>
 </html>

@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --terracotta: #C84B31;
   --cream: #ECDBBA;
@@ -20,9 +24,9 @@
   --error: #E74C3C;
   /* Leccion 1 specific vars */
   --font-heading: 'Playfair Display', serif;
-  --font-body: 'Inter', 'Noto Sans SC', 'Noto Sans JP', sans-serif;
-  --font-cn: 'Noto Sans SC', sans-serif;
-  --font-jp: 'Noto Sans JP', sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-cn: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+  --font-jp: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
   --max-w: 800px;
   --nav-h: 52px;
   --section-nav-h: 42px;
@@ -41,7 +45,6 @@
   --radius-sm: 8px;
 }
 
-
 /* ═══════════════════════════════════════════════════════════════
    INDEX.HTML STYLES
    ═══════════════════════════════════════════════════════════════ */
@@ -50,7 +53,7 @@
    we keep the body rule generic, and index adds its own overrides inline */
 
 body {
-  font-family: 'Noto Sans SC', 'Inter', sans-serif;
+  font-family: var(--font-cn);
   background-color: #FDF6EC;
   color: #2D2424;
   line-height: 1.7;
@@ -284,12 +287,11 @@ body {
 }
 
 .footer-sub {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 0.82rem;
   color: #b0a090;
   font-style: italic;
 }
-
 
 /* ═══════════════════════════════════════════════════════════════
    LECCIÓN 1 STYLES
@@ -1085,7 +1087,6 @@ footer {
   .dialogue-box { padding: 16px; }
 }
 
-
 /* ═══════════════════════════════════════════════════════════════
    LECCIÓN 2 STYLES
    ═══════════════════════════════════════════════════════════════ */
@@ -1124,7 +1125,7 @@ footer {
 
 /* L2 subtitle */
 .subtitle {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 1rem;
   color: var(--terracotta);
   margin-bottom: 2rem;
@@ -1134,7 +1135,7 @@ footer {
 /* L2 h2 sec-num and sec-cn */
 h2 .sec-num { color: var(--terracotta); margin-right: .3rem; }
 h2 .sec-cn {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: .95rem;
   color: #888;
   font-weight: 400;
@@ -1173,7 +1174,7 @@ h2 .sec-cn {
 .warning::before { content: '⚠️ '; }
 .cultural-note summary {
   cursor: pointer;
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-weight: 600;
   color: var(--gold);
   padding: .5rem 0;
@@ -1212,7 +1213,7 @@ h2 .sec-cn {
 /* L2 Vocabulary */
 .vocab-group { margin: 1rem 0; }
 .vocab-group-title {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: .95rem;
   font-weight: 600;
   color: var(--dark);
@@ -1232,7 +1233,7 @@ h2 .sec-cn {
 }
 .vocab-item:last-child { border-bottom: none; }
 .vocab-es { font-weight: 700; color: var(--terracotta); min-width: 140px; font-size: 1.02rem; }
-.vocab-cn { font-family: 'Noto Sans SC', sans-serif; color: #555; font-size: .9rem; }
+.vocab-cn { font-family: var(--font-cn); color: #555; font-size: .9rem; }
 .vocab-en { color: #888; font-size: .82rem; }
 .vocab-note {
   font-size: .8rem;
@@ -1265,7 +1266,7 @@ h2 .sec-cn {
 .gp-row.f-row { background: rgba(225,29,72,.06); border: 1px solid rgba(225,29,72,.12); }
 .gp-row.exc-row { background: rgba(231,76,60,.05); border: 1px solid rgba(231,76,60,.1); }
 .gp-icon { font-size: 1.3rem; flex-shrink: 0; }
-.gp-rule { font-family: 'Noto Sans SC', sans-serif; font-size: .9rem; font-weight: 600; min-width: 200px; }
+.gp-rule { font-family: var(--font-cn); font-size: .9rem; font-weight: 600; min-width: 200px; }
 .gp-examples { font-size: .9rem; color: #555; }
 
 /* L2 Dialogue */
@@ -1282,7 +1283,7 @@ h2 .sec-cn {
 .dl-line:nth-child(even) { background: rgba(0,0,0,.015); }
 .dl-speaker { font-weight: 700; color: var(--dark); font-size: .85rem; }
 .dl-es { color: var(--terracotta); font-weight: 500; font-size: .95rem; }
-.dl-cn { font-family: 'Noto Sans SC', sans-serif; color: #888; font-size: .85rem; }
+.dl-cn { font-family: var(--font-cn); color: #888; font-size: .85rem; }
 
 /* L2 Exercises */
 .exercise {
@@ -1293,7 +1294,7 @@ h2 .sec-cn {
   border: 2px solid var(--cream);
 }
 .exercise > .exercise-title {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-weight: 700;
   color: var(--dark);
   margin-bottom: 1rem;
@@ -1303,14 +1304,14 @@ h2 .sec-cn {
 }
 .exercise-title .icon { font-size: 1.2rem; }
 .eq { margin: .75rem 0; padding: .75rem; border-radius: 8px; background: var(--light-bg); }
-.eq-prompt { font-family: 'Noto Sans SC', sans-serif; font-size: .9rem; margin-bottom: .5rem; }
+.eq-prompt { font-family: var(--font-cn); font-size: .9rem; margin-bottom: .5rem; }
 .eq-input-row { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
 .eq-input {
   border: 2px solid var(--cream);
   border-radius: 8px;
   padding: .45rem .75rem;
   font-size: .95rem;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   outline: none;
   transition: border-color .2s;
   width: 100%;
@@ -1329,7 +1330,7 @@ h2 .sec-cn {
   background: #fff;
   cursor: pointer;
   font-size: .9rem;
-  font-family: 'Inter', 'Noto Sans SC', sans-serif;
+  font-family: var(--font-body);
   transition: all .2s;
 }
 .exercise .mc-btn:hover { border-color: var(--gold); background: rgba(212,167,106,.08); }
@@ -1337,7 +1338,7 @@ h2 .sec-cn {
 .exercise .mc-btn.correct { border-color: var(--success); background: rgba(76,175,80,.1); color: var(--success); font-weight: 600; }
 .exercise .mc-btn.wrong { border-color: var(--error); background: rgba(231,76,60,.08); color: var(--error); }
 
-.eq-feedback { font-size: .85rem; margin-top: .35rem; font-family: 'Noto Sans SC', sans-serif; min-height: 1.2em; }
+.eq-feedback { font-size: .85rem; margin-top: .35rem; font-family: var(--font-cn); min-height: 1.2em; }
 .eq-feedback.correct { color: var(--success); }
 .eq-feedback.wrong { color: var(--error); }
 
@@ -1350,7 +1351,7 @@ h2 .sec-cn {
   border-radius: 8px;
   cursor: pointer;
   font-size: .9rem;
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-weight: 600;
   transition: all .2s;
   margin-top: .75rem;
@@ -1364,14 +1365,14 @@ h2 .sec-cn {
   border-radius: 8px;
   cursor: pointer;
   font-size: .85rem;
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-weight: 600;
   transition: all .2s;
   margin-left: .5rem;
 }
 .reset-btn:hover { background: rgba(200,75,49,.06); }
 .score {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: .9rem;
   color: var(--dark);
   padding: .5rem .75rem;
@@ -1384,7 +1385,7 @@ h2 .sec-cn {
 /* L2 Drag sort exercise */
 .drag-container { display: flex; gap: 2rem; margin: 1rem 0; flex-wrap: wrap; justify-content: center; }
 .drag-col { flex: 1; min-width: 200px; max-width: 300px; }
-.drag-col-title { text-align: center; font-weight: 700; font-size: 1.1rem; padding: .5rem; border-radius: 8px 8px 0 0; font-family: 'Inter', sans-serif; }
+.drag-col-title { text-align: center; font-weight: 700; font-size: 1.1rem; padding: .5rem; border-radius: 8px 8px 0 0; font-family: var(--font-body); }
 .drag-col-title.m-title { background: rgba(59,130,246,.1); color: var(--masc); }
 .drag-col-title.f-title { background: rgba(225,29,72,.1); color: var(--fem); }
 .drag-zone {
@@ -1438,7 +1439,7 @@ h2 .sec-cn {
 
 /* L2 Unlock card overrides */
 .unlock-list { list-style: none; padding: 0; margin: .75rem 0; }
-.unlock-list li { padding: .3rem 0; font-family: 'Noto Sans SC', sans-serif; font-size: .9rem; }
+.unlock-list li { padding: .3rem 0; font-family: var(--font-cn); font-size: .9rem; }
 .unlock-list li::before { content: '✓ '; color: var(--success); font-weight: 700; }
 
 /* L2 Responsive */
@@ -1449,7 +1450,6 @@ h2 .sec-cn {
   .vocab-note { padding-left: 0; }
   .drag-container { flex-direction: column; align-items: stretch; }
 }
-
 
 /* ═══════════════════════════════════════════════════════════════
    LECCIÓN 3 STYLES
@@ -1465,7 +1465,7 @@ h2 .sec-cn {
   padding: 0.35rem 0.7rem;
   border-radius: 6px;
   transition: all 0.2s;
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
 }
 .nav-links a:hover { background: var(--terracotta-light); color: var(--terracotta); }
 .nav-links a.active { background: var(--terracotta); color: #fff; }
@@ -1476,7 +1476,7 @@ h2 .sec-cn {
   padding: 80px 0 60px;
 }
 .hero-label {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--terracotta);
@@ -1493,7 +1493,7 @@ h2 .sec-cn {
 }
 .hero h1 .accent { color: var(--terracotta); }
 .hero-sub {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 1.05rem;
   color: #7a6a5a;
   margin-bottom: 1.2rem;
@@ -1512,7 +1512,7 @@ h2 .sec-cn {
   border-radius: 20px;
   background: rgba(200,75,49,0.08);
   color: var(--terracotta);
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
 }
 
 /* L3 Section headings */
@@ -1546,7 +1546,7 @@ h2 .sec-cn {
   border: none;
 }
 .section-header .zh {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.9rem;
   color: #9a8a7a;
   margin-left: auto;
@@ -1627,7 +1627,7 @@ h2 .sec-cn {
   font-style: italic;
 }
 .confidence-text .encouragement {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.92rem;
   color: #7a6a5a;
   line-height: 1.8;
@@ -1668,7 +1668,7 @@ h2 .sec-cn {
 .verb-family-card .verb-list li:last-child { border-bottom: none; }
 .verb-list .verb-es { font-weight: 600; }
 .verb-list .verb-zh {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.8rem;
   color: #7a6a5a;
 }
@@ -1681,7 +1681,7 @@ h2 .sec-cn {
   font-size: 0.9rem;
 }
 .conj-table thead th {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-weight: 500;
   font-size: 0.78rem;
   color: #9a8a7a;
@@ -1700,7 +1700,7 @@ h2 .sec-cn {
 .conj-table .col-form { font-weight: 600; color: var(--terracotta); }
 .conj-table .col-form .stem { color: var(--dark); }
 .conj-table .col-form .ending { color: var(--terracotta); font-weight: 700; }
-.conj-table .col-zh { font-family: 'Noto Sans SC', sans-serif; font-size: 0.85rem; color: #7a6a5a; }
+.conj-table .col-zh { font-family: var(--font-cn); font-size: 0.85rem; color: #7a6a5a; }
 
 /* L3 Pattern highlight */
 .pattern-row {
@@ -1776,7 +1776,7 @@ h2 .sec-cn {
 .ser-card h4 { color: #E57373; }
 .estar-card h4 { color: #42A5F5; }
 .ser-card .subtitle-zh, .estar-card .subtitle-zh {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.82rem;
   color: #9a8a7a;
   margin-bottom: 0.8rem;
@@ -1792,7 +1792,7 @@ h2 .sec-cn {
 .ser-card .es-text { color: #D32F2F; }
 .estar-card .es-text { color: #1976D2; }
 .ser-estar-example .zh-text {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.82rem;
   color: #7a6a5a;
 }
@@ -1830,7 +1830,7 @@ h2 .sec-cn {
 .dialogue-speaker.tu { color: var(--gold); }
 .dialogue-text .es { font-weight: 500; display: block; }
 .dialogue-text .zh {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.82rem;
   color: #9a8a7a;
   display: block;
@@ -1846,7 +1846,7 @@ h2 .sec-cn {
   border: 2px solid var(--gold);
 }
 .exercise-box .exercise-title {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-weight: 600;
   font-size: 0.95rem;
   color: var(--dark);
@@ -1888,7 +1888,7 @@ h2 .sec-cn {
   border: 2px solid rgba(212,167,106,0.3);
   border-radius: var(--radius-sm);
   font-size: 0.9rem;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   outline: none;
   transition: border-color 0.2s;
   margin-top: 0.5rem;
@@ -1906,7 +1906,7 @@ h2 .sec-cn {
   cursor: pointer;
   font-size: 0.88rem;
   transition: all 0.2s;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
 }
 .mc-option:hover { border-color: var(--terracotta); background: var(--terracotta-light); }
 .mc-option.selected { border-color: var(--terracotta); background: var(--terracotta-light); }
@@ -1917,7 +1917,7 @@ h2 .sec-cn {
   margin-top: 0.5rem;
   font-size: 0.85rem;
   font-weight: 500;
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   min-height: 1.4em;
 }
 .exercise-feedback.correct { color: var(--success); }
@@ -1926,7 +1926,7 @@ h2 .sec-cn {
 /* L3 check/reset buttons */
 .exercise-box .check-btn,
 .exercise-box .reset-btn {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.85rem;
   font-weight: 500;
   padding: 0.5rem 1.2rem;
@@ -1951,7 +1951,7 @@ h2 .sec-cn {
 
 /* L3 score-display (within exercise-box) */
 .exercise-box .score-display {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--terracotta);
@@ -1997,7 +1997,7 @@ h2 .sec-cn {
 .sort-chip.incorrect-chip { border-color: var(--error); background: rgba(231,76,60,0.1); }
 
 .sort-label {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.8rem;
   font-weight: 600;
   margin-bottom: 0.3rem;
@@ -2025,7 +2025,7 @@ h2 .sec-cn {
   font-size: 0.9rem;
 }
 .tener-card .expr-zh {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.82rem;
   color: #7a6a5a;
   margin-top: 0.2rem;
@@ -2052,7 +2052,7 @@ h2 .sec-cn {
 }
 .gold-card ul li {
   padding: 0.3rem 0;
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.9rem;
   color: #5a4a3a;
 }
@@ -2079,7 +2079,7 @@ h2 .sec-cn {
   border: 1px solid rgba(212,167,106,0.15);
 }
 .self-assess h3 {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 1rem;
   font-weight: 600;
   color: var(--dark);
@@ -2091,7 +2091,7 @@ h2 .sec-cn {
   gap: 0.6rem;
   padding: 0.5rem 0;
   border-bottom: 1px solid rgba(212,167,106,0.1);
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.88rem;
   cursor: pointer;
   line-height: 1.5;
@@ -2112,7 +2112,7 @@ h2 .sec-cn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-weight: 600;
   font-size: 0.95rem;
   color: var(--dark);
@@ -2133,7 +2133,7 @@ h2 .sec-cn {
   padding: 0 1.5rem 1.2rem;
 }
 .collapsible-body p {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.88rem;
   line-height: 1.8;
   color: #6a5a4a;
@@ -2161,7 +2161,7 @@ h2 .sec-cn {
   font-size: 0.92rem;
 }
 .time-card .time-zh {
-  font-family: 'Noto Sans SC', sans-serif;
+  font-family: var(--font-cn);
   font-size: 0.82rem;
   color: #7a6a5a;
   margin-top: 0.15rem;
@@ -2197,7 +2197,6 @@ h2 .sec-cn {
 @media (max-width: 400px) {
   .number-grid { grid-template-columns: repeat(3, 1fr); }
 }
-
 
 /* ═══════════════════════════════════════════════════════════════
    INDEX RESPONSIVE
@@ -2243,4 +2242,74 @@ h2 .sec-cn {
   .tips-list li {
     padding-left: 24px;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LECCIÓN 3 INLINE OVERRIDES (moved from inline <style>)
+   ═══════════════════════════════════════════════════════════════ */
+.l3 .hero {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--light-cream) 100%);
+  padding: 4rem 2rem 3.5rem;
+  border-bottom: 3px solid var(--gold);
+}
+.l3 .speed-control {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 90;
+  background: #fff; border-radius: var(--radius); padding: 0.6rem 1rem;
+  box-shadow: var(--shadow-md); border: 1px solid rgba(212,167,106,0.2);
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.78rem; font-family: var(--font-cn); color: var(--dark); max-width: none;
+}
+.l3 .speed-control input[type="range"] { width: 80px; flex: none; }
+.l3 .speed-control .speed-val { min-width: 2.5em; text-align: center; }
+.l3 main { max-width: 760px; padding: 2.5rem 1.5rem 4rem; }
+.l3 .dialogue {
+  background: #fff; border-radius: var(--radius); padding: 1.5rem;
+  margin-bottom: 1.25rem; box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(212,167,106,0.15);
+}
+.l3 .play-all-btn {
+  font-family: var(--font-cn); font-size: 0.78rem; font-weight: 500;
+  padding: 0.35rem 0.8rem; border-radius: 6px;
+  border: 1px solid var(--terracotta); background: var(--terracotta-light);
+  color: var(--terracotta); cursor: pointer; transition: all 0.2s;
+}
+.l3 .play-all-btn:hover { background: var(--terracotta); color: #fff; }
+.l3 .speak-btn {
+  display: inline; width: auto; height: auto; border: none;
+  background: none; cursor: pointer; font-size: 1rem;
+  padding: 0.15rem 0.3rem; margin-left: 0;
+}
+.l3 .speak-btn:hover { background: var(--terracotta-light); transform: scale(1.15); border-color: transparent; }
+.l3 .speak-btn:active { transform: scale(0.95); }
+.l3 .card {
+  background: #fff; border-radius: var(--radius); padding: 1.5rem;
+  margin-bottom: 1.25rem; box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(212,167,106,0.15); transition: box-shadow 0.25s;
+}
+.l3 .check-btn, .l3 .reset-btn {
+  font-family: var(--font-cn); font-size: 0.85rem; font-weight: 500;
+  padding: 0.5rem 1.2rem; border-radius: var(--radius-sm);
+  border: none; cursor: pointer; transition: all 0.2s;
+  margin-top: 1rem; margin-right: 0.5rem;
+}
+.l3 .check-btn { background: var(--terracotta); color: #fff; }
+.l3 .check-btn:hover { background: #a03d27; }
+.l3 .reset-btn { background: var(--gold-light); color: var(--dark); border: 1px solid var(--gold); }
+.l3 .reset-btn:hover { background: var(--gold); color: #fff; }
+.l3 .score-display {
+  font-family: var(--font-cn); font-size: 0.9rem; font-weight: 600;
+  color: var(--terracotta); margin-top: 0.8rem; padding: 0.5rem 0.8rem;
+  background: var(--terracotta-light); border-radius: var(--radius-sm); display: inline-block;
+}
+.l3 .collapsible {
+  background: #fff; border-radius: var(--radius); margin: 1.5rem 0;
+  box-shadow: var(--shadow-sm); border: 1px solid rgba(212,167,106,0.15); overflow: hidden;
+}
+.l3 footer {
+  text-align: center; padding: 2rem; font-family: var(--font-cn);
+  font-size: 0.82rem; color: #9a8a7a;
+  border-top: 1px solid rgba(212,167,106,0.2); margin-top: 2rem; max-width: none;
+}
+@media (max-width: 640px) {
+  .l3 .speed-control { bottom: 1rem; right: 1rem; padding: 0.4rem 0.7rem; }
 }

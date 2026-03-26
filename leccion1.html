@@ -6,20 +6,17 @@
 <title>Lección 1: ¡Hola! 问候与自我介绍</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-/* === Page-specific overrides for Leccion 1 === */
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + var(--section-nav-h) + 16px); }
+html { scroll-padding-top: calc(var(--nav-h) + var(--section-nav-h) + 16px); }
 body { font-family: var(--font-body); background: var(--light-bg); font-size: 16px; }
 </style>
 </head>
 <body>
 
-<!-- Scroll Progress Bar -->
 <div id="progress-bar" role="progressbar" aria-label="页面阅读进度"></div>
 
-<!-- Main Navigation -->
 <nav class="main-nav" role="navigation" aria-label="课程导航">
   <div class="nav-inner">
     <a href="index.html">首页</a>
@@ -29,7 +26,6 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
   </div>
 </nav>
 
-<!-- Section Navigation -->
 <nav class="section-nav" role="navigation" aria-label="章节导航">
   <div class="nav-inner">
     <a href="#opening">开始</a>
@@ -40,7 +36,6 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
   </div>
 </nav>
 
-<!-- Speed Control -->
 <div class="speed-control" role="region" aria-label="语速控制">
   <span>语速：</span>
   <input type="range" id="speed-slider" min="0.5" max="1.0" step="0.05" value="0.7" aria-label="语速调节滑块">
@@ -49,7 +44,6 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
 
 <main>
 
-<!-- ================= OPENING ================= -->
 <section id="opening">
   <h1>Lecci&oacute;n 1: &iexcl;Hola!
     <span class="subtitle">问候与自我介绍</span>
@@ -68,7 +62,6 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
   </div>
 </section>
 
-<!-- ================= BLOCK 1 ================= -->
 <section id="block1">
   <h2><span class="block-num">1</span>发音入门</h2>
   <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约12分钟</p>
@@ -166,8 +159,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     以元音、n 或 s 结尾的单词，重音在倒数第二个音节。其他情况重音在最后一个音节。有重音符号（如 adi&oacute;s）时，按符号标注读。
   </div>
 
-  <!-- EXERCISE: Block 1 -->
-  <div class="exercise-section" id="ex1" data-exercise="ex1">
+    <div class="exercise-section" id="ex1" data-exercise="ex1">
     <div class="exercise-title">练习：听辨元音</div>
 
     <div class="question-block" data-q="ex1-1">
@@ -211,7 +203,6 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
   </div>
 </section>
 
-<!-- ================= BLOCK 2 ================= -->
 <section id="block2">
   <h2><span class="block-num">2</span>问候 Carlos</h2>
   <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约15分钟</p>
@@ -221,8 +212,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
   <h3>词汇 &mdash; 一天的问候</h3>
 
   <div class="timeline">
-    <!-- Morning -->
-    <div class="timeline-section">
+        <div class="timeline-section">
       <div class="dot"></div>
       <div class="time-label">&#x1F305; 早上 Ma&ntilde;ana</div>
       <div class="vocab-item">
@@ -239,8 +229,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       </div>
     </div>
 
-    <!-- Afternoon -->
-    <div class="timeline-section">
+        <div class="timeline-section">
       <div class="dot"></div>
       <div class="time-label">&#x2600;&#xFE0F; 下午 Tarde</div>
       <div class="vocab-item">
@@ -255,8 +244,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       </div>
     </div>
 
-    <!-- Evening -->
-    <div class="timeline-section">
+        <div class="timeline-section">
       <div class="dot"></div>
       <div class="time-label">&#x1F319; 晚上 Noche</div>
       <div class="vocab-item">
@@ -271,8 +259,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       </div>
     </div>
 
-    <!-- Anytime -->
-    <div class="timeline-section">
+        <div class="timeline-section">
       <div class="dot" style="background:var(--gold)"></div>
       <div class="time-label">&#x23F0; 任何时间</div>
       <div class="vocab-item">
@@ -317,8 +304,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       </div>
     </div>
 
-    <!-- Courtesy -->
-    <div class="timeline-section">
+        <div class="timeline-section">
       <div class="dot" style="background:var(--success)"></div>
       <div class="time-label">&#x1F91D; 礼貌用语 Cortes&iacute;a</div>
       <div class="vocab-item">
@@ -354,8 +340,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     </div>
   </div>
 
-  <!-- EXERCISE: Block 2 -->
-  <div class="exercise-section" id="ex2" data-exercise="ex2">
+    <div class="exercise-section" id="ex2" data-exercise="ex2">
     <div class="exercise-title">练习：选择正确的问候</div>
 
     <div class="question-block" data-q="ex2-1">
@@ -396,7 +381,6 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
   </div>
 </section>
 
-<!-- ================= BLOCK 3 ================= -->
 <section id="block3">
   <h2><span class="block-num">3</span>自我介绍</h2>
   <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约15分钟</p>
@@ -435,8 +419,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     <div class="meaning"><span class="cn">你好吗？</span></div>
   </div>
 
-  <!-- Grammar: tú vs usted -->
-  <div class="collapsible">
+    <div class="collapsible">
     <button class="collapsible-toggle" onclick="toggleCollapse(this)" aria-expanded="false">
       语法笔记：t&uacute; 和 usted（你和您）
       <span class="arrow">&#x25BC;</span>
@@ -488,8 +471,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     西班牙语和中文、日语一样，经常省略主语。&ldquo;Soy Carlos&rdquo; 就够了，不用说 &ldquo;Yo soy Carlos&rdquo;&mdash;&mdash;和日语省略「<span style="font-family:var(--font-jp)">私は</span>」一个道理。英语反而不能省！
   </div>
 
-  <!-- Dialogue 1 — Informal -->
-  <h3>对话一：非正式场合（在咖啡馆）</h3>
+    <h3>对话一：非正式场合（在咖啡馆）</h3>
   <div class="dialogue-box">
     <div class="dialogue-title">
       <span>&#x2615; 咖啡馆对话</span>
@@ -539,8 +521,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     </div>
   </div>
 
-  <!-- Dialogue 2 — Formal -->
-  <h3>对话二：正式场合（见 Carlos 的教授）</h3>
+    <h3>对话二：正式场合（见 Carlos 的教授）</h3>
   <div class="dialogue-box">
     <div class="dialogue-title">
       <span>&#x1F393; 正式对话</span>
@@ -587,8 +568,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     注意 Carlos 对教授说 &ldquo;usted&rdquo;（您），用的是 &ldquo;se llama&rdquo; 而不是 &ldquo;te llamas&rdquo;。正式场合的动词形式不同！
   </div>
 
-  <!-- EXERCISE: Block 3 -->
-  <div class="exercise-section" id="ex3" data-exercise="ex3">
+    <div class="exercise-section" id="ex3" data-exercise="ex3">
     <div class="exercise-title">练习：补全对话</div>
 
     <div class="question-block" data-q="ex3-1">
@@ -620,7 +600,6 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
   </div>
 </section>
 
-<!-- ================= BLOCK 4 ================= -->
 <section id="block4">
   <h2><span class="block-num">4</span>复习与现实解锁</h2>
   <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约10分钟</p>
@@ -628,8 +607,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
   <div class="exercise-section" id="ex4" data-exercise="ex4">
     <div class="exercise-title">综合测验（10题）</div>
 
-    <!-- Q1 -->
-    <div class="question-block" data-q="ex4-1">
+        <div class="question-block" data-q="ex4-1">
       <div class="q-label"><span class="q-num">1</span>哪个元音发音像日语的「え」？</div>
       <div class="mc-options">
         <button class="mc-btn" data-val="a" onclick="selectMC(this)">a</button>
@@ -641,8 +619,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       <div class="feedback" id="fb-ex4-1"></div>
     </div>
 
-    <!-- Q2 -->
-    <div class="question-block" data-q="ex4-2">
+        <div class="question-block" data-q="ex4-2">
       <div class="q-label"><span class="q-num">2</span>西班牙语中的字母 &ldquo;h&rdquo; 怎么发音？</div>
       <div class="mc-options">
         <button class="mc-btn" data-val="like-english" onclick="selectMC(this)">和英语一样</button>
@@ -653,8 +630,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       <div class="feedback" id="fb-ex4-2"></div>
     </div>
 
-    <!-- Q3 -->
-    <div class="question-block" data-q="ex4-3">
+        <div class="question-block" data-q="ex4-3">
       <div class="q-label"><span class="q-num">3</span>&ldquo;&ntilde;&rdquo; 的发音最像日语的哪个音？</div>
       <div class="mc-options">
         <button class="mc-btn" data-val="な" onclick="selectMC(this)">な (na)</button>
@@ -665,8 +641,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       <div class="feedback" id="fb-ex4-3"></div>
     </div>
 
-    <!-- Q4 -->
-    <div class="question-block" data-q="ex4-4">
+        <div class="question-block" data-q="ex4-4">
       <div class="q-label"><span class="q-num">4</span>&ldquo;谢谢&rdquo; 用西班牙语怎么说？</div>
       <input type="text" class="answer-input" id="input-ex4-4" placeholder="输入答案..." aria-label="填写答案">
       <br>
@@ -674,8 +649,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       <div class="feedback" id="fb-ex4-4"></div>
     </div>
 
-    <!-- Q5 -->
-    <div class="question-block" data-q="ex4-5">
+        <div class="question-block" data-q="ex4-5">
       <div class="q-label"><span class="q-num">5</span>&ldquo;Buenos d&iacute;as&rdquo; 是什么意思？</div>
       <div class="mc-options">
         <button class="mc-btn" data-val="晚上好" onclick="selectMC(this)">晚上好</button>
@@ -687,8 +661,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       <div class="feedback" id="fb-ex4-5"></div>
     </div>
 
-    <!-- Q6 -->
-    <div class="question-block" data-q="ex4-6">
+        <div class="question-block" data-q="ex4-6">
       <div class="q-label"><span class="q-num">6</span>&ldquo;不客气&rdquo; 用西班牙语怎么说？</div>
       <input type="text" class="answer-input" id="input-ex4-6" placeholder="输入答案..." aria-label="填写答案">
       <br>
@@ -696,8 +669,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       <div class="feedback" id="fb-ex4-6"></div>
     </div>
 
-    <!-- Q7 -->
-    <div class="question-block" data-q="ex4-7">
+        <div class="question-block" data-q="ex4-7">
       <div class="q-label"><span class="q-num">7</span>&ldquo;Hasta ma&ntilde;ana&rdquo; 是什么意思？</div>
       <div class="mc-options">
         <button class="mc-btn" data-val="回头见" onclick="selectMC(this)">回头见</button>
@@ -709,8 +681,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       <div class="feedback" id="fb-ex4-7"></div>
     </div>
 
-    <!-- Q8 -->
-    <div class="question-block" data-q="ex4-8">
+        <div class="question-block" data-q="ex4-8">
       <div class="q-label"><span class="q-num">8</span>有人问你 &ldquo;&iquest;C&oacute;mo te llamas?&rdquo;，你应该怎么开头回答？</div>
       <div class="mc-options">
         <button class="mc-btn" data-val="Soy de..." onclick="selectMC(this)">Soy de...</button>
@@ -721,8 +692,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       <div class="feedback" id="fb-ex4-8"></div>
     </div>
 
-    <!-- Q9 -->
-    <div class="question-block" data-q="ex4-9">
+        <div class="question-block" data-q="ex4-9">
       <div class="q-label"><span class="q-num">9</span>正式场合问 &ldquo;您叫什么名字？&rdquo; 应该用哪个？</div>
       <div class="mc-options">
         <button class="mc-btn" data-val="¿Cómo te llamas?" onclick="selectMC(this)">&iquest;C&oacute;mo te llamas?</button>
@@ -733,8 +703,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
       <div class="feedback" id="fb-ex4-9"></div>
     </div>
 
-    <!-- Q10 -->
-    <div class="question-block" data-q="ex4-10">
+        <div class="question-block" data-q="ex4-10">
       <div class="q-label"><span class="q-num">10</span>&ldquo;我来自中国&rdquo; 用西班牙语怎么说？</div>
       <input type="text" class="answer-input" id="input-ex4-10" placeholder="输入答案..." aria-label="填写答案">
       <br>
@@ -746,8 +715,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     <button class="retry-btn" id="retry-ex4" onclick="resetExercise('ex4')">重新测试</button>
   </div>
 
-  <!-- Unlock Card -->
-  <div class="unlock-card">
+    <div class="unlock-card">
     <h3>恭喜！你解锁了新技能</h3>
     <p style="font-family:var(--font-cn);margin-bottom:16px;">你现在可以：</p>
     <ul>
@@ -762,8 +730,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     </div>
   </div>
 
-  <!-- Self-check -->
-  <h3>自我检查</h3>
+    <h3>自我检查</h3>
   <div class="self-check">
     <label><input type="checkbox"> 我能正确发出五个西班牙语元音</label>
     <label><input type="checkbox"> 我知道 h 在西班牙语中不发音</label>
@@ -773,8 +740,7 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
     <label><input type="checkbox"> 我能听懂并参与简单的自我介绍对话</label>
   </div>
 
-  <!-- Cultural note -->
-  <div class="collapsible cultural-note">
+    <div class="collapsible cultural-note">
     <button class="collapsible-toggle" onclick="toggleCollapse(this)" aria-expanded="false">
       文化小知识：西班牙语国家的见面礼仪
       <span class="arrow">&#x25BC;</span>
@@ -795,251 +761,5 @@ body { font-family: var(--font-body); background: var(--light-bg); font-size: 16
 </footer>
 
 <script src="js/main.js"></script>
-<script>
-// ============================
-// Leccion 1: Page-specific JS
-// ============================
-
-// L1 uses globalRate as its speech rate variable name
-// The shared main.js uses speechRate. Alias for compatibility:
-// (L1's inline handlers call speak() which is defined in main.js)
-
-// Play entire dialogue with pauses between lines (L1 version)
-function playDialogue(dialogueId) {
-  if (typeof speechSynthesis === 'undefined') return;
-  speechSynthesis.cancel();
-  var lines = document.querySelectorAll('[data-dialogue="' + dialogueId + '"]');
-  var texts = [];
-  lines.forEach(function(line) {
-    var es = line.getAttribute('data-es');
-    if (es) texts.push(es);
-  });
-
-  var i = 0;
-  function playNext() {
-    if (i >= texts.length) return;
-    var utterance = new SpeechSynthesisUtterance(texts[i]);
-    utterance.lang = 'es-ES';
-    utterance.rate = speechRate;
-    if (spanishVoice) utterance.voice = spanishVoice;
-    utterance.onend = function() {
-      i++;
-      setTimeout(playNext, 800);
-    };
-    speechSynthesis.speak(utterance);
-  }
-  playNext();
-}
-
-// Section Nav highlight on scroll
-function updateSectionNav() {
-  var sections = ['opening', 'block1', 'block2', 'block3', 'block4'];
-  var navLinks = document.querySelectorAll('.section-nav a');
-  var current = '';
-  var offset = 160;
-
-  sections.forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el && el.getBoundingClientRect().top <= offset) {
-      current = id;
-    }
-  });
-
-  navLinks.forEach(function(link) {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
-  });
-}
-
-// ============================
-// Exercise System
-// ============================
-var exerciseState = {};
-
-function getExState(exId) {
-  if (!exerciseState[exId]) {
-    var section = document.getElementById(exId);
-    var qBlocks = section.querySelectorAll('.question-block');
-    var total = qBlocks.length;
-    exerciseState[exId] = { answered: 0, correct: 0, total: total, done: {} };
-  }
-  return exerciseState[exId];
-}
-
-function selectMC(btn) {
-  var block = btn.closest('.question-block');
-  var qId = block.getAttribute('data-q');
-  var exId = block.closest('[data-exercise]').getAttribute('data-exercise');
-  var state = getExState(exId);
-  if (state.done[qId]) return;
-
-  block.querySelectorAll('.mc-btn').forEach(function(b) { b.classList.remove('selected'); });
-  btn.classList.add('selected');
-}
-
-function checkMC(qId, correctVal) {
-  var block = document.querySelector('[data-q="' + qId + '"]');
-  var exId = block.closest('[data-exercise]').getAttribute('data-exercise');
-  var state = getExState(exId);
-  if (state.done[qId]) return;
-
-  var selected = block.querySelector('.mc-btn.selected');
-  if (!selected) return;
-
-  var fb = document.getElementById('fb-' + qId);
-  var isCorrect = selected.getAttribute('data-val') === correctVal;
-
-  block.querySelectorAll('.mc-btn').forEach(function(b) { b.disabled = true; });
-  block.querySelector('.check-btn').disabled = true;
-
-  if (isCorrect) {
-    selected.classList.add('correct');
-    fb.textContent = '✓ 正确！';
-    fb.className = 'feedback correct';
-    state.correct++;
-  } else {
-    selected.classList.add('wrong');
-    block.querySelectorAll('.mc-btn').forEach(function(b) {
-      if (b.getAttribute('data-val') === correctVal) b.classList.add('correct');
-    });
-    fb.textContent = '✗ 正确答案是：' + correctVal;
-    fb.className = 'feedback wrong';
-  }
-
-  state.answered++;
-  state.done[qId] = true;
-  checkExerciseComplete(exId);
-}
-
-function checkText(qId, acceptableAnswers) {
-  var block = document.querySelector('[data-q="' + qId + '"]');
-  var exId = block.closest('[data-exercise]').getAttribute('data-exercise');
-  var state = getExState(exId);
-  if (state.done[qId]) return;
-
-  var input = document.getElementById('input-' + qId);
-  var userAnswer = input.value.trim();
-  if (!userAnswer) return;
-
-  var fb = document.getElementById('fb-' + qId);
-  var isCorrect = acceptableAnswers.some(function(a) {
-    return userAnswer.toLowerCase() === a.toLowerCase();
-  });
-
-  input.disabled = true;
-  block.querySelector('.check-btn').disabled = true;
-
-  if (isCorrect) {
-    input.classList.add('correct');
-    fb.textContent = '✓ 正确！';
-    fb.className = 'feedback correct';
-    state.correct++;
-  } else {
-    input.classList.add('wrong');
-    fb.textContent = '✗ 正确答案是：' + acceptableAnswers[0];
-    fb.className = 'feedback wrong';
-  }
-
-  state.answered++;
-  state.done[qId] = true;
-  checkExerciseComplete(exId);
-}
-
-function checkTextStartsWith(qId, prefix) {
-  var block = document.querySelector('[data-q="' + qId + '"]');
-  var exId = block.closest('[data-exercise]').getAttribute('data-exercise');
-  var state = getExState(exId);
-  if (state.done[qId]) return;
-
-  var input = document.getElementById('input-' + qId);
-  var userAnswer = input.value.trim();
-  if (!userAnswer) return;
-
-  var fb = document.getElementById('fb-' + qId);
-  var isCorrect = userAnswer.toLowerCase().startsWith(prefix.toLowerCase()) && userAnswer.length > prefix.length;
-
-  input.disabled = true;
-  block.querySelector('.check-btn').disabled = true;
-
-  if (isCorrect) {
-    input.classList.add('correct');
-    fb.textContent = '✓ 正确！' + userAnswer;
-    fb.className = 'feedback correct';
-    state.correct++;
-  } else {
-    input.classList.add('wrong');
-    fb.textContent = '✗ 答案应以 "' + prefix + '" 开头，例如 "Me llamo Carlos"';
-    fb.className = 'feedback wrong';
-  }
-
-  state.answered++;
-  state.done[qId] = true;
-  checkExerciseComplete(exId);
-}
-
-function checkExerciseComplete(exId) {
-  var state = getExState(exId);
-  if (state.answered >= state.total) {
-    var scoreEl = document.getElementById('score-' + exId);
-    scoreEl.textContent = '你答对了 ' + state.correct + '/' + state.total + ' 题';
-    scoreEl.classList.add('show');
-    var retryEl = document.getElementById('retry-' + exId);
-    retryEl.classList.add('show');
-  }
-}
-
-function resetExercise(exId) {
-  var section = document.getElementById(exId);
-  exerciseState[exId] = null;
-
-  section.querySelectorAll('.mc-btn').forEach(function(b) {
-    b.disabled = false;
-    b.classList.remove('selected', 'correct', 'wrong');
-  });
-
-  section.querySelectorAll('.answer-input').forEach(function(inp) {
-    inp.disabled = false;
-    inp.value = '';
-    inp.classList.remove('correct', 'wrong');
-  });
-
-  section.querySelectorAll('.check-btn').forEach(function(b) { b.disabled = false; });
-
-  section.querySelectorAll('.feedback').forEach(function(f) {
-    f.className = 'feedback';
-    f.textContent = '';
-  });
-
-  document.getElementById('score-' + exId).classList.remove('show');
-  document.getElementById('retry-' + exId).classList.remove('show');
-}
-
-// ============================
-// Collapsible Sections
-// ============================
-function toggleCollapse(btn) {
-  var content = btn.nextElementSibling;
-  var isOpen = btn.classList.contains('open');
-
-  if (isOpen) {
-    content.style.maxHeight = null;
-    btn.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-  } else {
-    content.style.maxHeight = content.scrollHeight + 'px';
-    btn.classList.add('open');
-    btn.setAttribute('aria-expanded', 'true');
-  }
-}
-
-// ============================
-// Init
-// ============================
-window.addEventListener('DOMContentLoaded', function() {
-  updateSectionNav();
-});
-</script>
 </body>
 </html>
