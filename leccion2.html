@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 2: ¿Qué es esto? 命名这个世界</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* === Page-specific overrides for Leccion 2 === */
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + var(--section-nav-h) + 16px); }
+body { font-family: var(--font-body); background: var(--light-bg); font-size: 16px; }
+
+/* Gender sort exercise */
+.gender-sort {
+  display: flex; gap: 24px; flex-wrap: wrap; margin: 20px 0;
+}
+.gender-column {
+  flex: 1; min-width: 200px; border-radius: 12px; padding: 16px; min-height: 120px;
+}
+.gender-column.masc { background: #e8f0fe; border: 2px dashed #4285f4; }
+.gender-column.fem { background: #fce8e8; border: 2px dashed #ea4335; }
+.gender-column h4 { margin: 0 0 12px; text-align: center; font-family: var(--font-cn); }
+.gender-column .drop-zone { min-height: 80px; }
+.gender-word {
+  display: inline-block; padding: 8px 16px; margin: 4px; border-radius: 8px;
+  background: #fff; border: 1px solid #ddd; cursor: pointer; font-family: var(--font-body);
+  font-size: 0.95rem; transition: all 0.2s;
+}
+.gender-word:hover { transform: translateY(-2px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.gender-word.placed { opacity: 0.5; pointer-events: none; }
+.gender-word.correct-place { background: #d4edda; border-color: #28a745; }
+.gender-word.wrong-place { background: #f8d7da; border-color: #dc3545; }
+.word-bank { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; justify-content: center; }
+
+/* Vocab room groups */
+.room-group { margin-bottom: 24px; }
+.room-label {
+  font-family: var(--font-cn); font-weight: 600; font-size: 1rem;
+  padding: 6px 14px; border-radius: 8px 8px 0 0;
+  display: inline-block; margin-bottom: 0;
+}
+.room-label.sala { background: #e3f2fd; color: #1565c0; }
+.room-label.cocina { background: #fff3e0; color: #e65100; }
+.room-label.dormitorio { background: #f3e5f5; color: #7b1fa2; }
+.room-label.ventana { background: #e8f5e9; color: #2e7d32; }
+.room-label.colores { background: #fce4ec; color: #c62828; }
+
+/* Question words grid */
+.qword-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px; margin: 20px 0;
+}
+.qword-card {
+  background: #fff; border-radius: 10px; padding: 14px; text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06); border: 1px solid #eee;
+}
+.qword-card .es-word { font-size: 1.2rem; }
+.qword-card .cn-meaning { font-size: 0.9rem; color: #666; }
+</style>
+</head>
+<body>
+
+<!-- Scroll Progress Bar -->
+<div id="progress-bar" role="progressbar" aria-label="页面阅读进度"></div>
+
+<!-- Main Navigation -->
+<nav class="main-nav" role="navigation" aria-label="课程导航">
+  <div class="nav-inner">
+    <a href="index.html">首页</a>
+    <a href="leccion1.html">第一课</a>
+    <a href="leccion2.html" class="active">第二课</a>
+    <a href="leccion3.html">第三课</a>
+  </div>
+</nav>
+
+<!-- Section Navigation -->
+<nav class="section-nav" role="navigation" aria-label="章节导航">
+  <div class="nav-inner">
+    <a href="#opening">开始</a>
+    <a href="#block1">冠词</a>
+    <a href="#block2">词汇</a>
+    <a href="#block3">句型</a>
+    <a href="#block4">复习</a>
+  </div>
+</nav>
+
+<!-- Speed Control -->
+<div class="speed-control" role="region" aria-label="语速控制">
+  <span>语速：</span>
+  <input type="range" id="speed-slider" min="0.5" max="1.0" step="0.05" value="0.7" aria-label="语速调节滑块">
+  <span class="speed-val" id="speed-val">0.7x</span>
+</div>
+
+<main>
+
+<!-- ================= OPENING ================= -->
+<section id="opening">
+  <h1>Lecci&oacute;n 2: &iquest;Qu&eacute; es esto?
+    <span class="subtitle">命名这个世界</span>
+  </h1>
+
+  <div class="welcome-card">
+    <div class="dialogue-box" style="margin-bottom:16px;">
+      <div class="dialogue-line">
+        <div class="text">
+          <div class="es">&iexcl;Hola! Buenos d&iacute;as. Me llamo Carlos. &iquest;C&oacute;mo est&aacute;s? Mucho gusto. <button class="speak-btn" onclick="speak('¡Hola! Buenos días. Me llamo Carlos. ¿Cómo estás? Mucho gusto.')" aria-label="播放此句">&#x1F50A;</button></div>
+        </div>
+      </div>
+    </div>
+    <p style="font-family:var(--font-cn);">看，你已经能读懂一段西班牙语了！现在让我们学会命名身边的事物。</p>
+  </div>
+
+  <div class="character-card">
+    <div class="avatar" aria-hidden="true">&#x1F3E0;</div>
+    <div class="info">
+      <div class="name">故事背景</div>
+      <p>Carlos 邀请你去参观他的公寓。一路上，你会学会用西班牙语命名身边的各种事物。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLOCK 1 ================= -->
+<section id="block1">
+  <h2><span class="block-num">1</span>冠词：西语名词的&ldquo;身份证&rdquo;</h2>
+  <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约12分钟</p>
+
+  <div class="note-box">
+    <div class="note-label">核心概念</div>
+    西班牙语的每个名词都有&ldquo;性别&rdquo;&mdash;&mdash;阳性或阴性。这在中文、英语、日语中都不存在，是一个全新的概念。<br><br>
+    把冠词想象成名词的身份证：<br>
+    &bull; <strong>el</strong> = 阳性的&ldquo;这个&rdquo; <button class="speak-btn" onclick="speak('el')" aria-label="播放 el">&#x1F50A;</button><br>
+    &bull; <strong>la</strong> = 阴性的&ldquo;这个&rdquo; <button class="speak-btn" onclick="speak('la')" aria-label="播放 la">&#x1F50A;</button><br>
+    &bull; <strong>un</strong> = 阳性的&ldquo;一个&rdquo; <button class="speak-btn" onclick="speak('un')" aria-label="播放 un">&#x1F50A;</button><br>
+    &bull; <strong>una</strong> = 阴性的&ldquo;一个&rdquo; <button class="speak-btn" onclick="speak('una')" aria-label="播放 una">&#x1F50A;</button><br><br>
+    &#x1F4A1; <strong>重要原则</strong>：学名词就要连冠词一起学。不要记&ldquo;mesa = 桌子&rdquo;，要记&ldquo;<strong>la</strong> mesa = 桌子&rdquo;。
+  </div>
+
+  <div class="note-box">
+    <div class="note-label">&#x1F4A1; English tip</div>
+    英语的 <strong>the</strong> &asymp; 西班牙语的 <strong>el/la</strong>，英语的 <strong>a/an</strong> &asymp; 西班牙语的 <strong>un/una</strong>。区别在于西班牙语要根据名词性别选择不同的形式。中文和日语没有冠词，所以这是个新概念&mdash;&mdash;但你的英语基础会帮到你。
+  </div>
+
+  <h3>性别规则</h3>
+
+  <div class="table-wrap">
+    <table aria-label="名词性别规则">
+      <thead>
+        <tr>
+          <th>规则</th>
+          <th>例词</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#e8f0fe;">
+          <td><span class="cn">&#x1F535; 以 -o 结尾 &rarr; 通常阳性 (el)</span></td>
+          <td>
+            <span class="es">el libro</span> <button class="speak-btn" onclick="speak('el libro')" aria-label="播放 el libro">&#x1F50A;</button>,
+            <span class="es">el gato</span> <button class="speak-btn" onclick="speak('el gato')" aria-label="播放 el gato">&#x1F50A;</button>,
+            <span class="es">el tel&eacute;fono</span> <button class="speak-btn" onclick="speak('el teléfono')" aria-label="播放 el teléfono">&#x1F50A;</button>
+          </td>
+          <td></td>
+        </tr>
+        <tr style="background:#fce8e8;">
+          <td><span class="cn">&#x1F534; 以 -a 结尾 &rarr; 通常阴性 (la)</span></td>
+          <td>
+            <span class="es">la mesa</span> <button class="speak-btn" onclick="speak('la mesa')" aria-label="播放 la mesa">&#x1F50A;</button>,
+            <span class="es">la silla</span> <button class="speak-btn" onclick="speak('la silla')" aria-label="播放 la silla">&#x1F50A;</button>,
+            <span class="es">la casa</span> <button class="speak-btn" onclick="speak('la casa')" aria-label="播放 la casa">&#x1F50A;</button>
+          </td>
+          <td></td>
+        </tr>
+        <tr style="background:#fff3cd;">
+          <td><span class="cn">&#x26A0;&#xFE0F; 例外</span></td>
+          <td>
+            <span class="es">el d&iacute;a</span> <button class="speak-btn" onclick="speak('el día')" aria-label="播放 el día">&#x1F50A;</button>,
+            <span class="es">el mapa</span> <button class="speak-btn" onclick="speak('el mapa')" aria-label="播放 el mapa">&#x1F50A;</button>,
+            <span class="es">la mano</span> <button class="speak-btn" onclick="speak('la mano')" aria-label="播放 la mano">&#x1F50A;</button>,
+            <span class="es">la foto</span> <button class="speak-btn" onclick="speak('la foto')" aria-label="播放 la foto">&#x1F50A;</button>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- EXERCISE: Gender Sort -->
+  <div class="exercise-section" id="ex1" data-exercise="ex1">
+    <div class="exercise-title">练习：把名词分到 el 或 la 列</div>
+
+    <div class="word-bank" id="word-bank-ex1">
+      <span class="gender-word" data-gender="el" onclick="sortWord(this,'ex1')">libro</span>
+      <span class="gender-word" data-gender="la" onclick="sortWord(this,'ex1')">mesa</span>
+      <span class="gender-word" data-gender="el" onclick="sortWord(this,'ex1')">gato</span>
+      <span class="gender-word" data-gender="la" onclick="sortWord(this,'ex1')">silla</span>
+      <span class="gender-word" data-gender="el" onclick="sortWord(this,'ex1')">tel&eacute;fono</span>
+      <span class="gender-word" data-gender="la" onclick="sortWord(this,'ex1')">casa</span>
+      <span class="gender-word" data-gender="el" onclick="sortWord(this,'ex1')">d&iacute;a</span>
+      <span class="gender-word" data-gender="la" onclick="sortWord(this,'ex1')">mano</span>
+    </div>
+
+    <div class="gender-sort">
+      <div class="gender-column masc">
+        <h4>&#x1F535; el (阳性)</h4>
+        <div class="drop-zone" id="el-zone-ex1"></div>
+      </div>
+      <div class="gender-column fem">
+        <h4>&#x1F534; la (阴性)</h4>
+        <div class="drop-zone" id="la-zone-ex1"></div>
+      </div>
+    </div>
+
+    <button class="check-btn" id="check-sort-ex1" onclick="checkSort('ex1')">检查答案</button>
+    <div class="score-display" id="score-ex1"></div>
+    <button class="retry-btn" id="retry-ex1" onclick="resetSort('ex1')">重新测试</button>
+  </div>
+</section>
+
+<!-- ================= BLOCK 2 ================= -->
+<section id="block2">
+  <h2><span class="block-num">2</span>Carlos 的公寓</h2>
+  <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约15分钟</p>
+
+  <p style="font-family:var(--font-cn);margin-bottom:20px;">Carlos 带你参观他的公寓，一起来认识这些物品吧！</p>
+
+  <h3>词汇</h3>
+
+  <!-- 客厅 -->
+  <div class="room-group">
+    <span class="room-label sala">&#x1F6CB;&#xFE0F; 客厅</span>
+    <div class="table-wrap">
+      <table aria-label="客厅词汇">
+        <tbody>
+          <tr>
+            <td><span class="es-word">la mesa</span> <button class="speak-btn" onclick="speak('la mesa')" aria-label="播放 la mesa">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">桌子</span></td>
+          </tr>
+          <tr>
+            <td><span class="es-word">la silla</span> <button class="speak-btn" onclick="speak('la silla')" aria-label="播放 la silla">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">椅子</span></td>
+          </tr>
+          <tr>
+            <td><span class="es-word">el libro</span> <button class="speak-btn" onclick="speak('el libro')" aria-label="播放 el libro">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">书</span> <span class="note-inline">&#x1F4A1; library 同根</span></td>
+          </tr>
+          <tr>
+            <td><span class="es-word">el tel&eacute;fono</span> <button class="speak-btn" onclick="speak('el teléfono')" aria-label="播放 el teléfono">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">电话</span> <span class="note-inline">&#x1F4A1; = telephone!</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 厨房 -->
+  <div class="room-group">
+    <span class="room-label cocina">&#x1F373; 厨房</span>
+    <div class="table-wrap">
+      <table aria-label="厨房词汇">
+        <tbody>
+          <tr>
+            <td><span class="es-word">el caf&eacute;</span> <button class="speak-btn" onclick="speak('el café')" aria-label="播放 el café">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">咖啡</span> <span class="note-inline">&#x1F4A1; = caf&eacute;!</span></td>
+          </tr>
+          <tr>
+            <td><span class="es-word">el agua</span> <button class="speak-btn" onclick="speak('el agua')" aria-label="播放 el agua">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">水</span> <span class="note-inline">&#x26A0;&#xFE0F; 阴性词但用 el</span></td>
+          </tr>
+          <tr>
+            <td><span class="es-word">la comida</span> <button class="speak-btn" onclick="speak('la comida')" aria-label="播放 la comida">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">食物</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 卧室 -->
+  <div class="room-group">
+    <span class="room-label dormitorio">&#x1F6CF;&#xFE0F; 卧室</span>
+    <div class="table-wrap">
+      <table aria-label="卧室词汇">
+        <tbody>
+          <tr>
+            <td><span class="es-word">la computadora</span> <button class="speak-btn" onclick="speak('la computadora')" aria-label="播放 la computadora">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">电脑</span> <span class="note-inline">&#x1F4A1; = computer!</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 窗外 -->
+  <div class="room-group">
+    <span class="room-label ventana">&#x1F33F; 窗外</span>
+    <div class="table-wrap">
+      <table aria-label="窗外词汇">
+        <tbody>
+          <tr>
+            <td><span class="es-word">el coche</span> <button class="speak-btn" onclick="speak('el coche')" aria-label="播放 el coche">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">车</span></td>
+          </tr>
+          <tr>
+            <td><span class="es-word">el gato</span> <button class="speak-btn" onclick="speak('el gato')" aria-label="播放 el gato">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">猫</span></td>
+          </tr>
+          <tr>
+            <td><span class="es-word">el perro</span> <button class="speak-btn" onclick="speak('el perro')" aria-label="播放 el perro">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">狗</span></td>
+          </tr>
+          <tr>
+            <td><span class="es-word">la casa</span> <button class="speak-btn" onclick="speak('la casa')" aria-label="播放 la casa">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">房子</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 颜色 -->
+  <div class="room-group">
+    <span class="room-label colores">&#x1F3A8; 颜色与形容词</span>
+    <div class="table-wrap">
+      <table aria-label="颜色词汇">
+        <tbody>
+          <tr>
+            <td><span class="es-word">rojo / roja</span> <button class="speak-btn" onclick="speak('rojo, roja')" aria-label="播放 rojo">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">红</span></td>
+          </tr>
+          <tr>
+            <td><span class="es-word">azul</span> <button class="speak-btn" onclick="speak('azul')" aria-label="播放 azul">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">蓝（不变）</span></td>
+          </tr>
+          <tr>
+            <td><span class="es-word">verde</span> <button class="speak-btn" onclick="speak('verde')" aria-label="播放 verde">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">绿（不变）</span></td>
+          </tr>
+          <tr>
+            <td><span class="es-word">blanco / blanca</span> <button class="speak-btn" onclick="speak('blanco, blanca')" aria-label="播放 blanco">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">白</span></td>
+          </tr>
+          <tr>
+            <td><span class="es-word">negro / negra</span> <button class="speak-btn" onclick="speak('negro, negra')" aria-label="播放 negro">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">黑</span></td>
+          </tr>
+          <tr>
+            <td><span class="es-word">grande</span> <button class="speak-btn" onclick="speak('grande')" aria-label="播放 grande">&#x1F50A;</button></td>
+            <td><span class="cn-meaning">大（不变）</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="note-box">
+    &#x1F4A1; telephone, computer, caf&eacute; &mdash; 你的英语在帮你！
+  </div>
+
+  <!-- EXERCISE: Article quiz -->
+  <div class="exercise-section" id="ex2" data-exercise="ex2">
+    <div class="exercise-title">练习：Carlos 指着物品，填写 el/la + 名词</div>
+
+    <div class="question-block" data-q="ex2-1">
+      <div class="q-label"><span class="q-num">1</span>Carlos 指着一本书 &#x1F4D6;：这是什么？</div>
+      <input type="text" class="answer-input" id="input-ex2-1" placeholder="el/la + 名词" aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex2-1',['el libro','El libro'])">检查答案</button>
+      <div class="feedback" id="fb-ex2-1"></div>
+    </div>
+
+    <div class="question-block" data-q="ex2-2">
+      <div class="q-label"><span class="q-num">2</span>Carlos 指着一张桌子：这是什么？</div>
+      <input type="text" class="answer-input" id="input-ex2-2" placeholder="el/la + 名词" aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex2-2',['la mesa','La mesa'])">检查答案</button>
+      <div class="feedback" id="fb-ex2-2"></div>
+    </div>
+
+    <div class="question-block" data-q="ex2-3">
+      <div class="q-label"><span class="q-num">3</span>Carlos 指着一只猫 &#x1F431;：这是什么？</div>
+      <input type="text" class="answer-input" id="input-ex2-3" placeholder="el/la + 名词" aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex2-3',['el gato','El gato'])">检查答案</button>
+      <div class="feedback" id="fb-ex2-3"></div>
+    </div>
+
+    <div class="question-block" data-q="ex2-4">
+      <div class="q-label"><span class="q-num">4</span>Carlos 指着一台电脑 &#x1F4BB;：这是什么？</div>
+      <input type="text" class="answer-input" id="input-ex2-4" placeholder="el/la + 名词" aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex2-4',['la computadora','La computadora'])">检查答案</button>
+      <div class="feedback" id="fb-ex2-4"></div>
+    </div>
+
+    <div class="score-display" id="score-ex2"></div>
+    <button class="retry-btn" id="retry-ex2" onclick="resetExercise('ex2')">重新测试</button>
+  </div>
+</section>
+
+<!-- ================= BLOCK 3 ================= -->
+<section id="block3">
+  <h2><span class="block-num">3</span>这是什么？</h2>
+  <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约15分钟</p>
+
+  <h3>疑问词</h3>
+
+  <div class="qword-grid">
+    <div class="qword-card">
+      <div class="es-word">&iquest;Qu&eacute;?</div>
+      <button class="speak-btn" onclick="speak('¿Qué?')" aria-label="播放 Qué">&#x1F50A;</button>
+      <div class="cn-meaning">什么</div>
+    </div>
+    <div class="qword-card">
+      <div class="es-word">&iquest;Qui&eacute;n?</div>
+      <button class="speak-btn" onclick="speak('¿Quién?')" aria-label="播放 Quién">&#x1F50A;</button>
+      <div class="cn-meaning">谁</div>
+    </div>
+    <div class="qword-card">
+      <div class="es-word">&iquest;D&oacute;nde?</div>
+      <button class="speak-btn" onclick="speak('¿Dónde?')" aria-label="播放 Dónde">&#x1F50A;</button>
+      <div class="cn-meaning">哪里</div>
+    </div>
+    <div class="qword-card">
+      <div class="es-word">&iquest;C&oacute;mo?</div>
+      <button class="speak-btn" onclick="speak('¿Cómo?')" aria-label="播放 Cómo">&#x1F50A;</button>
+      <div class="cn-meaning">怎么</div>
+    </div>
+    <div class="qword-card">
+      <div class="es-word">&iquest;Cu&aacute;ndo?</div>
+      <button class="speak-btn" onclick="speak('¿Cuándo?')" aria-label="播放 Cuándo">&#x1F50A;</button>
+      <div class="cn-meaning">什么时候</div>
+    </div>
+    <div class="qword-card">
+      <div class="es-word">&iquest;Por qu&eacute;?</div>
+      <button class="speak-btn" onclick="speak('¿Por qué?')" aria-label="播放 Por qué">&#x1F50A;</button>
+      <div class="cn-meaning">为什么</div>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <div class="note-label">&#x1F4A1; 书写提示</div>
+    西班牙语问句前后都有问号，开头的问号是倒的：&iquest;...?
+  </div>
+
+  <h3>核心句型</h3>
+
+  <div class="phrase-card">
+    <span class="es-phrase">&iquest;Qu&eacute; es esto?</span>
+    <button class="speak-btn" onclick="speak('¿Qué es esto?')" aria-label="播放 Qué es esto">&#x1F50A;</button>
+    <div class="meaning"><span class="cn">这是什么？</span></div>
+  </div>
+
+  <div class="phrase-card">
+    <span class="es-phrase">Esto es un libro.</span>
+    <button class="speak-btn" onclick="speak('Esto es un libro.')" aria-label="播放 Esto es un libro">&#x1F50A;</button>
+    <div class="meaning"><span class="cn">这是一本书。</span></div>
+  </div>
+
+  <div class="phrase-card">
+    <span class="es-phrase">Esto es una mesa.</span>
+    <button class="speak-btn" onclick="speak('Esto es una mesa.')" aria-label="播放 Esto es una mesa">&#x1F50A;</button>
+    <div class="meaning"><span class="cn">这是一张桌子。</span></div>
+  </div>
+
+  <div class="phrase-card">
+    <span class="es-phrase">El libro es rojo.</span>
+    <button class="speak-btn" onclick="speak('El libro es rojo.')" aria-label="播放 El libro es rojo">&#x1F50A;</button>
+    <div class="meaning"><span class="cn">这本书是红色的。</span></div>
+  </div>
+
+  <h3>语法：形容词性数一致</h3>
+
+  <div class="note-box">
+    <div class="note-label">形容词规则</div>
+    形容词要和名词性别一致：<br>
+    &bull; el libro roj<strong>o</strong>（阳性） <button class="speak-btn" onclick="speak('el libro rojo')" aria-label="播放 el libro rojo">&#x1F50A;</button><br>
+    &bull; la mesa roj<strong>a</strong>（阴性） <button class="speak-btn" onclick="speak('la mesa roja')" aria-label="播放 la mesa roja">&#x1F50A;</button><br>
+    &bull; el libro grand<strong>e</strong>（以 -e 结尾不变） <button class="speak-btn" onclick="speak('el libro grande')" aria-label="播放 el libro grande">&#x1F50A;</button><br><br>
+    而且形容词放在名词<strong>后面</strong>！和中英日都相反。
+  </div>
+
+  <!-- EXERCISE: Adjective agreement -->
+  <div class="exercise-section" id="ex3" data-exercise="ex3">
+    <div class="exercise-title">练习：构造 &ldquo;El/La [nombre] es [adjetivo]&rdquo;</div>
+
+    <div class="question-block" data-q="ex3-1">
+      <div class="q-label"><span class="q-num">1</span>书 (libro) + 红色 (rojo/a) = ?</div>
+      <input type="text" class="answer-input" id="input-ex3-1" placeholder="El/La ... es ..." aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex3-1',['El libro es rojo','El libro es rojo.','el libro es rojo'])">检查答案</button>
+      <div class="feedback" id="fb-ex3-1"></div>
+    </div>
+
+    <div class="question-block" data-q="ex3-2">
+      <div class="q-label"><span class="q-num">2</span>桌子 (mesa) + 白色 (blanco/a) = ?</div>
+      <input type="text" class="answer-input" id="input-ex3-2" placeholder="El/La ... es ..." aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex3-2',['La mesa es blanca','La mesa es blanca.','la mesa es blanca'])">检查答案</button>
+      <div class="feedback" id="fb-ex3-2"></div>
+    </div>
+
+    <div class="question-block" data-q="ex3-3">
+      <div class="q-label"><span class="q-num">3</span>猫 (gato) + 黑色 (negro/a) = ?</div>
+      <input type="text" class="answer-input" id="input-ex3-3" placeholder="El/La ... es ..." aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex3-3',['El gato es negro','El gato es negro.','el gato es negro'])">检查答案</button>
+      <div class="feedback" id="fb-ex3-3"></div>
+    </div>
+
+    <div class="question-block" data-q="ex3-4">
+      <div class="q-label"><span class="q-num">4</span>房子 (casa) + 大 (grande) = ?</div>
+      <input type="text" class="answer-input" id="input-ex3-4" placeholder="El/La ... es ..." aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex3-4',['La casa es grande','La casa es grande.','la casa es grande'])">检查答案</button>
+      <div class="feedback" id="fb-ex3-4"></div>
+    </div>
+
+    <div class="score-display" id="score-ex3"></div>
+    <button class="retry-btn" id="retry-ex3" onclick="resetExercise('ex3')">重新测试</button>
+  </div>
+</section>
+
+<!-- ================= BLOCK 4 ================= -->
+<section id="block4">
+  <h2><span class="block-num">4</span>对话与复习</h2>
+  <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约15分钟</p>
+
+  <!-- Dialogue 1 — Carlos's apartment -->
+  <h3>对话一：Carlos 的公寓</h3>
+  <div class="dialogue-box">
+    <div class="dialogue-title">
+      <span>&#x1F3E0; 公寓对话</span>
+      <button class="play-all-btn" onclick="playDialogue('d1')" aria-label="播放全部对话">&#x25B6; 播放全部</button>
+    </div>
+    <div class="dialogue-line" data-dialogue="d1" data-es="¡Mira! Esta es mi sala.">
+      <span class="speaker carlos">Carlos:</span>
+      <div class="text">
+        <div class="es">&iexcl;Mira! Esta es mi sala. <button class="speak-btn" onclick="speak('¡Mira! Esta es mi sala.')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">看！这是我的客厅。</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d1" data-es="¡Es muy grande!">
+      <span class="speaker">T&uacute;:</span>
+      <div class="text">
+        <div class="es">&iexcl;Es muy grande! <button class="speak-btn" onclick="speak('¡Es muy grande!')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">很大啊！</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d1" data-es="¿Qué es esto?">
+      <span class="speaker carlos">Carlos:</span>
+      <div class="text">
+        <div class="es">&iquest;Qu&eacute; es esto? <button class="speak-btn" onclick="speak('¿Qué es esto?')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">这是什么？</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d1" data-es="Esto es... ¿un libro?">
+      <span class="speaker">T&uacute;:</span>
+      <div class="text">
+        <div class="es">Esto es... &iquest;un libro? <button class="speak-btn" onclick="speak('Esto es... ¿un libro?')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">这是...一本书？</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d1" data-es="¡Sí! Es un libro rojo.">
+      <span class="speaker carlos">Carlos:</span>
+      <div class="text">
+        <div class="es">&iexcl;S&iacute;! Es un libro rojo. <button class="speak-btn" onclick="speak('¡Sí! Es un libro rojo.')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">对！是一本红色的书。</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d1" data-es="¿Y esto? ¿Qué es?">
+      <span class="speaker">T&uacute;:</span>
+      <div class="text">
+        <div class="es">&iquest;Y esto? &iquest;Qu&eacute; es? <button class="speak-btn" onclick="speak('¿Y esto? ¿Qué es?')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">那这个呢？</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d1" data-es="Es mi gato. Se llama Michi.">
+      <span class="speaker carlos">Carlos:</span>
+      <div class="text">
+        <div class="es">Es mi gato. Se llama Michi. <button class="speak-btn" onclick="speak('Es mi gato. Se llama Michi.')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">是我的猫。它叫 Michi。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dialogue 2 — At a shop -->
+  <h3>对话二：在商店</h3>
+  <div class="dialogue-box">
+    <div class="dialogue-title">
+      <span>&#x1F6D2; 商店对话</span>
+      <button class="play-all-btn" onclick="playDialogue('d2')" aria-label="播放全部对话">&#x25B6; 播放全部</button>
+    </div>
+    <div class="dialogue-line" data-dialogue="d2" data-es="Hola, buenos días.">
+      <span class="speaker">T&uacute;:</span>
+      <div class="text">
+        <div class="es">Hola, buenos d&iacute;as. <button class="speak-btn" onclick="speak('Hola, buenos días.')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">你好，早上好。</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d2" data-es="¡Buenos días! ¿Qué desea?">
+      <span class="speaker carlos">Vendedor:</span>
+      <div class="text">
+        <div class="es">&iexcl;Buenos d&iacute;as! &iquest;Qu&eacute; desea? <button class="speak-btn" onclick="speak('¡Buenos días! ¿Qué desea?')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">早上好！您需要什么？</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d2" data-es="¿Qué es esto?">
+      <span class="speaker">T&uacute;:</span>
+      <div class="text">
+        <div class="es">&iquest;Qu&eacute; es esto? <button class="speak-btn" onclick="speak('¿Qué es esto?')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">这是什么？</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d2" data-es="Esto es una computadora. Es muy buena.">
+      <span class="speaker carlos">Vendedor:</span>
+      <div class="text">
+        <div class="es">Esto es una computadora. Es muy buena. <button class="speak-btn" onclick="speak('Esto es una computadora. Es muy buena.')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">这是一台电脑。很好的。</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d2" data-es="¿Es grande?">
+      <span class="speaker">T&uacute;:</span>
+      <div class="text">
+        <div class="es">&iquest;Es grande? <button class="speak-btn" onclick="speak('¿Es grande?')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">大吗？</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d2" data-es="No, es pequeña. Pero es muy buena.">
+      <span class="speaker carlos">Vendedor:</span>
+      <div class="text">
+        <div class="es">No, es peque&ntilde;a. Pero es muy buena. <button class="speak-btn" onclick="speak('No, es pequeña. Pero es muy buena.')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">不，很小。但很好。</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d2" data-es="Gracias. Hasta luego.">
+      <span class="speaker">T&uacute;:</span>
+      <div class="text">
+        <div class="es">Gracias. Hasta luego. <button class="speak-btn" onclick="speak('Gracias. Hasta luego.')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">谢谢。再见。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cumulative Quiz -->
+  <div class="exercise-section" id="ex4" data-exercise="ex4">
+    <div class="exercise-title">综合测验（12题）</div>
+
+    <!-- Article questions (4) -->
+    <div class="question-block" data-q="ex4-1">
+      <div class="q-label"><span class="q-num">1</span>&ldquo;mesa&rdquo;（桌子）用哪个冠词？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="el" onclick="selectMC(this)">el</button>
+        <button class="mc-btn" data-val="la" onclick="selectMC(this)">la</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-1','la')">检查答案</button>
+      <div class="feedback" id="fb-ex4-1"></div>
+    </div>
+
+    <div class="question-block" data-q="ex4-2">
+      <div class="q-label"><span class="q-num">2</span>&ldquo;libro&rdquo;（书）用哪个冠词？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="el" onclick="selectMC(this)">el</button>
+        <button class="mc-btn" data-val="la" onclick="selectMC(this)">la</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-2','el')">检查答案</button>
+      <div class="feedback" id="fb-ex4-2"></div>
+    </div>
+
+    <div class="question-block" data-q="ex4-3">
+      <div class="q-label"><span class="q-num">3</span>&ldquo;d&iacute;a&rdquo;（天）用哪个冠词？（注意：这是例外！）</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="el" onclick="selectMC(this)">el</button>
+        <button class="mc-btn" data-val="la" onclick="selectMC(this)">la</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-3','el')">检查答案</button>
+      <div class="feedback" id="fb-ex4-3"></div>
+    </div>
+
+    <div class="question-block" data-q="ex4-4">
+      <div class="q-label"><span class="q-num">4</span>&ldquo;mano&rdquo;（手）用哪个冠词？（注意：这是例外！）</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="el" onclick="selectMC(this)">el</button>
+        <button class="mc-btn" data-val="la" onclick="selectMC(this)">la</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-4','la')">检查答案</button>
+      <div class="feedback" id="fb-ex4-4"></div>
+    </div>
+
+    <!-- Sentence building (4) -->
+    <div class="question-block" data-q="ex4-5">
+      <div class="q-label"><span class="q-num">5</span>&ldquo;这是什么？&rdquo; 用西班牙语怎么说？</div>
+      <input type="text" class="answer-input" id="input-ex4-5" placeholder="输入答案..." aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex4-5',['¿Qué es esto?','Qué es esto','qué es esto','¿Qué es esto?'])">检查答案</button>
+      <div class="feedback" id="fb-ex4-5"></div>
+    </div>
+
+    <div class="question-block" data-q="ex4-6">
+      <div class="q-label"><span class="q-num">6</span>&ldquo;这是一本书。&rdquo; 用西班牙语怎么说？</div>
+      <input type="text" class="answer-input" id="input-ex4-6" placeholder="输入答案..." aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex4-6',['Esto es un libro','Esto es un libro.','esto es un libro'])">检查答案</button>
+      <div class="feedback" id="fb-ex4-6"></div>
+    </div>
+
+    <div class="question-block" data-q="ex4-7">
+      <div class="q-label"><span class="q-num">7</span>&ldquo;这是一张桌子。&rdquo; 用西班牙语怎么说？</div>
+      <input type="text" class="answer-input" id="input-ex4-7" placeholder="输入答案..." aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex4-7',['Esto es una mesa','Esto es una mesa.','esto es una mesa'])">检查答案</button>
+      <div class="feedback" id="fb-ex4-7"></div>
+    </div>
+
+    <div class="question-block" data-q="ex4-8">
+      <div class="q-label"><span class="q-num">8</span>&ldquo;谁？&rdquo; 用西班牙语怎么说？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="¿Qué?" onclick="selectMC(this)">&iquest;Qu&eacute;?</button>
+        <button class="mc-btn" data-val="¿Quién?" onclick="selectMC(this)">&iquest;Qui&eacute;n?</button>
+        <button class="mc-btn" data-val="¿Dónde?" onclick="selectMC(this)">&iquest;D&oacute;nde?</button>
+        <button class="mc-btn" data-val="¿Cómo?" onclick="selectMC(this)">&iquest;C&oacute;mo?</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-8','¿Quién?')">检查答案</button>
+      <div class="feedback" id="fb-ex4-8"></div>
+    </div>
+
+    <!-- Adjective agreement (4) -->
+    <div class="question-block" data-q="ex4-9">
+      <div class="q-label"><span class="q-num">9</span>&ldquo;La casa es ____&rdquo;（白色）。填什么？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="blanco" onclick="selectMC(this)">blanco</button>
+        <button class="mc-btn" data-val="blanca" onclick="selectMC(this)">blanca</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-9','blanca')">检查答案</button>
+      <div class="feedback" id="fb-ex4-9"></div>
+    </div>
+
+    <div class="question-block" data-q="ex4-10">
+      <div class="q-label"><span class="q-num">10</span>&ldquo;El perro es ____&rdquo;（黑色）。填什么？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="negro" onclick="selectMC(this)">negro</button>
+        <button class="mc-btn" data-val="negra" onclick="selectMC(this)">negra</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-10','negro')">检查答案</button>
+      <div class="feedback" id="fb-ex4-10"></div>
+    </div>
+
+    <div class="question-block" data-q="ex4-11">
+      <div class="q-label"><span class="q-num">11</span>&ldquo;La silla es ____&rdquo;（绿色）。填什么？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="verdo" onclick="selectMC(this)">verdo</button>
+        <button class="mc-btn" data-val="verda" onclick="selectMC(this)">verda</button>
+        <button class="mc-btn" data-val="verde" onclick="selectMC(this)">verde</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-11','verde')">检查答案</button>
+      <div class="feedback" id="fb-ex4-11"></div>
+    </div>
+
+    <div class="question-block" data-q="ex4-12">
+      <div class="q-label"><span class="q-num">12</span>西班牙语的形容词通常放在名词的哪里？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="前面" onclick="selectMC(this)">前面（和中英日一样）</button>
+        <button class="mc-btn" data-val="后面" onclick="selectMC(this)">后面（和中英日相反）</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-12','后面')">检查答案</button>
+      <div class="feedback" id="fb-ex4-12"></div>
+    </div>
+
+    <div class="score-display" id="score-ex4"></div>
+    <button class="retry-btn" id="retry-ex4" onclick="resetExercise('ex4')">重新测试</button>
+  </div>
+
+  <!-- Unlock Card -->
+  <div class="unlock-card">
+    <h3>&#x1F389; 恭喜！你解锁了新技能</h3>
+    <p style="font-family:var(--font-cn);margin-bottom:16px;">你现在可以：</p>
+    <ul>
+      <li>指着东西问 &iquest;Qu&eacute; es esto?</li>
+      <li>用正确的冠词说物品名</li>
+      <li>用颜色描述物品</li>
+      <li>在商店进行基本对话</li>
+    </ul>
+  </div>
+
+  <!-- Cultural note -->
+  <div class="collapsible cultural-note">
+    <button class="collapsible-toggle" onclick="toggleCollapse(this)" aria-expanded="false">
+      文化小知识：西班牙人的用餐时间
+      <span class="arrow">&#x25BC;</span>
+    </button>
+    <div class="collapsible-content">
+      <div class="inner">
+        西班牙人的用餐时间和中国人很不一样！午餐（la comida）通常在下午 2:00&ndash;3:00，晚餐（la cena）在晚上 9:00&ndash;10:00。中间还有下午茶时间（la merienda），通常在 5:00&ndash;6:00 吃点小点心。<br><br>
+        所以如果你在西班牙旅游，别太早去餐厅&mdash;&mdash;可能还没开门！
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Lecci&oacute;n 2 de 3 &middot; 为中英日三语使用者设计的西班牙语教材
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// ============================
+// Leccion 2: Page-specific JS
+// ============================
+
+// Play entire dialogue with pauses between lines
+function playDialogue(dialogueId) {
+  if (typeof speechSynthesis === 'undefined') return;
+  speechSynthesis.cancel();
+  var lines = document.querySelectorAll('[data-dialogue="' + dialogueId + '"]');
+  var texts = [];
+  lines.forEach(function(line) {
+    var es = line.getAttribute('data-es');
+    if (es) texts.push(es);
+  });
+
+  var i = 0;
+  function playNext() {
+    if (i >= texts.length) return;
+    var utterance = new SpeechSynthesisUtterance(texts[i]);
+    utterance.lang = 'es-ES';
+    utterance.rate = speechRate;
+    if (spanishVoice) utterance.voice = spanishVoice;
+    utterance.onend = function() {
+      i++;
+      setTimeout(playNext, 800);
+    };
+    speechSynthesis.speak(utterance);
+  }
+  playNext();
+}
+
+// Section Nav highlight on scroll
+function updateSectionNav() {
+  var sections = ['opening', 'block1', 'block2', 'block3', 'block4'];
+  var navLinks = document.querySelectorAll('.section-nav a');
+  var current = '';
+  var offset = 160;
+
+  sections.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top <= offset) {
+      current = id;
+    }
+  });
+
+  navLinks.forEach(function(link) {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}
+
+// ============================
+// Gender Sort Exercise
+// ============================
+var currentSortTarget = null;
+
+function sortWord(wordEl, exId) {
+  if (wordEl.classList.contains('placed')) return;
+  // Toggle target column: first click = el, second click = la, third = back to bank
+  if (!currentSortTarget || currentSortTarget === 'la') {
+    currentSortTarget = 'el';
+  } else {
+    currentSortTarget = 'la';
+  }
+
+  // Simply let user click the column after selecting a word
+  // Actually, simpler approach: click word to cycle between el/la zones
+  var gender = wordEl.getAttribute('data-target');
+  if (!gender) {
+    wordEl.setAttribute('data-target', 'el');
+    document.getElementById('el-zone-' + exId).appendChild(wordEl.cloneNode(true));
+    wordEl.classList.add('placed');
+  }
+}
+
+// Simpler approach: click a word, it goes to el; click again, it goes to la
+// Let's use a two-step: click word in bank to select, then click a column
+var selectedWord = null;
+
+// Override sortWord with a simpler click-to-toggle approach
+sortWord = function(wordEl, exId) {
+  if (wordEl.classList.contains('placed')) return;
+
+  // Move to el column first, if clicked again move to la
+  var elZone = document.getElementById('el-zone-' + exId);
+  var laZone = document.getElementById('la-zone-' + exId);
+
+  // Check if already in a zone
+  if (wordEl.parentNode === elZone) {
+    laZone.appendChild(wordEl);
+    return;
+  }
+  if (wordEl.parentNode === laZone) {
+    document.getElementById('word-bank-' + exId).appendChild(wordEl);
+    return;
+  }
+
+  // From bank, go to el
+  elZone.appendChild(wordEl);
+};
+
+function checkSort(exId) {
+  var elZone = document.getElementById('el-zone-' + exId);
+  var laZone = document.getElementById('la-zone-' + exId);
+  var correct = 0;
+  var total = 0;
+
+  elZone.querySelectorAll('.gender-word').forEach(function(w) {
+    total++;
+    if (w.getAttribute('data-gender') === 'el') {
+      w.classList.add('correct-place');
+      correct++;
+    } else {
+      w.classList.add('wrong-place');
+    }
+  });
+
+  laZone.querySelectorAll('.gender-word').forEach(function(w) {
+    total++;
+    if (w.getAttribute('data-gender') === 'la') {
+      w.classList.add('correct-place');
+      correct++;
+    } else {
+      w.classList.add('wrong-place');
+    }
+  });
+
+  // Words still in bank count as wrong
+  var bank = document.getElementById('word-bank-' + exId);
+  bank.querySelectorAll('.gender-word').forEach(function(w) {
+    total++;
+    w.classList.add('wrong-place');
+  });
+
+  var scoreEl = document.getElementById('score-' + exId);
+  scoreEl.textContent = '你答对了 ' + correct + '/' + total + ' 题';
+  scoreEl.classList.add('show');
+
+  document.getElementById('check-sort-' + exId).disabled = true;
+  document.getElementById('retry-' + exId).classList.add('show');
+}
+
+function resetSort(exId) {
+  var bank = document.getElementById('word-bank-' + exId);
+  var elZone = document.getElementById('el-zone-' + exId);
+  var laZone = document.getElementById('la-zone-' + exId);
+
+  // Move all words back to bank
+  elZone.querySelectorAll('.gender-word').forEach(function(w) {
+    w.classList.remove('correct-place', 'wrong-place', 'placed');
+    bank.appendChild(w);
+  });
+  laZone.querySelectorAll('.gender-word').forEach(function(w) {
+    w.classList.remove('correct-place', 'wrong-place', 'placed');
+    bank.appendChild(w);
+  });
+  bank.querySelectorAll('.gender-word').forEach(function(w) {
+    w.classList.remove('correct-place', 'wrong-place', 'placed');
+  });
+
+  document.getElementById('check-sort-' + exId).disabled = false;
+  document.getElementById('score-' + exId).classList.remove('show');
+  document.getElementById('score-' + exId).textContent = '';
+  document.getElementById('retry-' + exId).classList.remove('show');
+}
+
+// ============================
+// Exercise System
+// ============================
+var exerciseState = {};
+
+function getExState(exId) {
+  if (!exerciseState[exId]) {
+    var section = document.getElementById(exId);
+    var qBlocks = section.querySelectorAll('.question-block');
+    var total = qBlocks.length;
+    exerciseState[exId] = { answered: 0, correct: 0, total: total, done: {} };
+  }
+  return exerciseState[exId];
+}
+
+function selectMC(btn) {
+  var block = btn.closest('.question-block');
+  var qId = block.getAttribute('data-q');
+  var exId = block.closest('[data-exercise]').getAttribute('data-exercise');
+  var state = getExState(exId);
+  if (state.done[qId]) return;
+
+  block.querySelectorAll('.mc-btn').forEach(function(b) { b.classList.remove('selected'); });
+  btn.classList.add('selected');
+}
+
+function checkMC(qId, correctVal) {
+  var block = document.querySelector('[data-q="' + qId + '"]');
+  var exId = block.closest('[data-exercise]').getAttribute('data-exercise');
+  var state = getExState(exId);
+  if (state.done[qId]) return;
+
+  var selected = block.querySelector('.mc-btn.selected');
+  if (!selected) return;
+
+  var fb = document.getElementById('fb-' + qId);
+  var isCorrect = selected.getAttribute('data-val') === correctVal;
+
+  block.querySelectorAll('.mc-btn').forEach(function(b) { b.disabled = true; });
+  block.querySelector('.check-btn').disabled = true;
+
+  if (isCorrect) {
+    selected.classList.add('correct');
+    fb.textContent = '\u2713 正确！';
+    fb.className = 'feedback correct';
+    state.correct++;
+  } else {
+    selected.classList.add('wrong');
+    block.querySelectorAll('.mc-btn').forEach(function(b) {
+      if (b.getAttribute('data-val') === correctVal) b.classList.add('correct');
+    });
+    fb.textContent = '\u2717 正确答案是：' + correctVal;
+    fb.className = 'feedback wrong';
+  }
+
+  state.answered++;
+  state.done[qId] = true;
+  checkExerciseComplete(exId);
+}
+
+function checkText(qId, acceptableAnswers) {
+  var block = document.querySelector('[data-q="' + qId + '"]');
+  var exId = block.closest('[data-exercise]').getAttribute('data-exercise');
+  var state = getExState(exId);
+  if (state.done[qId]) return;
+
+  var input = document.getElementById('input-' + qId);
+  var userAnswer = input.value.trim();
+  if (!userAnswer) return;
+
+  var fb = document.getElementById('fb-' + qId);
+  var isCorrect = acceptableAnswers.some(function(a) {
+    return userAnswer.toLowerCase() === a.toLowerCase();
+  });
+
+  input.disabled = true;
+  block.querySelector('.check-btn').disabled = true;
+
+  if (isCorrect) {
+    input.classList.add('correct');
+    fb.textContent = '\u2713 正确！';
+    fb.className = 'feedback correct';
+    state.correct++;
+  } else {
+    input.classList.add('wrong');
+    fb.textContent = '\u2717 正确答案是：' + acceptableAnswers[0];
+    fb.className = 'feedback wrong';
+  }
+
+  state.answered++;
+  state.done[qId] = true;
+  checkExerciseComplete(exId);
+}
+
+function checkExerciseComplete(exId) {
+  var state = getExState(exId);
+  if (state.answered >= state.total) {
+    var scoreEl = document.getElementById('score-' + exId);
+    scoreEl.textContent = '你答对了 ' + state.correct + '/' + state.total + ' 题';
+    scoreEl.classList.add('show');
+    var retryEl = document.getElementById('retry-' + exId);
+    retryEl.classList.add('show');
+  }
+}
+
+function resetExercise(exId) {
+  var section = document.getElementById(exId);
+  exerciseState[exId] = null;
+
+  section.querySelectorAll('.mc-btn').forEach(function(b) {
+    b.disabled = false;
+    b.classList.remove('selected', 'correct', 'wrong');
+  });
+
+  section.querySelectorAll('.answer-input').forEach(function(inp) {
+    inp.disabled = false;
+    inp.value = '';
+    inp.classList.remove('correct', 'wrong');
+  });
+
+  section.querySelectorAll('.check-btn').forEach(function(b) { b.disabled = false; });
+
+  section.querySelectorAll('.feedback').forEach(function(f) {
+    f.className = 'feedback';
+    f.textContent = '';
+  });
+
+  document.getElementById('score-' + exId).classList.remove('show');
+  document.getElementById('retry-' + exId).classList.remove('show');
+}
+
+// ============================
+// Collapsible Sections
+// ============================
+function toggleCollapse(btn) {
+  var content = btn.nextElementSibling;
+  var isOpen = btn.classList.contains('open');
+
+  if (isOpen) {
+    content.style.maxHeight = null;
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  } else {
+    content.style.maxHeight = content.scrollHeight + 'px';
+    btn.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+}
+
+// ============================
+// Init
+// ============================
+window.addEventListener('DOMContentLoaded', function() {
+  updateSectionNav();
+});
+</script>
+</body>
+</html>

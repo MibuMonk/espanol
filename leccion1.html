@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 1: ¡Hola! 问候与自我介绍</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* === Page-specific overrides for Leccion 1 === */
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + var(--section-nav-h) + 16px); }
+body { font-family: var(--font-body); background: var(--light-bg); font-size: 16px; }
+</style>
+</head>
+<body>
+
+<!-- Scroll Progress Bar -->
+<div id="progress-bar" role="progressbar" aria-label="页面阅读进度"></div>
+
+<!-- Main Navigation -->
+<nav class="main-nav" role="navigation" aria-label="课程导航">
+  <div class="nav-inner">
+    <a href="index.html">首页</a>
+    <a href="leccion1.html" class="active">第一课</a>
+    <a href="leccion2.html">第二课</a>
+    <a href="leccion3.html">第三课</a>
+  </div>
+</nav>
+
+<!-- Section Navigation -->
+<nav class="section-nav" role="navigation" aria-label="章节导航">
+  <div class="nav-inner">
+    <a href="#opening">开始</a>
+    <a href="#block1">发音入门</a>
+    <a href="#block2">问候</a>
+    <a href="#block3">自我介绍</a>
+    <a href="#block4">复习</a>
+  </div>
+</nav>
+
+<!-- Speed Control -->
+<div class="speed-control" role="region" aria-label="语速控制">
+  <span>语速：</span>
+  <input type="range" id="speed-slider" min="0.5" max="1.0" step="0.05" value="0.7" aria-label="语速调节滑块">
+  <span class="speed-val" id="speed-val">0.7x</span>
+</div>
+
+<main>
+
+<!-- ================= OPENING ================= -->
+<section id="opening">
+  <h1>Lecci&oacute;n 1: &iexcl;Hola!
+    <span class="subtitle">问候与自我介绍</span>
+  </h1>
+
+  <div class="welcome-card">
+    欢迎开始你的西班牙语学习之旅！作为中英日三语使用者，你已经拥有了很多优势。让我们开始吧！
+  </div>
+
+  <div class="character-card">
+    <div class="avatar" aria-hidden="true">&#x1F468;&#x200D;&#x1F3EB;</div>
+    <div class="info">
+      <div class="name">Carlos Garc&iacute;a</div>
+      <p>来自马德里的西班牙语老师，热情开朗，喜欢咖啡。<br>在接下来的三课中，Carlos 会一直陪伴你。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLOCK 1 ================= -->
+<section id="block1">
+  <h2><span class="block-num">1</span>发音入门</h2>
+  <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约12分钟</p>
+
+  <h3>西班牙语元音 &mdash; 日语优势</h3>
+  <p style="font-family:var(--font-cn);margin-bottom:16px;">好消息：西班牙语的五个元音和日语<strong>几乎一模一样</strong>！</p>
+
+  <div class="table-wrap">
+    <table aria-label="西班牙语元音对照表">
+      <thead>
+        <tr>
+          <th>西班牙语</th>
+          <th>IPA</th>
+          <th>日语</th>
+          <th>中文近似</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="es">a</span></td>
+          <td><span class="ipa">/a/</span></td>
+          <td><span class="jp">あ (a)</span></td>
+          <td><span class="cn">啊</span></td>
+          <td><button class="speak-btn" onclick="speak('a')" aria-label="播放 a 的发音">&#x1F50A;</button></td>
+        </tr>
+        <tr>
+          <td><span class="es">e</span></td>
+          <td><span class="ipa">/e/</span></td>
+          <td><span class="jp">え (e)</span></td>
+          <td><span class="cn">诶</span></td>
+          <td><button class="speak-btn" onclick="speak('e')" aria-label="播放 e 的发音">&#x1F50A;</button></td>
+        </tr>
+        <tr>
+          <td><span class="es">i</span></td>
+          <td><span class="ipa">/i/</span></td>
+          <td><span class="jp">い (i)</span></td>
+          <td><span class="cn">衣</span></td>
+          <td><button class="speak-btn" onclick="speak('i')" aria-label="播放 i 的发音">&#x1F50A;</button></td>
+        </tr>
+        <tr>
+          <td><span class="es">o</span></td>
+          <td><span class="ipa">/o/</span></td>
+          <td><span class="jp">お (o)</span></td>
+          <td><span class="cn">哦</span></td>
+          <td><button class="speak-btn" onclick="speak('o')" aria-label="播放 o 的发音">&#x1F50A;</button></td>
+        </tr>
+        <tr>
+          <td><span class="es">u</span></td>
+          <td><span class="ipa">/u/</span></td>
+          <td><span class="jp">う (u)</span></td>
+          <td><span class="cn">乌</span></td>
+          <td><button class="speak-btn" onclick="speak('u')" aria-label="播放 u 的发音">&#x1F50A;</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-box jp-note">
+    &#x1F1EF;&#x1F1F5; 如果你会说「あいうえお」，你就已经掌握了西班牙语元音的发音！
+  </div>
+
+  <h3>关键辅音</h3>
+  <p style="font-family:var(--font-cn);margin-bottom:16px;font-size:0.93rem;">以下是本课词汇中会出现的辅音发音：</p>
+
+  <div class="consonant-list">
+    <div class="consonant-item">
+      <span class="letter">h</span>
+      <span class="ipa-info">(不发音)</span>
+      <button class="speak-btn" onclick="speak('hola')" aria-label="播放 hola">&#x1F50A;</button>
+      <div class="desc">永远不发音！<span class="example">hola</span> 读作 &ldquo;ola&rdquo;。对比英语中 h 总是要发音的。</div>
+    </div>
+    <div class="consonant-item">
+      <span class="letter">ll</span>
+      <span class="ipa-info">/ʝ/</span>
+      <button class="speak-btn" onclick="speak('llamo')" aria-label="播放 llamo">&#x1F50A;</button>
+      <div class="desc">类似英语 &ldquo;yes&rdquo; 中的 y 音。如 <span class="example">llamo</span>。</div>
+    </div>
+    <div class="consonant-item">
+      <span class="letter">&ntilde;</span>
+      <span class="ipa-info">/ɲ/</span>
+      <button class="speak-btn" onclick="speak('mañana')" aria-label="播放 mañana">&#x1F50A;</button>
+      <div class="desc">类似日语 <span style="font-family:var(--font-jp)">にゃ</span> (nya)。如 <span class="example">ma&ntilde;ana</span>。</div>
+    </div>
+    <div class="consonant-item">
+      <span class="letter">r</span>
+      <span class="ipa-info">/ɾ/</span>
+      <button class="speak-btn" onclick="speak('gracias')" aria-label="播放 gracias">&#x1F50A;</button>
+      <div class="desc">单个 r 弹舌一次，类似日语 <span style="font-family:var(--font-jp)">ら行</span>。如 <span class="example">gracias</span> 中的 r。</div>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <div class="note-label">重音规则（简要）</div>
+    以元音、n 或 s 结尾的单词，重音在倒数第二个音节。其他情况重音在最后一个音节。有重音符号（如 adi&oacute;s）时，按符号标注读。
+  </div>
+
+  <!-- EXERCISE: Block 1 -->
+  <div class="exercise-section" id="ex1" data-exercise="ex1">
+    <div class="exercise-title">练习：听辨元音</div>
+
+    <div class="question-block" data-q="ex1-1">
+      <div class="q-label"><span class="q-num">1</span>哪个元音听起来像日语的「え」？ <button class="speak-btn" onclick="speak('e')" aria-label="播放元音">&#x1F50A;</button></div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="a" onclick="selectMC(this)">a</button>
+        <button class="mc-btn" data-val="e" onclick="selectMC(this)">e</button>
+        <button class="mc-btn" data-val="o" onclick="selectMC(this)">o</button>
+        <button class="mc-btn" data-val="u" onclick="selectMC(this)">u</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex1-1','e')">检查答案</button>
+      <div class="feedback" id="fb-ex1-1"></div>
+    </div>
+
+    <div class="question-block" data-q="ex1-2">
+      <div class="q-label"><span class="q-num">2</span>听这个音，它是哪个元音？ <button class="speak-btn" onclick="speak('i')" aria-label="播放元音">&#x1F50A;</button></div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="a" onclick="selectMC(this)">a</button>
+        <button class="mc-btn" data-val="e" onclick="selectMC(this)">e</button>
+        <button class="mc-btn" data-val="i" onclick="selectMC(this)">i</button>
+        <button class="mc-btn" data-val="u" onclick="selectMC(this)">u</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex1-2','i')">检查答案</button>
+      <div class="feedback" id="fb-ex1-2"></div>
+    </div>
+
+    <div class="question-block" data-q="ex1-3">
+      <div class="q-label"><span class="q-num">3</span>西班牙语的 &ldquo;u&rdquo; 听起来最像日语的哪个音？ <button class="speak-btn" onclick="speak('u')" aria-label="播放元音">&#x1F50A;</button></div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="あ" onclick="selectMC(this)">あ</button>
+        <button class="mc-btn" data-val="い" onclick="selectMC(this)">い</button>
+        <button class="mc-btn" data-val="え" onclick="selectMC(this)">え</button>
+        <button class="mc-btn" data-val="う" onclick="selectMC(this)">う</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex1-3','う')">检查答案</button>
+      <div class="feedback" id="fb-ex1-3"></div>
+    </div>
+
+    <div class="score-display" id="score-ex1"></div>
+    <button class="retry-btn" id="retry-ex1" onclick="resetExercise('ex1')">重新测试</button>
+  </div>
+</section>
+
+<!-- ================= BLOCK 2 ================= -->
+<section id="block2">
+  <h2><span class="block-num">2</span>问候 Carlos</h2>
+  <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约15分钟</p>
+
+  <p style="font-family:var(--font-cn);margin-bottom:20px;">场景：你在马德里的一家咖啡馆，Carlos 向你走来。</p>
+
+  <h3>词汇 &mdash; 一天的问候</h3>
+
+  <div class="timeline">
+    <!-- Morning -->
+    <div class="timeline-section">
+      <div class="dot"></div>
+      <div class="time-label">&#x1F305; 早上 Ma&ntilde;ana</div>
+      <div class="vocab-item">
+        <div>
+          <span class="es-word">Buenos d&iacute;as</span>
+          <button class="speak-btn" onclick="speak('Buenos días')" aria-label="播放 Buenos días">&#x1F50A;</button>
+        </div>
+        <div class="details">
+          <span class="cn-meaning">早上好</span><br>
+          <span class="phonetic">&ldquo;bweh-nos dee-ahs&rdquo;</span><br>
+          buenos = good (复数), d&iacute;as = days<br>
+          <span class="note-inline">&ldquo;d&iacute;a&rdquo; 虽然以 -a 结尾，但它是阳性词！属于例外。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Afternoon -->
+    <div class="timeline-section">
+      <div class="dot"></div>
+      <div class="time-label">&#x2600;&#xFE0F; 下午 Tarde</div>
+      <div class="vocab-item">
+        <div>
+          <span class="es-word">Buenas tardes</span>
+          <button class="speak-btn" onclick="speak('Buenas tardes')" aria-label="播放 Buenas tardes">&#x1F50A;</button>
+        </div>
+        <div class="details">
+          <span class="cn-meaning">下午好</span><br>
+          <span class="phonetic">&ldquo;bweh-nas tar-des&rdquo;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Evening -->
+    <div class="timeline-section">
+      <div class="dot"></div>
+      <div class="time-label">&#x1F319; 晚上 Noche</div>
+      <div class="vocab-item">
+        <div>
+          <span class="es-word">Buenas noches</span>
+          <button class="speak-btn" onclick="speak('Buenas noches')" aria-label="播放 Buenas noches">&#x1F50A;</button>
+        </div>
+        <div class="details">
+          <span class="cn-meaning">晚上好</span><br>
+          <span class="phonetic">&ldquo;bweh-nas noh-ches&rdquo;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Anytime -->
+    <div class="timeline-section">
+      <div class="dot" style="background:var(--gold)"></div>
+      <div class="time-label">&#x23F0; 任何时间</div>
+      <div class="vocab-item">
+        <div>
+          <span class="es-word">&iexcl;Hola!</span>
+          <button class="speak-btn" onclick="speak('Hola')" aria-label="播放 Hola">&#x1F50A;</button>
+        </div>
+        <div class="details">
+          <span class="cn-meaning">你好</span><br>
+          <span class="phonetic">&ldquo;oh-la&rdquo;</span> &mdash; h 不发音！
+        </div>
+      </div>
+      <div class="vocab-item">
+        <div>
+          <span class="es-word">Adi&oacute;s</span>
+          <button class="speak-btn" onclick="speak('Adiós')" aria-label="播放 Adiós">&#x1F50A;</button>
+        </div>
+        <div class="details">
+          <span class="cn-meaning">再见</span><br>
+          <span class="phonetic">&ldquo;ah-dyohs&rdquo;</span>
+        </div>
+      </div>
+      <div class="vocab-item">
+        <div>
+          <span class="es-word">Hasta luego</span>
+          <button class="speak-btn" onclick="speak('Hasta luego')" aria-label="播放 Hasta luego">&#x1F50A;</button>
+        </div>
+        <div class="details">
+          <span class="cn-meaning">回头见</span><br>
+          <span class="phonetic">&ldquo;ahs-ta lweh-go&rdquo;</span>
+        </div>
+      </div>
+      <div class="vocab-item">
+        <div>
+          <span class="es-word">Hasta ma&ntilde;ana</span>
+          <button class="speak-btn" onclick="speak('Hasta mañana')" aria-label="播放 Hasta mañana">&#x1F50A;</button>
+        </div>
+        <div class="details">
+          <span class="cn-meaning">明天见</span><br>
+          <span class="phonetic">&ldquo;ahs-ta mah-nyah-na&rdquo;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Courtesy -->
+    <div class="timeline-section">
+      <div class="dot" style="background:var(--success)"></div>
+      <div class="time-label">&#x1F91D; 礼貌用语 Cortes&iacute;a</div>
+      <div class="vocab-item">
+        <div>
+          <span class="es-word">Por favor</span>
+          <button class="speak-btn" onclick="speak('Por favor')" aria-label="播放 Por favor">&#x1F50A;</button>
+        </div>
+        <div class="details">
+          <span class="cn-meaning">请</span><br>
+          <span class="phonetic">&ldquo;por fa-vor&rdquo;</span>
+        </div>
+      </div>
+      <div class="vocab-item">
+        <div>
+          <span class="es-word">Gracias</span>
+          <button class="speak-btn" onclick="speak('Gracias')" aria-label="播放 Gracias">&#x1F50A;</button>
+        </div>
+        <div class="details">
+          <span class="cn-meaning">谢谢</span><br>
+          <span class="phonetic">&ldquo;grah-thyahs&rdquo;</span>
+        </div>
+      </div>
+      <div class="vocab-item">
+        <div>
+          <span class="es-word">De nada</span>
+          <button class="speak-btn" onclick="speak('De nada')" aria-label="播放 De nada">&#x1F50A;</button>
+        </div>
+        <div class="details">
+          <span class="cn-meaning">不客气</span><br>
+          <span class="phonetic">&ldquo;deh nah-da&rdquo;</span> &mdash; 字面意思：&ldquo;of nothing&rdquo;
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXERCISE: Block 2 -->
+  <div class="exercise-section" id="ex2" data-exercise="ex2">
+    <div class="exercise-title">练习：选择正确的问候</div>
+
+    <div class="question-block" data-q="ex2-1">
+      <div class="q-label"><span class="q-num">1</span>早上 8:00 &#x2600;&#xFE0F; 你该说什么？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="Buenos días" onclick="selectMC(this)">Buenos d&iacute;as</button>
+        <button class="mc-btn" data-val="Buenas tardes" onclick="selectMC(this)">Buenas tardes</button>
+        <button class="mc-btn" data-val="Buenas noches" onclick="selectMC(this)">Buenas noches</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex2-1','Buenos días')">检查答案</button>
+      <div class="feedback" id="fb-ex2-1"></div>
+    </div>
+
+    <div class="question-block" data-q="ex2-2">
+      <div class="q-label"><span class="q-num">2</span>下午 3:00 &#x2600;&#xFE0F; 你该说什么？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="Buenos días" onclick="selectMC(this)">Buenos d&iacute;as</button>
+        <button class="mc-btn" data-val="Buenas tardes" onclick="selectMC(this)">Buenas tardes</button>
+        <button class="mc-btn" data-val="Buenas noches" onclick="selectMC(this)">Buenas noches</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex2-2','Buenas tardes')">检查答案</button>
+      <div class="feedback" id="fb-ex2-2"></div>
+    </div>
+
+    <div class="question-block" data-q="ex2-3">
+      <div class="q-label"><span class="q-num">3</span>晚上 9:00 &#x1F319; 你该说什么？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="Buenos días" onclick="selectMC(this)">Buenos d&iacute;as</button>
+        <button class="mc-btn" data-val="Buenas tardes" onclick="selectMC(this)">Buenas tardes</button>
+        <button class="mc-btn" data-val="Buenas noches" onclick="selectMC(this)">Buenas noches</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex2-3','Buenas noches')">检查答案</button>
+      <div class="feedback" id="fb-ex2-3"></div>
+    </div>
+
+    <div class="score-display" id="score-ex2"></div>
+    <button class="retry-btn" id="retry-ex2" onclick="resetExercise('ex2')">重新测试</button>
+  </div>
+</section>
+
+<!-- ================= BLOCK 3 ================= -->
+<section id="block3">
+  <h2><span class="block-num">3</span>自我介绍</h2>
+  <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约15分钟</p>
+
+  <p style="font-family:var(--font-cn);margin-bottom:20px;">场景：Carlos 介绍自己并询问你的名字。</p>
+
+  <h3>核心句型</h3>
+
+  <div class="phrase-card">
+    <span class="es-phrase">Me llamo...</span>
+    <button class="speak-btn" onclick="speak('Me llamo')" aria-label="播放 Me llamo">&#x1F50A;</button>
+    <div class="meaning"><span class="cn">我叫……</span><br><span class="note-inline">和中文&ldquo;我叫……&rdquo;结构一样！</span></div>
+  </div>
+
+  <div class="phrase-card">
+    <span class="es-phrase">Soy...</span>
+    <button class="speak-btn" onclick="speak('Soy')" aria-label="播放 Soy">&#x1F50A;</button>
+    <div class="meaning"><span class="cn">我是……</span></div>
+  </div>
+
+  <div class="phrase-card">
+    <span class="es-phrase">Mucho gusto</span>
+    <button class="speak-btn" onclick="speak('Mucho gusto')" aria-label="播放 Mucho gusto">&#x1F50A;</button>
+    <div class="meaning"><span class="cn">很高兴认识你</span></div>
+  </div>
+
+  <div class="phrase-card">
+    <span class="es-phrase">&iquest;C&oacute;mo te llamas?</span>
+    <button class="speak-btn" onclick="speak('¿Cómo te llamas?')" aria-label="播放 Cómo te llamas">&#x1F50A;</button>
+    <div class="meaning"><span class="cn">你叫什么？</span></div>
+  </div>
+
+  <div class="phrase-card">
+    <span class="es-phrase">&iquest;C&oacute;mo est&aacute;s?</span>
+    <button class="speak-btn" onclick="speak('¿Cómo estás?')" aria-label="播放 Cómo estás">&#x1F50A;</button>
+    <div class="meaning"><span class="cn">你好吗？</span></div>
+  </div>
+
+  <!-- Grammar: tú vs usted -->
+  <div class="collapsible">
+    <button class="collapsible-toggle" onclick="toggleCollapse(this)" aria-expanded="false">
+      语法笔记：t&uacute; 和 usted（你和您）
+      <span class="arrow">&#x25BC;</span>
+    </button>
+    <div class="collapsible-content">
+      <div class="inner">
+        西班牙语有两个&ldquo;你&rdquo;：<strong>t&uacute;</strong>（类似中文的「你」）和 <strong>usted</strong>（类似中文的「您」）。不确定该用哪个时，选 usted&mdash;&mdash;没人会因为你太礼貌而生气。
+      </div>
+    </div>
+  </div>
+
+  <h3>主语代词（基础）</h3>
+
+  <div class="table-wrap">
+    <table aria-label="主语代词对照表">
+      <thead>
+        <tr>
+          <th>西班牙语</th>
+          <th>中文</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="es">yo</span> <button class="speak-btn" onclick="speak('yo')" aria-label="播放 yo">&#x1F50A;</button></td>
+          <td><span class="cn">我</span></td>
+        </tr>
+        <tr>
+          <td><span class="es">t&uacute;</span> <button class="speak-btn" onclick="speak('tú')" aria-label="播放 tú">&#x1F50A;</button></td>
+          <td><span class="cn">你</span></td>
+        </tr>
+        <tr>
+          <td><span class="es">usted</span> <button class="speak-btn" onclick="speak('usted')" aria-label="播放 usted">&#x1F50A;</button></td>
+          <td><span class="cn">您</span></td>
+        </tr>
+        <tr>
+          <td><span class="es">&eacute;l</span> <button class="speak-btn" onclick="speak('él')" aria-label="播放 él">&#x1F50A;</button></td>
+          <td><span class="cn">他</span></td>
+        </tr>
+        <tr>
+          <td><span class="es">ella</span> <button class="speak-btn" onclick="speak('ella')" aria-label="播放 ella">&#x1F50A;</button></td>
+          <td><span class="cn">她</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-box">
+    <div class="note-label">省略主语</div>
+    西班牙语和中文、日语一样，经常省略主语。&ldquo;Soy Carlos&rdquo; 就够了，不用说 &ldquo;Yo soy Carlos&rdquo;&mdash;&mdash;和日语省略「<span style="font-family:var(--font-jp)">私は</span>」一个道理。英语反而不能省！
+  </div>
+
+  <!-- Dialogue 1 — Informal -->
+  <h3>对话一：非正式场合（在咖啡馆）</h3>
+  <div class="dialogue-box">
+    <div class="dialogue-title">
+      <span>&#x2615; 咖啡馆对话</span>
+      <button class="play-all-btn" onclick="playDialogue('d1')" aria-label="播放全部对话">&#x25B6; 播放全部</button>
+    </div>
+    <div class="dialogue-line" data-dialogue="d1" data-es="¡Hola! ¿Cómo estás?">
+      <span class="speaker carlos">Carlos:</span>
+      <div class="text">
+        <div class="es">&iexcl;Hola! &iquest;C&oacute;mo est&aacute;s? <button class="speak-btn" onclick="speak('¡Hola! ¿Cómo estás?')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">你好！你好吗？</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d1" data-es="¡Hola! Bien, gracias.">
+      <span class="speaker">T&uacute;:</span>
+      <div class="text">
+        <div class="es">&iexcl;Hola! Bien, gracias. <button class="speak-btn" onclick="speak('¡Hola! Bien, gracias.')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">你好！很好，谢谢。</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d1" data-es="Me llamo Carlos. ¿Cómo te llamas?">
+      <span class="speaker carlos">Carlos:</span>
+      <div class="text">
+        <div class="es">Me llamo Carlos. &iquest;C&oacute;mo te llamas? <button class="speak-btn" onclick="speak('Me llamo Carlos. ¿Cómo te llamas?')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">我叫 Carlos。你叫什么？</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d1" data-es="Me llamo Ana. Mucho gusto.">
+      <span class="speaker">T&uacute;:</span>
+      <div class="text">
+        <div class="es">Me llamo ___. Mucho gusto. <button class="speak-btn" onclick="speak('Me llamo Ana. Mucho gusto.')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">我叫___。很高兴认识你。</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d1" data-es="Mucho gusto. ¿De dónde eres?">
+      <span class="speaker carlos">Carlos:</span>
+      <div class="text">
+        <div class="es">Mucho gusto. &iquest;De d&oacute;nde eres? <button class="speak-btn" onclick="speak('Mucho gusto. ¿De dónde eres?')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">很高兴认识你。你从哪里来？</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d1" data-es="Soy de China.">
+      <span class="speaker">T&uacute;:</span>
+      <div class="text">
+        <div class="es">Soy de China. <button class="speak-btn" onclick="speak('Soy de China.')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">我来自中国。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dialogue 2 — Formal -->
+  <h3>对话二：正式场合（见 Carlos 的教授）</h3>
+  <div class="dialogue-box">
+    <div class="dialogue-title">
+      <span>&#x1F393; 正式对话</span>
+      <button class="play-all-btn" onclick="playDialogue('d2')" aria-label="播放全部对话">&#x25B6; 播放全部</button>
+    </div>
+    <div class="dialogue-line" data-dialogue="d2" data-es="Profesora López, le presento a mi amigo.">
+      <span class="speaker carlos">Carlos:</span>
+      <div class="text">
+        <div class="es">Profesora L&oacute;pez, le presento a mi amigo. <button class="speak-btn" onclick="speak('Profesora López, le presento a mi amigo.')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">洛佩斯教授，给您介绍我的朋友。</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d2" data-es="Mucho gusto. ¿Cómo se llama usted?">
+      <span class="speaker prof">Profesora:</span>
+      <div class="text">
+        <div class="es">Mucho gusto. &iquest;C&oacute;mo se llama usted? <button class="speak-btn" onclick="speak('Mucho gusto. ¿Cómo se llama usted?')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">很高兴认识你。您叫什么名字？</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d2" data-es="Mucho gusto. Me llamo Ana.">
+      <span class="speaker">T&uacute;:</span>
+      <div class="text">
+        <div class="es">Mucho gusto. Me llamo ___. <button class="speak-btn" onclick="speak('Mucho gusto. Me llamo Ana.')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">很高兴认识您。我叫___。</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d2" data-es="Bienvenido. ¿De dónde es usted?">
+      <span class="speaker prof">Profesora:</span>
+      <div class="text">
+        <div class="es">Bienvenido. &iquest;De d&oacute;nde es usted? <button class="speak-btn" onclick="speak('Bienvenido. ¿De dónde es usted?')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">欢迎。您从哪里来？</div>
+      </div>
+    </div>
+    <div class="dialogue-line" data-dialogue="d2" data-es="Soy de China.">
+      <span class="speaker">T&uacute;:</span>
+      <div class="text">
+        <div class="es">Soy de China. <button class="speak-btn" onclick="speak('Soy de China.')" aria-label="播放此句">&#x1F50A;</button></div>
+        <div class="cn-trans">我来自中国。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dialogue-side-note">
+    注意 Carlos 对教授说 &ldquo;usted&rdquo;（您），用的是 &ldquo;se llama&rdquo; 而不是 &ldquo;te llamas&rdquo;。正式场合的动词形式不同！
+  </div>
+
+  <!-- EXERCISE: Block 3 -->
+  <div class="exercise-section" id="ex3" data-exercise="ex3">
+    <div class="exercise-title">练习：补全对话</div>
+
+    <div class="question-block" data-q="ex3-1">
+      <div class="q-label"><span class="q-num">1</span>&ldquo;你好！&rdquo; 用西班牙语怎么说？</div>
+      <input type="text" class="answer-input" id="input-ex3-1" placeholder="输入你的答案..." aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex3-1',['¡Hola!','Hola','hola','¡hola!'])">检查答案</button>
+      <div class="feedback" id="fb-ex3-1"></div>
+    </div>
+
+    <div class="question-block" data-q="ex3-2">
+      <div class="q-label"><span class="q-num">2</span>Carlos 问你 &ldquo;&iquest;C&oacute;mo te llamas?&rdquo;，你怎么回答？（用 &ldquo;Me llamo&rdquo; 加上任意名字）</div>
+      <input type="text" class="answer-input" id="input-ex3-2" placeholder="Me llamo ..." aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkTextStartsWith('ex3-2','Me llamo')">检查答案</button>
+      <div class="feedback" id="fb-ex3-2"></div>
+    </div>
+
+    <div class="question-block" data-q="ex3-3">
+      <div class="q-label"><span class="q-num">3</span>&ldquo;很高兴认识你&rdquo; 用西班牙语怎么说？</div>
+      <input type="text" class="answer-input" id="input-ex3-3" placeholder="输入你的答案..." aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex3-3',['Mucho gusto','mucho gusto'])">检查答案</button>
+      <div class="feedback" id="fb-ex3-3"></div>
+    </div>
+
+    <div class="score-display" id="score-ex3"></div>
+    <button class="retry-btn" id="retry-ex3" onclick="resetExercise('ex3')">重新测试</button>
+  </div>
+</section>
+
+<!-- ================= BLOCK 4 ================= -->
+<section id="block4">
+  <h2><span class="block-num">4</span>复习与现实解锁</h2>
+  <p style="font-family:var(--font-cn);color:#888;font-size:0.85rem;margin-bottom:20px;">约10分钟</p>
+
+  <div class="exercise-section" id="ex4" data-exercise="ex4">
+    <div class="exercise-title">综合测验（10题）</div>
+
+    <!-- Q1 -->
+    <div class="question-block" data-q="ex4-1">
+      <div class="q-label"><span class="q-num">1</span>哪个元音发音像日语的「え」？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="a" onclick="selectMC(this)">a</button>
+        <button class="mc-btn" data-val="e" onclick="selectMC(this)">e</button>
+        <button class="mc-btn" data-val="i" onclick="selectMC(this)">i</button>
+        <button class="mc-btn" data-val="o" onclick="selectMC(this)">o</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-1','e')">检查答案</button>
+      <div class="feedback" id="fb-ex4-1"></div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-block" data-q="ex4-2">
+      <div class="q-label"><span class="q-num">2</span>西班牙语中的字母 &ldquo;h&rdquo; 怎么发音？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="like-english" onclick="selectMC(this)">和英语一样</button>
+        <button class="mc-btn" data-val="silent" onclick="selectMC(this)">不发音</button>
+        <button class="mc-btn" data-val="like-j" onclick="selectMC(this)">像 j 一样</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-2','silent')">检查答案</button>
+      <div class="feedback" id="fb-ex4-2"></div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-block" data-q="ex4-3">
+      <div class="q-label"><span class="q-num">3</span>&ldquo;&ntilde;&rdquo; 的发音最像日语的哪个音？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="な" onclick="selectMC(this)">な (na)</button>
+        <button class="mc-btn" data-val="にゃ" onclick="selectMC(this)">にゃ (nya)</button>
+        <button class="mc-btn" data-val="ん" onclick="selectMC(this)">ん (n)</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-3','にゃ')">检查答案</button>
+      <div class="feedback" id="fb-ex4-3"></div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-block" data-q="ex4-4">
+      <div class="q-label"><span class="q-num">4</span>&ldquo;谢谢&rdquo; 用西班牙语怎么说？</div>
+      <input type="text" class="answer-input" id="input-ex4-4" placeholder="输入答案..." aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex4-4',['Gracias','gracias'])">检查答案</button>
+      <div class="feedback" id="fb-ex4-4"></div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-block" data-q="ex4-5">
+      <div class="q-label"><span class="q-num">5</span>&ldquo;Buenos d&iacute;as&rdquo; 是什么意思？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="晚上好" onclick="selectMC(this)">晚上好</button>
+        <button class="mc-btn" data-val="早上好" onclick="selectMC(this)">早上好</button>
+        <button class="mc-btn" data-val="下午好" onclick="selectMC(this)">下午好</button>
+        <button class="mc-btn" data-val="再见" onclick="selectMC(this)">再见</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-5','早上好')">检查答案</button>
+      <div class="feedback" id="fb-ex4-5"></div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-block" data-q="ex4-6">
+      <div class="q-label"><span class="q-num">6</span>&ldquo;不客气&rdquo; 用西班牙语怎么说？</div>
+      <input type="text" class="answer-input" id="input-ex4-6" placeholder="输入答案..." aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex4-6',['De nada','de nada'])">检查答案</button>
+      <div class="feedback" id="fb-ex4-6"></div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-block" data-q="ex4-7">
+      <div class="q-label"><span class="q-num">7</span>&ldquo;Hasta ma&ntilde;ana&rdquo; 是什么意思？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="回头见" onclick="selectMC(this)">回头见</button>
+        <button class="mc-btn" data-val="明天见" onclick="selectMC(this)">明天见</button>
+        <button class="mc-btn" data-val="再见" onclick="selectMC(this)">再见</button>
+        <button class="mc-btn" data-val="你好" onclick="selectMC(this)">你好</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-7','明天见')">检查答案</button>
+      <div class="feedback" id="fb-ex4-7"></div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-block" data-q="ex4-8">
+      <div class="q-label"><span class="q-num">8</span>有人问你 &ldquo;&iquest;C&oacute;mo te llamas?&rdquo;，你应该怎么开头回答？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="Soy de..." onclick="selectMC(this)">Soy de...</button>
+        <button class="mc-btn" data-val="Me llamo..." onclick="selectMC(this)">Me llamo...</button>
+        <button class="mc-btn" data-val="Mucho gusto" onclick="selectMC(this)">Mucho gusto</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-8','Me llamo...')">检查答案</button>
+      <div class="feedback" id="fb-ex4-8"></div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="question-block" data-q="ex4-9">
+      <div class="q-label"><span class="q-num">9</span>正式场合问 &ldquo;您叫什么名字？&rdquo; 应该用哪个？</div>
+      <div class="mc-options">
+        <button class="mc-btn" data-val="¿Cómo te llamas?" onclick="selectMC(this)">&iquest;C&oacute;mo te llamas?</button>
+        <button class="mc-btn" data-val="¿Cómo se llama usted?" onclick="selectMC(this)">&iquest;C&oacute;mo se llama usted?</button>
+        <button class="mc-btn" data-val="¿Cómo estás?" onclick="selectMC(this)">&iquest;C&oacute;mo est&aacute;s?</button>
+      </div>
+      <button class="check-btn" onclick="checkMC('ex4-9','¿Cómo se llama usted?')">检查答案</button>
+      <div class="feedback" id="fb-ex4-9"></div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="question-block" data-q="ex4-10">
+      <div class="q-label"><span class="q-num">10</span>&ldquo;我来自中国&rdquo; 用西班牙语怎么说？</div>
+      <input type="text" class="answer-input" id="input-ex4-10" placeholder="输入答案..." aria-label="填写答案">
+      <br>
+      <button class="check-btn" onclick="checkText('ex4-10',['Soy de China','soy de China','Soy de China.','soy de china'])">检查答案</button>
+      <div class="feedback" id="fb-ex4-10"></div>
+    </div>
+
+    <div class="score-display" id="score-ex4"></div>
+    <button class="retry-btn" id="retry-ex4" onclick="resetExercise('ex4')">重新测试</button>
+  </div>
+
+  <!-- Unlock Card -->
+  <div class="unlock-card">
+    <h3>恭喜！你解锁了新技能</h3>
+    <p style="font-family:var(--font-cn);margin-bottom:16px;">你现在可以：</p>
+    <ul>
+      <li>在任何西班牙语场合打招呼和告别</li>
+      <li>介绍自己的名字和来自哪里</li>
+      <li>区分正式和非正式的场合</li>
+    </ul>
+    <p style="font-family:var(--font-cn);font-size:0.9rem;color:#888;margin-bottom:8px;">试试这个完整的自我介绍脚本：</p>
+    <div class="script-box">
+      &iexcl;Hola, buenos d&iacute;as! Me llamo ___. Soy de China. Mucho gusto.
+      <button class="speak-btn" onclick="speak('¡Hola, buenos días! Me llamo Ana. Soy de China. Mucho gusto.')" aria-label="播放完整脚本" style="font-size:18px;width:36px;height:36px;">&#x1F50A;</button>
+    </div>
+  </div>
+
+  <!-- Self-check -->
+  <h3>自我检查</h3>
+  <div class="self-check">
+    <label><input type="checkbox"> 我能正确发出五个西班牙语元音</label>
+    <label><input type="checkbox"> 我知道 h 在西班牙语中不发音</label>
+    <label><input type="checkbox"> 我能在不同时段用正确的问候语</label>
+    <label><input type="checkbox"> 我能用西班牙语介绍自己的名字和国籍</label>
+    <label><input type="checkbox"> 我了解 t&uacute; 和 usted 的区别</label>
+    <label><input type="checkbox"> 我能听懂并参与简单的自我介绍对话</label>
+  </div>
+
+  <!-- Cultural note -->
+  <div class="collapsible cultural-note">
+    <button class="collapsible-toggle" onclick="toggleCollapse(this)" aria-expanded="false">
+      文化小知识：西班牙语国家的见面礼仪
+      <span class="arrow">&#x25BC;</span>
+    </button>
+    <div class="collapsible-content">
+      <div class="inner">
+        在西班牙，人们见面时通常会亲吻双颊（先右后左）。在拉丁美洲，通常只亲一侧。商务场合则握手。<br><br>
+        不用紧张&mdash;&mdash;作为外国人，当地人不会要求你完全遵循这些习俗，但了解它们会帮助你更好地融入！
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Lecci&oacute;n 1 de 3 &middot; 为中英日三语使用者设计的西班牙语教材
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// ============================
+// Leccion 1: Page-specific JS
+// ============================
+
+// L1 uses globalRate as its speech rate variable name
+// The shared main.js uses speechRate. Alias for compatibility:
+// (L1's inline handlers call speak() which is defined in main.js)
+
+// Play entire dialogue with pauses between lines (L1 version)
+function playDialogue(dialogueId) {
+  if (typeof speechSynthesis === 'undefined') return;
+  speechSynthesis.cancel();
+  var lines = document.querySelectorAll('[data-dialogue="' + dialogueId + '"]');
+  var texts = [];
+  lines.forEach(function(line) {
+    var es = line.getAttribute('data-es');
+    if (es) texts.push(es);
+  });
+
+  var i = 0;
+  function playNext() {
+    if (i >= texts.length) return;
+    var utterance = new SpeechSynthesisUtterance(texts[i]);
+    utterance.lang = 'es-ES';
+    utterance.rate = speechRate;
+    if (spanishVoice) utterance.voice = spanishVoice;
+    utterance.onend = function() {
+      i++;
+      setTimeout(playNext, 800);
+    };
+    speechSynthesis.speak(utterance);
+  }
+  playNext();
+}
+
+// Section Nav highlight on scroll
+function updateSectionNav() {
+  var sections = ['opening', 'block1', 'block2', 'block3', 'block4'];
+  var navLinks = document.querySelectorAll('.section-nav a');
+  var current = '';
+  var offset = 160;
+
+  sections.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top <= offset) {
+      current = id;
+    }
+  });
+
+  navLinks.forEach(function(link) {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}
+
+// ============================
+// Exercise System
+// ============================
+var exerciseState = {};
+
+function getExState(exId) {
+  if (!exerciseState[exId]) {
+    var section = document.getElementById(exId);
+    var qBlocks = section.querySelectorAll('.question-block');
+    var total = qBlocks.length;
+    exerciseState[exId] = { answered: 0, correct: 0, total: total, done: {} };
+  }
+  return exerciseState[exId];
+}
+
+function selectMC(btn) {
+  var block = btn.closest('.question-block');
+  var qId = block.getAttribute('data-q');
+  var exId = block.closest('[data-exercise]').getAttribute('data-exercise');
+  var state = getExState(exId);
+  if (state.done[qId]) return;
+
+  block.querySelectorAll('.mc-btn').forEach(function(b) { b.classList.remove('selected'); });
+  btn.classList.add('selected');
+}
+
+function checkMC(qId, correctVal) {
+  var block = document.querySelector('[data-q="' + qId + '"]');
+  var exId = block.closest('[data-exercise]').getAttribute('data-exercise');
+  var state = getExState(exId);
+  if (state.done[qId]) return;
+
+  var selected = block.querySelector('.mc-btn.selected');
+  if (!selected) return;
+
+  var fb = document.getElementById('fb-' + qId);
+  var isCorrect = selected.getAttribute('data-val') === correctVal;
+
+  block.querySelectorAll('.mc-btn').forEach(function(b) { b.disabled = true; });
+  block.querySelector('.check-btn').disabled = true;
+
+  if (isCorrect) {
+    selected.classList.add('correct');
+    fb.textContent = '✓ 正确！';
+    fb.className = 'feedback correct';
+    state.correct++;
+  } else {
+    selected.classList.add('wrong');
+    block.querySelectorAll('.mc-btn').forEach(function(b) {
+      if (b.getAttribute('data-val') === correctVal) b.classList.add('correct');
+    });
+    fb.textContent = '✗ 正确答案是：' + correctVal;
+    fb.className = 'feedback wrong';
+  }
+
+  state.answered++;
+  state.done[qId] = true;
+  checkExerciseComplete(exId);
+}
+
+function checkText(qId, acceptableAnswers) {
+  var block = document.querySelector('[data-q="' + qId + '"]');
+  var exId = block.closest('[data-exercise]').getAttribute('data-exercise');
+  var state = getExState(exId);
+  if (state.done[qId]) return;
+
+  var input = document.getElementById('input-' + qId);
+  var userAnswer = input.value.trim();
+  if (!userAnswer) return;
+
+  var fb = document.getElementById('fb-' + qId);
+  var isCorrect = acceptableAnswers.some(function(a) {
+    return userAnswer.toLowerCase() === a.toLowerCase();
+  });
+
+  input.disabled = true;
+  block.querySelector('.check-btn').disabled = true;
+
+  if (isCorrect) {
+    input.classList.add('correct');
+    fb.textContent = '✓ 正确！';
+    fb.className = 'feedback correct';
+    state.correct++;
+  } else {
+    input.classList.add('wrong');
+    fb.textContent = '✗ 正确答案是：' + acceptableAnswers[0];
+    fb.className = 'feedback wrong';
+  }
+
+  state.answered++;
+  state.done[qId] = true;
+  checkExerciseComplete(exId);
+}
+
+function checkTextStartsWith(qId, prefix) {
+  var block = document.querySelector('[data-q="' + qId + '"]');
+  var exId = block.closest('[data-exercise]').getAttribute('data-exercise');
+  var state = getExState(exId);
+  if (state.done[qId]) return;
+
+  var input = document.getElementById('input-' + qId);
+  var userAnswer = input.value.trim();
+  if (!userAnswer) return;
+
+  var fb = document.getElementById('fb-' + qId);
+  var isCorrect = userAnswer.toLowerCase().startsWith(prefix.toLowerCase()) && userAnswer.length > prefix.length;
+
+  input.disabled = true;
+  block.querySelector('.check-btn').disabled = true;
+
+  if (isCorrect) {
+    input.classList.add('correct');
+    fb.textContent = '✓ 正确！' + userAnswer;
+    fb.className = 'feedback correct';
+    state.correct++;
+  } else {
+    input.classList.add('wrong');
+    fb.textContent = '✗ 答案应以 "' + prefix + '" 开头，例如 "Me llamo Carlos"';
+    fb.className = 'feedback wrong';
+  }
+
+  state.answered++;
+  state.done[qId] = true;
+  checkExerciseComplete(exId);
+}
+
+function checkExerciseComplete(exId) {
+  var state = getExState(exId);
+  if (state.answered >= state.total) {
+    var scoreEl = document.getElementById('score-' + exId);
+    scoreEl.textContent = '你答对了 ' + state.correct + '/' + state.total + ' 题';
+    scoreEl.classList.add('show');
+    var retryEl = document.getElementById('retry-' + exId);
+    retryEl.classList.add('show');
+  }
+}
+
+function resetExercise(exId) {
+  var section = document.getElementById(exId);
+  exerciseState[exId] = null;
+
+  section.querySelectorAll('.mc-btn').forEach(function(b) {
+    b.disabled = false;
+    b.classList.remove('selected', 'correct', 'wrong');
+  });
+
+  section.querySelectorAll('.answer-input').forEach(function(inp) {
+    inp.disabled = false;
+    inp.value = '';
+    inp.classList.remove('correct', 'wrong');
+  });
+
+  section.querySelectorAll('.check-btn').forEach(function(b) { b.disabled = false; });
+
+  section.querySelectorAll('.feedback').forEach(function(f) {
+    f.className = 'feedback';
+    f.textContent = '';
+  });
+
+  document.getElementById('score-' + exId).classList.remove('show');
+  document.getElementById('retry-' + exId).classList.remove('show');
+}
+
+// ============================
+// Collapsible Sections
+// ============================
+function toggleCollapse(btn) {
+  var content = btn.nextElementSibling;
+  var isOpen = btn.classList.contains('open');
+
+  if (isOpen) {
+    content.style.maxHeight = null;
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  } else {
+    content.style.maxHeight = content.scrollHeight + 'px';
+    btn.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+}
+
+// ============================
+// Init
+// ============================
+window.addEventListener('DOMContentLoaded', function() {
+  updateSectionNav();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lección 3 — Mi día 我的一天 | Español</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* === Page-specific overrides for Leccion 3 === */
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: 'Inter', sans-serif; background: var(--soft-white); color: var(--dark); line-height: 1.7; }
+
+/* L3 hero overrides (background & border not in shared CSS) */
+.hero {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--light-cream) 100%);
+  padding: 4rem 2rem 3.5rem;
+  border-bottom: 3px solid var(--gold);
+}
+
+/* L3 uses fixed speed control (shared CSS has flow-based layout) */
+.speed-control {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 90;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 0.6rem 1rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(212,167,106,0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-family: 'Noto Sans SC', sans-serif;
+  color: var(--dark);
+  max-width: none;
+}
+.speed-control input[type="range"] {
+  width: 80px;
+  flex: none;
+}
+.speed-control .speed-val {
+  min-width: 2.5em;
+  text-align: center;
+}
+
+/* L3 main width differs from shared */
+main { max-width: 760px; padding: 2.5rem 1.5rem 4rem; }
+
+/* L3 dialogue base (shared CSS only has child overrides) */
+.dialogue {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(212,167,106,0.15);
+}
+
+/* L3 play-all-btn (outlined variant, differs from L1 filled variant) */
+.play-all-btn {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid var(--terracotta);
+  background: var(--terracotta-light);
+  color: var(--terracotta);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.play-all-btn:hover { background: var(--terracotta); color: #fff; }
+
+/* L3 speak-btn (simpler variant, differs from L1's boxed style) */
+.speak-btn {
+  display: inline;
+  width: auto;
+  height: auto;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.15rem 0.3rem;
+  margin-left: 0;
+}
+.speak-btn:hover { background: var(--terracotta-light); transform: scale(1.15); border-color: transparent; }
+.speak-btn:active { transform: scale(0.95); }
+
+/* L3 card base (shared CSS doesn't have full .card definition for L3) */
+.card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(212,167,106,0.15);
+  transition: box-shadow 0.25s;
+}
+
+/* L3 check/reset/score outside .exercise-box context */
+.check-btn, .reset-btn {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+}
+.check-btn { background: var(--terracotta); color: #fff; }
+.check-btn:hover { background: #a03d27; }
+.reset-btn { background: var(--gold-light); color: var(--dark); border: 1px solid var(--gold); }
+.reset-btn:hover { background: var(--gold); color: #fff; }
+
+.score-display {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--terracotta);
+  margin-top: 0.8rem;
+  padding: 0.5rem 0.8rem;
+  background: var(--terracotta-light);
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+
+/* L3 collapsible base (shared CSS only has header/body) */
+.collapsible {
+  background: #fff;
+  border-radius: var(--radius);
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(212,167,106,0.15);
+  overflow: hidden;
+}
+
+/* L3 footer (differs from L1's footer) */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 0.82rem;
+  color: #9a8a7a;
+  border-top: 1px solid rgba(212,167,106,0.2);
+  margin-top: 2rem;
+  max-width: none;
+}
+
+/* L3 responsive: speed-control position */
+@media (max-width: 640px) {
+  .speed-control { bottom: 1rem; right: 1rem; padding: 0.4rem 0.7rem; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+<!-- Main Navigation -->
+<nav class="main-nav" role="navigation" aria-label="课程导航">
+  <div class="nav-inner">
+    <a href="index.html">首页</a>
+    <a href="leccion1.html">第一课</a>
+    <a href="leccion2.html">第二课</a>
+    <a href="leccion3.html" class="active">第三课</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-label">Lección 3</div>
+  <h1><span class="accent">Mi día</span> — 我的一天</h1>
+  <p class="hero-sub">动词变位 · 日常生活 · ser vs estar · 数字1-10</p>
+  <div class="hero-topics">
+    <span>动词变位</span>
+    <span>-AR/-ER/-IR 动词</span>
+    <span>ser 与 estar</span>
+    <span>日常对话</span>
+    <span>数字 1-10</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- Opening: Confidence Builder        -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="section-header" style="margin-top:0">
+    <div class="section-num">★</div>
+    <h2>信心建设</h2>
+    <span class="zh">试试你的阅读能力</span>
+  </div>
+
+  <div class="confidence-text">
+    <div class="spanish-passage">
+      "¡Hola! Buenos días. Me llamo Carlos. Esto es mi casa. La casa es grande. Tengo un gato negro. Se llama Michi."
+      <button class="speak-btn" onclick="speak('¡Hola! Buenos días. Me llamo Carlos. Esto es mi casa. La casa es grande. Tengo un gato negro. Se llama Michi.')" aria-label="朗读这段话">🔊</button>
+    </div>
+    <div class="encouragement">
+      你能读懂这段话吗？这就是你两课以来的成果！现在让我们学会描述每天做什么。
+      <br><br>
+      <strong>故事继续：</strong>Carlos 开始告诉你他的日常生活。
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- Block 1: 动词变位是什么？            -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <h2>¿Qué es la conjugación?</h2>
+    <span class="zh">动词变位是什么？</span>
+  </div>
+
+  <div class="grammar-block">
+    <h3>为什么动词会"变形"？</h3>
+    <p style="font-family:'Noto Sans SC',sans-serif;">
+      在中文里，动词永远不变："我<strong>吃</strong>"、"你<strong>吃</strong>"、"他<strong>吃</strong>"——都是"吃"。<br>
+      在英语里，动词稍微变一点："I eat" vs "he eat<strong style="color:var(--terracotta)">s</strong>"。<br>
+      <span style="font-family:'Noto Sans JP',sans-serif;">在日语里，动词会变形：食べ<strong style="color:var(--terracotta)">る</strong> → 食べ<strong style="color:var(--terracotta)">ます</strong> → 食べ<strong style="color:var(--terracotta)">た</strong> → 食べ<strong style="color:var(--terracotta)">ない</strong>。</span><br>
+      西班牙语和日语类似，动词要根据"谁在做"而变形，而且变化比英语多得多。
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="card-title">三大动词家族</div>
+    <div class="verb-families">
+      <div class="verb-family-card ar">
+        <div class="family-label">-AR</div>
+        <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.78rem;color:#9a8a7a;margin-bottom:0.5rem">🔴 最大的家族</p>
+        <ul class="verb-list">
+          <li><span class="verb-es">hablar</span> <button class="speak-btn" onclick="speak('hablar')" aria-label="朗读 hablar">🔊</button><br><span class="verb-zh">说 (speak)</span></li>
+          <li><span class="verb-es">estudiar</span> <button class="speak-btn" onclick="speak('estudiar')" aria-label="朗读 estudiar">🔊</button><br><span class="verb-zh">学习 (≈ study)</span></li>
+          <li><span class="verb-es">trabajar</span> <button class="speak-btn" onclick="speak('trabajar')" aria-label="朗读 trabajar">🔊</button><br><span class="verb-zh">工作 (work)</span></li>
+          <li><span class="verb-es">desayunar</span> <button class="speak-btn" onclick="speak('desayunar')" aria-label="朗读 desayunar">🔊</button><br><span class="verb-zh">吃早餐</span></li>
+          <li><span class="verb-es">cenar</span> <button class="speak-btn" onclick="speak('cenar')" aria-label="朗读 cenar">🔊</button><br><span class="verb-zh">吃晚餐</span></li>
+        </ul>
+      </div>
+      <div class="verb-family-card er">
+        <div class="family-label">-ER</div>
+        <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.78rem;color:#9a8a7a;margin-bottom:0.5rem">🟢 中等家族</p>
+        <ul class="verb-list">
+          <li><span class="verb-es">comer</span> <button class="speak-btn" onclick="speak('comer')" aria-label="朗读 comer">🔊</button><br><span class="verb-zh">吃 (eat)</span></li>
+          <li><span class="verb-es">beber</span> <button class="speak-btn" onclick="speak('beber')" aria-label="朗读 beber">🔊</button><br><span class="verb-zh">喝 (drink)</span></li>
+          <li><span class="verb-es">leer</span> <button class="speak-btn" onclick="speak('leer')" aria-label="朗读 leer">🔊</button><br><span class="verb-zh">读 (read)</span></li>
+        </ul>
+      </div>
+      <div class="verb-family-card ir">
+        <div class="family-label">-IR</div>
+        <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.78rem;color:#9a8a7a;margin-bottom:0.5rem">🔵 较小的家族</p>
+        <ul class="verb-list">
+          <li><span class="verb-es">vivir</span> <button class="speak-btn" onclick="speak('vivir')" aria-label="朗读 vivir">🔊</button><br><span class="verb-zh">住 (≈ vivid, alive)</span></li>
+          <li><span class="verb-es">escribir</span> <button class="speak-btn" onclick="speak('escribir')" aria-label="朗读 escribir">🔊</button><br><span class="verb-zh">写 (write)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="compare-note" style="font-family:'Noto Sans SC',sans-serif;">
+      <span class="lang-tag">💡 日语对比</span><br>
+      就像日语的五段动词和一段动词是不同的变化类型，西班牙语的 -ar/-er/-ir 也是三种不同的变化模式。
+    </div>
+  </div>
+
+  <!-- Micro-exercise: Sort verbs -->
+  <div class="exercise-box" id="sort-exercise">
+    <div class="exercise-title">分类练习：把动词放进正确的家族</div>
+    <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;color:#7a6a5a;margin-bottom:0.8rem">
+      点击一个动词，再点击对应的分类区域来放置它。
+    </p>
+    <div id="sort-source" style="margin-bottom:1rem">
+      <!-- chips populated by JS -->
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem">
+      <div>
+        <div class="sort-label ar-label">🔴 -AR 动词</div>
+        <div class="sort-zone ar-zone" data-family="ar" id="zone-ar"></div>
+      </div>
+      <div>
+        <div class="sort-label er-label">🟢 -ER 动词</div>
+        <div class="sort-zone er-zone" data-family="er" id="zone-er"></div>
+      </div>
+      <div>
+        <div class="sort-label ir-label">🔵 -IR 动词</div>
+        <div class="sort-zone ir-zone" data-family="ir" id="zone-ir"></div>
+      </div>
+    </div>
+    <div>
+      <button class="check-btn" onclick="checkSort()">检查答案</button>
+      <button class="reset-btn" onclick="resetSort()">重新开始</button>
+    </div>
+    <div id="sort-feedback" class="exercise-feedback"></div>
+    <div id="sort-score" class="score-display" style="display:none"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- Block 2: 动词变位实战                -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <h2>Conjugación en práctica</h2>
+    <span class="zh">动词变位实战</span>
+  </div>
+
+  <div class="grammar-block">
+    <p style="font-family:'Noto Sans SC',sans-serif">
+      我们先学最常用的三个人称。其他的以后再说。
+    </p>
+  </div>
+
+  <!-- -AR: hablar -->
+  <div class="card">
+    <div class="card-title">-AR 动词：hablar (说话) <button class="speak-btn" onclick="speak('hablar')" aria-label="朗读 hablar">🔊</button></div>
+    <table class="conj-table" aria-label="hablar 的变位">
+      <thead>
+        <tr><th>人称</th><th>变位</th><th></th><th>含义</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-person">yo</td>
+          <td class="col-form"><span class="stem">habl</span><span class="ending">o</span></td>
+          <td><button class="speak-btn" onclick="speak('yo hablo')" aria-label="朗读 yo hablo">🔊</button></td>
+          <td class="col-zh">我说</td>
+        </tr>
+        <tr>
+          <td class="col-person">tú</td>
+          <td class="col-form"><span class="stem">habl</span><span class="ending">as</span></td>
+          <td><button class="speak-btn" onclick="speak('tú hablas')" aria-label="朗读 tú hablas">🔊</button></td>
+          <td class="col-zh">你说</td>
+        </tr>
+        <tr>
+          <td class="col-person">él/ella</td>
+          <td class="col-form"><span class="stem">habl</span><span class="ending">a</span></td>
+          <td><button class="speak-btn" onclick="speak('él habla')" aria-label="朗读 él habla">🔊</button></td>
+          <td class="col-zh">他/她说</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="rule-box" style="font-family:'Noto Sans SC',sans-serif">
+      <strong>看到规律了吗？</strong> 词干 <code style="color:var(--dark);font-weight:600">habl-</code> 不变，只有词尾在变。
+    </div>
+
+    <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.88rem;color:#7a6a5a;margin-top:0.8rem;">同样的规律应用到其他 -AR 动词：</p>
+    <div class="pattern-row">
+      <span class="pattern-item"><span class="stem">estudi</span><span class="ending">o</span></span>
+      <span class="pattern-item"><span class="stem">estudi</span><span class="ending">as</span></span>
+      <span class="pattern-item"><span class="stem">estudi</span><span class="ending">a</span></span>
+    </div>
+    <div class="pattern-row">
+      <span class="pattern-item"><span class="stem">trabaj</span><span class="ending">o</span></span>
+      <span class="pattern-item"><span class="stem">trabaj</span><span class="ending">as</span></span>
+      <span class="pattern-item"><span class="stem">trabaj</span><span class="ending">a</span></span>
+    </div>
+  </div>
+
+  <!-- -ER: comer -->
+  <div class="card">
+    <div class="card-title">-ER 动词：comer (吃) <button class="speak-btn" onclick="speak('comer')" aria-label="朗读 comer">🔊</button></div>
+    <table class="conj-table" aria-label="comer 的变位">
+      <thead>
+        <tr><th>人称</th><th>变位</th><th></th><th>含义</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-person">yo</td>
+          <td class="col-form"><span class="stem">com</span><span class="ending">o</span></td>
+          <td><button class="speak-btn" onclick="speak('yo como')" aria-label="朗读 yo como">🔊</button></td>
+          <td class="col-zh">我吃</td>
+        </tr>
+        <tr>
+          <td class="col-person">tú</td>
+          <td class="col-form"><span class="stem">com</span><span class="ending">es</span></td>
+          <td><button class="speak-btn" onclick="speak('tú comes')" aria-label="朗读 tú comes">🔊</button></td>
+          <td class="col-zh">你吃</td>
+        </tr>
+        <tr>
+          <td class="col-person">él/ella</td>
+          <td class="col-form"><span class="stem">com</span><span class="ending">e</span></td>
+          <td><button class="speak-btn" onclick="speak('él come')" aria-label="朗读 él come">🔊</button></td>
+          <td class="col-zh">他/她吃</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- -IR: vivir -->
+  <div class="card">
+    <div class="card-title">-IR 动词：vivir (住) <button class="speak-btn" onclick="speak('vivir')" aria-label="朗读 vivir">🔊</button></div>
+    <table class="conj-table" aria-label="vivir 的变位">
+      <thead>
+        <tr><th>人称</th><th>变位</th><th></th><th>含义</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-person">yo</td>
+          <td class="col-form"><span class="stem">viv</span><span class="ending">o</span></td>
+          <td><button class="speak-btn" onclick="speak('yo vivo')" aria-label="朗读 yo vivo">🔊</button></td>
+          <td class="col-zh">我住</td>
+        </tr>
+        <tr>
+          <td class="col-person">tú</td>
+          <td class="col-form"><span class="stem">viv</span><span class="ending">es</span></td>
+          <td><button class="speak-btn" onclick="speak('tú vives')" aria-label="朗读 tú vives">🔊</button></td>
+          <td class="col-zh">你住</td>
+        </tr>
+        <tr>
+          <td class="col-person">él/ella</td>
+          <td class="col-form"><span class="stem">viv</span><span class="ending">e</span></td>
+          <td><button class="speak-btn" onclick="speak('él vive')" aria-label="朗读 él vive">🔊</button></td>
+          <td class="col-zh">他/她住</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="compare-note" style="font-family:'Noto Sans SC',sans-serif;">
+      <span class="lang-tag">💡 好消息</span><br>
+      注意：-er 和 -ir 的变位几乎一样！只有 tú 的形式不同（-es vs -es……其实一样！）。这是个好消息。
+    </div>
+  </div>
+
+  <!-- Micro-exercise: Conjugation drill -->
+  <div class="exercise-box" id="conj-exercise">
+    <div class="exercise-title">变位练习：填写正确的动词形式</div>
+
+    <div id="conj-questions">
+      <!-- Populated by JS -->
+    </div>
+
+    <div>
+      <button class="check-btn" onclick="checkConj()">检查答案</button>
+      <button class="reset-btn" onclick="resetConj()">重新测试</button>
+    </div>
+    <div id="conj-score" class="score-display" style="display:none"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- Block 3: Carlos 的一天              -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <h2>El día de Carlos</h2>
+    <span class="zh">Carlos 的一天</span>
+  </div>
+
+  <!-- Time vocabulary -->
+  <div class="card">
+    <div class="card-title">时间词汇</div>
+    <div class="time-vocab">
+      <div class="time-card">
+        <div class="time-es">por la mañana <button class="speak-btn" onclick="speak('por la mañana')" aria-label="朗读 por la mañana">🔊</button></div>
+        <div class="time-zh">在早上</div>
+        <div class="time-en">in the morning</div>
+      </div>
+      <div class="time-card">
+        <div class="time-es">por la tarde <button class="speak-btn" onclick="speak('por la tarde')" aria-label="朗读 por la tarde">🔊</button></div>
+        <div class="time-zh">在下午</div>
+        <div class="time-en">in the afternoon</div>
+      </div>
+      <div class="time-card">
+        <div class="time-es">por la noche <button class="speak-btn" onclick="speak('por la noche')" aria-label="朗读 por la noche">🔊</button></div>
+        <div class="time-zh">在晚上</div>
+        <div class="time-en">in the evening</div>
+      </div>
+      <div class="time-card">
+        <div class="time-es">hoy <button class="speak-btn" onclick="speak('hoy')" aria-label="朗读 hoy">🔊</button></div>
+        <div class="time-zh">今天</div>
+        <div class="time-en">today</div>
+      </div>
+      <div class="time-card">
+        <div class="time-es">ahora <button class="speak-btn" onclick="speak('ahora')" aria-label="朗读 ahora">🔊</button></div>
+        <div class="time-zh">现在</div>
+        <div class="time-en">now</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Daily routine verbs -->
+  <div class="card">
+    <div class="card-title">日常动词</div>
+    <table class="conj-table" aria-label="日常动词">
+      <thead>
+        <tr><th>动词</th><th></th><th>含义</th><th>yo / tú / él</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-form">desayunar</td>
+          <td><button class="speak-btn" onclick="speak('desayunar')" aria-label="朗读 desayunar">🔊</button></td>
+          <td class="col-zh">吃早餐</td>
+          <td style="font-size:0.82rem">desayuno, desayunas, desayuna</td>
+        </tr>
+        <tr>
+          <td class="col-form">cenar</td>
+          <td><button class="speak-btn" onclick="speak('cenar')" aria-label="朗读 cenar">🔊</button></td>
+          <td class="col-zh">吃晚餐</td>
+          <td style="font-size:0.82rem">ceno, cenas, cena</td>
+        </tr>
+        <tr>
+          <td class="col-form">ir <span class="irregular-tag">⚠️ 不规则</span></td>
+          <td><button class="speak-btn" onclick="speak('ir')" aria-label="朗读 ir">🔊</button></td>
+          <td class="col-zh">去 (go)</td>
+          <td style="font-size:0.82rem;color:var(--error);font-weight:600">voy, vas, va</td>
+        </tr>
+        <tr>
+          <td class="col-form">dormir <span class="irregular-tag">⚠️ 稍微不规则</span></td>
+          <td><button class="speak-btn" onclick="speak('dormir')" aria-label="朗读 dormir">🔊</button></td>
+          <td class="col-zh">睡觉 (sleep)</td>
+          <td style="font-size:0.82rem;color:var(--error);font-weight:600">duermo, duermes, duerme</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="rule-box" style="font-family:'Noto Sans SC',sans-serif">
+      <strong>ir</strong> 完全不规则，直接记住 voy / vas / va。<br>
+      <strong>dormir</strong> 词干 o → ue 变化：d<strong style="color:var(--error)">ue</strong>rmo（不是 dormo）。
+    </div>
+  </div>
+
+  <!-- Numbers 1-10 -->
+  <div class="card">
+    <div class="card-title">数字 1-10</div>
+    <div class="number-grid">
+      <div class="number-card" onclick="speak('uno')">
+        <div class="num-digit">1</div>
+        <div class="num-word">uno</div>
+      </div>
+      <div class="number-card" onclick="speak('dos')">
+        <div class="num-digit">2</div>
+        <div class="num-word">dos</div>
+      </div>
+      <div class="number-card" onclick="speak('tres')">
+        <div class="num-digit">3</div>
+        <div class="num-word">tres</div>
+      </div>
+      <div class="number-card" onclick="speak('cuatro')">
+        <div class="num-digit">4</div>
+        <div class="num-word">cuatro</div>
+      </div>
+      <div class="number-card" onclick="speak('cinco')">
+        <div class="num-digit">5</div>
+        <div class="num-word">cinco</div>
+      </div>
+      <div class="number-card" onclick="speak('seis')">
+        <div class="num-digit">6</div>
+        <div class="num-word">seis</div>
+      </div>
+      <div class="number-card" onclick="speak('siete')">
+        <div class="num-digit">7</div>
+        <div class="num-word">siete</div>
+      </div>
+      <div class="number-card" onclick="speak('ocho')">
+        <div class="num-digit">8</div>
+        <div class="num-word">ocho</div>
+      </div>
+      <div class="number-card" onclick="speak('nueve')">
+        <div class="num-digit">9</div>
+        <div class="num-word">nueve</div>
+      </div>
+      <div class="number-card" onclick="speak('diez')">
+        <div class="num-digit">10</div>
+        <div class="num-word">diez</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ser vs Estar -->
+  <div class="card">
+    <div class="card-title">Ser vs Estar — 两个"是"</div>
+    <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.92rem;color:#7a6a5a;margin-bottom:1rem">
+      英语只有一个"是"(to be)。西班牙语有两个！
+    </p>
+
+    <div class="ser-estar-grid">
+      <div class="ser-card">
+        <h4>SER</h4>
+        <div class="subtitle-zh">本质 / 身份（你是谁）</div>
+        <div class="ser-estar-example">
+          <span class="es-text">Yo <strong>soy</strong> Carlos.</span> <button class="speak-btn" onclick="speak('Yo soy Carlos')" aria-label="朗读">🔊</button><br>
+          <span class="zh-text">我是 Carlos</span>
+        </div>
+        <div class="ser-estar-example">
+          <span class="es-text">Él <strong>es</strong> profesor.</span> <button class="speak-btn" onclick="speak('Él es profesor')" aria-label="朗读">🔊</button><br>
+          <span class="zh-text">他是老师</span>
+        </div>
+        <div class="ser-estar-example">
+          <span class="es-text">Ella <strong>es</strong> de España.</span> <button class="speak-btn" onclick="speak('Ella es de España')" aria-label="朗读">🔊</button><br>
+          <span class="zh-text">她来自西班牙</span>
+        </div>
+        <div style="margin-top:0.8rem;padding-top:0.5rem;border-top:1px dashed rgba(0,0,0,0.1);font-size:0.82rem;color:#7a6a5a">
+          <strong>yo</strong> soy · <strong>tú</strong> eres · <strong>él/ella</strong> es
+        </div>
+      </div>
+      <div class="estar-card">
+        <h4>ESTAR</h4>
+        <div class="subtitle-zh">状态 / 位置（你怎么样/在哪里）</div>
+        <div class="ser-estar-example">
+          <span class="es-text">Yo <strong>estoy</strong> bien.</span> <button class="speak-btn" onclick="speak('Yo estoy bien')" aria-label="朗读">🔊</button><br>
+          <span class="zh-text">我很好</span>
+        </div>
+        <div class="ser-estar-example">
+          <span class="es-text">Él <strong>está</strong> en casa.</span> <button class="speak-btn" onclick="speak('Él está en casa')" aria-label="朗读">🔊</button><br>
+          <span class="zh-text">他在家</span>
+        </div>
+        <div class="ser-estar-example">
+          <span class="es-text">Ella <strong>está</strong> cansada.</span> <button class="speak-btn" onclick="speak('Ella está cansada')" aria-label="朗读">🔊</button><br>
+          <span class="zh-text">她累了</span>
+        </div>
+        <div style="margin-top:0.8rem;padding-top:0.5rem;border-top:1px dashed rgba(0,0,0,0.1);font-size:0.82rem;color:#7a6a5a">
+          <strong>yo</strong> estoy · <strong>tú</strong> estás · <strong>él/ella</strong> está
+        </div>
+      </div>
+    </div>
+
+    <div class="rule-box" style="font-family:'Noto Sans SC',sans-serif">
+      💡 记忆窍门：<strong>Ser</strong> = <strong>S</strong>empre (永远) — 不变的事实。<strong>Estar</strong> = <strong>Est</strong>ado (状态) — 会变的状态。
+    </div>
+    <div class="compare-note" style="font-family:'Noto Sans SC',sans-serif;">
+      <span class="lang-tag">💡 日语对比</span><br>
+      <span style="font-family:'Noto Sans JP',sans-serif">有点像日语中 だ/です (表示身份/定义) vs いる (表示存在/状态) 的区别。</span>
+    </div>
+  </div>
+
+  <!-- Tener -->
+  <div class="card">
+    <div class="card-title">Tener (有) <span class="irregular-tag">⚠️ 不规则</span> <button class="speak-btn" onclick="speak('tener')" aria-label="朗读 tener">🔊</button></div>
+    <table class="conj-table" aria-label="tener 的变位">
+      <thead>
+        <tr><th>人称</th><th>变位</th><th></th><th>含义</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-person">yo</td>
+          <td class="col-form" style="color:var(--error)">tengo</td>
+          <td><button class="speak-btn" onclick="speak('yo tengo')" aria-label="朗读 yo tengo">🔊</button></td>
+          <td class="col-zh">我有</td>
+        </tr>
+        <tr>
+          <td class="col-person">tú</td>
+          <td class="col-form" style="color:var(--error)">tienes</td>
+          <td><button class="speak-btn" onclick="speak('tú tienes')" aria-label="朗读 tú tienes">🔊</button></td>
+          <td class="col-zh">你有</td>
+        </tr>
+        <tr>
+          <td class="col-person">él/ella</td>
+          <td class="col-form" style="color:var(--error)">tiene</td>
+          <td><button class="speak-btn" onclick="speak('él tiene')" aria-label="朗读 él tiene">🔊</button></td>
+          <td class="col-zh">他/她有</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.88rem;color:#7a6a5a;margin:0.8rem 0 0.5rem">常用表达：</p>
+    <div class="tener-expressions">
+      <div class="tener-card">
+        <div class="expr-es">tener hambre <button class="speak-btn" onclick="speak('tengo hambre')" aria-label="朗读">🔊</button></div>
+        <div class="expr-zh">饿了</div>
+      </div>
+      <div class="tener-card">
+        <div class="expr-es">tener sed <button class="speak-btn" onclick="speak('tengo sed')" aria-label="朗读">🔊</button></div>
+        <div class="expr-zh">渴了</div>
+      </div>
+      <div class="tener-card">
+        <div class="expr-es">tener sueño <button class="speak-btn" onclick="speak('tengo sueño')" aria-label="朗读">🔊</button></div>
+        <div class="expr-zh">困了</div>
+      </div>
+    </div>
+    <div class="compare-note" style="font-family:'Noto Sans SC',sans-serif;">
+      <span class="lang-tag">💡 跨语言对比</span><br>
+      <span style="font-family:'Noto Sans JP',sans-serif">"tener hambre" 直译是"有饥饿"，和日语「お腹が空いている」(肚子空着) 异曲同工——都不说"我饿"，而是"我有饿的状态"。</span>
+    </div>
+  </div>
+
+  <!-- Micro-exercise: ser vs estar -->
+  <div class="exercise-box" id="serestar-exercise">
+    <div class="exercise-title">选择 ser 还是 estar</div>
+    <div id="seresar-questions">
+      <!-- Populated by JS -->
+    </div>
+    <div>
+      <button class="check-btn" onclick="checkSerEstar()">检查答案</button>
+      <button class="reset-btn" onclick="resetSerEstar()">重新测试</button>
+    </div>
+    <div id="seresar-score" class="score-display" style="display:none"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- Block 4: 对话与综合复习              -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <h2>Diálogos y repaso</h2>
+    <span class="zh">对话与综合复习</span>
+  </div>
+
+  <!-- Dialogue 1 -->
+  <div class="dialogue">
+    <div class="dialogue-header">
+      <div class="dialogue-title">对话 1 — Carlos 的一天</div>
+      <button class="play-all-btn" onclick="playDialogue('d1')">▶ 播放全部</button>
+    </div>
+    <div class="dialogue-line">
+      <span class="dialogue-speaker tu">Tú</span>
+      <div class="dialogue-text">
+        <span class="es">Carlos, ¿qué haces por la mañana?</span>
+        <span class="zh">Carlos，你早上做什么？</span>
+      </div>
+      <button class="speak-btn" onclick="speak('Carlos, ¿qué haces por la mañana?')" aria-label="朗读">🔊</button>
+    </div>
+    <div class="dialogue-line">
+      <span class="dialogue-speaker">Carlos</span>
+      <div class="dialogue-text">
+        <span class="es">Por la mañana desayuno café con leche.</span>
+        <span class="zh">早上我喝牛奶咖啡当早餐。</span>
+      </div>
+      <button class="speak-btn" onclick="speak('Por la mañana desayuno café con leche.')" aria-label="朗读">🔊</button>
+    </div>
+    <div class="dialogue-line">
+      <span class="dialogue-speaker">Carlos</span>
+      <div class="dialogue-text">
+        <span class="es">Después estudio español.</span>
+        <span class="zh">然后学习西班牙语。</span>
+      </div>
+      <button class="speak-btn" onclick="speak('Después estudio español.')" aria-label="朗读">🔊</button>
+    </div>
+    <div class="dialogue-line">
+      <span class="dialogue-speaker tu">Tú</span>
+      <div class="dialogue-text">
+        <span class="es">¿Y por la tarde?</span>
+        <span class="zh">下午呢？</span>
+      </div>
+      <button class="speak-btn" onclick="speak('¿Y por la tarde?')" aria-label="朗读">🔊</button>
+    </div>
+    <div class="dialogue-line">
+      <span class="dialogue-speaker">Carlos</span>
+      <div class="dialogue-text">
+        <span class="es">Por la tarde trabajo en una oficina.</span>
+        <span class="zh">下午我在一个办公室工作。</span>
+      </div>
+      <button class="speak-btn" onclick="speak('Por la tarde trabajo en una oficina.')" aria-label="朗读">🔊</button>
+    </div>
+    <div class="dialogue-line">
+      <span class="dialogue-speaker tu">Tú</span>
+      <div class="dialogue-text">
+        <span class="es">¿Y por la noche?</span>
+        <span class="zh">晚上呢？</span>
+      </div>
+      <button class="speak-btn" onclick="speak('¿Y por la noche?')" aria-label="朗读">🔊</button>
+    </div>
+    <div class="dialogue-line">
+      <span class="dialogue-speaker">Carlos</span>
+      <div class="dialogue-text">
+        <span class="es">Por la noche ceno y leo un libro.</span>
+        <span class="zh">晚上我吃晚餐然后读书。</span>
+      </div>
+      <button class="speak-btn" onclick="speak('Por la noche ceno y leo un libro.')" aria-label="朗读">🔊</button>
+    </div>
+    <div class="dialogue-line">
+      <span class="dialogue-speaker">Carlos</span>
+      <div class="dialogue-text">
+        <span class="es">Después duermo. ¡Estoy muy cansado!</span>
+        <span class="zh">然后睡觉。我很累！</span>
+      </div>
+      <button class="speak-btn" onclick="speak('Después duermo. ¡Estoy muy cansado!')" aria-label="朗读">🔊</button>
+    </div>
+  </div>
+
+  <!-- Dialogue 2 -->
+  <div class="dialogue">
+    <div class="dialogue-header">
+      <div class="dialogue-title">对话 2 — 制定计划</div>
+      <button class="play-all-btn" onclick="playDialogue('d2')">▶ 播放全部</button>
+    </div>
+    <div class="dialogue-line">
+      <span class="dialogue-speaker">Carlos</span>
+      <div class="dialogue-text">
+        <span class="es">¿Estudias español hoy?</span>
+        <span class="zh">你今天学西班牙语吗？</span>
+      </div>
+      <button class="speak-btn" onclick="speak('¿Estudias español hoy?')" aria-label="朗读">🔊</button>
+    </div>
+    <div class="dialogue-line">
+      <span class="dialogue-speaker tu">Tú</span>
+      <div class="dialogue-text">
+        <span class="es">Sí, estudio por la mañana.</span>
+        <span class="zh">是的，我早上学。</span>
+      </div>
+      <button class="speak-btn" onclick="speak('Sí, estudio por la mañana.')" aria-label="朗读">🔊</button>
+    </div>
+    <div class="dialogue-line">
+      <span class="dialogue-speaker">Carlos</span>
+      <div class="dialogue-text">
+        <span class="es">¿Comes en un restaurante?</span>
+        <span class="zh">你在餐厅吃饭吗？</span>
+      </div>
+      <button class="speak-btn" onclick="speak('¿Comes en un restaurante?')" aria-label="朗读">🔊</button>
+    </div>
+    <div class="dialogue-line">
+      <span class="dialogue-speaker tu">Tú</span>
+      <div class="dialogue-text">
+        <span class="es">No, como en casa. Tengo comida.</span>
+        <span class="zh">不，我在家吃。我有食物。</span>
+      </div>
+      <button class="speak-btn" onclick="speak('No, como en casa. Tengo comida.')" aria-label="朗读">🔊</button>
+    </div>
+    <div class="dialogue-line">
+      <span class="dialogue-speaker">Carlos</span>
+      <div class="dialogue-text">
+        <span class="es">¡Bien! Hasta luego.</span>
+        <span class="zh">好的！回头见。</span>
+      </div>
+      <button class="speak-btn" onclick="speak('¡Bien! Hasta luego.')" aria-label="朗读">🔊</button>
+    </div>
+    <div class="dialogue-line">
+      <span class="dialogue-speaker tu">Tú</span>
+      <div class="dialogue-text">
+        <span class="es">¡Hasta luego!</span>
+        <span class="zh">回头见！</span>
+      </div>
+      <button class="speak-btn" onclick="speak('¡Hasta luego!')" aria-label="朗读">🔊</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- Cumulative Quiz                     -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="exercise-box" id="cumulative-quiz" style="border-color: var(--terracotta);">
+    <div class="exercise-title" style="font-size:1.05rem">三课综合测试 (15题)</div>
+    <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.85rem;color:#7a6a5a;margin-bottom:1rem">
+      涵盖第一课到第三课的所有内容。
+    </p>
+    <div id="quiz-questions">
+      <!-- Populated by JS -->
+    </div>
+    <div>
+      <button class="check-btn" onclick="checkQuiz()">检查答案</button>
+      <button class="reset-btn" onclick="resetQuiz()">重新测试</button>
+    </div>
+    <div id="quiz-score" class="score-display" style="display:none"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- Real-world unlock                   -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="gold-card">
+    <h3>🎉 恭喜你完成了三课的学习！</h3>
+    <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.92rem;color:#5a4a3a;margin-bottom:0.5rem">你现在可以：</p>
+    <ul>
+      <li>和别人打招呼、自我介绍</li>
+      <li>命名身边的物品并描述它们</li>
+      <li>说出你每天做什么</li>
+      <li>进行简单的日常对话</li>
+    </ul>
+    <p style="font-family:'Noto Sans SC',sans-serif;font-size:0.92rem;color:#5a4a3a;margin-top:1rem">
+      试试用西班牙语描述你的一天 <button class="speak-btn" onclick="speak('Buenos días. Me llamo estudiante. Soy de China. Por la mañana estudio español. Por la tarde trabajo. Por la noche como y leo un libro. ¡Hasta mañana!')" aria-label="朗读示范">🔊 听示范</button>
+    </p>
+    <div class="sample-speech">
+      "Buenos días. Me llamo ___. Soy de China. Por la mañana estudio español. Por la tarde trabajo. Por la noche como y leo un libro. ¡Hasta mañana!"
+    </div>
+  </div>
+
+  <!-- Self-assessment -->
+  <div class="self-assess">
+    <h3>三课自我评估</h3>
+    <label><input type="checkbox"> 我能正确发出西班牙语的五个元音</label>
+    <label><input type="checkbox"> 我能用正确的冠词(el/la)说出至少10个名词</label>
+    <label><input type="checkbox"> 我能变位至少3个动词的 yo/tú/él 形式</label>
+    <label><input type="checkbox"> 我能区分 ser 和 estar 的基本用法</label>
+    <label><input type="checkbox"> 我能用3-4句话描述我的一天</label>
+  </div>
+
+  <!-- Cultural note -->
+  <div class="collapsible">
+    <div class="collapsible-header" onclick="toggleCollapsible(this)" role="button" aria-expanded="false" tabindex="0">
+      🌍 文化小知识：西班牙人的作息时间
+      <span class="arrow">▼</span>
+    </div>
+    <div class="collapsible-body">
+      <p>
+        西班牙人的作息时间和东亚很不同：午餐在2-3点，晚餐在9-10点，很多人工作到7-8点。"Siesta"（午睡）在城市里已经不太常见了，但在小城镇下午2-5点很多商店确实会关门。
+      </p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  Lección 3 de 3 · 为中英日三语使用者设计的西班牙语教材
+</footer>
+
+<!-- Speed control -->
+<div class="speed-control" aria-label="语速控制">
+  🔊 <span style="font-size:0.75rem">语速</span>
+  <input type="range" id="speed-slider" min="0.5" max="1.0" step="0.05" value="0.7" oninput="updateSpeed(this.value)" aria-label="调整语速">
+  <span class="speed-val" id="speed-val">0.7x</span>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+// ═══════════════════════════════════
+// Leccion 3: Page-specific JS
+// ═══════════════════════════════════
+
+// Dialogue playback
+const dialogues = {
+  d1: [
+    'Carlos, ¿qué haces por la mañana?',
+    'Por la mañana desayuno café con leche.',
+    'Después estudio español.',
+    '¿Y por la tarde?',
+    'Por la tarde trabajo en una oficina.',
+    '¿Y por la noche?',
+    'Por la noche ceno y leo un libro.',
+    'Después duermo. ¡Estoy muy cansado!'
+  ],
+  d2: [
+    '¿Estudias español hoy?',
+    'Sí, estudio por la mañana.',
+    '¿Comes en un restaurante?',
+    'No, como en casa. Tengo comida.',
+    '¡Bien! Hasta luego.',
+    '¡Hasta luego!'
+  ]
+};
+
+function playDialogue(id) {
+  const lines = dialogues[id];
+  let i = 0;
+  speechSynthesis.cancel();
+  function playNext() {
+    if (i >= lines.length) return;
+    const utterance = new SpeechSynthesisUtterance(lines[i]);
+    utterance.lang = 'es-ES';
+    utterance.rate = speechRate;
+    const voices = speechSynthesis.getVoices();
+    const spanishVoice = voices.find(v => v.lang.startsWith('es'));
+    if (spanishVoice) utterance.voice = spanishVoice;
+    utterance.onend = () => { i++; setTimeout(playNext, 400); };
+    speechSynthesis.speak(utterance);
+  }
+  playNext();
+}
+
+// ═══════════════════════════════════
+// Collapsible
+// ═══════════════════════════════════
+function toggleCollapsible(header) {
+  const body = header.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open');
+  header.classList.toggle('open');
+  header.setAttribute('aria-expanded', !isOpen);
+}
+
+// ═══════════════════════════════════
+// Sort Exercise
+// ═══════════════════════════════════
+const sortVerbs = [
+  { word: 'hablar', family: 'ar' },
+  { word: 'comer', family: 'er' },
+  { word: 'vivir', family: 'ir' },
+  { word: 'estudiar', family: 'ar' },
+  { word: 'beber', family: 'er' },
+  { word: 'escribir', family: 'ir' },
+  { word: 'trabajar', family: 'ar' },
+  { word: 'leer', family: 'er' },
+  { word: 'desayunar', family: 'ar' }
+];
+
+let selectedChip = null;
+
+function initSort() {
+  const source = document.getElementById('sort-source');
+  source.innerHTML = '';
+  document.getElementById('zone-ar').innerHTML = '';
+  document.getElementById('zone-er').innerHTML = '';
+  document.getElementById('zone-ir').innerHTML = '';
+  document.getElementById('sort-feedback').textContent = '';
+  document.getElementById('sort-feedback').className = 'exercise-feedback';
+  document.getElementById('sort-score').style.display = 'none';
+  selectedChip = null;
+
+  // Shuffle
+  const shuffled = [...sortVerbs].sort(() => Math.random() - 0.5);
+  shuffled.forEach(v => {
+    const chip = document.createElement('span');
+    chip.className = 'sort-chip';
+    chip.textContent = v.word;
+    chip.dataset.family = v.family;
+    chip.dataset.word = v.word;
+    chip.onclick = () => selectChip(chip);
+    source.appendChild(chip);
+  });
+
+  // Zone click handlers
+  ['ar', 'er', 'ir'].forEach(fam => {
+    document.getElementById('zone-' + fam).onclick = () => placeInZone(fam);
+  });
+}
+
+function selectChip(chip) {
+  if (chip.classList.contains('placed')) return;
+  document.querySelectorAll('#sort-source .sort-chip').forEach(c => c.style.outline = '');
+  chip.style.outline = '2px solid var(--terracotta)';
+  selectedChip = chip;
+}
+
+function placeInZone(family) {
+  if (!selectedChip) return;
+  const zone = document.getElementById('zone-' + family);
+  const newChip = document.createElement('span');
+  newChip.className = 'sort-chip in-zone';
+  newChip.textContent = selectedChip.dataset.word;
+  newChip.dataset.family = selectedChip.dataset.family;
+  newChip.dataset.placedIn = family;
+  newChip.onclick = () => {
+    // Remove from zone back to source
+    newChip.remove();
+    const sourceChip = document.querySelector(`#sort-source .sort-chip[data-word="${newChip.textContent}"]`);
+    if (sourceChip) {
+      sourceChip.classList.remove('placed');
+      sourceChip.style.outline = '';
+    }
+  };
+  zone.appendChild(newChip);
+  selectedChip.classList.add('placed');
+  selectedChip.style.outline = '';
+  selectedChip = null;
+}
+
+function checkSort() {
+  const allPlaced = document.querySelectorAll('.sort-zone .sort-chip');
+  let correct = 0;
+  let total = sortVerbs.length;
+
+  allPlaced.forEach(chip => {
+    chip.classList.remove('correct-chip', 'incorrect-chip');
+    if (chip.dataset.family === chip.dataset.placedIn) {
+      chip.classList.add('correct-chip');
+      correct++;
+    } else {
+      chip.classList.add('incorrect-chip');
+    }
+  });
+
+  const placed = allPlaced.length;
+  const fb = document.getElementById('sort-feedback');
+  const sc = document.getElementById('sort-score');
+
+  if (placed < total) {
+    fb.textContent = '还有 ' + (total - placed) + ' 个动词没有分类';
+    fb.className = 'exercise-feedback incorrect';
+    return;
+  }
+
+  sc.textContent = '你答对了 ' + correct + '/' + total + ' 题';
+  sc.style.display = 'inline-block';
+  if (correct === total) {
+    fb.textContent = '太棒了！全部正确！';
+    fb.className = 'exercise-feedback correct';
+  } else {
+    fb.textContent = '有些分错了，红色的需要修改。';
+    fb.className = 'exercise-feedback incorrect';
+  }
+}
+
+function resetSort() { initSort(); }
+
+// ═══════════════════════════════════
+// Conjugation Drill
+// ═══════════════════════════════════
+const conjQuestions = [
+  { subject: 'yo', verb: 'hablar', answer: 'hablo', hint: '-AR' },
+  { subject: 'tú', verb: 'estudiar', answer: 'estudias', hint: '-AR' },
+  { subject: 'él', verb: 'trabajar', answer: 'trabaja', hint: '-AR' },
+  { subject: 'yo', verb: 'comer', answer: 'como', hint: '-ER' },
+  { subject: 'tú', verb: 'beber', answer: 'bebes', hint: '-ER' },
+  { subject: 'ella', verb: 'vivir', answer: 'vive', hint: '-IR' }
+];
+
+function initConj() {
+  const container = document.getElementById('conj-questions');
+  container.innerHTML = '';
+  document.getElementById('conj-score').style.display = 'none';
+
+  conjQuestions.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'exercise-question';
+    div.innerHTML = `
+      <div class="q-label">第 ${i+1} 题 <span style="color:#9a8a7a;font-weight:400">(${q.hint})</span></div>
+      <div class="q-text"><span class="es-word">${q.subject}</span> + <span class="es-word">${q.verb}</span> = ?</div>
+      <input type="text" class="exercise-input" id="conj-${i}" placeholder="输入变位形式" autocomplete="off" autocapitalize="off">
+      <div class="exercise-feedback" id="conj-fb-${i}"></div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function checkConj() {
+  let correct = 0;
+  conjQuestions.forEach((q, i) => {
+    const input = document.getElementById('conj-' + i);
+    const fb = document.getElementById('conj-fb-' + i);
+    const val = input.value.trim().toLowerCase();
+    input.classList.remove('correct', 'incorrect');
+    if (val === q.answer) {
+      correct++;
+      input.classList.add('correct');
+      fb.textContent = '✓ 正确！';
+      fb.className = 'exercise-feedback correct';
+    } else {
+      input.classList.add('incorrect');
+      fb.textContent = '✗ 正确答案：' + q.answer;
+      fb.className = 'exercise-feedback incorrect';
+    }
+  });
+  const sc = document.getElementById('conj-score');
+  sc.textContent = '你答对了 ' + correct + '/' + conjQuestions.length + ' 题';
+  sc.style.display = 'inline-block';
+}
+
+function resetConj() { initConj(); }
+
+// ═══════════════════════════════════
+// Ser vs Estar Exercise
+// ═══════════════════════════════════
+const serEstarQuestions = [
+  { sentence: 'Yo ___ profesor.', answer: 'ser', correct_form: 'soy', zh: '我是老师（身份）' },
+  { sentence: 'Ella ___ en la oficina.', answer: 'estar', correct_form: 'está', zh: '她在办公室（位置）' },
+  { sentence: 'Él ___ de México.', answer: 'ser', correct_form: 'es', zh: '他来自墨西哥（来源）' },
+  { sentence: 'Yo ___ cansado.', answer: 'estar', correct_form: 'estoy', zh: '我很累（状态）' }
+];
+
+function initSerEstar() {
+  const container = document.getElementById('seresar-questions');
+  container.innerHTML = '';
+  document.getElementById('seresar-score').style.display = 'none';
+
+  serEstarQuestions.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'exercise-question';
+    div.innerHTML = `
+      <div class="q-label">第 ${i+1} 题</div>
+      <div class="q-text">${q.sentence}</div>
+      <div class="q-text" style="font-family:'Noto Sans SC',sans-serif;font-size:0.82rem;color:#9a8a7a">${q.zh}</div>
+      <div class="mc-options" id="se-opts-${i}">
+        <button class="mc-option" data-val="ser" onclick="selectSE(${i},'ser',this)">SER</button>
+        <button class="mc-option" data-val="estar" onclick="selectSE(${i},'estar',this)">ESTAR</button>
+      </div>
+      <div class="exercise-feedback" id="se-fb-${i}"></div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+function selectSE(i, val, btn) {
+  const opts = document.querySelectorAll(`#se-opts-${i} .mc-option`);
+  opts.forEach(o => o.classList.remove('selected'));
+  btn.classList.add('selected');
+  btn.dataset.selected = val;
+}
+
+function checkSerEstar() {
+  let correct = 0;
+  serEstarQuestions.forEach((q, i) => {
+    const opts = document.querySelectorAll(`#se-opts-${i} .mc-option`);
+    const fb = document.getElementById('se-fb-' + i);
+    let selectedVal = null;
+
+    opts.forEach(o => {
+      o.classList.remove('correct', 'incorrect');
+      if (o.classList.contains('selected')) selectedVal = o.dataset.val;
+    });
+
+    if (!selectedVal) {
+      fb.textContent = '请选择一个答案';
+      fb.className = 'exercise-feedback incorrect';
+      return;
+    }
+
+    opts.forEach(o => {
+      if (o.dataset.val === q.answer) {
+        o.classList.add('correct');
+      } else if (o.classList.contains('selected')) {
+        o.classList.add('incorrect');
+      }
+    });
+
+    if (selectedVal === q.answer) {
+      correct++;
+      fb.textContent = '✓ 正确！' + q.correct_form;
+      fb.className = 'exercise-feedback correct';
+    } else {
+      fb.textContent = '✗ 应该用 ' + q.answer.toUpperCase() + ' (' + q.correct_form + ')';
+      fb.className = 'exercise-feedback incorrect';
+    }
+  });
+  const sc = document.getElementById('seresar-score');
+  sc.textContent = '你答对了 ' + correct + '/' + serEstarQuestions.length + ' 题';
+  sc.style.display = 'inline-block';
+}
+
+function resetSerEstar() { initSerEstar(); }
+
+// ═══════════════════════════════════
+// Cumulative Quiz (15 questions)
+// ═══════════════════════════════════
+const quizData = [
+  // L1: pronunciation/greeting
+  { type: 'mc', q: '"Buenos días" 的意思是？', options: ['晚上好', '早上好', '谢谢', '再见'], answer: 1, category: 'L1' },
+  { type: 'mc', q: '"¿Cómo te llamas?" 是在问什么？', options: ['你好吗？', '你叫什么名字？', '你从哪里来？', '你几岁？'], answer: 1, category: 'L1' },
+  { type: 'mc', q: '西班牙语的五个元音是？', options: ['a, e, i, o, u', 'a, e, i, ou, ü', 'a, ei, i, o, u', 'a, e, ie, o, ue'], answer: 0, category: 'L1' },
+  // L2: article/gender
+  { type: 'mc', q: '"libro"（书）用哪个冠词？', options: ['el', 'la', 'los', 'las'], answer: 0, category: 'L2' },
+  { type: 'mc', q: '"casa"（房子）用哪个冠词？', options: ['el', 'la', 'un', 'los'], answer: 1, category: 'L2' },
+  { type: 'mc', q: '一般来说，以 -o 结尾的名词是？', options: ['阴性', '阳性', '中性', '不确定'], answer: 1, category: 'L2' },
+  // L3: verb conjugation
+  { type: 'input', q: 'yo + hablar = ?', answer: 'hablo', category: 'L3' },
+  { type: 'input', q: 'tú + comer = ?', answer: 'comes', category: 'L3' },
+  { type: 'input', q: 'él + vivir = ?', answer: 'vive', category: 'L3' },
+  // L3: ser vs estar
+  { type: 'mc', q: '"Yo ___ estudiante."（我是学生）— 用哪个？', options: ['soy (ser)', 'estoy (estar)'], answer: 0, category: 'L3-SE' },
+  { type: 'mc', q: '"Él ___ en casa."（他在家）— 用哪个？', options: ['es (ser)', 'está (estar)'], answer: 1, category: 'L3-SE' },
+  { type: 'mc', q: '"Ella ___ cansada."（她累了）— 用哪个？', options: ['es (ser)', 'está (estar)'], answer: 1, category: 'L3-SE' },
+  // L3: translate daily routine
+  { type: 'input', q: '翻译："我早上学习" → "Por la mañana ___."', answer: 'estudio', category: 'L3-T' },
+  { type: 'input', q: '翻译："他晚上工作" → "Él ___ por la noche."', answer: 'trabaja', category: 'L3-T' },
+  { type: 'input', q: '翻译："我在家吃" → "___ en casa."', answer: 'como', category: 'L3-T' }
+];
+
+function initQuiz() {
+  const container = document.getElementById('quiz-questions');
+  container.innerHTML = '';
+  document.getElementById('quiz-score').style.display = 'none';
+
+  quizData.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'exercise-question';
+
+    let inner = `<div class="q-label">第 ${i+1} 题 <span style="color:#9a8a7a;font-weight:400;font-size:0.72rem">${q.category}</span></div>`;
+    inner += `<div class="q-text" style="font-family:'Noto Sans SC',sans-serif">${q.q}</div>`;
+
+    if (q.type === 'mc') {
+      inner += `<div class="mc-options" id="quiz-opts-${i}">`;
+      q.options.forEach((opt, j) => {
+        inner += `<button class="mc-option" data-val="${j}" onclick="selectQuizOpt(${i},${j},this)">${opt}</button>`;
+      });
+      inner += `</div>`;
+    } else {
+      inner += `<input type="text" class="exercise-input" id="quiz-input-${i}" placeholder="输入答案" autocomplete="off" autocapitalize="off">`;
+    }
+    inner += `<div class="exercise-feedback" id="quiz-fb-${i}"></div>`;
+
+    div.innerHTML = inner;
+    container.appendChild(div);
+  });
+}
+
+function selectQuizOpt(qi, oi, btn) {
+  const opts = document.querySelectorAll(`#quiz-opts-${qi} .mc-option`);
+  opts.forEach(o => o.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+function checkQuiz() {
+  let correct = 0;
+  quizData.forEach((q, i) => {
+    const fb = document.getElementById('quiz-fb-' + i);
+
+    if (q.type === 'mc') {
+      const opts = document.querySelectorAll(`#quiz-opts-${i} .mc-option`);
+      let selected = -1;
+      opts.forEach((o, j) => {
+        o.classList.remove('correct', 'incorrect');
+        if (o.classList.contains('selected')) selected = j;
+      });
+
+      if (selected === -1) {
+        fb.textContent = '请选择一个答案';
+        fb.className = 'exercise-feedback incorrect';
+        return;
+      }
+
+      opts.forEach((o, j) => {
+        if (j === q.answer) o.classList.add('correct');
+        else if (j === selected) o.classList.add('incorrect');
+      });
+
+      if (selected === q.answer) {
+        correct++;
+        fb.textContent = '✓ 正确！';
+        fb.className = 'exercise-feedback correct';
+      } else {
+        fb.textContent = '✗ 正确答案：' + q.options[q.answer];
+        fb.className = 'exercise-feedback incorrect';
+      }
+    } else {
+      const input = document.getElementById('quiz-input-' + i);
+      const val = input.value.trim().toLowerCase();
+      input.classList.remove('correct', 'incorrect');
+
+      if (val === q.answer) {
+        correct++;
+        input.classList.add('correct');
+        fb.textContent = '✓ 正确！';
+        fb.className = 'exercise-feedback correct';
+      } else {
+        input.classList.add('incorrect');
+        fb.textContent = '✗ 正确答案：' + q.answer;
+        fb.className = 'exercise-feedback incorrect';
+      }
+    }
+  });
+  const sc = document.getElementById('quiz-score');
+  sc.textContent = '你答对了 ' + correct + '/' + quizData.length + ' 题';
+  sc.style.display = 'inline-block';
+}
+
+function resetQuiz() { initQuiz(); }
+
+// ═══════════════════════════════════
+// Initialize all exercises on load
+// ═══════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  initSort();
+  initConj();
+  initSerEstar();
+  initQuiz();
+});
+</script>
+
+</body>
+</html>
