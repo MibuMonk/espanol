@@ -1,1101 +1,643 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lección 3 — Mi día 我的一天 | Español</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<title>西班牙语学习 · 第三课</title>
 <style>
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: var(--font-body); background: var(--soft-white); color: var(--dark); line-height: 1.7; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#1a1a2e;--text:#e0d5c1;--gold:#d4a76a;--terracotta:#c84b31;
+  --blue:#88b4e7;--orange:#e8a87c;--dim:#6a6a7a;
+  --mono:"SF Mono","Fira Code","Cascadia Code",Menlo,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+body{font-family:var(--mono);background:var(--bg);color:var(--text);line-height:1.8;font-size:15px;-webkit-font-smoothing:antialiased}
+
+/* Top bar */
+.topbar{position:fixed;top:0;left:0;right:0;height:44px;background:rgba(26,26,46,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(212,167,106,.15);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:100;font-size:13px}
+.topbar-left{color:var(--gold);font-family:var(--sans);letter-spacing:.5px}
+.topbar-right{display:flex;align-items:center;gap:16px}
+.topbar-right a{color:var(--dim);text-decoration:none;font-family:var(--sans);font-size:12px;transition:color .2s}
+.topbar-right a:hover{color:var(--gold)}
+.topbar-right a.active{color:var(--gold)}
+.speed-ctrl{display:flex;align-items:center;gap:6px;color:var(--dim);font-size:11px}
+.speed-ctrl input[type=range]{width:60px;accent-color:var(--gold);height:3px}
+
+/* Main container */
+.container{max-width:700px;margin:0 auto;padding:70px 24px 60px}
+
+/* Prologue */
+.prologue{border-left:2px solid var(--gold);padding:20px 24px;margin-bottom:48px;opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.prologue.visible{opacity:1;transform:translateY(0)}
+.prologue p{color:var(--gold);font-family:var(--sans);font-size:15px;line-height:2;margin-bottom:8px}
+
+/* Entry sections */
+.entry{margin-bottom:56px;opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.entry.visible{opacity:1;transform:translateY(0)}
+.entry-header{color:var(--gold);font-size:14px;letter-spacing:1px;margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid rgba(212,167,106,.2)}
+
+/* Dialogue */
+.line{margin-bottom:14px;padding:2px 0}
+.line-carlos{text-align:left}
+.line-carlos .speaker{color:var(--orange);font-weight:600;font-size:13px}
+.line-carlos .content{color:var(--orange)}
+.line-explorer{text-align:right}
+.line-explorer .speaker{color:var(--blue);font-weight:600;font-size:13px}
+.line-explorer .content{color:var(--blue)}
+
+/* Spanish highlight */
+.es{color:var(--terracotta);font-weight:500}
+
+/* Audio button */
+.speak-btn{background:none;border:1px solid rgba(200,75,49,.3);color:var(--terracotta);cursor:pointer;font-size:12px;padding:1px 6px;border-radius:3px;margin:0 2px;vertical-align:middle;transition:all .2s;font-family:var(--sans);line-height:1.4}
+.speak-btn:hover{background:rgba(200,75,49,.15);border-color:var(--terracotta)}
+.speak-btn:active{transform:scale(.95)}
+
+/* Insight box */
+.insight{background:rgba(212,167,106,.08);border-left:3px solid var(--gold);padding:14px 18px;margin:18px 0;border-radius:0 4px 4px 0;font-size:14px;color:var(--gold);line-height:1.9;font-family:var(--sans)}
+.insight em{font-style:normal;color:var(--text);opacity:.8}
+
+/* Narrative / stage direction */
+.narrative{color:var(--dim);font-style:italic;text-align:center;margin:14px 0;font-size:14px;font-family:var(--sans)}
+
+/* Divider */
+.divider{border:none;border-top:1px solid rgba(212,167,106,.12);margin:40px 0}
+
+/* Summary section */
+.summary-group{margin:12px 0 20px}
+.summary-group h4{color:var(--gold);font-size:14px;margin-bottom:10px;font-family:var(--sans);font-weight:600}
+.summary-group ul{list-style:none;padding-left:0}
+.summary-group li{color:var(--text);font-size:14px;line-height:2;font-family:var(--sans);padding-left:16px;position:relative}
+.summary-group li::before{content:"·";position:absolute;left:4px;color:var(--gold)}
+
+/* Epilogue */
+.epilogue{border-top:1px solid rgba(212,167,106,.15);padding-top:32px;margin-top:48px}
+
+/* Footer */
+footer{text-align:center;padding:40px 0 32px;color:var(--dim);font-size:12px;font-family:var(--sans);letter-spacing:.5px}
+
+/* Mobile */
+@media(max-width:600px){
+  body{font-size:14px}
+  .container{padding:60px 16px 40px}
+  .topbar{padding:0 12px;font-size:12px}
+  .speed-ctrl input[type=range]{width:48px}
+  .line-explorer,.line-carlos{text-align:left}
+}
+
+/* Print */
+@media print{
+  body{background:#fff;color:#222}
+  .topbar{display:none}
+  .speak-btn{display:none}
+  .speed-ctrl{display:none}
+  .es{color:#b33}
+  .insight{border-left-color:#999;background:#f5f5f5;color:#555}
+  .entry{opacity:1!important;transform:none!important}
+  .prologue{opacity:1!important;transform:none!important}
+}
 </style>
 </head>
-<body class="l3">
+<body>
 
-<div id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-
-<nav class="main-nav" role="navigation" aria-label="课程导航">
-  <div class="nav-inner">
+<nav class="topbar">
+  <div class="topbar-left">第三课 · ¿Cómo?</div>
+  <div class="topbar-right">
+    <div class="speed-ctrl">
+      <span>语速</span>
+      <input type="range" min="50" max="100" value="75" id="speedSlider">
+      <span id="speedVal">0.75x</span>
+    </div>
     <a href="index.html">首页</a>
-    <a href="leccion1.html">第一课</a>
-    <a href="leccion2.html">第二课</a>
-    <a href="leccion3.html" class="active">第三课</a>
+    <a href="leccion1.html">L1</a>
+    <a href="leccion2.html">L2</a>
+    <a href="leccion3.html" class="active">L3</a>
   </div>
 </nav>
 
-<header class="hero">
-  <div class="hero-label">Lección 3</div>
-  <h1><span class="accent">Mi día</span> — 我的一天</h1>
-  <p class="hero-sub">动词变位 · 日常生活 · ser vs estar · 数字1-10</p>
-  <div class="hero-topics">
-    <span>动词变位</span>
-    <span>-AR/-ER/-IR 动词</span>
-    <span>ser 与 estar</span>
-    <span>日常对话</span>
-    <span>数字 1-10</span>
-  </div>
-</header>
+<main class="container">
 
-<main>
+<!-- Prologue -->
+<section class="prologue">
+  <p>Carlos 说去市场。我说好。他说要用西班牙语买东西。</p>
+  <p>我说……也好。能有多难？</p>
+</section>
 
-        <div class="section-header" style="margin-top:0">
-    <div class="section-num">★</div>
-    <h2>信心建设</h2>
-    <span class="zh">试试你的阅读能力</span>
-  </div>
+<!-- 001 -->
+<section class="entry" id="e001">
+<div class="entry-header">【001】到达市场</div>
 
-  <div class="confidence-text">
-    <div class="spanish-passage">
-      "¡Hola! Buenos días. Me llamo Carlos. Esto es mi casa. La casa es grande. Tengo un gato negro. Se llama Michi."
-      <button class="speak-btn" onclick="speak('¡Hola! Buenos días. Me llamo Carlos. Esto es mi casa. La casa es grande. Tengo un gato negro. Se llama Michi.')" aria-label="朗读这段话">🔊</button>
-    </div>
-    <div class="encouragement">
-      你能读懂这段话吗？这就是你两课以来的成果！现在让我们学会描述每天做什么。
-      <br><br>
-      <strong>故事继续：</strong>Carlos 开始告诉你他的日常生活。
-    </div>
-  </div>
+<div class="narrative">清晨。一个露天市场。人声鼎沸，摊位五颜六色，空气里全是水果和烤肉的味道。</div>
 
-        <div class="section-header">
-    <div class="section-num">1</div>
-    <h2>¿Qué es la conjugación?</h2>
-    <span class="zh">动词变位是什么？</span>
-  </div>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">这地方好吵。</span></div>
 
-  <div class="grammar-block">
-    <h3>为什么动词会"变形"？</h3>
-    <p style="font-family:var(--font-cn);">
-      在中文里，动词永远不变："我<strong>吃</strong>"、"你<strong>吃</strong>"、"他<strong>吃</strong>"——都是"吃"。<br>
-      在英语里，动词稍微变一点："I eat" vs "he eat<strong style="color:var(--terracotta)">s</strong>"。<br>
-      <span style="font-family:var(--font-jp);">在日语里，动词会变形：食べ<strong style="color:var(--terracotta)">る</strong> → 食べ<strong style="color:var(--terracotta)">ます</strong> → 食べ<strong style="color:var(--terracotta)">た</strong> → 食べ<strong style="color:var(--terracotta)">ない</strong>。</span><br>
-      西班牙语和日语类似，动词要根据"谁在做"而变形，而且变化比英语多得多。
-    </p>
-  </div>
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content"><span class="es">Bienvenido al mercado.</span> <button class="speak-btn" onclick="speak('Bienvenido al mercado.')">🔊</button> 我去那边买鱼。你——自己去买这几样东西。</span></div>
 
-  <div class="card">
-    <div class="card-title">三大动词家族</div>
-    <div class="verb-families">
-      <div class="verb-family-card ar">
-        <div class="family-label">-AR</div>
-        <p style="font-family:var(--font-cn);font-size:0.78rem;color:#9a8a7a;margin-bottom:0.5rem">🔴 最大的家族</p>
-        <ul class="verb-list">
-          <li><span class="verb-es">hablar</span> <button class="speak-btn" onclick="speak('hablar')" aria-label="朗读 hablar">🔊</button><br><span class="verb-zh">说 (speak)</span></li>
-          <li><span class="verb-es">estudiar</span> <button class="speak-btn" onclick="speak('estudiar')" aria-label="朗读 estudiar">🔊</button><br><span class="verb-zh">学习 (≈ study)</span></li>
-          <li><span class="verb-es">trabajar</span> <button class="speak-btn" onclick="speak('trabajar')" aria-label="朗读 trabajar">🔊</button><br><span class="verb-zh">工作 (work)</span></li>
-          <li><span class="verb-es">desayunar</span> <button class="speak-btn" onclick="speak('desayunar')" aria-label="朗读 desayunar">🔊</button><br><span class="verb-zh">吃早餐</span></li>
-          <li><span class="verb-es">cenar</span> <button class="speak-btn" onclick="speak('cenar')" aria-label="朗读 cenar">🔊</button><br><span class="verb-zh">吃晚餐</span></li>
-        </ul>
-      </div>
-      <div class="verb-family-card er">
-        <div class="family-label">-ER</div>
-        <p style="font-family:var(--font-cn);font-size:0.78rem;color:#9a8a7a;margin-bottom:0.5rem">🟢 中等家族</p>
-        <ul class="verb-list">
-          <li><span class="verb-es">comer</span> <button class="speak-btn" onclick="speak('comer')" aria-label="朗读 comer">🔊</button><br><span class="verb-zh">吃 (eat)</span></li>
-          <li><span class="verb-es">beber</span> <button class="speak-btn" onclick="speak('beber')" aria-label="朗读 beber">🔊</button><br><span class="verb-zh">喝 (drink)</span></li>
-          <li><span class="verb-es">leer</span> <button class="speak-btn" onclick="speak('leer')" aria-label="朗读 leer">🔊</button><br><span class="verb-zh">读 (read)</span></li>
-        </ul>
-      </div>
-      <div class="verb-family-card ir">
-        <div class="family-label">-IR</div>
-        <p style="font-family:var(--font-cn);font-size:0.78rem;color:#9a8a7a;margin-bottom:0.5rem">🔵 较小的家族</p>
-        <ul class="verb-list">
-          <li><span class="verb-es">vivir</span> <button class="speak-btn" onclick="speak('vivir')" aria-label="朗读 vivir">🔊</button><br><span class="verb-zh">住 (≈ vivid, alive)</span></li>
-          <li><span class="verb-es">escribir</span> <button class="speak-btn" onclick="speak('escribir')" aria-label="朗读 escribir">🔊</button><br><span class="verb-zh">写 (write)</span></li>
-        </ul>
-      </div>
-    </div>
+<div class="narrative">Carlos 递给 Jack 一张皱巴巴的纸条。</div>
 
-    <div class="compare-note" style="font-family:var(--font-cn);">
-      <span class="lang-tag">💡 日语对比</span><br>
-      就像日语的五段动词和一段动词是不同的变化类型，西班牙语的 -ar/-er/-ir 也是三种不同的变化模式。
-    </div>
-  </div>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">等等你要丢下我？</span></div>
 
-    <div class="exercise-box" id="sort-exercise">
-    <div class="exercise-title">分类练习：把动词放进正确的家族</div>
-    <p style="font-family:var(--font-cn);font-size:0.85rem;color:#7a6a5a;margin-bottom:0.8rem">
-      点击一个动词，再点击对应的分类区域来放置它。
-    </p>
-    <div id="sort-source" style="margin-bottom:1rem">
-          </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem">
-      <div>
-        <div class="sort-label ar-label">🔴 -AR 动词</div>
-        <div class="sort-zone ar-zone" data-family="ar" id="zone-ar"></div>
-      </div>
-      <div>
-        <div class="sort-label er-label">🟢 -ER 动词</div>
-        <div class="sort-zone er-zone" data-family="er" id="zone-er"></div>
-      </div>
-      <div>
-        <div class="sort-label ir-label">🔵 -IR 动词</div>
-        <div class="sort-zone ir-zone" data-family="ir" id="zone-ir"></div>
-      </div>
-    </div>
-    <div>
-      <button class="check-btn" onclick="checkSort()">检查答案</button>
-      <button class="reset-btn" onclick="resetSort()">重新开始</button>
-    </div>
-    <div id="sort-feedback" class="exercise-feedback"></div>
-    <div id="sort-score" class="score-display" style="display:none"></div>
-  </div>
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">你昨天在 bar 里不是活得好好的？</span></div>
 
-        <div class="section-header">
-    <div class="section-num">2</div>
-    <h2>Conjugación en práctica</h2>
-    <span class="zh">动词变位实战</span>
-  </div>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">那是你的 bar！你在旁边！</span></div>
 
-  <div class="grammar-block">
-    <p style="font-family:var(--font-cn)">
-      我们先学最常用的三个人称。其他的以后再说。
-    </p>
-  </div>
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content"><span class="es">Huevos, tomates, cebollas.</span> <button class="speak-btn" onclick="speak('Huevos, tomates, cebollas.')">🔊</button> 三样。我在鱼摊等你。</span></div>
 
-    <div class="card">
-    <div class="card-title">-AR 动词：hablar (说话) <button class="speak-btn" onclick="speak('hablar')" aria-label="朗读 hablar">🔊</button></div>
-    <table class="conj-table" aria-label="hablar 的变位">
-      <thead>
-        <tr><th>人称</th><th>变位</th><th></th><th>含义</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="col-person">yo</td>
-          <td class="col-form"><span class="stem">habl</span><span class="ending">o</span></td>
-          <td><button class="speak-btn" onclick="speak('yo hablo')" aria-label="朗读 yo hablo">🔊</button></td>
-          <td class="col-zh">我说</td>
-        </tr>
-        <tr>
-          <td class="col-person">tú</td>
-          <td class="col-form"><span class="stem">habl</span><span class="ending">as</span></td>
-          <td><button class="speak-btn" onclick="speak('tú hablas')" aria-label="朗读 tú hablas">🔊</button></td>
-          <td class="col-zh">你说</td>
-        </tr>
-        <tr>
-          <td class="col-person">él/ella</td>
-          <td class="col-form"><span class="stem">habl</span><span class="ending">a</span></td>
-          <td><button class="speak-btn" onclick="speak('él habla')" aria-label="朗读 él habla">🔊</button></td>
-          <td class="col-zh">他/她说</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">……huevos 是什么？</span></div>
 
-    <div class="rule-box" style="font-family:var(--font-cn)">
-      <strong>看到规律了吗？</strong> 词干 <code style="color:var(--dark);font-weight:600">habl-</code> 不变，只有词尾在变。
-    </div>
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">(already walking away, yelling back) 鸡蛋！</span></div>
 
-    <p style="font-family:var(--font-cn);font-size:0.88rem;color:#7a6a5a;margin-top:0.8rem;">同样的规律应用到其他 -AR 动词：</p>
-    <div class="pattern-row">
-      <span class="pattern-item"><span class="stem">estudi</span><span class="ending">o</span></span>
-      <span class="pattern-item"><span class="stem">estudi</span><span class="ending">as</span></span>
-      <span class="pattern-item"><span class="stem">estudi</span><span class="ending">a</span></span>
-    </div>
-    <div class="pattern-row">
-      <span class="pattern-item"><span class="stem">trabaj</span><span class="ending">o</span></span>
-      <span class="pattern-item"><span class="stem">trabaj</span><span class="ending">as</span></span>
-      <span class="pattern-item"><span class="stem">trabaj</span><span class="ending">a</span></span>
-    </div>
-  </div>
+<div class="insight">💡 <span class="es">huevos</span> <button class="speak-btn" onclick="speak('huevos')">🔊</button> = 鸡蛋，<span class="es">tomates</span> <button class="speak-btn" onclick="speak('tomates')">🔊</button> = 西红柿（≈ tomato！），<span class="es">cebollas</span> <button class="speak-btn" onclick="speak('cebollas')">🔊</button> = 洋葱。Jack 被扔进市场了。</div>
+</section>
 
-    <div class="card">
-    <div class="card-title">-ER 动词：comer (吃) <button class="speak-btn" onclick="speak('comer')" aria-label="朗读 comer">🔊</button></div>
-    <table class="conj-table" aria-label="comer 的变位">
-      <thead>
-        <tr><th>人称</th><th>变位</th><th></th><th>含义</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="col-person">yo</td>
-          <td class="col-form"><span class="stem">com</span><span class="ending">o</span></td>
-          <td><button class="speak-btn" onclick="speak('yo como')" aria-label="朗读 yo como">🔊</button></td>
-          <td class="col-zh">我吃</td>
-        </tr>
-        <tr>
-          <td class="col-person">tú</td>
-          <td class="col-form"><span class="stem">com</span><span class="ending">es</span></td>
-          <td><button class="speak-btn" onclick="speak('tú comes')" aria-label="朗读 tú comes">🔊</button></td>
-          <td class="col-zh">你吃</td>
-        </tr>
-        <tr>
-          <td class="col-person">él/ella</td>
-          <td class="col-form"><span class="stem">com</span><span class="ending">e</span></td>
-          <td><button class="speak-btn" onclick="speak('él come')" aria-label="朗读 él come">🔊</button></td>
-          <td class="col-zh">他/她吃</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<!-- 002 -->
+<section class="entry" id="e002">
+<div class="entry-header">【002】第一个摊位</div>
 
-    <div class="card">
-    <div class="card-title">-IR 动词：vivir (住) <button class="speak-btn" onclick="speak('vivir')" aria-label="朗读 vivir">🔊</button></div>
-    <table class="conj-table" aria-label="vivir 的变位">
-      <thead>
-        <tr><th>人称</th><th>变位</th><th></th><th>含义</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="col-person">yo</td>
-          <td class="col-form"><span class="stem">viv</span><span class="ending">o</span></td>
-          <td><button class="speak-btn" onclick="speak('yo vivo')" aria-label="朗读 yo vivo">🔊</button></td>
-          <td class="col-zh">我住</td>
-        </tr>
-        <tr>
-          <td class="col-person">tú</td>
-          <td class="col-form"><span class="stem">viv</span><span class="ending">es</span></td>
-          <td><button class="speak-btn" onclick="speak('tú vives')" aria-label="朗读 tú vives">🔊</button></td>
-          <td class="col-zh">你住</td>
-        </tr>
-        <tr>
-          <td class="col-person">él/ella</td>
-          <td class="col-form"><span class="stem">viv</span><span class="ending">e</span></td>
-          <td><button class="speak-btn" onclick="speak('él vive')" aria-label="朗读 él vive">🔊</button></td>
-          <td class="col-zh">他/她住</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="narrative">Jack 硬着头皮走向一个蔬菜摊。摊主是个中年女人，动作利落，嗓门大。</div>
 
-    <div class="compare-note" style="font-family:var(--font-cn);">
-      <span class="lang-tag">💡 好消息</span><br>
-      注意：-er 和 -ir 的变位几乎一样！只有 tú 的形式不同（-es vs -es……其实一样！）。这是个好消息。
-    </div>
-  </div>
+<div class="line line-carlos"><span class="speaker">Vendor:</span> <span class="content"><span class="es">¡Hola! ¿Qué te pongo, cariño?</span> <button class="speak-btn" onclick="speak('¡Hola! ¿Qué te pongo, cariño?')">🔊</button></span></div>
 
-    <div class="exercise-box" id="conj-exercise">
-    <div class="exercise-title">变位练习：填写正确的动词形式</div>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">……</span></div>
 
-    <div id="conj-questions">
-          </div>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">(inner monologue) 她说了什么？太快了。我听到了 hola 和 pongo。pongo... 跟 ponme 有关系？"给你放什么？"</span></div>
 
-    <div>
-      <button class="check-btn" onclick="checkConj()">检查答案</button>
-      <button class="reset-btn" onclick="resetConj()">重新测试</button>
-    </div>
-    <div id="conj-score" class="score-display" style="display:none"></div>
-  </div>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">To... <span class="es">tomates</span>? <button class="speak-btn" onclick="speak('tomates')">🔊</button></span></div>
 
-        <div class="section-header">
-    <div class="section-num">3</div>
-    <h2>El día de Carlos</h2>
-    <span class="zh">Carlos 的一天</span>
-  </div>
+<div class="line line-carlos"><span class="speaker">Vendor:</span> <span class="content"><span class="es">¿Cuántos quieres?</span> <button class="speak-btn" onclick="speak('¿Cuántos quieres?')">🔊</button></span></div>
 
-    <div class="card">
-    <div class="card-title">时间词汇</div>
-    <div class="time-vocab">
-      <div class="time-card">
-        <div class="time-es">por la mañana <button class="speak-btn" onclick="speak('por la mañana')" aria-label="朗读 por la mañana">🔊</button></div>
-        <div class="time-zh">在早上</div>
-        <div class="time-en">in the morning</div>
-      </div>
-      <div class="time-card">
-        <div class="time-es">por la tarde <button class="speak-btn" onclick="speak('por la tarde')" aria-label="朗读 por la tarde">🔊</button></div>
-        <div class="time-zh">在下午</div>
-        <div class="time-en">in the afternoon</div>
-      </div>
-      <div class="time-card">
-        <div class="time-es">por la noche <button class="speak-btn" onclick="speak('por la noche')" aria-label="朗读 por la noche">🔊</button></div>
-        <div class="time-zh">在晚上</div>
-        <div class="time-en">in the evening</div>
-      </div>
-      <div class="time-card">
-        <div class="time-es">hoy <button class="speak-btn" onclick="speak('hoy')" aria-label="朗读 hoy">🔊</button></div>
-        <div class="time-zh">今天</div>
-        <div class="time-en">today</div>
-      </div>
-      <div class="time-card">
-        <div class="time-es">ahora <button class="speak-btn" onclick="speak('ahora')" aria-label="朗读 ahora">🔊</button></div>
-        <div class="time-zh">现在</div>
-        <div class="time-en">now</div>
-      </div>
-    </div>
-  </div>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">……cuántos……多少个？Uh... (holds up four fingers) <span class="es">Cuatro</span>? <button class="speak-btn" onclick="speak('Cuatro')">🔊</button></span></div>
 
-    <div class="card">
-    <div class="card-title">日常动词</div>
-    <table class="conj-table" aria-label="日常动词">
-      <thead>
-        <tr><th>动词</th><th></th><th>含义</th><th>yo / tú / él</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="col-form">desayunar</td>
-          <td><button class="speak-btn" onclick="speak('desayunar')" aria-label="朗读 desayunar">🔊</button></td>
-          <td class="col-zh">吃早餐</td>
-          <td style="font-size:0.82rem">desayuno, desayunas, desayuna</td>
-        </tr>
-        <tr>
-          <td class="col-form">cenar</td>
-          <td><button class="speak-btn" onclick="speak('cenar')" aria-label="朗读 cenar">🔊</button></td>
-          <td class="col-zh">吃晚餐</td>
-          <td style="font-size:0.82rem">ceno, cenas, cena</td>
-        </tr>
-        <tr>
-          <td class="col-form">ir <span class="irregular-tag">⚠️ 不规则</span></td>
-          <td><button class="speak-btn" onclick="speak('ir')" aria-label="朗读 ir">🔊</button></td>
-          <td class="col-zh">去 (go)</td>
-          <td style="font-size:0.82rem;color:var(--error);font-weight:600">voy, vas, va</td>
-        </tr>
-        <tr>
-          <td class="col-form">dormir <span class="irregular-tag">⚠️ 稍微不规则</span></td>
-          <td><button class="speak-btn" onclick="speak('dormir')" aria-label="朗读 dormir">🔊</button></td>
-          <td class="col-zh">睡觉 (sleep)</td>
-          <td style="font-size:0.82rem;color:var(--error);font-weight:600">duermo, duermes, duerme</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="rule-box" style="font-family:var(--font-cn)">
-      <strong>ir</strong> 完全不规则，直接记住 voy / vas / va。<br>
-      <strong>dormir</strong> 词干 o → ue 变化：d<strong style="color:var(--error)">ue</strong>rmo（不是 dormo）。
-    </div>
-  </div>
+<div class="line line-carlos"><span class="speaker">Vendor:</span> <span class="content"><span class="es">¿Algo más?</span> <button class="speak-btn" onclick="speak('¿Algo más?')">🔊</button></span></div>
 
-    <div class="card">
-    <div class="card-title">数字 1-10</div>
-    <div class="number-grid">
-      <div class="number-card" onclick="speak('uno')">
-        <div class="num-digit">1</div>
-        <div class="num-word">uno</div>
-      </div>
-      <div class="number-card" onclick="speak('dos')">
-        <div class="num-digit">2</div>
-        <div class="num-word">dos</div>
-      </div>
-      <div class="number-card" onclick="speak('tres')">
-        <div class="num-digit">3</div>
-        <div class="num-word">tres</div>
-      </div>
-      <div class="number-card" onclick="speak('cuatro')">
-        <div class="num-digit">4</div>
-        <div class="num-word">cuatro</div>
-      </div>
-      <div class="number-card" onclick="speak('cinco')">
-        <div class="num-digit">5</div>
-        <div class="num-word">cinco</div>
-      </div>
-      <div class="number-card" onclick="speak('seis')">
-        <div class="num-digit">6</div>
-        <div class="num-word">seis</div>
-      </div>
-      <div class="number-card" onclick="speak('siete')">
-        <div class="num-digit">7</div>
-        <div class="num-word">siete</div>
-      </div>
-      <div class="number-card" onclick="speak('ocho')">
-        <div class="num-digit">8</div>
-        <div class="num-word">ocho</div>
-      </div>
-      <div class="number-card" onclick="speak('nueve')">
-        <div class="num-digit">9</div>
-        <div class="num-word">nueve</div>
-      </div>
-      <div class="number-card" onclick="speak('diez')">
-        <div class="num-digit">10</div>
-        <div class="num-word">diez</div>
-      </div>
-    </div>
-  </div>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">她说 algo más——"还要别的吗？" 这个我在 bar 里听过！</span></div>
 
-    <div class="card">
-    <div class="card-title">Ser vs Estar — 两个"是"</div>
-    <p style="font-family:var(--font-cn);font-size:0.92rem;color:#7a6a5a;margin-bottom:1rem">
-      英语只有一个"是"(to be)。西班牙语有两个！
-    </p>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content"><span class="es">Cebollas</span>? <button class="speak-btn" onclick="speak('Cebollas')">🔊</button></span></div>
 
-    <div class="ser-estar-grid">
-      <div class="ser-card">
-        <h4>SER</h4>
-        <div class="subtitle-zh">本质 / 身份（你是谁）</div>
-        <div class="ser-estar-example">
-          <span class="es-text">Yo <strong>soy</strong> Carlos.</span> <button class="speak-btn" onclick="speak('Yo soy Carlos')" aria-label="朗读">🔊</button><br>
-          <span class="zh-text">我是 Carlos</span>
-        </div>
-        <div class="ser-estar-example">
-          <span class="es-text">Él <strong>es</strong> profesor.</span> <button class="speak-btn" onclick="speak('Él es profesor')" aria-label="朗读">🔊</button><br>
-          <span class="zh-text">他是老师</span>
-        </div>
-        <div class="ser-estar-example">
-          <span class="es-text">Ella <strong>es</strong> de España.</span> <button class="speak-btn" onclick="speak('Ella es de España')" aria-label="朗读">🔊</button><br>
-          <span class="zh-text">她来自西班牙</span>
-        </div>
-        <div style="margin-top:0.8rem;padding-top:0.5rem;border-top:1px dashed rgba(0,0,0,0.1);font-size:0.82rem;color:#7a6a5a">
-          <strong>yo</strong> soy · <strong>tú</strong> eres · <strong>él/ella</strong> es
-        </div>
-      </div>
-      <div class="estar-card">
-        <h4>ESTAR</h4>
-        <div class="subtitle-zh">状态 / 位置（你怎么样/在哪里）</div>
-        <div class="ser-estar-example">
-          <span class="es-text">Yo <strong>estoy</strong> bien.</span> <button class="speak-btn" onclick="speak('Yo estoy bien')" aria-label="朗读">🔊</button><br>
-          <span class="zh-text">我很好</span>
-        </div>
-        <div class="ser-estar-example">
-          <span class="es-text">Él <strong>está</strong> en casa.</span> <button class="speak-btn" onclick="speak('Él está en casa')" aria-label="朗读">🔊</button><br>
-          <span class="zh-text">他在家</span>
-        </div>
-        <div class="ser-estar-example">
-          <span class="es-text">Ella <strong>está</strong> cansada.</span> <button class="speak-btn" onclick="speak('Ella está cansada')" aria-label="朗读">🔊</button><br>
-          <span class="zh-text">她累了</span>
-        </div>
-        <div style="margin-top:0.8rem;padding-top:0.5rem;border-top:1px dashed rgba(0,0,0,0.1);font-size:0.82rem;color:#7a6a5a">
-          <strong>yo</strong> estoy · <strong>tú</strong> estás · <strong>él/ella</strong> está
-        </div>
-      </div>
-    </div>
+<div class="line line-carlos"><span class="speaker">Vendor:</span> <span class="content"><span class="es">¿Cuántas?</span> <button class="speak-btn" onclick="speak('¿Cuántas?')">🔊</button></span></div>
 
-    <div class="rule-box" style="font-family:var(--font-cn)">
-      💡 记忆窍门：<strong>Ser</strong> = <strong>S</strong>empre (永远) — 不变的事实。<strong>Estar</strong> = <strong>Est</strong>ado (状态) — 会变的状态。
-    </div>
-    <div class="compare-note" style="font-family:var(--font-cn);">
-      <span class="lang-tag">💡 日语对比</span><br>
-      <span style="font-family:var(--font-jp)">有点像日语中 だ/です (表示身份/定义) vs いる (表示存在/状态) 的区别。</span>
-    </div>
-  </div>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">等等——刚才她说 cuántos，现在说 cuántas？为什么变了？</span></div>
 
-    <div class="card">
-    <div class="card-title">Tener (有) <span class="irregular-tag">⚠️ 不规则</span> <button class="speak-btn" onclick="speak('tener')" aria-label="朗读 tener">🔊</button></div>
-    <table class="conj-table" aria-label="tener 的变位">
-      <thead>
-        <tr><th>人称</th><th>变位</th><th></th><th>含义</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="col-person">yo</td>
-          <td class="col-form" style="color:var(--error)">tengo</td>
-          <td><button class="speak-btn" onclick="speak('yo tengo')" aria-label="朗读 yo tengo">🔊</button></td>
-          <td class="col-zh">我有</td>
-        </tr>
-        <tr>
-          <td class="col-person">tú</td>
-          <td class="col-form" style="color:var(--error)">tienes</td>
-          <td><button class="speak-btn" onclick="speak('tú tienes')" aria-label="朗读 tú tienes">🔊</button></td>
-          <td class="col-zh">你有</td>
-        </tr>
-        <tr>
-          <td class="col-person">él/ella</td>
-          <td class="col-form" style="color:var(--error)">tiene</td>
-          <td><button class="speak-btn" onclick="speak('él tiene')" aria-label="朗读 él tiene">🔊</button></td>
-          <td class="col-zh">他/她有</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="narrative">Jack 来不及想——先伸出两根手指。</div>
 
-    <p style="font-family:var(--font-cn);font-size:0.88rem;color:#7a6a5a;margin:0.8rem 0 0.5rem">常用表达：</p>
-    <div class="tener-expressions">
-      <div class="tener-card">
-        <div class="expr-es">tener hambre <button class="speak-btn" onclick="speak('tengo hambre')" aria-label="朗读">🔊</button></div>
-        <div class="expr-zh">饿了</div>
-      </div>
-      <div class="tener-card">
-        <div class="expr-es">tener sed <button class="speak-btn" onclick="speak('tengo sed')" aria-label="朗读">🔊</button></div>
-        <div class="expr-zh">渴了</div>
-      </div>
-      <div class="tener-card">
-        <div class="expr-es">tener sueño <button class="speak-btn" onclick="speak('tengo sueño')" aria-label="朗读">🔊</button></div>
-        <div class="expr-zh">困了</div>
-      </div>
-    </div>
-    <div class="compare-note" style="font-family:var(--font-cn);">
-      <span class="lang-tag">💡 跨语言对比</span><br>
-      <span style="font-family:var(--font-jp)">"tener hambre" 直译是"有饥饿"，和日语「お腹が空いている」(肚子空着) 异曲同工——都不说"我饿"，而是"我有饿的状态"。</span>
-    </div>
-  </div>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content"><span class="es">Dos.</span> <button class="speak-btn" onclick="speak('Dos')">🔊</button></span></div>
 
-    <div class="exercise-box" id="serestar-exercise">
-    <div class="exercise-title">选择 ser 还是 estar</div>
-    <div id="seresar-questions">
-          </div>
-    <div>
-      <button class="check-btn" onclick="checkSerEstar()">检查答案</button>
-      <button class="reset-btn" onclick="resetSerEstar()">重新测试</button>
-    </div>
-    <div id="seresar-score" class="score-display" style="display:none"></div>
-  </div>
+<div class="insight">💡 <span class="es">¿Cuántos quieres?</span> <button class="speak-btn" onclick="speak('¿Cuántos quieres?')">🔊</button>（你要几个？）— 阳性名词用 cuántos，阴性用 cuántas。Jack 没时间想为什么，先活下来再说。</div>
+</section>
 
-        <div class="section-header">
-    <div class="section-num">4</div>
-    <h2>Diálogos y repaso</h2>
-    <span class="zh">对话与综合复习</span>
-  </div>
+<!-- 003 -->
+<section class="entry" id="e003">
+<div class="entry-header">【003】听不懂怎么办</div>
 
-    <div class="dialogue">
-    <div class="dialogue-header">
-      <div class="dialogue-title">对话 1 — Carlos 的一天</div>
-      <button class="play-all-btn" onclick="playDialogue('d1')">▶ 播放全部</button>
-    </div>
-    <div class="dialogue-line">
-      <span class="dialogue-speaker tu">Tú</span>
-      <div class="dialogue-text">
-        <span class="es">Carlos, ¿qué haces por la mañana?</span>
-        <span class="zh">Carlos，你早上做什么？</span>
-      </div>
-      <button class="speak-btn" onclick="speak('Carlos, ¿qué haces por la mañana?')" aria-label="朗读">🔊</button>
-    </div>
-    <div class="dialogue-line">
-      <span class="dialogue-speaker">Carlos</span>
-      <div class="dialogue-text">
-        <span class="es">Por la mañana desayuno café con leche.</span>
-        <span class="zh">早上我喝牛奶咖啡当早餐。</span>
-      </div>
-      <button class="speak-btn" onclick="speak('Por la mañana desayuno café con leche.')" aria-label="朗读">🔊</button>
-    </div>
-    <div class="dialogue-line">
-      <span class="dialogue-speaker">Carlos</span>
-      <div class="dialogue-text">
-        <span class="es">Después estudio español.</span>
-        <span class="zh">然后学习西班牙语。</span>
-      </div>
-      <button class="speak-btn" onclick="speak('Después estudio español.')" aria-label="朗读">🔊</button>
-    </div>
-    <div class="dialogue-line">
-      <span class="dialogue-speaker tu">Tú</span>
-      <div class="dialogue-text">
-        <span class="es">¿Y por la tarde?</span>
-        <span class="zh">下午呢？</span>
-      </div>
-      <button class="speak-btn" onclick="speak('¿Y por la tarde?')" aria-label="朗读">🔊</button>
-    </div>
-    <div class="dialogue-line">
-      <span class="dialogue-speaker">Carlos</span>
-      <div class="dialogue-text">
-        <span class="es">Por la tarde trabajo en una oficina.</span>
-        <span class="zh">下午我在一个办公室工作。</span>
-      </div>
-      <button class="speak-btn" onclick="speak('Por la tarde trabajo en una oficina.')" aria-label="朗读">🔊</button>
-    </div>
-    <div class="dialogue-line">
-      <span class="dialogue-speaker tu">Tú</span>
-      <div class="dialogue-text">
-        <span class="es">¿Y por la noche?</span>
-        <span class="zh">晚上呢？</span>
-      </div>
-      <button class="speak-btn" onclick="speak('¿Y por la noche?')" aria-label="朗读">🔊</button>
-    </div>
-    <div class="dialogue-line">
-      <span class="dialogue-speaker">Carlos</span>
-      <div class="dialogue-text">
-        <span class="es">Por la noche ceno y leo un libro.</span>
-        <span class="zh">晚上我吃晚餐然后读书。</span>
-      </div>
-      <button class="speak-btn" onclick="speak('Por la noche ceno y leo un libro.')" aria-label="朗读">🔊</button>
-    </div>
-    <div class="dialogue-line">
-      <span class="dialogue-speaker">Carlos</span>
-      <div class="dialogue-text">
-        <span class="es">Después duermo. ¡Estoy muy cansado!</span>
-        <span class="zh">然后睡觉。我很累！</span>
-      </div>
-      <button class="speak-btn" onclick="speak('Después duermo. ¡Estoy muy cansado!')" aria-label="朗读">🔊</button>
-    </div>
-  </div>
+<div class="narrative">摊主突然开始滔滔不绝。</div>
 
-    <div class="dialogue">
-    <div class="dialogue-header">
-      <div class="dialogue-title">对话 2 — 制定计划</div>
-      <button class="play-all-btn" onclick="playDialogue('d2')">▶ 播放全部</button>
-    </div>
-    <div class="dialogue-line">
-      <span class="dialogue-speaker">Carlos</span>
-      <div class="dialogue-text">
-        <span class="es">¿Estudias español hoy?</span>
-        <span class="zh">你今天学西班牙语吗？</span>
-      </div>
-      <button class="speak-btn" onclick="speak('¿Estudias español hoy?')" aria-label="朗读">🔊</button>
-    </div>
-    <div class="dialogue-line">
-      <span class="dialogue-speaker tu">Tú</span>
-      <div class="dialogue-text">
-        <span class="es">Sí, estudio por la mañana.</span>
-        <span class="zh">是的，我早上学。</span>
-      </div>
-      <button class="speak-btn" onclick="speak('Sí, estudio por la mañana.')" aria-label="朗读">🔊</button>
-    </div>
-    <div class="dialogue-line">
-      <span class="dialogue-speaker">Carlos</span>
-      <div class="dialogue-text">
-        <span class="es">¿Comes en un restaurante?</span>
-        <span class="zh">你在餐厅吃饭吗？</span>
-      </div>
-      <button class="speak-btn" onclick="speak('¿Comes en un restaurante?')" aria-label="朗读">🔊</button>
-    </div>
-    <div class="dialogue-line">
-      <span class="dialogue-speaker tu">Tú</span>
-      <div class="dialogue-text">
-        <span class="es">No, como en casa. Tengo comida.</span>
-        <span class="zh">不，我在家吃。我有食物。</span>
-      </div>
-      <button class="speak-btn" onclick="speak('No, como en casa. Tengo comida.')" aria-label="朗读">🔊</button>
-    </div>
-    <div class="dialogue-line">
-      <span class="dialogue-speaker">Carlos</span>
-      <div class="dialogue-text">
-        <span class="es">¡Bien! Hasta luego.</span>
-        <span class="zh">好的！回头见。</span>
-      </div>
-      <button class="speak-btn" onclick="speak('¡Bien! Hasta luego.')" aria-label="朗读">🔊</button>
-    </div>
-    <div class="dialogue-line">
-      <span class="dialogue-speaker tu">Tú</span>
-      <div class="dialogue-text">
-        <span class="es">¡Hasta luego!</span>
-        <span class="zh">回头见！</span>
-      </div>
-      <button class="speak-btn" onclick="speak('¡Hasta luego!')" aria-label="朗读">🔊</button>
-    </div>
-  </div>
+<div class="line line-carlos"><span class="speaker">Vendor:</span> <span class="content"><span class="es">Mira, estos tomates son de la huerta de mi cuñado, están buenísimos, si quieres te pongo también unos pimientos que están de muerte...</span> <button class="speak-btn" onclick="speak('Mira, estos tomates son de la huerta de mi cuñado, están buenísimos, si quieres te pongo también unos pimientos que están de muerte.')">🔊</button></span></div>
 
-        <div class="exercise-box" id="cumulative-quiz" style="border-color: var(--terracotta);">
-    <div class="exercise-title" style="font-size:1.05rem">三课综合测试 (15题)</div>
-    <p style="font-family:var(--font-cn);font-size:0.85rem;color:#7a6a5a;margin-bottom:1rem">
-      涵盖第一课到第三课的所有内容。
-    </p>
-    <div id="quiz-questions">
-          </div>
-    <div>
-      <button class="check-btn" onclick="checkQuiz()">检查答案</button>
-      <button class="reset-btn" onclick="resetQuiz()">重新测试</button>
-    </div>
-    <div id="quiz-score" class="score-display" style="display:none"></div>
-  </div>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">(complete blank stare)</span></div>
 
-        <div class="gold-card">
-    <h3>🎉 恭喜你完成了三课的学习！</h3>
-    <p style="font-family:var(--font-cn);font-size:0.92rem;color:#5a4a3a;margin-bottom:0.5rem">你现在可以：</p>
-    <ul>
-      <li>和别人打招呼、自我介绍</li>
-      <li>命名身边的物品并描述它们</li>
-      <li>说出你每天做什么</li>
-      <li>进行简单的日常对话</li>
-    </ul>
-    <p style="font-family:var(--font-cn);font-size:0.92rem;color:#5a4a3a;margin-top:1rem">
-      试试用西班牙语描述你的一天 <button class="speak-btn" onclick="speak('Buenos días. Me llamo estudiante. Soy de China. Por la mañana estudio español. Por la tarde trabajo. Por la noche como y leo un libro. ¡Hasta mañana!')" aria-label="朗读示范">🔊 听示范</button>
-    </p>
-    <div class="sample-speech">
-      "Buenos días. Me llamo ___. Soy de China. Por la mañana estudio español. Por la tarde trabajo. Por la noche como y leo un libro. ¡Hasta mañana!"
-    </div>
-  </div>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">……</span></div>
 
-    <div class="self-assess">
-    <h3>三课自我评估</h3>
-    <label><input type="checkbox"> 我能正确发出西班牙语的五个元音</label>
-    <label><input type="checkbox"> 我能用正确的冠词(el/la)说出至少10个名词</label>
-    <label><input type="checkbox"> 我能变位至少3个动词的 yo/tú/él 形式</label>
-    <label><input type="checkbox"> 我能区分 ser 和 estar 的基本用法</label>
-    <label><input type="checkbox"> 我能用3-4句话描述我的一天</label>
-  </div>
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content"><span class="es">Perdona... ¿puedes repetir?</span> <button class="speak-btn" onclick="speak('Perdona, ¿puedes repetir?')">🔊</button></span></div>
 
-    <div class="collapsible">
-    <div class="collapsible-header" onclick="toggleCollapsible(this)" role="button" aria-expanded="false" tabindex="0">
-      🌍 文化小知识：西班牙人的作息时间
-      <span class="arrow">▼</span>
-    </div>
-    <div class="collapsible-body">
-      <p>
-        西班牙人的作息时间和东亚很不同：午餐在2-3点，晚餐在9-10点，很多人工作到7-8点。"Siesta"（午睡）在城市里已经不太常见了，但在小城镇下午2-5点很多商店确实会关门。
-      </p>
-    </div>
-  </div>
+<div class="narrative">摊主稍微慢了一点，但还是太快。</div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content"><span class="es">Más despacio... porfa.</span> <button class="speak-btn" onclick="speak('Más despacio, por favor.')">🔊</button></span></div>
+
+<div class="line line-carlos"><span class="speaker">Vendor:</span> <span class="content"><span class="es">¿Quieres pimientos?</span> <button class="speak-btn" onclick="speak('¿Quieres pimientos?')">🔊</button> (holds up peppers)</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Ah! Pimientos! <span class="es">No no, gracias. Solo tomates y cebollas.</span> <button class="speak-btn" onclick="speak('No, gracias. Solo tomates y cebollas.')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Carlos was right — the two most important phrases aren't any vocabulary word. They're "I don't understand" and "say that again."</span></div>
+
+<div class="insight">💡 生存三件套：<br>
+<span class="es">Perdona, ¿puedes repetir?</span> <button class="speak-btn" onclick="speak('Perdona, ¿puedes repetir?')">🔊</button> = 能再说一遍吗？<br>
+<span class="es">Más despacio, porfa.</span> <button class="speak-btn" onclick="speak('Más despacio, por favor.')">🔊</button> = 慢一点（porfa = por favor 的口语）<br>
+<span class="es">¿Cómo?</span> <button class="speak-btn" onclick="speak('¿Cómo?')">🔊</button> = 什么？（最短的"我没听懂"）<br>
+这三句比任何单词都重要。</div>
+</section>
+
+<!-- 004 -->
+<section class="entry" id="e004">
+<div class="entry-header">【004】鸡蛋事件</div>
+
+<div class="narrative">Jack 移动到另一个摊位买鸡蛋。深呼吸。</div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">(confidently) Hola! <span class="es">Buenos... uh... huevos?</span> <button class="speak-btn" onclick="speak('Buenos huevos')">🔊</button></span></div>
+
+<div class="line line-carlos"><span class="speaker">Vendor:</span> <span class="content"><span class="es">¿Buenos huevos?</span> (confused look)</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">No no — <span class="es">quiero huevos.</span> <button class="speak-btn" onclick="speak('Quiero huevos.')">🔊</button> Huevos!</span></div>
+
+<div class="narrative">旁边一个顾客捂嘴偷笑。Jack 不知道为什么。他拿到了鸡蛋。</div>
+
+<div class="narrative">后来——</div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">(laughing) 你知道 huevos 除了鸡蛋还有什么意思吗？</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">……不知道。</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">在俚语里，huevos 是……（用蛋的形状暗示）</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Oh. OH. 所以我刚才对那个大叔喊"我要蛋蛋"？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">而且你还说了 "buenos huevos"——"好蛋蛋"。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">……</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">别担心，pirata。在市场里说 huevos 每个人都知道你说的是鸡蛋。只是那个组合有点搞笑。</span></div>
+
+<div class="insight">💡 <span class="es">huevos</span> <button class="speak-btn" onclick="speak('huevos')">🔊</button> = 鸡蛋。也是俚语里的……嗯。语境决定一切。在市场里不会误会的。</div>
+</section>
+
+<!-- 005 -->
+<section class="entry" id="e005">
+<div class="entry-header">【005】老太太</div>
+
+<div class="narrative">Jack 走到一个小摊前。摊主是个满头白发的老太太，围着花围裙，笑眯眯的。</div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content"><span class="es">Hola, guapo. ¿Qué necesitas?</span> <button class="speak-btn" onclick="speak('Hola, guapo. ¿Qué necesitas?')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Uh... guapo?</span></div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content">(laughing, patting his hand) <span class="es">Guapo.</span> <button class="speak-btn" onclick="speak('Guapo')">🔊</button> Handsome.</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">哦……谢谢？<span class="es">Gracias.</span> <button class="speak-btn" onclick="speak('Gracias')">🔊</button></span></div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content"><span class="es">¿De dónde eres?</span> <button class="speak-btn" onclick="speak('¿De dónde eres?')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content"><span class="es">Soy de...</span> (thinking) ...很远的地方。Uh... <span class="es">¿Cómo se dice "far"?</span> <button class="speak-btn" onclick="speak('¿Cómo se dice far?')">🔊</button></span></div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content"><span class="es">Lejos.</span> <button class="speak-btn" onclick="speak('Lejos')">🔊</button> ¡Muy lejos!</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content"><span class="es">Soy de muy lejos.</span> <button class="speak-btn" onclick="speak('Soy de muy lejos.')">🔊</button></span></div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content">(charmed) <span class="es">Se nota. Pero tu acento no está mal.</span> <button class="speak-btn" onclick="speak('Se nota. Pero tu acento no está mal.')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">(to himself) 这个老太太比 Carlos 教得好。她不着急，不笑话我，而且她夸我帅。</span></div>
+
+<div class="insight">💡 <span class="es">guapo/guapa</span> <button class="speak-btn" onclick="speak('guapo, guapa')">🔊</button> = 帅/漂亮。西班牙人很随意地用这个词——陌生人也会叫你 guapo，别太激动。<span class="es">lejos</span> <button class="speak-btn" onclick="speak('lejos')">🔊</button> = 远。</div>
+</section>
+
+<!-- 006 -->
+<section class="entry" id="e006">
+<div class="entry-header">【006】这个怎么说</div>
+
+<div class="narrative">Jack 开始指着老太太摊位上的东西，一个一个问。</div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">(pointing at garlic) <span class="es">¿Cómo se dice esto?</span> <button class="speak-btn" onclick="speak('¿Cómo se dice esto?')">🔊</button></span></div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content"><span class="es">Ajo.</span> <button class="speak-btn" onclick="speak('Ajo')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Ajo... (pointing at lemon) ¿Y esto?</span></div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content"><span class="es">Limón.</span> <button class="speak-btn" onclick="speak('Limón')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Limón = lemon！又一个英语同源词。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">(pointing at potato) ¿Y esto?</span></div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content"><span class="es">Patata.</span> <button class="speak-btn" onclick="speak('Patata')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Patata... potato... 好像也是同源的？</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">(pointing at something he doesn't recognize) ¿Y esto?</span></div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content"><span class="es">Pimiento.</span> <button class="speak-btn" onclick="speak('Pimiento')">🔊</button> (picks one up and shows him) Pepper.</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">对！pimiento 刚才那个摊位也说了。pimiento → pepper → pimenta... 这些词全是亲戚？</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Carlos 说得对——英语就是我的单词金矿。一半的食物词我都能猜出来：tomate, limón, patata, chocolate, banana, café...</span></div>
+
+<div class="insight">💡 指着东西问 <span class="es">¿Cómo se dice esto?</span> <button class="speak-btn" onclick="speak('¿Cómo se dice esto?')">🔊</button> = "这个怎么说？" 是市场里最有用的一句话。大量食物词和英语同源：limón/lemon, tomate/tomato, patata/potato, chocolate/chocolate.</div>
+</section>
+
+<!-- 007 -->
+<section class="entry" id="e007">
+<div class="entry-header">【007】多少钱</div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">(ready to pay) <span class="es">¿Cuánto es?</span> <button class="speak-btn" onclick="speak('¿Cuánto es?')">🔊</button></span></div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content"><span class="es">Dos con cincuenta.</span> <button class="speak-btn" onclick="speak('Dos con cincuenta.')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Dos con cincuenta = "二带五十" = 2.50。Con = with。"二带着五十分"。</span></div>
+
+<div class="narrative">Jack 掏钱付了。</div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content"><span class="es">Aquí tienes el cambio.</span> <button class="speak-btn" onclick="speak('Aquí tienes el cambio.')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Cambio = change = 零钱。昨天学的。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content"><span class="es">Gracias, señora.</span> <button class="speak-btn" onclick="speak('Gracias, señora.')">🔊</button></span></div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content"><span class="es">De nada, guapo. Vuelve cuando quieras.</span> <button class="speak-btn" onclick="speak('De nada, guapo. Vuelve cuando quieras.')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">她最后说了什么？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">(appearing from nowhere) "随时再来。"</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">你一直在旁边看着？！</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">(shrugs) 我买完鱼了。你表现得还行。那个老太太喜欢你。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">她比你有耐心。</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">所有老太太都比我有耐心。</span></div>
+
+<div class="insight">💡 <span class="es">dos con cincuenta</span> <button class="speak-btn" onclick="speak('dos con cincuenta')">🔊</button> = 2.50。con = with，数字用 con 连小数。<span class="es">vuelve cuando quieras</span> <button class="speak-btn" onclick="speak('vuelve cuando quieras')">🔊</button> = 随时再来（又一个命令形+cuando引导的从句，先记住就行）。</div>
+</section>
+
+<!-- 008 -->
+<section class="entry" id="e008">
+<div class="entry-header">【008】数字 11-20</div>
+
+<div class="narrative">Carlos 和 Jack 坐在市场边的台阶上休息。</div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">好，你在市场活下来了。但你只会数到十。来，十一到二十。</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content"><span class="es">Once, doce, trece, catorce, quince.</span> <button class="speak-btn" onclick="speak('Once, doce, trece, catorce, quince.')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">(repeating) Once... doce... trece... catorce... quince... 这些跟英语的 eleven twelve thirteen 完全不像啊。</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">因为英语的 eleven 和 twelve 来自日耳曼语，而西语的 once 到 quince 来自拉丁语。但从十六开始就有规律了：</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content"><span class="es">Dieciséis, diecisiete, dieciocho, diecinueve, veinte.</span> <button class="speak-btn" onclick="speak('Dieciséis, diecisiete, dieciocho, diecinueve, veinte.')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">等等——dieci + séis？"十和六"？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">对！diez + y + seis = dieciséis。十六就是"十加六"。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">中文也是这样——十六 = 十+六。日语也是——十六 = じゅうろく = 十+六。英语反而最乱——sixteen, seventeen... 为什么 eleven 和 twelve 就不规律？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">因为英语在低位数字上保留了日耳曼语的古老形式。西语从十六开始老老实实用加法，英语从十三（thirteen = three + ten）才开始。</span></div>
+
+<div class="insight">💡 11-15 要死记：<span class="es">once, doce, trece, catorce, quince</span> <button class="speak-btn" onclick="speak('once, doce, trece, catorce, quince')">🔊</button><br>
+16-19 有规律：dieci + 个位数 <button class="speak-btn" onclick="speak('dieciséis, diecisiete, dieciocho, diecinueve')">🔊</button><br>
+<span class="es">veinte</span> <button class="speak-btn" onclick="speak('veinte')">🔊</button> = 20<br>
+跟中文日语一样是加法逻辑（十+六），英语 eleven/twelve 是怪胎。</div>
+</section>
+
+<!-- 009 -->
+<section class="entry" id="e009">
+<div class="entry-header">【009】半公斤</div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">在市场里你还需要会说重量。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">公斤？Kilo？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">对，kilo。但你经常买半公斤的东西：<span class="es">medio kilo</span> <button class="speak-btn" onclick="speak('medio kilo')">🔊</button>。或者用克：<span class="es">cien gramos</span> <button class="speak-btn" onclick="speak('cien gramos')">🔊</button>（一百克）。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">那我在市场里怎么说"给我来半公斤那个"？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content"><span class="es">Ponme medio kilo de eso.</span> <button class="speak-btn" onclick="speak('Ponme medio kilo de eso.')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">又是 ponme！这个词真的万能。</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">在市场和 bar 里，ponme 能解决你百分之八十的需求。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">如果我不知道具体要多少呢？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">指着东西说 <span class="es">un poco de esto</span> <button class="speak-btn" onclick="speak('un poco de esto')">🔊</button> ——"来一点这个"。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Un poco = a little？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">对。poco 和英语的 few/paucity（稀少）是拉丁亲戚。</span></div>
+
+<div class="insight">💡 <span class="es">medio kilo</span> <button class="speak-btn" onclick="speak('medio kilo')">🔊</button> = 半公斤。<span class="es">cien gramos</span> <button class="speak-btn" onclick="speak('cien gramos')">🔊</button> = 一百克。<span class="es">un poco de esto</span> <button class="speak-btn" onclick="speak('un poco de esto')">🔊</button> = 来一点这个。ponme 依然是万能的。</div>
+</section>
+
+<!-- 010 -->
+<section class="entry" id="e010">
+<div class="entry-header">【010】すみません 又来了</div>
+
+<div class="narrative">Jack 提着袋子在人群里挤，撞到了一个人。</div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">すみません！ (immediately realizes) ……我又来了。</span></div>
+
+<div class="narrative">那个人一脸茫然地看着他。</div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Per... <span class="es">perdona.</span> <button class="speak-btn" onclick="speak('Perdona')">🔊</button> Perdona.</span></div>
+
+<div class="narrative">那个人点点头走了。</div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">(from two stalls away) 第几次了？</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">别数了。</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">这次比上次快——你纠正得更快了。上次在 bar 里你愣了三秒才反应过来。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">这算进步？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">当然算。你的脑子正在重新排线。日语占着"紧急道歉"这个槽位，西语正在试图挤进去。等 perdona 变成你的条件反射，日语就退了。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">那要多久？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">看你被撞多少次。</span></div>
+
+<div class="insight">💡 语言"占位"现象：日语目前占着 Jack 脑子里"紧急反应"的位置。每次成功用西语替换，新的神经通路就加深一点。纠正速度变快就是进步。</div>
+</section>
+
+<!-- 011 -->
+<section class="entry" id="e011">
+<div class="entry-header">【011】¿Qué significa...?</div>
+
+<div class="narrative">Jack 注意到一个摊位上挂着的牌子。</div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Carlos，那个牌子写的什么？"<span class="es">Oferta</span>"？<button class="speak-btn" onclick="speak('Oferta')">🔊</button></span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">打折/特价。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Oferta... offer！"优惠"。又是同源词。那 "<span class="es">rebajas</span>" <button class="speak-btn" onclick="speak('Rebajas')">🔊</button> 呢？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">也是打折。rebaja 更常见于商店，oferta 更通用。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">怎么问"这个是什么意思"？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content"><span class="es">¿Qué significa?</span> <button class="speak-btn" onclick="speak('¿Qué significa?')">🔊</button> 或者 <span class="es">¿Qué quiere decir?</span> <button class="speak-btn" onclick="speak('¿Qué quiere decir?')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Significa... significant... 有意义... 意味着。这个也是同源的。</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">你发现规律了吧？拉丁词根在英语和西语里是共享的。你用英语猜，能猜对一大半。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">感觉在作弊。</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">不是作弊——这是你该用的优势。</span></div>
+
+<div class="insight">💡 <span class="es">¿Qué significa?</span> <button class="speak-btn" onclick="speak('¿Qué significa?')">🔊</button> = 什么意思？（significa ≈ significant）<br>
+<span class="es">¿Qué quiere decir?</span> <button class="speak-btn" onclick="speak('¿Qué quiere decir?')">🔊</button> = 它想说什么？= 什么意思？<br>
+<span class="es">oferta</span> <button class="speak-btn" onclick="speak('oferta')">🔊</button> ≈ offer = 特价。大量西语词可以从英语猜出来。这不是作弊，是优势。</div>
+</section>
+
+<!-- 012 -->
+<section class="entry" id="e012">
+<div class="entry-header">【012】跟老太太告别</div>
+
+<div class="narrative">Jack 走回老太太的摊位，想在离开前道个别。</div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Señora... <span class="es">gracias por todo.</span> <button class="speak-btn" onclick="speak('Gracias por todo.')">🔊</button></span></div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content">(smiling) <span class="es">¿Ya te vas?</span> <button class="speak-btn" onclick="speak('¿Ya te vas?')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">(parsing: ya = already, te vas = you go) 她问我是不是要走了。<span class="es">Sí, me voy.</span> <button class="speak-btn" onclick="speak('Sí, me voy.')">🔊</button></span></div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content"><span class="es">Cuídate, guapo.</span> <button class="speak-btn" onclick="speak('Cuídate, guapo.')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Cuídate = take care？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">(arriving) 对。cuidar = care。cuídate = take care of yourself。又是命令形+te。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content"><span class="es">Cuídate...</span> <button class="speak-btn" onclick="speak('Cuídate')">🔊</button> <span class="es">Hasta luego, señora.</span> <button class="speak-btn" onclick="speak('Hasta luego, señora.')">🔊</button></span></div>
+
+<div class="line line-carlos"><span class="speaker">Señora:</span> <span class="content">(waving) <span class="es">Hasta luego, pirata.</span> <button class="speak-btn" onclick="speak('Hasta luego, pirata.')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">(to Carlos) 你跟她说了？！</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">我什么都没说。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">那她怎么知道叫我 pirata？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">(grinning) 也许你看起来就像。</span></div>
+
+<div class="insight">💡 <span class="es">cuídate</span> <button class="speak-btn" onclick="speak('cuídate')">🔊</button> = 保重（cuidar = care + te = yourself）。<span class="es">¿Ya te vas?</span> <button class="speak-btn" onclick="speak('¿Ya te vas?')">🔊</button> = 你要走了？<span class="es">me voy</span> <button class="speak-btn" onclick="speak('me voy')">🔊</button> = 我走了。又是命令+代词的结构——这个模式到处都是。</div>
+</section>
+
+<!-- 013 -->
+<section class="entry" id="e013">
+<div class="entry-header">【013】那个陌生人</div>
+
+<div class="narrative">他们正要离开市场。一个男人走过来，对着 Jack 说了一长串话。</div>
+
+<div class="line line-carlos"><span class="speaker">Stranger:</span> <span class="content"><span class="es">Oye, ¿tú no eres el que vino con Carlos? He oído que estás buscando a alguien por aquí. Si necesitas ayuda, pregúntale a Doña Carmen, ella conoce a todo el mundo.</span> <button class="speak-btn" onclick="speak('Oye, ¿tú no eres el que vino con Carlos? He oído que estás buscando a alguien por aquí. Si necesitas ayuda, pregúntale a Doña Carmen, ella conoce a todo el mundo.')">🔊</button></span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">(absolute blank stare. Understood maybe: Carlos, buscando, ayuda)</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">......</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">(to Carlos) 他说了什么？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">(pauses) 他说……不重要。明天再说。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">不，我听到了 "buscando"——那是"找"的意思吧？buscar？还有 ayuda——help？他在说有人在找什么？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">你的听力比你以为的好。但现在不是时候。明天。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">Carlos——</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">明天。<span class="es">Mañana.</span> <button class="speak-btn" onclick="speak('Mañana')">🔊</button> 走了。</span></div>
+
+<div class="insight">💡 就算你听不懂整句话，你能抓住几个关键词就很了不起了。<span class="es">buscar</span> <button class="speak-btn" onclick="speak('buscar')">🔊</button> = 找/寻找（≈ search）。<span class="es">ayuda</span> <button class="speak-btn" onclick="speak('ayuda')">🔊</button> = 帮助（≈ aid）。不需要听懂每个字——听懂关键词就能猜出大意。</div>
+</section>
+
+<!-- 014 -->
+<section class="entry" id="e014">
+<div class="entry-header">【014】收获</div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">好。今天比昨天难十倍。但我活下来了。</span></div>
+
+<div class="summary-group">
+<h4>市场生存包</h4>
+<ul>
+<li><span class="es">¿Cómo se dice esto?</span> <button class="speak-btn" onclick="speak('¿Cómo se dice esto?')">🔊</button> — 这个怎么说？</li>
+<li><span class="es">Perdona, ¿puedes repetir?</span> <button class="speak-btn" onclick="speak('Perdona, ¿puedes repetir?')">🔊</button> — 能再说一遍吗？</li>
+<li><span class="es">Más despacio, porfa.</span> <button class="speak-btn" onclick="speak('Más despacio, por favor.')">🔊</button> — 慢一点</li>
+<li><span class="es">¿Cómo?</span> <button class="speak-btn" onclick="speak('¿Cómo?')">🔊</button> — 什么？</li>
+<li><span class="es">¿Qué significa?</span> <button class="speak-btn" onclick="speak('¿Qué significa?')">🔊</button> — 什么意思？</li>
+<li><span class="es">Ponme medio kilo de eso.</span> <button class="speak-btn" onclick="speak('Ponme medio kilo de eso.')">🔊</button> — 给我来半公斤那个</li>
+<li><span class="es">Un poco de esto.</span> <button class="speak-btn" onclick="speak('Un poco de esto.')">🔊</button> — 来一点这个</li>
+</ul>
+</div>
+
+<div class="summary-group">
+<h4>新发现</h4>
+<ul>
+<li>听不懂的时候，三句话能救命：¿Cómo? / ¿Puedes repetir? / Más despacio</li>
+<li>英语和西语的同源词在食物领域特别多</li>
+<li>指着东西问 ¿Cómo se dice esto? 是最好的学习方法</li>
+<li>就算听不懂整句，抓住关键词就能猜大意</li>
+</ul>
+</div>
+
+<div class="summary-group">
+<h4>数字扩展</h4>
+<ul>
+<li>11-15 死记：<span class="es">once, doce, trece, catorce, quince</span> <button class="speak-btn" onclick="speak('once, doce, trece, catorce, quince')">🔊</button></li>
+<li>16-19 加法：<span class="es">dieciséis, diecisiete, dieciocho, diecinueve</span> <button class="speak-btn" onclick="speak('dieciséis, diecisiete, dieciocho, diecinueve')">🔊</button></li>
+<li>20: <span class="es">veinte</span> <button class="speak-btn" onclick="speak('veinte')">🔊</button></li>
+</ul>
+</div>
+</section>
+
+<!-- Epilogue -->
+<section class="entry epilogue" id="epilogue">
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">今天的感受：被扔进水里才能学游泳。</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">你游起来了吗？</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">呛了几口水。但没沉底。</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">那就是游了。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">那个陌生人到底说了什么？</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">明天。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">你每次说"明天"都不是真的明天。</span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content">明天可能是真的。</span></div>
+
+<div class="line line-explorer"><span class="speaker">Jack:</span> <span class="content">……<span class="es">Hasta mañana.</span> <button class="speak-btn" onclick="speak('Hasta mañana.')">🔊</button></span></div>
+
+<div class="line line-carlos"><span class="speaker">Carlos:</span> <span class="content"><span class="es">Hasta mañana</span>, pirata.</span></div>
+
+<p class="narrative" style="margin-top:24px">（第三课 · fin）</p>
+
+</section>
 
 </main>
 
-<footer>
-  Lección 3 de 3 · 为中英日三语使用者设计的西班牙语教材
-</footer>
+<footer>西班牙语学习 · 第三课</footer>
 
-<div class="speed-control" aria-label="语速控制">
-  🔊 <span style="font-size:0.75rem">语速</span>
-  <input type="range" id="speed-slider" min="0.5" max="1.0" step="0.05" value="0.7" oninput="updateSpeed(this.value)" aria-label="调整语速">
-  <span class="speed-val" id="speed-val">0.7x</span>
-</div>
-
-<script src="js/main.js"></script>
 <script>
-// L3 dialogue data
-var dialogues = {
-  d1: ['Carlos, \u00bfqu\u00e9 haces por la ma\u00f1ana?','Por la ma\u00f1ana desayuno caf\u00e9 con leche.','Despu\u00e9s estudio espa\u00f1ol.','\u00bfY por la tarde?','Por la tarde trabajo en una oficina.','\u00bfY por la noche?','Por la noche ceno y leo un libro.','Despu\u00e9s duermo. \u00a1Estoy muy cansado!'],
-  d2: ['\u00bfEstudias espa\u00f1ol hoy?','S\u00ed, estudio por la ma\u00f1ana.','\u00bfComes en un restaurante?','No, como en casa. Tengo comida.','\u00a1Bien! Hasta luego.','\u00a1Hasta luego!']
-};
-// Override playDialogue to resolve L3's dialogue IDs to arrays
-var _sharedPlayDialogue = playDialogue;
-function playDialogue(id) {
-  if (dialogues[id]) { _sharedPlayDialogue(dialogues[id]); }
-  else { _sharedPlayDialogue(id); }
-}
+// Speed control
+const slider = document.getElementById('speedSlider');
+const speedVal = document.getElementById('speedVal');
+let speechRate = 0.75;
 
-// Sort Exercise
-// ═══════════════════════════════════
-const sortVerbs = [
-  { word: 'hablar', family: 'ar' },
-  { word: 'comer', family: 'er' },
-  { word: 'vivir', family: 'ir' },
-  { word: 'estudiar', family: 'ar' },
-  { word: 'beber', family: 'er' },
-  { word: 'escribir', family: 'ir' },
-  { word: 'trabajar', family: 'ar' },
-  { word: 'leer', family: 'er' },
-  { word: 'desayunar', family: 'ar' }
-];
-
-let selectedChip = null;
-
-function initSort() {
-  const source = document.getElementById('sort-source');
-  source.innerHTML = '';
-  document.getElementById('zone-ar').innerHTML = '';
-  document.getElementById('zone-er').innerHTML = '';
-  document.getElementById('zone-ir').innerHTML = '';
-  document.getElementById('sort-feedback').textContent = '';
-  document.getElementById('sort-feedback').className = 'exercise-feedback';
-  document.getElementById('sort-score').style.display = 'none';
-  selectedChip = null;
-
-  // Shuffle
-  const shuffled = [...sortVerbs].sort(() => Math.random() - 0.5);
-  shuffled.forEach(v => {
-    const chip = document.createElement('span');
-    chip.className = 'sort-chip';
-    chip.textContent = v.word;
-    chip.dataset.family = v.family;
-    chip.dataset.word = v.word;
-    chip.onclick = () => selectChip(chip);
-    source.appendChild(chip);
-  });
-
-  // Zone click handlers
-  ['ar', 'er', 'ir'].forEach(fam => {
-    document.getElementById('zone-' + fam).onclick = () => placeInZone(fam);
-  });
-}
-
-function selectChip(chip) {
-  if (chip.classList.contains('placed')) return;
-  document.querySelectorAll('#sort-source .sort-chip').forEach(c => c.style.outline = '');
-  chip.style.outline = '2px solid var(--terracotta)';
-  selectedChip = chip;
-}
-
-function placeInZone(family) {
-  if (!selectedChip) return;
-  const zone = document.getElementById('zone-' + family);
-  const newChip = document.createElement('span');
-  newChip.className = 'sort-chip in-zone';
-  newChip.textContent = selectedChip.dataset.word;
-  newChip.dataset.family = selectedChip.dataset.family;
-  newChip.dataset.placedIn = family;
-  newChip.onclick = () => {
-    // Remove from zone back to source
-    newChip.remove();
-    const sourceChip = document.querySelector(`#sort-source .sort-chip[data-word="${newChip.textContent}"]`);
-    if (sourceChip) {
-      sourceChip.classList.remove('placed');
-      sourceChip.style.outline = '';
-    }
-  };
-  zone.appendChild(newChip);
-  selectedChip.classList.add('placed');
-  selectedChip.style.outline = '';
-  selectedChip = null;
-}
-
-function checkSort() {
-  const allPlaced = document.querySelectorAll('.sort-zone .sort-chip');
-  let correct = 0;
-  let total = sortVerbs.length;
-
-  allPlaced.forEach(chip => {
-    chip.classList.remove('correct-chip', 'incorrect-chip');
-    if (chip.dataset.family === chip.dataset.placedIn) {
-      chip.classList.add('correct-chip');
-      correct++;
-    } else {
-      chip.classList.add('incorrect-chip');
-    }
-  });
-
-  const placed = allPlaced.length;
-  const fb = document.getElementById('sort-feedback');
-  const sc = document.getElementById('sort-score');
-
-  if (placed < total) {
-    fb.textContent = '还有 ' + (total - placed) + ' 个动词没有分类';
-    fb.className = 'exercise-feedback incorrect';
-    return;
-  }
-
-  sc.textContent = '你答对了 ' + correct + '/' + total + ' 题';
-  sc.style.display = 'inline-block';
-  if (correct === total) {
-    fb.textContent = '太棒了！全部正确！';
-    fb.className = 'exercise-feedback correct';
-  } else {
-    fb.textContent = '有些分错了，红色的需要修改。';
-    fb.className = 'exercise-feedback incorrect';
-  }
-}
-
-function resetSort() { initSort(); }
-
-// ═══════════════════════════════════
-// Conjugation Drill
-// ═══════════════════════════════════
-const conjQuestions = [
-  { subject: 'yo', verb: 'hablar', answer: 'hablo', hint: '-AR' },
-  { subject: 'tú', verb: 'estudiar', answer: 'estudias', hint: '-AR' },
-  { subject: 'él', verb: 'trabajar', answer: 'trabaja', hint: '-AR' },
-  { subject: 'yo', verb: 'comer', answer: 'como', hint: '-ER' },
-  { subject: 'tú', verb: 'beber', answer: 'bebes', hint: '-ER' },
-  { subject: 'ella', verb: 'vivir', answer: 'vive', hint: '-IR' }
-];
-
-function initConj() {
-  const container = document.getElementById('conj-questions');
-  container.innerHTML = '';
-  document.getElementById('conj-score').style.display = 'none';
-
-  conjQuestions.forEach((q, i) => {
-    const div = document.createElement('div');
-    div.className = 'exercise-question';
-    div.innerHTML = `
-      <div class="q-label">第 ${i+1} 题 <span style="color:#9a8a7a;font-weight:400">(${q.hint})</span></div>
-      <div class="q-text"><span class="es-word">${q.subject}</span> + <span class="es-word">${q.verb}</span> = ?</div>
-      <input type="text" class="exercise-input" id="conj-${i}" placeholder="输入变位形式" autocomplete="off" autocapitalize="off">
-      <div class="exercise-feedback" id="conj-fb-${i}"></div>
-    `;
-    container.appendChild(div);
-  });
-}
-
-function checkConj() {
-  let correct = 0;
-  conjQuestions.forEach((q, i) => {
-    const input = document.getElementById('conj-' + i);
-    const fb = document.getElementById('conj-fb-' + i);
-    const val = input.value.trim().toLowerCase();
-    input.classList.remove('correct', 'incorrect');
-    if (val === q.answer) {
-      correct++;
-      input.classList.add('correct');
-      fb.textContent = '✓ 正确！';
-      fb.className = 'exercise-feedback correct';
-    } else {
-      input.classList.add('incorrect');
-      fb.textContent = '✗ 正确答案：' + q.answer;
-      fb.className = 'exercise-feedback incorrect';
-    }
-  });
-  const sc = document.getElementById('conj-score');
-  sc.textContent = '你答对了 ' + correct + '/' + conjQuestions.length + ' 题';
-  sc.style.display = 'inline-block';
-}
-
-function resetConj() { initConj(); }
-
-// ═══════════════════════════════════
-// Ser vs Estar Exercise
-// ═══════════════════════════════════
-const serEstarQuestions = [
-  { sentence: 'Yo ___ profesor.', answer: 'ser', correct_form: 'soy', zh: '我是老师（身份）' },
-  { sentence: 'Ella ___ en la oficina.', answer: 'estar', correct_form: 'está', zh: '她在办公室（位置）' },
-  { sentence: 'Él ___ de México.', answer: 'ser', correct_form: 'es', zh: '他来自墨西哥（来源）' },
-  { sentence: 'Yo ___ cansado.', answer: 'estar', correct_form: 'estoy', zh: '我很累（状态）' }
-];
-
-function initSerEstar() {
-  const container = document.getElementById('seresar-questions');
-  container.innerHTML = '';
-  document.getElementById('seresar-score').style.display = 'none';
-
-  serEstarQuestions.forEach((q, i) => {
-    const div = document.createElement('div');
-    div.className = 'exercise-question';
-    div.innerHTML = `
-      <div class="q-label">第 ${i+1} 题</div>
-      <div class="q-text">${q.sentence}</div>
-      <div class="q-text" style="font-family:var(--font-cn);font-size:0.82rem;color:#9a8a7a">${q.zh}</div>
-      <div class="mc-options" id="se-opts-${i}">
-        <button class="mc-option" data-val="ser" onclick="selectSE(${i},'ser',this)">SER</button>
-        <button class="mc-option" data-val="estar" onclick="selectSE(${i},'estar',this)">ESTAR</button>
-      </div>
-      <div class="exercise-feedback" id="se-fb-${i}"></div>
-    `;
-    container.appendChild(div);
-  });
-}
-
-function selectSE(i, val, btn) {
-  const opts = document.querySelectorAll(`#se-opts-${i} .mc-option`);
-  opts.forEach(o => o.classList.remove('selected'));
-  btn.classList.add('selected');
-  btn.dataset.selected = val;
-}
-
-function checkSerEstar() {
-  let correct = 0;
-  serEstarQuestions.forEach((q, i) => {
-    const opts = document.querySelectorAll(`#se-opts-${i} .mc-option`);
-    const fb = document.getElementById('se-fb-' + i);
-    let selectedVal = null;
-
-    opts.forEach(o => {
-      o.classList.remove('correct', 'incorrect');
-      if (o.classList.contains('selected')) selectedVal = o.dataset.val;
-    });
-
-    if (!selectedVal) {
-      fb.textContent = '请选择一个答案';
-      fb.className = 'exercise-feedback incorrect';
-      return;
-    }
-
-    opts.forEach(o => {
-      if (o.dataset.val === q.answer) {
-        o.classList.add('correct');
-      } else if (o.classList.contains('selected')) {
-        o.classList.add('incorrect');
-      }
-    });
-
-    if (selectedVal === q.answer) {
-      correct++;
-      fb.textContent = '✓ 正确！' + q.correct_form;
-      fb.className = 'exercise-feedback correct';
-    } else {
-      fb.textContent = '✗ 应该用 ' + q.answer.toUpperCase() + ' (' + q.correct_form + ')';
-      fb.className = 'exercise-feedback incorrect';
-    }
-  });
-  const sc = document.getElementById('seresar-score');
-  sc.textContent = '你答对了 ' + correct + '/' + serEstarQuestions.length + ' 题';
-  sc.style.display = 'inline-block';
-}
-
-function resetSerEstar() { initSerEstar(); }
-
-// ═══════════════════════════════════
-// Cumulative Quiz (15 questions)
-// ═══════════════════════════════════
-const quizData = [
-  // L1: pronunciation/greeting
-  { type: 'mc', q: '"Buenos días" 的意思是？', options: ['晚上好', '早上好', '谢谢', '再见'], answer: 1, category: 'L1' },
-  { type: 'mc', q: '"¿Cómo te llamas?" 是在问什么？', options: ['你好吗？', '你叫什么名字？', '你从哪里来？', '你几岁？'], answer: 1, category: 'L1' },
-  { type: 'mc', q: '西班牙语的五个元音是？', options: ['a, e, i, o, u', 'a, e, i, ou, ü', 'a, ei, i, o, u', 'a, e, ie, o, ue'], answer: 0, category: 'L1' },
-  // L2: article/gender
-  { type: 'mc', q: '"libro"（书）用哪个冠词？', options: ['el', 'la', 'los', 'las'], answer: 0, category: 'L2' },
-  { type: 'mc', q: '"casa"（房子）用哪个冠词？', options: ['el', 'la', 'un', 'los'], answer: 1, category: 'L2' },
-  { type: 'mc', q: '一般来说，以 -o 结尾的名词是？', options: ['阴性', '阳性', '中性', '不确定'], answer: 1, category: 'L2' },
-  // L3: verb conjugation
-  { type: 'input', q: 'yo + hablar = ?', answer: 'hablo', category: 'L3' },
-  { type: 'input', q: 'tú + comer = ?', answer: 'comes', category: 'L3' },
-  { type: 'input', q: 'él + vivir = ?', answer: 'vive', category: 'L3' },
-  // L3: ser vs estar
-  { type: 'mc', q: '"Yo ___ estudiante."（我是学生）— 用哪个？', options: ['soy (ser)', 'estoy (estar)'], answer: 0, category: 'L3-SE' },
-  { type: 'mc', q: '"Él ___ en casa."（他在家）— 用哪个？', options: ['es (ser)', 'está (estar)'], answer: 1, category: 'L3-SE' },
-  { type: 'mc', q: '"Ella ___ cansada."（她累了）— 用哪个？', options: ['es (ser)', 'está (estar)'], answer: 1, category: 'L3-SE' },
-  // L3: translate daily routine
-  { type: 'input', q: '翻译："我早上学习" → "Por la mañana ___."', answer: 'estudio', category: 'L3-T' },
-  { type: 'input', q: '翻译："他晚上工作" → "Él ___ por la noche."', answer: 'trabaja', category: 'L3-T' },
-  { type: 'input', q: '翻译："我在家吃" → "___ en casa."', answer: 'como', category: 'L3-T' }
-];
-
-function initQuiz() {
-  const container = document.getElementById('quiz-questions');
-  container.innerHTML = '';
-  document.getElementById('quiz-score').style.display = 'none';
-
-  quizData.forEach((q, i) => {
-    const div = document.createElement('div');
-    div.className = 'exercise-question';
-
-    let inner = `<div class="q-label">第 ${i+1} 题 <span style="color:#9a8a7a;font-weight:400;font-size:0.72rem">${q.category}</span></div>`;
-    inner += `<div class="q-text" style="font-family:var(--font-cn)">${q.q}</div>`;
-
-    if (q.type === 'mc') {
-      inner += `<div class="mc-options" id="quiz-opts-${i}">`;
-      q.options.forEach((opt, j) => {
-        inner += `<button class="mc-option" data-val="${j}" onclick="selectQuizOpt(${i},${j},this)">${opt}</button>`;
-      });
-      inner += `</div>`;
-    } else {
-      inner += `<input type="text" class="exercise-input" id="quiz-input-${i}" placeholder="输入答案" autocomplete="off" autocapitalize="off">`;
-    }
-    inner += `<div class="exercise-feedback" id="quiz-fb-${i}"></div>`;
-
-    div.innerHTML = inner;
-    container.appendChild(div);
-  });
-}
-
-function selectQuizOpt(qi, oi, btn) {
-  const opts = document.querySelectorAll(`#quiz-opts-${qi} .mc-option`);
-  opts.forEach(o => o.classList.remove('selected'));
-  btn.classList.add('selected');
-}
-
-function checkQuiz() {
-  let correct = 0;
-  quizData.forEach((q, i) => {
-    const fb = document.getElementById('quiz-fb-' + i);
-
-    if (q.type === 'mc') {
-      const opts = document.querySelectorAll(`#quiz-opts-${i} .mc-option`);
-      let selected = -1;
-      opts.forEach((o, j) => {
-        o.classList.remove('correct', 'incorrect');
-        if (o.classList.contains('selected')) selected = j;
-      });
-
-      if (selected === -1) {
-        fb.textContent = '请选择一个答案';
-        fb.className = 'exercise-feedback incorrect';
-        return;
-      }
-
-      opts.forEach((o, j) => {
-        if (j === q.answer) o.classList.add('correct');
-        else if (j === selected) o.classList.add('incorrect');
-      });
-
-      if (selected === q.answer) {
-        correct++;
-        fb.textContent = '✓ 正确！';
-        fb.className = 'exercise-feedback correct';
-      } else {
-        fb.textContent = '✗ 正确答案：' + q.options[q.answer];
-        fb.className = 'exercise-feedback incorrect';
-      }
-    } else {
-      const input = document.getElementById('quiz-input-' + i);
-      const val = input.value.trim().toLowerCase();
-      input.classList.remove('correct', 'incorrect');
-
-      if (val === q.answer) {
-        correct++;
-        input.classList.add('correct');
-        fb.textContent = '✓ 正确！';
-        fb.className = 'exercise-feedback correct';
-      } else {
-        input.classList.add('incorrect');
-        fb.textContent = '✗ 正确答案：' + q.answer;
-        fb.className = 'exercise-feedback incorrect';
-      }
-    }
-  });
-  const sc = document.getElementById('quiz-score');
-  sc.textContent = '你答对了 ' + correct + '/' + quizData.length + ' 题';
-  sc.style.display = 'inline-block';
-}
-
-function resetQuiz() { initQuiz(); }
-
-// ═══════════════════════════════════
-// Initialize all exercises on load
-// ═══════════════════════════════════
-document.addEventListener('DOMContentLoaded', () => {
-  initSort();
-  initConj();
-  initSerEstar();
-  initQuiz();
+slider.addEventListener('input', function() {
+  speechRate = this.value / 100;
+  speedVal.textContent = speechRate.toFixed(2) + 'x';
 });
+
+// TTS
+function speak(text, rate) {
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'es-ES';
+  u.rate = rate || speechRate;
+  const voices = speechSynthesis.getVoices();
+  const v = voices.find(v => v.lang.startsWith('es'));
+  if (v) u.voice = v;
+  speechSynthesis.speak(u);
+}
+
+// Preload voices
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = function() {};
+}
+speechSynthesis.getVoices();
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.entry, .prologue').forEach(el => observer.observe(el));
 </script>
 
 </body>
